@@ -1,4 +1,4 @@
 deployment:
   tasks:
-    - export DEPLOYPATH=/home3/enddiing/sundaylaw.com/
-    - /bin/cp -R dist/* $DEPLOYPATH
+    - export DEPLOYPATH="$HOME/sundaylaw.com"
+    - /bin/cp -a dist/. "$DEPLOYPATH/"
