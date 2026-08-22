@@ -4,6 +4,7 @@ import SiteFooter from '../../components/SiteFooter.astro';
 import ShareBar from '../../components/ShareBar.astro';
 import SiteSearch from '../../components/SiteSearch.astro';
 import SiteNav from '../../components/SiteNav.astro';
+import Analytics from '../../components/Analytics.astro';
 import { getCollection } from 'astro:content';
 import { marked } from 'marked';
 import '../../styles/pioneer-premium.css';
@@ -23,8 +24,44 @@ const birth = pioneer?.data?.birth || '';
 const death = pioneer?.data?.death || '';
 let imageSrc = pioneer?.data?.image || '';
 if (imageSrc && !imageSrc.startsWith('/')) imageSrc = '/' + imageSrc;
-const pageTitle = name ? `${name} | Advent Pioneer Library` : 'Pioneer | Advent Pioneer Library';
-const pageDescription = `Biography of ${name}`;
+
+const siteUrl = 'https://sundaylaw.com';
+const canonicalUrl = `${siteUrl}/pioneers/${pioneer.id}/`;
+const absoluteImage = imageSrc ? `${siteUrl}${imageSrc}` : `${siteUrl}/images/pioneers/default-pioneer.jpg`;
+
+const excerpt = pioneer?.data?.excerpt || '';
+const dateRange = birth && death ? `(${birth}–${death})` : birth ? `(b. ${birth})` : '';
+const pageTitle = name
+  ? `${name} ${dateRange} — ${title || 'Adventist Pioneer'} | Advent Pioneer Library`.replace(/\s+/g, ' ').trim()
+  : 'Pioneer | Advent Pioneer Library';
+const rawDescription = excerpt
+  ? excerpt
+  : `Biography of ${name}${title ? `, ${title}` : ''}. Explore the life, writings, and legacy of this early Seventh-day Adventist pioneer.`;
+const pageDescription = rawDescription.length > 160 ? rawDescription.slice(0, 157).trim() + '...' : rawDescription;
+
+const personSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'Person',
+  name,
+  ...(title && { jobTitle: title }),
+  ...(pioneer?.data?.birthDate && { birthDate: pioneer.data.birthDate }),
+  ...(pioneer?.data?.deathDate && { deathDate: pioneer.data.deathDate }),
+  ...(pioneer?.data?.birthPlace && { birthPlace: pioneer.data.birthPlace }),
+  ...(pioneer?.data?.deathPlace && { deathPlace: pioneer.data.deathPlace }),
+  description: pageDescription,
+  image: absoluteImage,
+  url: canonicalUrl,
+};
+
+const breadcrumbSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'BreadcrumbList',
+  itemListElement: [
+    { '@type': 'ListItem', position: 1, name: 'Home', item: `${siteUrl}/` },
+    { '@type': 'ListItem', position: 2, name: 'Pioneer Library', item: `${siteUrl}/pioneers/` },
+    { '@type': 'ListItem', position: 3, name, item: canonicalUrl },
+  ],
+};
 ---
 
 <html lang="en">
@@ -33,13 +70,35 @@ const pageDescription = `Biography of ${name}`;
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
+    <meta name="robots" content="index, follow, max-image-preview:large" />
+    <link rel="canonical" href={canonicalUrl} />
+
+    <meta property="og:site_name" content="Advent Pioneer Library" />
     <meta property="og:title" content={pageTitle} />
     <meta property="og:description" content={pageDescription} />
-    <meta property="og:type" content="article" />
-    {imageSrc && <meta property="og:image" content={imageSrc} />}
+    <meta property="og:type" content="profile" />
+    <meta property="og:url" content={canonicalUrl} />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:image" content={absoluteImage} />
+    <meta property="og:image:secure_url" content={absoluteImage} />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="800" />
+    <meta property="og:image:height" content="800" />
+    <meta property="og:image:alt" content={`Portrait of ${name}`} />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content={pageTitle} />
+    <meta name="twitter:description" content={pageDescription} />
+    <meta name="twitter:image" content={absoluteImage} />
+    <meta name="twitter:image:alt" content={`Portrait of ${name}`} />
+
+    <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <Analytics />
   </head>
   <body>
     <div class="header">
