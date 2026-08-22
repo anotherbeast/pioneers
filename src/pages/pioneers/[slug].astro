@@ -62,6 +62,68 @@ const breadcrumbSchema = {
     { '@type': 'ListItem', position: 3, name, item: canonicalUrl },
   ],
 };
+
+// Voice/AI-search Q&A pairs generated from frontmatter (answers questions assistants ask directly)
+const worksList = (pioneer?.data?.works || []).slice(0, 3).map((w) => w.title).join(', ');
+const firstName = name.split(' ')[0];
+const faqItems = [];
+if (name) {
+  faqItems.push({
+    '@type': 'Question',
+    name: `Who was ${name}?`,
+    acceptedAnswer: { '@type': 'Answer', text: pageDescription },
+  });
+}
+if (birth || death) {
+  const bornText = pioneer?.data?.birthDate ? `on ${pioneer.data.birthDate}` : birth ? `in ${birth}` : '';
+  const bornPlace = pioneer?.data?.birthPlace ? ` in ${pioneer.data.birthPlace}` : '';
+  const diedText = death ? (pioneer?.data?.deathDate ? `on ${pioneer.data.deathDate}` : `in ${death}`) : '';
+  const diedPlace = pioneer?.data?.deathPlace ? ` in ${pioneer.data.deathPlace}` : '';
+  faqItems.push({
+    '@type': 'Question',
+    name: `When was ${name} born and when did ${firstName} die?`,
+    acceptedAnswer: {
+      '@type': 'Answer',
+      text: `${name} was born ${bornText}${bornPlace}${death ? ` and died ${diedText}${diedPlace}` : ''}.`.replace(/\s+/g, ' ').trim(),
+    },
+  });
+}
+if (worksList) {
+  faqItems.push({
+    '@type': 'Question',
+    name: `What did ${name} write?`,
+    acceptedAnswer: { '@type': 'Answer', text: `${name} authored works including ${worksList}.` },
+  });
+}
+if (title) {
+  faqItems.push({
+    '@type': 'Question',
+    name: `What is ${name} known for?`,
+    acceptedAnswer: { '@type': 'Answer', text: `${name} is known as ${title}. ${excerpt}`.trim() },
+  });
+}
+const faqSchema = faqItems.length >= 2 ? {
+  '@context': 'https://schema.org',
+  '@type': 'FAQPage',
+  mainEntity: faqItems,
+} : null;
+
+// speakable + WebPage schema helps voice assistants (Google Assistant, Siri, Alexa) read the page aloud
+const webPageSchema = {
+  '@context': 'https://schema.org',
+  '@type': 'WebPage',
+  '@id': canonicalUrl,
+  url: canonicalUrl,
+  name: pageTitle,
+  description: pageDescription,
+  isPartOf: { '@type': 'WebSite', name: 'Advent Pioneer Library', url: siteUrl },
+  speakable: {
+    '@type': 'SpeakableSpecification',
+    cssSelector: ['.hero-content h1', '.hero-content .subtitle', '.bio-excerpt', '.biography-card.section-card p'],
+  },
+};
+
+const voiceKeywords = [name, `who was ${name}`, `${name} biography`, title, `${name} sabbath`, `${name} 144000`, `${name} adventist pioneer`].filter(Boolean).join(', ');
 ---
 
 <html lang="en">
@@ -71,6 +133,7 @@ const breadcrumbSchema = {
     <title>{pageTitle}</title>
     <meta name="description" content={pageDescription} />
     <meta name="robots" content="index, follow, max-image-preview:large" />
+    <meta name="keywords" content={voiceKeywords} />
     <link rel="canonical" href={canonicalUrl} />
 
     <meta property="og:site_name" content="Advent Pioneer Library" />
@@ -94,6 +157,8 @@ const breadcrumbSchema = {
 
     <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
     <script type="application/ld+json" set:html={JSON.stringify(breadcrumbSchema)} />
+    <script type="application/ld+json" set:html={JSON.stringify(webPageSchema)} />
+    {faqSchema && <script type="application/ld+json" set:html={JSON.stringify(faqSchema)} />}
 
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
