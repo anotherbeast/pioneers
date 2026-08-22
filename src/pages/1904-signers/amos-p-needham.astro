@@ -1,0 +1,389 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Amos P. Needham — Signer No. 2 of the 1904 Incorporation | SundayLaw.com</title>
+  <meta name="description" content="Amos P. Needham of Takoma Park, Maryland, was the second signatory on the Articles of Incorporation of the General Conference Corporation of Seventh-day Adventists, April 15, 1904 — in direct defiance of Ellen White's October 1903 warning against forming any new organization.">
+  <link rel="canonical" href="https://sundaylaw.com/1904-signers/amos-p-needham">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f; --bg-soft: #0d0018; --bg-card: rgba(20,5,35,0.85);
+      --ink: #f8f1dd; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --amber: #f59e0b; --red: #ef4444; --red-soft: #fca5a5;
+      --blue: #3b82f6; --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3); --line-blue: rgba(59,130,246,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); } .breadcrumb span { margin: 0 6px; }
+    .breadcrumb .current { color: var(--ink); }
+    .hero { padding: 44px 0 36px; }
+    .signer-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.73rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .hero-grid { display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: start; }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+    .charge-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 600; color: var(--ink); line-height: 1.15; margin-bottom: 10px; }
+    .charge-col h1 em { color: var(--red-soft); font-style: italic; }
+    .charge-sub { font-size: 0.97rem; color: rgba(248,241,221,0.78); line-height: 1.85; margin-bottom: 22px; }
+    .fact-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(152px, 1fr)); gap: 10px; }
+    .fact-box { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 10px; padding: 11px 13px; }
+    .fact-label { font-size: 0.69rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+    .fact-val { font-size: 0.88rem; color: var(--gold-soft); font-weight: 600; }
+    .fact-val.red { color: var(--red-soft); }
+    .sect { padding: 48px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .sect-body { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 14px; }
+    .sect-body strong { color: var(--gold-soft); }
+    .sect-body em { color: var(--red-soft); }
+    .warn-box { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.35); border-radius: 18px; padding: 30px 28px; margin: 24px 0; }
+    .warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--red); margin-bottom: 12px; }
+    .warn-box blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.15rem, 2vw, 1.55rem); font-style: italic; color: #fde8e8; line-height: 1.65; margin-bottom: 12px; }
+    .warn-box cite { font-size: 0.8rem; color: rgba(252,165,165,0.7); font-style: normal; font-weight: 600; }
+    .crime-list { list-style: none; margin: 20px 0; }
+    .crime-list li { display: flex; gap: 14px; align-items: flex-start; padding: 15px 0; border-bottom: 1px solid rgba(239,68,68,0.08); }
+    .crime-list li:last-child { border-bottom: none; }
+    .crime-num { width: 32px; height: 32px; border-radius: 8px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82rem; color: var(--red-soft); flex-shrink: 0; }
+    .crime-text { font-size: 0.94rem; color: rgba(248,241,221,0.82); line-height: 1.75; padding-top: 4px; }
+    .crime-text strong { color: var(--red-soft); }
+    .const-strip { background: rgba(30,58,138,0.1); border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; padding: 24px 26px; margin: 28px 0; }
+    .const-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 10px; }
+    .const-strip blockquote { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.7; }
+    .const-strip cite { font-size: 0.78rem; color: rgba(147,197,253,0.6); font-style: normal; margin-top: 10px; display: block; }
+    .const-strip p { font-size: 0.92rem; color: rgba(248,241,221,0.78); line-height: 1.8; margin-top: 14px; }
+    .const-strip a { color: var(--blue-soft); text-decoration: underline; }
+    .doc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 22px 0; }
+    @media (max-width: 600px) { .doc-pair { grid-template-columns: 1fr; } }
+    .doc-frame { border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; overflow: hidden; }
+    .doc-frame img { width: 100%; height: auto; display: block; }
+    .doc-caption { padding: 9px 13px; background: rgba(30,5,5,0.7); font-size: 0.77rem; color: var(--red-soft); line-height: 1.5; }
+    .signer-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 26px; }
+    .sn-card { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; padding: 13px 14px; text-decoration: none; display: block; transition: all 0.2s; }
+    .sn-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-2px); }
+    .sn-card.active { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.2); }
+    .sn-num { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 4px; }
+    .sn-name { font-size: 0.87rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .sn-loc { font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+    .site-footer { background: #04000a; border-top: 1px solid rgba(180,130,50,0.15); }
+    .footer-banner { padding: 22px; text-align: center; background: linear-gradient(to right, rgba(127,29,29,0.15), rgba(127,29,29,0.08), rgba(127,29,29,0.15)); }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.05rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 5px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 40px 22px; display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.08); padding: 18px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #7f1d1d, #b91c1c, #d97706, #b91c1c, #7f1d1d); }
+  </style>
+</head>
+<body>
+  <div class="top-stripe"></div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a href="/" style="flex-shrink:0;margin-right:auto;">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com" style="height:38px;width:auto;display:block;border-radius:4px;" />
+        </a>
+        <a class="nav-link" href="/1904-signers">The 5 Signers</a>
+        <a class="nav-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Pioneer Library</a>
+        <a class="nav-cta" href="/loud-cry">Loud Cry — Rev. 18:4</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link" href="/1904-signers/arthur-g-daniells">Daniells</a>
+        <a class="nav-bottom-link active" href="/1904-signers/amos-p-needham">Needham</a>
+        <a class="nav-bottom-link" href="/1904-signers/james-r-scott">Scott</a>
+        <a class="nav-bottom-link" href="/1904-signers/harvey-edson-rogers">Rogers</a>
+        <a class="nav-bottom-link" href="/1904-signers/daniel-k-nicola">Nicola</a>
+        <a class="nav-bottom-link" href="/1904-signers">All 5 Signers</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+        <a class="nav-bottom-link" href="/loud-cry">Loud Cry</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/1904-signers">All 5 Signers (Index)</a>
+      <a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a>
+      <a href="/1904-signers/amos-p-needham">Amos P. Needham</a>
+      <a href="/1904-signers/james-r-scott">James R. Scott</a>
+      <a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a>
+      <a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a>
+      <a href="/april-15-1904-new-organization">April 15, 1904 Record</a>
+      <a href="/library">Pioneer Library</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/1904-signers">The 5 Signers</a><span>›</span>
+        <span class="current">Amos P. Needham</span>
+      </div>
+
+      <div class="hero">
+        <div class="signer-badge">Signer No. 2 — Takoma Park, Maryland — April 15, 1904</div>
+        <div class="hero-grid">
+          <div>
+            <div style="background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.25);border-radius:16px;padding:28px 22px;text-align:center;">
+              <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#7f1d1d,#450a0a);border:2px solid rgba(239,68,68,0.35);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Crimson Text',serif;font-size:2.2rem;color:#fca5a5;font-weight:600;">PN</span>
+              </div>
+              <div style="font-family:'Crimson Text',serif;font-size:1.35rem;font-weight:600;color:var(--ink);margin-bottom:4px;">Amos P. Needham</div>
+              <div style="font-size:0.76rem;color:var(--red-soft);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:5px 12px;border:1px solid rgba(239,68,68,0.3);border-radius:999px;display:inline-block;margin-top:6px;">GC Officer — Takoma Park</div>
+            </div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+              <a href="/april-15-1904-new-organization" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.83rem;">Full 1904 Evidence Page &rarr;</a>
+              <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(212,165,55,0.1);border:1px solid rgba(212,165,55,0.25);color:var(--gold-soft);font-weight:700;font-size:0.83rem;">1905 Yearbook PDF</a>
+            </div>
+          </div>
+          <div class="charge-col">
+            <h1>Amos P. Needham &mdash;<br><em>The Second Signature</em></h1>
+            <p class="charge-sub">
+              Amos P. Needham was a General Conference officer stationed in Takoma Park, Maryland — the newly established GC headquarters — when Arthur G. Daniells organized the April 15, 1904 incorporation. His name appears second among the Takoma Park signatories. <strong style="color:var(--gold-soft);">He was not coerced. He was not ignorant.</strong> The Spirit of Prophecy had spoken. He lent his signature to the act of apostasy anyway, making him spiritually and institutionally complicit in everything the 1904 corporation would go on to do in the name of "Seventh-day Adventist."
+            </p>
+            <div class="fact-row">
+              <div class="fact-box"><div class="fact-label">Location</div><div class="fact-val">Takoma Park, MD</div></div>
+              <div class="fact-box"><div class="fact-label">Role</div><div class="fact-val red">GC Officer</div></div>
+              <div class="fact-box"><div class="fact-label">Crime Date</div><div class="fact-val red">April 15, 1904</div></div>
+              <div class="fact-box"><div class="fact-label">EGW Warning</div><div class="fact-val red">Oct. 1903</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE ACT -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Act — April 15, 1904</div>
+        <h2>What Amos P. Needham Did</h2>
+        <p class="sect-body">Needham signed the Articles of Incorporation for the <strong>&ldquo;General Conference Corporation of Seventh-day Adventists&rdquo;</strong> in the District of Columbia on April 15, 1904. As a GC officer at the newly relocated Takoma Park headquarters, he was not a passive observer — he was an active institutional participant in the creation of a new civil-religious organization.</p>
+        <p class="sect-body">His signature as the second Takoma Park signer gave the document <strong>legal weight</strong> as a multi-party voluntary agreement. Under civil law, multiple signatories confirm that the act was collective and deliberate — not an individual aberration. Needham's signature says: <em>we agreed. We chose this.</em></p>
+        <div class="doc-pair">
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA1.jpg" alt="Articles of Incorporation Page 1" loading="lazy" />
+            <div class="doc-caption">April 15, 1904. The document that turned the free Advent movement into a state-registered corporation.</div>
+          </div>
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA2.jpg" alt="Articles of Incorporation Page 2 — Signatures" loading="lazy" />
+            <div class="doc-caption">Needham's signature appears on this page alongside Daniells and the three Washington, D.C. signatories.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WARNINGS IGNORED -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Warnings — Before April 15, 1904</div>
+        <h2>What He Had Already Been Told</h2>
+        <p class="sect-body">The warnings were not given to the GC President alone. They were circulated among GC leadership. <strong>Needham, as an officer of the General Conference, had access to the Spirit of Prophecy testimony that directly addressed the formation of a new civil-religious organization.</strong></p>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; October 1903 — Six Months Before the Signing</div>
+          <blockquote>&ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:20px 22px;margin:20px 0;">
+          <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-soft);margin-bottom:10px;">What "I was just following orders" does not excuse</p>
+          <p style="font-family:'Crimson Text',serif;font-size:1.1rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">&ldquo;Are we hoping to see the whole church at once thoroughly reformed? We may wish to see it, we may pray for it, yet this is not our work. The work is to be done in the heart of each individual.&rdquo;</p>
+          <cite style="font-size:0.78rem;color:var(--muted);font-weight:600;font-style:normal;">&mdash; Ellen G. White, Testimonies to Ministers, p. 422 — Individual accountability before God cannot be transferred to an institution or a president.</cite>
+        </div>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; John N. Loughborough, 1861 — The 5 Steps He Walked</div>
+          <blockquote>&ldquo;The first step of apostasy is to get up a creed&hellip; the fifth is to commence persecution against such.&rdquo;</blockquote>
+          <cite>&mdash; John N. Loughborough, Review &amp; Herald, October 8, 1861 — Needham walked step three and four when he signed on April 15, 1904.</cite>
+        </div>
+      </div>
+
+      <!-- CRIMES -->
+      <div class="sect">
+        <div class="sect-eyebrow">Spiritual &amp; Prophetic Record</div>
+        <h2>The Charges Against Amos P. Needham</h2>
+        <ul class="crime-list">
+          <li>
+            <div class="crime-num">I</div>
+            <div class="crime-text"><strong>Complicity in the 1904 apostasy.</strong> Needham's signature gave the act its collective character. His role as GC officer made him a co-principal in the creation of the corporate church-state structure, not merely a witness.</div>
+          </li>
+          <li>
+            <div class="crime-num">II</div>
+            <div class="crime-text"><strong>Institutional enabling.</strong> By lending his authority as an officer to the incorporation, Needham gave credibility to the action before the membership and the law. He was the second legitimizing voice in an act that required at least three signatories to complete its legal form.</div>
+          </li>
+          <li>
+            <div class="crime-num">III</div>
+            <div class="crime-text"><strong>Rejection of the Spirit of Prophecy testimony.</strong> Whether Needham personally read Letter 242 or received it through the officers' channels, the testimony was circulating at GC headquarters in October 1903. He chose the corporation over the counsel of the prophetic gift.</div>
+          </li>
+          <li>
+            <div class="crime-num">IV</div>
+            <div class="crime-text"><strong>Contributing to Idem Sonans name theft.</strong> His signature helped to legally establish the entity — "General Conference Corporation of Seventh-day Adventists" — that would later claim exclusive ownership of the pioneer name "Seventh-day Adventist," using the Idem Sonans principle of name identity to seize the pioneer movement's legacy.</div>
+          </li>
+          <li>
+            <div class="crime-num">V</div>
+            <div class="crime-text"><strong>Voluntary surrender of First Amendment liberty.</strong> A GC officer serving a free movement, Needham chose to bring that movement under civil jurisdiction — placing the church under the authority of Caesar's courts in the District of Columbia, contrary to the entire spirit of the Advent movement's origin as a protest against civil-religious coercion.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="const-strip">
+        <div class="const-label">First Amendment — December 15, 1791</div>
+        <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof&hellip;&rdquo;</blockquote>
+        <cite>&mdash; First Amendment, U.S. Constitution</cite>
+        <p>The First Amendment granted exactly the freedom the Advent pioneers needed — free assembly, free worship, free preaching of the Three Angels' Messages, with no government oversight. Needham and the four signers voluntarily surrendered that protection by incorporating under D.C. law. <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank" rel="noopener noreferrer">Official source: constitution.congress.gov &rarr;</a></p>
+      </div>
+
+      <!-- IDEM SONANS -->
+      <div class="sect">
+        <div class="sect-eyebrow">Legal Reality — Name Theft</div>
+        <h2>The Name He Helped Steal</h2>
+        <p class="sect-body">The name <strong>"Seventh-day Adventist"</strong> was chosen freely at Buck's Bridge, New York, in 1860 — a spiritual identity belonging to every believer who held the Three Angels' Messages. The 1904 corporation co-opted that name by attaching it to a civil legal entity:</p>
+        <div style="background:rgba(30,58,138,0.1);border:1px solid rgba(59,130,246,0.25);border-radius:14px;padding:24px 22px;margin:20px 0;">
+          <p style="font-size:0.8rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--blue-soft);margin-bottom:12px;">Idem Sonans — "Sounding the Same"</p>
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:16px;margin-bottom:14px;">
+            <div style="background:rgba(16,185,129,0.1);border:1px solid rgba(16,185,129,0.25);border-radius:10px;padding:14px;">
+              <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:#6ee7b7;font-weight:700;margin-bottom:6px;">Original — 1860 (Free)</p>
+              <p style="font-family:'Crimson Text',serif;font-size:1.05rem;color:rgba(248,241,221,0.9);line-height:1.5;">"Seventh-day Adventist"<br><span style="font-size:0.78rem;color:var(--muted);">Buck's Bridge, NY, September 1860<br>No government. No registration.<br>Belongs to all believers.</span></p>
+            </div>
+            <div style="background:rgba(127,29,29,0.15);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:14px;">
+              <p style="font-size:0.7rem;text-transform:uppercase;letter-spacing:0.1em;color:var(--red-soft);font-weight:700;margin-bottom:6px;">Corporate — 1904 (State-Owned)</p>
+              <p style="font-family:'Crimson Text',serif;font-size:1.05rem;color:rgba(248,241,221,0.9);line-height:1.5;">"General Conference Corporation<br>of Seventh-day Adventists"<br><span style="font-size:0.78rem;color:var(--muted);">D.C., April 15, 1904<br>State-registered. EIN #52-0643036.<br>501(c)(3) IRS dependency.</span></p>
+            </div>
+          </div>
+          <p style="font-size:0.92rem;color:rgba(248,241,221,0.8);line-height:1.8;">The legal doctrine of <strong style="color:var(--gold-soft);">Idem Sonans</strong> holds that two names which sound substantially the same refer to the same identity. Needham's signature helped create the entity that would later use this principle — and civil trademark law — to claim exclusive ownership of the pioneer name, excluding and persecuting those who held the original faith.</p>
+        </div>
+      </div>
+
+      <!-- OTHER SIGNERS -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Other Four Signers</div>
+        <h2>Five Men. One Act of Apostasy.</h2>
+        <div class="signer-nav">
+          <a href="/1904-signers/arthur-g-daniells" class="sn-card">
+            <div class="sn-num">Signer 1</div>
+            <div class="sn-name">Arthur G. Daniells</div>
+            <div class="sn-loc">Takoma Park, MD</div>
+          </a>
+          <a href="/1904-signers/amos-p-needham" class="sn-card active">
+            <div class="sn-num">Signer 2</div>
+            <div class="sn-name">Amos P. Needham</div>
+            <div class="sn-loc">Takoma Park, MD</div>
+          </a>
+          <a href="/1904-signers/james-r-scott" class="sn-card">
+            <div class="sn-num">Signer 3</div>
+            <div class="sn-name">James R. Scott</div>
+            <div class="sn-loc">Washington, D.C.</div>
+          </a>
+          <a href="/1904-signers/harvey-edson-rogers" class="sn-card">
+            <div class="sn-num">Signer 4</div>
+            <div class="sn-name">Harvey Edson Rogers</div>
+            <div class="sn-loc">Washington, D.C.</div>
+          </a>
+          <a href="/1904-signers/daniel-k-nicola" class="sn-card">
+            <div class="sn-num">Signer 5</div>
+            <div class="sn-name">Daniel K. Nicola</div>
+            <div class="sn-loc">Washington, D.C.</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-banner">
+      <p>&ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo;</p>
+      <cite>&mdash; Ellen G. White, 1SM 204 — October 1903 — The warning Amos P. Needham ignored</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:10px;">SundayLaw.com</div>
+        <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;">Preserving the 1841–1850 pioneer platform. Exposing the 1904 corporate apostasy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The 5 Signers</h4>
+        <ul>
+          <li><a href="/1904-signers">Overview — All 5</a></li>
+          <li><a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a></li>
+          <li><a href="/1904-signers/amos-p-needham">Amos P. Needham</a></li>
+          <li><a href="/1904-signers/james-r-scott">James R. Scott</a></li>
+          <li><a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a></li>
+          <li><a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pioneer Platform</h4>
+        <ul>
+          <li><a href="/library">Full Pioneer Library</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/pioneers">Pioneer Biographies</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>SundayLaw.com — "Come out of her, My people" — Revelation 18:4</p></div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn?.addEventListener('click', () => { mobileNav?.classList.toggle('open'); });
+  </script>
+  <SiteFooter
+    scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+    scriptureRef="Revelation 18:4 (KJV)"
+    pageLinks={[
+      { label: 'All Five 1904 Signers', href: '/1904-signers' },
+      { label: 'April 15, 1904 — The Record', href: '/april-15-1904-new-organization' },
+      { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+      { label: 'Apostate Shepherds', href: '/apostasy' }
+    ]}
+  />
+  <ShareBar />
+  <SiteSearch />
+</body>
+</html>

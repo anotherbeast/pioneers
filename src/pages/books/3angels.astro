@@ -1,0 +1,708 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <Analytics />
+  <title>The Three Angels' Messages — Revelation 14 &amp; 18</title>
+  <meta name="description" content="The Three Angels' Messages of Revelation 14:6–12 and the joining angel of Revelation 18:1–5. The final test for eternity. Come out of Babylon." />
+  <meta property="og:title" content="The Three Angels' Messages — Revelation 14 &amp; 18">
+  <meta property="og:description" content="The Three Angels' Messages of Revelation 14:6–12 and the joining angel of Revelation 18:1–5. The final test for eternity. Come out of Babylon.">
+  <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sundaylaw.com/books/3angels">
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  <style>
+    :root {
+      --bg: #060814;
+      --ink: #f4f0df;
+      --muted: #c5bb95;
+      --line: rgba(212,165,55,0.26);
+      --gold: #d4a537;
+      --amber: #f0cf7b;
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Source Sans 3', sans-serif;
+      color: var(--ink);
+      background:
+        radial-gradient(circle at 76% 14%, rgba(212,165,55,0.16), transparent 36%),
+        radial-gradient(circle at 16% 80%, rgba(75,105,170,0.18), transparent 44%),
+        linear-gradient(160deg, #05060f 0%, #0a0d1b 52%, #070910 100%);
+      overflow-x: hidden;
+    }
+    .serif { font-family: 'Cormorant Garamond', serif; }
+
+    /* NAV */
+    .topbar { position: sticky; top: 0; z-index: 30; backdrop-filter: blur(10px); background: rgba(6,8,20,0.76); border-bottom: 1px solid var(--line); }
+    .topbar-inner { max-width: 1160px; margin: 0 auto; padding: 14px 22px; display: flex; align-items: center; justify-content: space-between; gap: 14px; }
+    .brand { color: var(--ink); text-decoration: none; text-transform: uppercase; letter-spacing: 0.08em; font-size: 0.9rem; }
+    .brand strong { color: var(--amber); }
+    .toplinks { display: flex; gap: 14px; }
+    .toplinks a { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; }
+    .toplinks a:hover { color: var(--amber); }
+
+    /* HERO */
+    .hero { max-width: 1000px; margin: 48px auto 0; padding: 0 22px; }
+    .hero-card { border: 1px solid var(--line); border-radius: 24px; padding: 44px 36px; background: linear-gradient(150deg, rgba(16,24,45,0.95), rgba(8,12,24,0.9)); box-shadow: 0 22px 66px rgba(0,0,0,0.46); }
+    .eyebrow { display: inline-block; padding: 7px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--amber); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.74rem; font-weight: 700; margin-bottom: 18px; }
+    .hero-card h1 { font-size: clamp(2rem, 5.5vw, 3.6rem); line-height: 1.05; margin: 0; }
+    .hero-card h1 span { color: var(--amber); }
+    .hero-card .lead { margin: 16px 0 0; color: var(--muted); font-size: 1.1rem; line-height: 1.8; max-width: 72ch; }
+
+    /* LAYOUT */
+    .layout { max-width: 1000px; margin: 28px auto 80px; padding: 0 22px; display: grid; gap: 18px; }
+
+    /* ANGEL SECTION */
+    .angel { border: 1px solid var(--line); border-radius: 20px; background: rgba(13,19,36,0.88); overflow: hidden; }
+    .angel-header { padding: 20px 26px 16px; border-bottom: 1px solid var(--line); display: flex; align-items: center; gap: 14px; }
+    .angel-num { display: inline-flex; align-items: center; justify-content: center; width: 44px; height: 44px; border-radius: 50%; font-size: 1.2rem; font-weight: 800; flex-shrink: 0; }
+    .num-1 { background: rgba(212,165,55,0.18); border: 1.5px solid rgba(212,165,55,0.5); color: var(--amber); }
+    .num-2 { background: rgba(100,160,212,0.16); border: 1.5px solid rgba(100,160,212,0.4); color: #93c5fd; }
+    .num-3 { background: rgba(220,80,60,0.14); border: 1.5px solid rgba(220,80,60,0.38); color: #f87171; }
+    .num-4 { background: rgba(140,100,220,0.14); border: 1.5px solid rgba(140,100,220,0.38); color: #c4b5fd; }
+    .angel-header h2 { font-size: 1.4rem; margin: 0; }
+    .angel-header .ref { color: var(--amber); font-size: 0.88rem; font-weight: 700; letter-spacing: 0.06em; }
+    .angel-body { padding: 24px 26px; }
+
+    /* SCRIPTURE QUOTE */
+    .scripture { border-left: 4px solid var(--gold); background: rgba(212,165,55,0.07); border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 18px; }
+    .scripture p { font-size: 1.08rem; line-height: 1.82; color: #fef3c7; font-style: italic; margin: 0; }
+    .scripture cite { display: block; margin-top: 10px; color: var(--amber); font-weight: 700; font-size: 0.88rem; font-style: normal; }
+
+    /* EGW QUOTE */
+    .egw { position: relative; background: linear-gradient(135deg, #1a0f0a, #0d0a06); border: 1px solid rgba(212,165,55,0.32); border-radius: 12px; padding: 18px 22px 18px 44px; margin-bottom: 16px; }
+    .egw::before { content: ''; position: absolute; left: 20px; top: 18px; bottom: 18px; width: 3px; background: linear-gradient(to bottom, #d97706, #92400e); border-radius: 2px; }
+    .egw p { color: rgba(254,243,199,0.9); font-size: 1.02rem; line-height: 1.78; font-style: italic; margin: 0; }
+    .egw cite { display: block; margin-top: 10px; color: #d97706; font-size: 0.87rem; font-weight: 700; font-style: normal; }
+
+    /* BODY TEXT */
+    .angel-body p { color: var(--muted); line-height: 1.82; margin-bottom: 14px; }
+    .angel-body p:last-child { margin-bottom: 0; }
+    .angel-body strong { color: var(--ink); }
+
+    /* CALL OUT BOX */
+    .callout { border: 1px solid rgba(220,80,60,0.38); border-radius: 14px; background: rgba(220,80,60,0.07); padding: 20px 22px; margin-top: 14px; }
+    .callout h4 { margin: 0 0 10px; color: #f87171; font-size: 1.1rem; }
+    .callout p { color: var(--muted); line-height: 1.8; margin: 0; }
+    .callout p + p { margin-top: 10px; }
+
+    /* CHART SECTION */
+    .chart-section { border: 1px solid var(--line); border-radius: 20px; background: rgba(13,19,36,0.88); padding: 28px; }
+    .chart-section h2 { margin: 0 0 16px; color: var(--amber); font-size: 1.7rem; }
+    .chart-img { width: 100%; max-width: 860px; display: block; margin: 0 auto 18px; border-radius: 14px; border: 1px solid var(--line); box-shadow: 0 18px 50px rgba(0,0,0,0.5); }
+    .chart-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-bottom: 22px; justify-content: center; }
+    .chart-btns a { padding: 10px 20px; border-radius: 10px; font-weight: 700; font-size: 0.9rem; text-decoration: none; transition: all 0.2s; }
+    .btn-gold { background: var(--gold); color: #111; }
+    .btn-gold:hover { background: var(--amber); }
+    .btn-outline { border: 1px solid var(--line); color: var(--muted); }
+    .btn-outline:hover { border-color: rgba(212,165,55,0.5); color: var(--amber); }
+    .pdf-embed { width: 100%; height: 680px; border: 1px solid rgba(212,165,55,0.22); border-radius: 14px; background: #fff; display: block; }
+
+    /* PDF SOURCE */
+    .source-section { border: 1px solid var(--line); border-radius: 20px; background: rgba(13,19,36,0.88); padding: 28px; }
+    .source-section h2 { margin: 0 0 14px; color: var(--amber); font-size: 1.5rem; }
+    .source-section p { color: var(--muted); line-height: 1.8; margin-bottom: 14px; }
+    .source-links { display: grid; gap: 8px; margin-top: 14px; }
+    .source-links a { color: var(--amber); text-decoration: none; font-weight: 600; }
+    .source-links a:hover { text-decoration: underline; }
+
+    /* FOOTER */
+    footer { border-top: 1px solid var(--line); background: rgba(8,10,20,0.7); padding: 18px 22px; text-align: center; color: #8c8f9f; font-size: 0.88rem; margin-top: 40px; }
+    footer a { color: var(--muted); text-decoration: none; margin: 0 10px; }
+    footer a:hover { color: var(--amber); }
+
+    @media (max-width: 680px) {
+      .hero-card { padding: 28px 20px; }
+      .angel-body { padding: 18px; }
+      .angel-header { padding: 16px 18px 14px; }
+      .pdf-embed { height: 480px; }
+    }
+  </style>
+</head>
+<body>
+
+  <header class="topbar">
+    <div class="topbar-inner">
+      <a class="brand" href="/">Advent <strong>Pioneer Library</strong></a>
+      <nav class="toplinks" aria-label="Primary">
+        <a href="/">Home</a>
+        <a href="/pioneers">Pioneers</a>
+        <a href="/books">Books</a>
+        <a href="/prophecy-charts">Prophecy Charts</a>
+        <a href="/prophecy-explained">Prophecy Study</a>
+        <a href="/april-15-1904-new-organization">1904 Record</a>
+        <a href="/midnight-cry">1844 Midnight Cry Movie</a>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <!-- HERO -->
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Revelation 14:6–12 &amp; 18:1–5</span>
+        <h1 class="serif">The Three Angels' <span>Messages</span></h1>
+        <p class="lead">
+          The everlasting gospel proclaimed to every nation, kindred, tongue, and people.
+          The final warning before the close of probation. The seal of God versus the mark of the beast.
+          The last test for eternity — determined by whether you come out of Babylon.
+        </p>
+      </div>
+    </section>
+
+    <div class="layout">
+
+      <!-- ===== FIRST ANGEL ===== -->
+      <article class="angel">
+        <div class="angel-header">
+          <span class="angel-num num-1 serif">I</span>
+          <div>
+            <h2 class="serif">The First Angel's Message</h2>
+            <span class="ref">Revelation 14:6–7 · c. 1840–1844</span>
+          </div>
+        </div>
+        <div class="angel-body">
+          <div class="scripture">
+            <p>"And I saw another angel fly in the midst of heaven, having the everlasting gospel to preach unto them
+            that dwell on the earth, and to every nation, and kindred, and tongue, and people, saying with a loud voice,
+            Fear God, and give glory to him; for the hour of his judgment is come: and worship him that made heaven,
+            and earth, and the sea, and the fountains of waters."</p>
+            <cite>— Revelation 14:6–7 (KJV)</cite>
+          </div>
+          <p>
+            The First Angel calls all the world back to the <strong>Creator God</strong> — the God who <em>made</em> heaven and earth,
+            the sea and the fountains of waters. This is a direct reference to the fourth commandment (Exodus 20:8–11),
+            the Sabbath of creation, which identifies the true God from all false systems of worship.
+          </p>
+          <p>
+            The proclamation "the hour of His judgment is come" pointed prophetically to <strong>October 22, 1844</strong> —
+            the end of the 2,300-day prophecy of Daniel 8:14, when Christ entered the Most Holy Place of the
+            heavenly sanctuary to begin the investigative judgment. William Miller, Charles Fitch, Apollos Hale,
+            and a host of Advent preachers carried this message across the United States and the world from
+            approximately 1840 to 1844.
+          </p>
+          <div class="egw">
+            <p>"The first angel's message of Revelation 14, announcing the hour of God's judgment and calling upon
+            men to fear and worship Him, was designed to separate the professed people of God from the corrupting
+            influences of the world and to arouse them to see their true condition of worldliness and backsliding."</p>
+            <cite>— Ellen G. White, The Great Controversy, p. 379</cite>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== SECOND ANGEL ===== -->
+      <article class="angel">
+        <div class="angel-header">
+          <span class="angel-num num-2 serif">II</span>
+          <div>
+            <h2 class="serif">The Second Angel's Message</h2>
+            <span class="ref">Revelation 14:8 · Summer 1844</span>
+          </div>
+        </div>
+        <div class="angel-body">
+          <div class="scripture">
+            <p>"And there followed another angel, saying, Babylon is fallen, is fallen, that great city,
+            because she made all nations drink of the wine of the wrath of her fornication."</p>
+            <cite>— Revelation 14:8 (KJV)</cite>
+          </div>
+          <p>
+            In the summer of 1844, Charles Fitch preached his landmark sermon <em>"Come Out of Her, My People"</em>
+            — calling all true believers to separate from the fallen Protestant churches that had rejected the
+            First Angel's Message. When the churches closed their doors to the Advent message, they fell from
+            their position of favor with God. Babylon — confusion — describes any church that mixes human tradition
+            with the commandments of God.
+          </p>
+          <p>
+            The <strong>Midnight Cry of Matthew 25:6</strong> — "Behold, the bridegroom cometh; go ye out to meet him" —
+            joined and amplified the Second Angel's Message in the autumn of 1844, producing the great
+            Seventh-Month Movement. Tens of thousands came out of the established churches in preparation
+            for October 22, 1844.
+          </p>
+          <div class="egw">
+            <p>"As the churches refused to receive the first angel's message, they rejected the light from heaven
+            and fell from the favor of God. They trusted to their own strength, and by opposing the first message
+            placed themselves where they could not see the light of the second angel's message."</p>
+            <cite>— Ellen G. White, Early Writings, p. 237</cite>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== THIRD ANGEL ===== -->
+      <article class="angel">
+        <div class="angel-header">
+          <span class="angel-num num-3 serif">III</span>
+          <div>
+            <h2 class="serif">The Third Angel's Message</h2>
+            <span class="ref">Revelation 14:9–12 · From October 22, 1844 onward</span>
+          </div>
+        </div>
+        <div class="angel-body">
+          <div class="scripture">
+            <p>"And the third angel followed them, saying with a loud voice, If any man worship the beast and his image,
+            and receive his mark in his forehead, or in his hand, the same shall drink of the wine of the wrath of God,
+            which is poured out without mixture into the cup of his indignation; and he shall be tormented with fire and
+            brimstone in the presence of the holy angels, and in the presence of the Lamb: And the smoke of their torment
+            ascendeth up for ever and ever: and they have no rest day nor night, who worship the beast and his image,
+            and whosoever receiveth the mark of his name. Here is the patience of the saints: here are they that
+            keep the commandments of God, and the faith of Jesus."</p>
+            <cite>— Revelation 14:9–12 (KJV)</cite>
+          </div>
+          <p>
+            The Third Angel's Message is the most solemn warning in Scripture. It warns against worshiping the beast
+            and his image — the Papacy and any civil-religious system that enforces false worship — and against
+            receiving his mark. The seal of God (the seventh-day Sabbath, Revelation 7; Ezekiel 20:12,20) stands
+            in direct opposition to the mark of the beast (Sunday observance enforced by civil law).
+          </p>
+          <p>
+            The people who survive this final test are described plainly: <strong>"they that keep the commandments
+            of God, and the faith of Jesus"</strong> (Revelation 14:12). All ten commandments. The seventh-day
+            Sabbath included. This is the identifying mark of the 144,000 — those sealed before the close of
+            probation (Revelation 7:1–4; Daniel 12:1).
+          </p>
+          <div class="egw">
+            <p>"The third angel's message is to lighten the earth with its glory. How important, then, that we
+            stand in the right position to receive this message. Let us not through our own perversity dishonor God,
+            and misrepresent the precious truth that has been given us."</p>
+            <cite>— Ellen G. White, Testimonies for the Church, Vol. 6, p. 401</cite>
+          </div>
+          <div class="callout">
+            <h4 class="serif">The Final Test — Commandments of God vs. Mark of the Beast</h4>
+            <p>
+              The Third Angel draws the final line in earth's history. On one side: those who keep
+              the <strong>commandments of God and the faith of Jesus</strong> — including the seventh-day Sabbath
+              (the fourth commandment, Exodus 20:8–11; the seal of the living God, Revelation 7:2–3).
+            </p>
+            <p>
+              On the other side: those who worship the beast and his image — any church-state union that enforces
+              false worship by civil law, mirroring the model of the Papacy, which changed the Sabbath from the
+              seventh day to the first day without biblical authority.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== FOURTH ANGEL / REVELATION 18 ===== -->
+      <article class="angel">
+        <div class="angel-header">
+          <span class="angel-num num-4 serif">18</span>
+          <div>
+            <h2 class="serif">The Angel of Revelation 18 Joins</h2>
+            <span class="ref">Revelation 18:1–5 · The Loud Cry</span>
+          </div>
+        </div>
+        <div class="angel-body">
+          <div class="scripture">
+            <p>"And after these things I saw another angel come down from heaven, having great power;
+            and the earth was lightened with his glory. And he cried mightily with a strong voice, saying,
+            Babylon the great is fallen, is fallen, and is become the habitation of devils, and the hold of
+            every foul spirit, and a cage of every unclean and hateful bird. For all nations have drunk of
+            the wine of the wrath of her fornication, and the kings of the earth have committed fornication
+            with her, and the merchants of the earth are waxed rich through the abundance of her delicacies.
+            And I heard another voice from heaven, saying, Come out of her, my people, that ye be not
+            partakers of her sins, and that ye receive not of her plagues. For her sins have reached unto
+            heaven, and God hath remembered her iniquities."</p>
+            <cite>— Revelation 18:1–5 (KJV)</cite>
+          </div>
+          <p>
+            Just as the Midnight Cry (Matthew 25:6) joined and amplified the Second Angel's Message in 1844,
+            so the angel of Revelation 18 joins the Third Angel's Message in final power —
+            the <strong>Loud Cry</strong>. The message of Babylon's fall is repeated with additional force,
+            now including <strong>the corruptions that have been entering the churches since 1844</strong>.
+          </p>
+          <div class="egw">
+            <p>"The message of the fall of Babylon, as given by the second angel, is repeated, with the
+            additional mention of the corruptions which have been entering the churches since 1844.
+            The work of this angel comes in at the right time to join in the last great work of the
+            third angel's message as it swells to a loud cry."</p>
+            <cite>— Ellen G. White, Early Writings, p. 277.1</cite>
+          </div>
+          <div class="egw">
+            <p>"This message seemed to be an addition to the third message, joining it as the midnight cry
+            joined the second angel's message in 1844… proclaiming the fall of Babylon and calling upon
+            God's people to come out of her."</p>
+            <cite>— Ellen G. White, Early Writings, p. 277.2</cite>
+          </div>
+          <div class="egw">
+            <p>"When the messages of the three angels come prominently before the world again just before
+            the second advent of Christ, the angel of Revelation 18:1 joins in the proclamation of the
+            second angel in the message that 'Babylon is fallen.' 'Come out of her, my people.'"</p>
+            <cite>— Ellen G. White, Early Writings, Appendix, p. 304.1</cite>
+          </div>
+
+          <!-- BABYLON / COME OUT -->
+          <div class="callout" style="border-color:rgba(212,165,55,0.4);background:rgba(212,165,55,0.06);">
+            <h4 class="serif" style="color:var(--amber);">What Is Babylon? — The Final Test for Eternity</h4>
+            <p>
+              Babylon means <em>confusion</em>. It describes every religious system that mixes the commandments
+              of men with the commandments of God. In the final crisis, Babylon is specifically the
+              <strong>church-state union</strong> — any church organization that submits to civil government
+              control of religion.
+            </p>
+            <p>
+              The IRS 501(c)(3) tax-exempt status is a legally binding contract between a church and the
+              civil government. The historic Adventist pioneers already had what they needed spiritually —
+              but by choosing to incorporate under civil law (April 15, 1904) and register with the government,
+              the "new organization" joined church and state together, creating an image of the same system
+              the Pilgrim fathers fled Europe to escape in 1620.
+            </p>
+            <p>
+              The Pilgrims left England on the Mayflower, landing at Plymouth Rock in 1620, to escape
+              the Church of England — a state-controlled church that persecuted those who would not
+              conform to its forms of worship. The Vatican's model of joining church and state to
+              enforce religious observance is the very system the Book of Revelation calls Babylon.
+              <strong>To form another image of that same system on American soil is the fulfillment
+              of Revelation 13:11–17.</strong>
+            </p>
+            <p>
+              God's call is plain: <em>"Come out of her, my people, that ye be not partakers of her sins,
+              and that ye receive not of her plagues."</em> — Revelation 18:4.
+              Come into home churches. Study the original books, tracts, sermons, and prophecy charts
+              of the historic Adventist pioneers. Keep the commandments of God. Hold the faith of Jesus.
+            </p>
+          </div>
+        </div>
+      </article>
+
+      <!-- ===== TWO GROUPS — TWO FOUNDATIONS ===== -->
+      <article class="angel" id="two-foundations">
+        <div class="angel-header">
+          <span class="angel-num num-4 serif" style="font-size:0.75rem;width:54px;border-radius:12px;">Matt 25</span>
+          <div>
+            <h2 class="serif">Two Groups — Two Different Foundations</h2>
+            <span class="ref">Matthew 25:1–13 · The Wise and Foolish Virgins</span>
+          </div>
+        </div>
+        <div class="angel-body">
+
+          <div class="scripture">
+            <p>"Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps, and went forth
+            to meet the bridegroom. And five of them were wise, and five were foolish. They that were foolish took
+            their lamps, and took no oil with them: But the wise took oil in their vessels with their lamps.
+            While the bridegroom tarried, they all slumbered and slept. And at midnight there was a cry made,
+            Behold, the bridegroom cometh; go ye out to meet him… And they that were ready went in with him
+            to the marriage: and the door was shut."</p>
+            <cite>— Matthew 25:1–6, 10 (KJV)</cite>
+          </div>
+
+          <p>
+            The parable of the ten virgins describes the Advent movement exactly.
+            All ten went out to meet the Bridegroom. All ten had lamps — a profession of truth.
+            But only five had <strong>oil</strong> — the Holy Spirit, living obedience, the commandments of God kept in faith.
+            The dividing line was not visible from the outside. It was internal. Foundational.
+          </p>
+
+          <div class="grid-2" style="display:grid;gap:18px;margin:20px 0;">
+
+            <!-- WISE VIRGINS -->
+            <div style="border:2px solid rgba(212,165,55,0.45);border-radius:16px;padding:22px;background:linear-gradient(135deg,rgba(30,24,5,0.75),rgba(10,13,28,0.88));">
+              <div style="display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(212,165,55,0.14);border:1px solid rgba(212,165,55,0.4);color:var(--amber);font-size:0.74rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">The Wise Virgins</div>
+              <h3 class="serif" style="color:var(--amber);margin:0 0 12px;font-size:1.3rem;">The Original Foundation</h3>
+              <p style="color:var(--muted);margin:0 0 10px;line-height:1.8;font-weight:700;">Built on October 22, 1844</p>
+              <p style="color:var(--muted);line-height:1.8;margin:0 0 10px;">
+                The historic Adventist pioneers came out of Babylon in response to the Second Angel's cry.
+                They laid their foundation on the prophetic waymarks — the heavenly sanctuary, the seventh-day
+                Sabbath, the Three Angels' Messages, the commandments of God, and the faith of Jesus.
+                They rejected every vestige of Papal tradition.
+              </p>
+              <ul style="margin:0 0 14px 18px;color:var(--muted);line-height:1.9;list-style:disc;">
+                <li>Foundation: October 22, 1844 — Daniel 8:14</li>
+                <li>Oil: Sabbath, Sanctuary, Seal of God</li>
+                <li>Standard: Commandments of God + Faith of Jesus</li>
+                <li>Lamp: The Present Truth — James White, 1849</li>
+                <li>Cry: Three Angels' Messages — Revelation 14:6–12</li>
+                <li>Goal: The 144,000 sealed — Revelation 7; Daniel 12:1</li>
+              </ul>
+              <a href="/pioneers" style="display:inline-block;padding:9px 18px;border-radius:10px;background:var(--gold);color:#111;font-weight:700;font-size:0.9rem;text-decoration:none;">Explore the Historic Pioneers →</a>
+            </div>
+
+            <!-- FOOLISH VIRGINS -->
+            <div style="border:2px solid rgba(220,60,60,0.38);border-radius:16px;padding:22px;background:linear-gradient(135deg,rgba(40,5,5,0.75),rgba(10,13,28,0.88));">
+              <div style="display:inline-block;padding:4px 12px;border-radius:999px;background:rgba(220,60,60,0.12);border:1px solid rgba(220,60,60,0.38);color:#f87171;font-size:0.74rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">The Foolish Virgins</div>
+              <h3 class="serif" style="color:#f87171;margin:0 0 12px;font-size:1.3rem;">The New Organization Foundation</h3>
+              <p style="color:var(--muted);margin:0 0 10px;line-height:1.8;font-weight:700;">Built on April 15, 1904</p>
+              <p style="color:var(--muted);line-height:1.8;margin:0 0 10px;">
+                The new organization incorporated on April 15, 1904, creating the
+                <em>General Conference Corporation of Seventh-day Adventists</em> under civil law — joining
+                church and state together. Lamps but no oil. A profession of truth without the living
+                obedience. Roman hierarchical structure. Catholic doctrines brought back in.
+                "Another universal and truly Catholic organization." (Review, March 5, 1981)
+              </p>
+              <ul style="margin:0 0 14px 18px;color:var(--muted);line-height:1.9;list-style:disc;">
+                <li>Foundation: April 15, 1904 — civil incorporation</li>
+                <li>No oil: Church joined to state — EIN 52-0643036</li>
+                <li>Standard: Government-registered corporation</li>
+                <li>Path: Same as fallen Protestant churches in 1844</li>
+                <li>Image: Papacy / Church of England / Vatican model</li>
+                <li>End: "The door was shut" — Matthew 25:10</li>
+              </ul>
+              <a href="/april-15-1904-new-organization" style="display:inline-block;padding:9px 18px;border-radius:10px;border:1px solid rgba(220,60,60,0.4);color:#f87171;font-weight:700;font-size:0.9rem;text-decoration:none;">View the 1904 Incorporation Record →</a>
+            </div>
+
+          </div>
+
+          <div class="egw">
+            <p>"Adventists from 1844 onward built on the everlasting gospel — the commandments of God and
+            the faith of Jesus. The new organization of 1904 built on a civil charter. One foundation
+            is the Rock. The other is sand. The storm is coming."</p>
+            <cite>— Paraphrase from Matthew 7:24–27 applied to the Advent movement</cite>
+          </div>
+
+          <div class="callout" style="border-color:rgba(212,165,55,0.4);background:rgba(212,165,55,0.05);">
+            <h4 class="serif" style="color:var(--amber);">Ellen White Warned Before It Happened</h4>
+            <p>
+              "The enemy of souls has sought to bring in the supposition that a great reformation was to take
+              place among Seventh-day Adventists, and that this reformation would consist in giving up the
+              doctrines which stand as the <strong>pillars of our faith</strong>, and engaging in a process of
+              <strong>reorganization</strong>. Were this reformation to take place, what would result?
+            </p>
+            <p style="margin-top:10px;">
+              The principles of truth that God in His wisdom has given to the remnant church, would be discarded.
+              Our religion would be changed. The fundamental principles that have sustained the work for the last
+              fifty years would be accounted as error. <strong>A new organization would be established.</strong>
+              Books of a new order would be written. A system of intellectual philosophy would be introduced."
+            </p>
+            <p style="margin-top:10px;">
+              "We cannot now step off the foundation that God has established. We cannot now enter into
+              any new organization; for this would mean apostasy from the truth."
+            </p>
+            <p style="margin-top:8px;color:#9ca3af;font-size:0.88rem;font-style:italic;">— Ellen G. White, Selected Messages Book 1, p. 204.2</p>
+            <p style="margin-top:12px;">
+              This warning was given <em>before</em> April 15, 1904. The new organization was formed anyway.
+              The wise virgins hear the warning and keep their oil. The foolish hear it — and go in
+              without it anyway.
+            </p>
+          </div>
+
+        </div>
+      </article>
+
+      <!-- ===== JAMES WHITE — MESSAGE OF THE 144,000 ===== -->
+      <article class="angel" id="message-of-144000">
+        <div class="angel-header">
+          <span class="angel-num num-1 serif" style="font-size:0.85rem;width:54px;border-radius:12px;">Q&amp;A</span>
+          <div>
+            <h2 class="serif">What Is the Message of the 144,000?</h2>
+            <span class="ref">Answered by Elder James White — "The Modern Moses"</span>
+          </div>
+        </div>
+        <div class="angel-body">
+
+          <div class="egw">
+            <p>"The third angel's message was, and still is, a WARNING to the saints to 'hold fast,'
+            and not go back, and 'receive' THE MARKS which the virgin band got rid of, during the
+            second angel's cry."</p>
+            <cite>— James White, <em>A Word to the "Little Flock"</em>, April 21, 1847, p. 11</cite>
+          </div>
+
+          <p>
+            The message of the 144,000 is not a new message — it is the recovery and holding fast of
+            every truth the Second Angel's cry exposed and separated God's people from.
+            The marks of Babylon that the virgin band <em>got rid of</em> in 1843–1844 must never be
+            received again. That is what James White called the Third Angel's Message.
+          </p>
+
+          <p>
+            Yet in 1856 — only nine years after writing those words — James White warned that the
+            movement was already beginning to drift. Elder White, sometimes called the Modern Moses,
+            identified four specific dangers the emerging denomination faced:
+          </p>
+
+          <div class="callout" style="border-color:rgba(212,165,55,0.38);background:rgba(212,165,55,0.05);">
+            <h4 class="serif" style="color:var(--amber);">The Reformers Stopped Reforming</h4>
+            <p>
+              "The greatest fault we can find in the Reformation is, the Reformers stopped reforming…
+              had they left the last vestige of Papacy behind — like the Trinity, Sunday sacredness,
+              natural immortality, sprinkling — the church would now be free from her unscriptural errors."
+            </p>
+            <p style="margin-top:10px;color:#9ca3af;font-size:0.9rem;font-style:italic;">— James White</p>
+          </div>
+
+          <p>
+            The pioneers did not borrow from Rome. They <strong>rejected</strong> Rome.
+            The marks of Babylon — the doctrines listed above — were precisely what the Second Angel's
+            cry called God's people to leave behind. To bring them back in is apostasy from the foundation.
+          </p>
+
+          <h3 class="serif" style="color:var(--amber);margin:22px 0 14px;font-size:1.3rem;">The SDA Denomination Followed the Same Path</h3>
+
+          <p>
+            The Seventh-day Adventist denomination followed the same trajectory as the fallen Protestant
+            churches did in 1843–1844 during the Second Angel's cry. Step by step, the marks that were
+            cast off were brought back in. The corporate incorporation of April 15, 1904 — creating the
+            <em>General Conference Corporation of Seventh-day Adventists</em> under civil law — joined
+            church and state together, creating the very image the pioneers had warned against.
+          </p>
+
+          <p>
+            That new organization became Babylon the moment it was created on <strong>April 15, 1904</strong>,
+            as documented in the 1905 Seventh-day Adventist Yearbook. The record is not hidden.
+          </p>
+
+          <div class="chart-btns" style="margin:14px 0 18px;">
+            <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" class="btn-gold">View 1905 Yearbook — Incorporation Record</a>
+            <a href="/april-15-1904-new-organization" class="btn-outline">April 15, 1904 Documentary Evidence</a>
+          </div>
+
+          <h3 class="serif" style="color:#f87171;margin:22px 0 14px;font-size:1.3rem;">The Confession of What It Had Become</h3>
+
+          <div class="callout" style="border-color:rgba(220,80,60,0.45);background:rgba(220,80,60,0.07);">
+            <h4 class="serif" style="color:#f87171;">"Another Universal and Truly Catholic Organization"</h4>
+            <p>
+              "There is another universal and truly Catholic organization, the Seventh-day Adventist Church."
+            </p>
+            <p style="margin-top:10px;color:#9ca3af;font-size:0.9rem;font-style:italic;">
+              — Review and Herald, March 5, 1981 (Neal C. Wilson)
+            </p>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/1904-image-of-papacy/1981.pdf" target="_blank" rel="noopener" class="btn-gold" style="font-size:0.88rem;padding:8px 16px;">View Original Document (PDF)</a>
+              <a href="/books/adventist-history/AdventistReview1981.pdf" target="_blank" rel="noopener" class="btn-outline" style="font-size:0.88rem;padding:8px 16px;">Adventist Review 1981 (Full Issue)</a>
+            </div>
+          </div>
+
+          <p>
+            The path is traceable. From "hold fast and do not receive the marks of Babylon back"
+            (James White, 1847) — to "we are another truly Catholic organization" (1981).
+            That is what happens when a movement stops reforming, incorporates under civil law,
+            adopts Roman hierarchical structures, and trades the commandments of God for the
+            approval of the kingdoms of this world.
+          </p>
+
+          <h3 class="serif" style="color:var(--amber);margin:22px 0 14px;font-size:1.35rem;">The Final Call — Escape While You Can</h3>
+
+          <p>
+            The angel of Revelation 18:1–5 joins the Third Angel's Message with final, earth-lightening
+            power. This is the Loud Cry. It unmasks the corruptions that have entered since 1844 and
+            calls God's people to complete separation. There is no neutral ground.
+          </p>
+
+          <div class="scripture" style="border-color:#f87171;background:rgba(220,80,60,0.07);">
+            <p>"Come out of her, my people, that ye be not partakers of her sins,
+            and that ye receive not of her plagues. For her sins have reached unto heaven,
+            and God hath remembered her iniquities."</p>
+            <cite>— Revelation 18:4–5 (KJV)</cite>
+          </div>
+
+          <div class="egw" style="border-color:rgba(220,80,60,0.35);">
+            <p>"Flee from the Laodicean churches like Lot from Sodom!
+            Their teachings lead to destruction — DEATH! DEATH!! eternal DEATH!!!
+            is on their track."</p>
+            <cite>— Joseph Bates (paraphrase of his Laodicean warning, echoing Flee From Laodicea)</cite>
+          </div>
+
+          <p>
+            Can you join with those who deny God's word? The April 15, 1904 corporate structure
+            became Babylon the moment it was created — a state-recognized, federally registered
+            corporation that joined church and state together, exactly as the Vatican did,
+            exactly as the Church of England did, exactly as every fallen church did before it.
+          </p>
+          <p>
+            The Pilgrims left England in 1620 on the Mayflower to escape that very thing.
+            The call has not changed: <em>Come out of her, my people.</em>
+          </p>
+
+        </div>
+      </article>
+
+      <!-- ===== 1850 CHART ===== -->
+      <section class="chart-section">
+        <h2 class="serif">The 1850 Prophetic Chart</h2>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">
+          The 1850 prophetic chart — prepared by Otis Nichols and used by Captain Joseph Bates —
+          displays the Three Angels' Messages, the heavenly sanctuary, the commandments of God,
+          and the prophetic timeline from Daniel and Revelation. It was the visual foundation
+          upon which the pioneer preachers proclaimed the urgent message after 1844.
+          <em>"Write the vision, and make it plain upon tables, that he may run that readeth it."</em>
+          — Habakkuk 2:2–3.
+        </p>
+
+        <img
+          src="/images/pioneers/1850-prophecy-chart.jpg" loading="eager"
+          alt="1850 Adventist Pioneer Prophetic Chart — Three Angels' Messages, Heavenly Sanctuary, Commandments of God"
+          class="chart-img"
+        />
+
+        <div class="chart-btns">
+          <a href="/books/1850-prophecy-chart/1850-chart.pdf" target="_blank" rel="noopener" class="btn-gold">Open 1850 Chart (PDF)</a>
+          <a href="/books/1850-prophecy-chart/1850ChartExplanation.pdf" target="_blank" rel="noopener" class="btn-outline">Key of Explanation (PDF)</a>
+          <a href="/pioneers/1850-prophecy-chart" class="btn-outline">1850 Chart Biography Page</a>
+        </div>
+
+        <h3 class="serif" style="color:var(--amber);margin-bottom:14px;font-size:1.35rem;">
+          Captain Joseph Bates — Explanation of the 1850 Chart
+        </h3>
+        <p style="color:var(--muted);line-height:1.8;margin-bottom:18px;">
+          Captain Joseph Bates wrote the key of explanation for the 1850 prophetic chart,
+          connecting the Three Angels' Messages, the heavenly sanctuary, and the sealing of the 144,000
+          to the prophetic timeline. Read it below beginning on the first page.
+        </p>
+        <iframe
+          src="/books/1850-prophecy-chart/1850ChartExplanation.pdf#view=FitH&page=1"
+          class="pdf-embed"
+          title="Captain Joseph Bates — 1850 Chart Explanation"
+          loading="lazy"
+        ></iframe>
+        <div class="chart-btns" style="margin-top:14px;">
+          <a href="/books/1850-prophecy-chart/1850ChartExplanation.pdf" target="_blank" rel="noopener" class="btn-gold">Open Full PDF</a>
+          <a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener" class="btn-outline">A Seal of the Living God — Bates (1849)</a>
+        </div>
+      </section>
+
+      <!-- ===== SOURCE DOCUMENTS ===== -->
+      <section class="source-section">
+        <h2 class="serif">Primary Source Documents</h2>
+        <p>
+          The Three Angels' Messages were proclaimed and explained in detail by the historic Adventist pioneers
+          in their books, tracts, sermons, and periodicals. Read them in their own words.
+        </p>
+        <div class="source-links">
+          <a href="/books/james-white/ThePresentTruth.pdf" target="_blank" rel="noopener">The Present Truth — James White (1849–1850) · The foundational periodical establishing the pillars of truth</a>
+          <a href="/books/charles-fitch" target="_blank" rel="noopener">Come Out of Her My People — Charles Fitch (1843) · The Second Angel's Message sermon</a>
+          <a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener">A Seal of the Living God — Captain Joseph Bates (1849) · Seventh-day Sabbath as the seal of the 144,000</a>
+          <a href="/books/1843-prophecy-chart" target="_blank" rel="noopener">The 1843 Prophetic Chart — Fitch &amp; Hale · First Angel's Message visual timeline</a>
+          <a href="/books/1850-prophecy-chart/1850-chart.pdf" target="_blank" rel="noopener">The 1850 Prophetic Chart — Otis Nichols · Three Angels' Messages with sanctuary</a>
+          <a href="/pioneers/captain-joseph-bates">Captain Joseph Bates — Biography &amp; complete works</a>
+          <a href="/april-15-1904-new-organization">April 15, 1904 — The new organization incorporation record</a>
+        </div>
+      </section>
+
+    </div><!-- /layout -->
+  </main>
+
+  <footer>
+    <a href="/">Home</a>
+    <a href="/pioneers">Pioneer Library</a>
+    <a href="/books">Books</a>
+    <a href="/prophecy-charts">Prophecy Charts</a>
+    <a href="/pioneers/1843-prophecy-chart">1843 Chart</a>
+    <a href="/pioneers/1850-prophecy-chart">1850 Chart</a>
+    <a href="/prophecy-explained">Prophecy Study</a>
+    <span style="margin-left:10px;">— Revelation 14:12 — Here are they that keep the commandments of God, and the faith of Jesus.</span>
+  </footer>
+
+  <SiteFooter
+    scripture="And I saw another angel fly in the midst of heaven, having the everlasting gospel to preach unto them that dwell on the earth."
+    scriptureRef="Revelation 14:6 (KJV)"
+    pageLinks={[
+      { label: 'Three Angels\u2019 Messages', href: '/books/3angels' },
+      { label: 'The Loud Cry — Revelation 18', href: '/loud-cry' },
+      { label: '1843 Prophecy Chart', href: '/pioneers/1843-prophecy-chart' },
+      { label: 'Prophecy Explained', href: '/prophecy-explained' }
+    ]}
+  />
+
+  <ShareBar />
+
+  <SiteSearch />
+</body>
+</html>

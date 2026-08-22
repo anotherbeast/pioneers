@@ -1,0 +1,170 @@
+---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+
+// Page meta
+const page = {
+  title: "White Estate Secrecy: Gehazi’s Greed and the Leprosy of Naaman",
+  description: "A biblical comparison of Gehazi’s greed in 2 Kings 5 to the unfaithful acts of the White Estate Inc. trustees after Ellen White’s death—contrasting the trademarking and corporatization of her literary works with the prophetic warning against spiritual Babylon.",
+  image: "/images/pioneers/ellen-white.jpg",
+  url: "https://sundaylaw.com/white-estate-secrecy"
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>{page.title} | SundayLaw.com</title>
+    <meta name="description" content={page.description}>
+    <meta property="og:title" content={page.title + ' | SundayLaw.com'}>
+    <meta property="og:description" content={page.description}>
+    <meta property="og:image" content={page.image}>
+    <meta property="og:type" content="article">
+    <meta property="og:url" content={page.url}>
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content={page.title + ' | SundayLaw.com'}>
+    <meta name="twitter:description" content={page.description}>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: #0a0a2e; overflow-x: hidden; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+      .featured-hero {
+        max-width: 900px;
+        margin: 0 auto;
+        padding: 56px 24px 32px;
+        text-align: center;
+      }
+      .featured-hero img {
+        max-width: 180px;
+        border-radius: 12px;
+        box-shadow: 0 4px 24px rgba(0,0,0,0.18);
+        margin-bottom: 24px;
+      }
+      .featured-title {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2.1rem, 5vw, 2.8rem);
+        font-weight: 700;
+        color: var(--gold-soft);
+        margin-bottom: 12px;
+      }
+      .featured-desc {
+        font-size: 1.18rem;
+        color: var(--ink-muted);
+        margin-bottom: 28px;
+      }
+      .section {
+        max-width: 900px;
+        margin: 0 auto 36px;
+        padding: 0 24px;
+      }
+      .section h2 {
+        font-family: 'Crimson Text', serif;
+        color: var(--gold);
+        font-size: 1.6rem;
+        margin-top: 38px;
+        margin-bottom: 18px;
+        letter-spacing: 0.01em;
+        line-height: 1.22;
+      }
+      .section h3 {
+        font-family: 'Inter', sans-serif;
+        color: var(--gold-soft);
+        font-size: 1.18rem;
+        margin-top: 32px;
+        margin-bottom: 12px;
+        font-weight: 700;
+        letter-spacing: 0.01em;
+      }
+      .section blockquote {
+        border-left: 4px solid var(--gold-soft);
+        margin: 18px 0;
+        padding-left: 18px;
+        color: var(--amber);
+        font-size: 1.1rem;
+        background: rgba(212,165,55,0.07);
+      }
+      .section ul {
+        margin-bottom: 18px;
+        color: var(--gold-soft);
+        font-size: 1.08rem;
+      }
+      .section .wow {
+        color: var(--amber);
+        font-weight: 700;
+        font-size: 1.13rem;
+        margin: 18px 0;
+      }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+    <main>
+      <section class="featured-hero">
+        <img src="/images/pioneers/ellen-white.jpg" alt="Ellen White" loading="eager" />
+        <h1 class="featured-title">White Estate Secrecy: Gehazi’s Greed and the Leprosy of Naaman</h1>
+        <div class="featured-desc">A biblical comparison of Gehazi’s greed in 2 Kings 5 to the unfaithful acts of the White Estate Inc. trustees after Ellen White’s death—contrasting the trademarking and corporatization of her literary works with the prophetic warning against spiritual Babylon.</div>
+        {/* ShareBar removed from hero section; only present at bottom */}
+      </section>
+      <section class="section">
+        <h2>Gehazi’s Greed and the Leprosy of Naaman</h2>
+        <p>In the biblical account of 2 Kings 5, Gehazi, the servant of the prophet Elisha, becomes the “unfaithful servant” who sought personal gain from the healing of Naaman, the commander of the Aramean army.</p>
+        <h3>The Healing of Naaman</h3>
+        <p style="margin-bottom:22px;">Naaman, a leper, sought healing from Elisha after hearing of the prophet’s miracles. Elisha instructed him to dip in the Jordan River seven times, and he was miraculously cured. In gratitude, Naaman offered Elisha gifts, but Elisha refused, declaring that the healing was an act of God, not a service for profit.</p>
+        <h3>Gehazi’s Deceit</h3>
+        <p style="margin-bottom:22px;">Gehazi, seeing an opportunity, ran after Naaman and lied, claiming Elisha had sent him to give two young prophets from Ephraim a talent of silver and two sets of clothing. Naaman, unaware of the deception, generously gave Gehazi two talents of silver and two sets of clothing. Gehazi hid the gifts and later lied to Elisha, saying he had gone nowhere.</p>
+        <h3>Elisha’s Rebuke and Punishment</h3>
+        <blockquote style="margin-bottom:22px;">“Was not my spirit with you when the man got down from his chariot to meet you? Is this the time to take money or to accept clothes, olive groves, vineyards, flocks, herds, or menservants and maidservants?” (2 Kings 5:26). He pronounced that “Naaman’s leprosy shall cling to you and to your descendants forever” (2 Kings 5:27). Immediately, Gehazi was struck with leprosy, described as “white as snow.”</blockquote>
+        <ul>
+          <li><span style="color:var(--gold-soft);font-weight:600;">Greed over faith:</span> Gehazi’s actions show that material gain can corrupt even those in God’s service.</li>
+          <li><span style="color:var(--gold-soft);font-weight:600;">God sees the heart:</span> Elisha’s prophetic insight exposed Gehazi’s deceit.</li>
+          <li><span style="color:var(--gold-soft);font-weight:600;">Grace is free:</span> The healing was not for sale, and God’s blessings are not meant to be bought.</li>
+          <li><span style="color:var(--gold-soft);font-weight:600;">Consequences of dishonesty:</span> Gehazi’s punishment was both physical (leprosy) and social (ostracism), underscoring the seriousness of lying to God’s servants.</li>
+        </ul>
+      </section>
+      <section class="section">
+        <h2>Application to the White Estate Inc. and Ellen White’s Literary Works</h2>
+        <div class="wow">After Ellen White’s death, her literary works were trademarked and placed into a corporation—White Estate, Inc.—operating under the legal machinery of the General Conference. This act of corporatization and trademarking is a modern parallel to Gehazi’s greed: what was freely given by God for the benefit of all has been turned into a tool for institutional control and profit.</div>
+        <blockquote><span style="color:var(--amber);font-weight:600;">Babylon = Antichrist:</span> The act of trademarking and corporatizing the Spirit of Prophecy writings is a fulfillment of the warning against spiritual Babylon—church and state union, and the merchandising of God’s gifts. This is a betrayal of the original trust and a warning to all who would repeat Gehazi’s error.</blockquote>
+        <div class="wow" style="font-weight:500;">The unfaithful acts of the trustees of the White Estate Inc. since Ellen White’s death stand as a cautionary tale: God’s grace, truth, and prophetic message are not for sale, and those who seek to profit from them risk spiritual leprosy and separation from God’s people.</div>
+      </section>
+      <section class="section">
+        <div style="margin-top:32px;font-size:1.05rem;color:#fcd34d;font-weight:600;">This is not just history—this is a living warning. Share and spread the truth while you can.</div>
+        <div style="margin-top:28px;display:flex;flex-wrap:wrap;gap:16px;justify-content:center;">
+          <a href="/pioneers/arthur-grosvenor-daniells" class="btn-gold" style="display:inline-block;padding:13px 28px;background:var(--gold);color:#111;font-weight:700;border-radius:8px;font-size:1.02rem;text-decoration:none;">
+            Arthur Daniells Bio<br/>
+            <span style="display:block;font-size:0.97rem;font-weight:500;color:#b45309;">Architect of the 1904 Corporation<br/>Repeatedly rejected Ellen White's counsel</span>
+          </a>
+          <a href="/pioneers/ellen-white" class="btn-outline" style="display:inline-block;padding:13px 28px;background:transparent;color:var(--gold);font-weight:700;border:2px solid var(--gold);border-radius:8px;font-size:1.02rem;text-decoration:none;">See also: Ellen White Bio</a>
+          <a href="/apostasy" class="btn-outline" style="display:inline-block;padding:13px 28px;background:transparent;color:var(--gold);font-weight:700;border:2px solid var(--gold);border-radius:8px;font-size:1.02rem;text-decoration:none;">Apostasy: Resume of Betrayal</a>
+          <a href="/april-15-1904-new-organization" class="btn-outline" style="display:inline-block;padding:13px 28px;background:transparent;color:var(--gold);font-weight:700;border:2px solid var(--gold);border-radius:8px;font-size:1.02rem;text-decoration:none;">1904 Record: The New Organization</a>
+          <a href="/1904-signers" class="btn-outline" style="display:inline-block;padding:13px 28px;background:transparent;color:var(--gold);font-weight:700;border:2px solid var(--gold);border-radius:8px;font-size:1.02rem;text-decoration:none;">The Five Who Signed Away Adventism</a>
+          <a href="/apostasy/corporations" class="btn-outline" style="display:inline-block;padding:13px 28px;background:transparent;color:var(--gold);font-weight:700;border:2px solid var(--gold);border-radius:8px;font-size:1.02rem;text-decoration:none;">GC-SDA Corporate Empire</a>
+        </div>
+      </section>
+      <div style="margin: 36px 0 0 0; text-align: center;">
+        <ShareBar />
+      </div>
+    </main>
+    <SiteFooter />
+  </body>
+</html>

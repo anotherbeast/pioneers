@@ -1,0 +1,1939 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>The Loud Cry — Come Out of Her, My People | Revelation 18:4 | SundayLaw.com</title>
+    <meta name="description" content="The Loud Cry of Revelation 18:4 is heaven's final call to come out of Babylon. As the Midnight Cry joined the Second Angel in 1844, so the Loud Cry joins the Third Angel at the end. The corruptions since October 22, 1844 — church and state united April 15, 1904 — the Image of the Beast.">
+    <meta name="keywords" content="Loud Cry, Revelation 18:4, Come Out of Her, Babylon, Second Angel, Third Angel, Midnight Cry, 1904, Image of the Beast, 501c3, SDA corporation, General Conference">
+    <meta property="og:title" content="The Loud Cry — Come Out of Her, My People | Revelation 18:4">
+    <meta property="og:description" content="Heaven's final amplified call: Come out of Babylon. The pattern of the Midnight Cry + Second Angel repeated in the Loud Cry + Third Angel. The corruptions since 1844 exposed.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/loud-cry">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <link rel="canonical" href="https://sundaylaw.com/loud-cry">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Loud Cry — Come Out of Her, My People",
+      "description": "The Loud Cry of Revelation 18:4 joins the Third Angel's Message just as the Midnight Cry joined the Second Angel in 1844 — a final call out of Babylon, exposing the corruptions since October 22, 1844.",
+      "publisher": { "@type": "Organization", "name": "SundayLaw.com" },
+      "url": "https://sundaylaw.com/loud-cry"
+    }
+    </script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;0,700;1,400;1,600&display=swap" rel="stylesheet">
+
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --crimson: #b91c1c;
+        --crimson-soft: #ef4444;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--ink);
+        background: #0a0a2e;
+        overflow-x: hidden;
+      }
+
+      .serif { font-family: 'Crimson Text', serif; }
+      .gold { color: var(--gold); }
+      .text-gold { color: var(--gold-soft); }
+      .text-red { color: #f87171; }
+      .text-crimson { color: #fca5a5; }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(5,5,30,0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+
+      .nav-row {
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+      }
+
+      .nav-row-top {
+        gap: 28px;
+        height: 62px;
+        border-bottom: 1px solid rgba(212,165,55,0.10);
+      }
+
+      .nav-row-bottom {
+        gap: 22px;
+        height: 42px;
+        font-size: 0.82rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-brand {
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+      }
+
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+
+      .nav-link {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        transition: color 0.18s;
+      }
+
+      .nav-link:hover { color: var(--gold-soft); }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        height: 38px;
+        padding: 0 18px;
+        border-radius: 8px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.88rem;
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: background 0.18s;
+      }
+
+      .nav-cta:hover { background: var(--gold-soft); }
+
+      .nav-bottom-link {
+        color: rgba(156,163,175,0.8);
+        text-decoration: none;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.18s;
+        flex-shrink: 0;
+      }
+
+      .nav-bottom-link:hover { color: var(--gold-soft); }
+      .nav-bottom-link.active { color: #fca5a5; }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+        cursor: pointer;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 14px 22px 18px;
+        background: rgba(5,5,30,0.97);
+      }
+
+      .mobile-nav.open { display: grid; gap: 6px; }
+
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+        background: linear-gradient(135deg, #1a0000 0%, #2d0505 30%, #0a0a2e 70%, #050518 100%);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 30%, rgba(185,28,28,0.22) 0%, transparent 65%);
+      }
+
+      .hero-overlay2 {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center bottom, rgba(212,165,55,0.06), transparent 55%);
+      }
+
+      .hero-stripe {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--crimson), rgba(212,165,55,0.6), var(--crimson), transparent);
+        z-index: 3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 960px;
+        padding: 80px 28px 110px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(239,68,68,0.4);
+        background: rgba(185,28,28,0.12);
+        color: #fca5a5;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 28px;
+      }
+
+      .hero h1 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(3.4rem, 10vw, 7.5rem);
+        font-weight: 700;
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+        color: #fef3c7;
+        text-shadow: 0 4px 40px rgba(185,28,28,0.5), 0 2px 20px rgba(0,0,0,0.7);
+        margin-bottom: 18px;
+      }
+
+      .hero h1 .red { color: #f87171; }
+      .hero h1 .gold { color: var(--gold); }
+
+      .hero-subtitle {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.5rem, 3.5vw, 2.3rem);
+        color: rgba(254,243,199,0.82);
+        margin-bottom: 22px;
+        font-style: italic;
+      }
+
+      .hero-verse {
+        display: inline-block;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        font-style: italic;
+        color: rgba(254,243,199,0.9);
+        border: 1px solid rgba(239,68,68,0.3);
+        background: rgba(185,28,28,0.1);
+        padding: 18px 28px;
+        border-radius: 14px;
+        margin-bottom: 36px;
+        max-width: 700px;
+      }
+
+      .hero-verse cite {
+        display: block;
+        margin-top: 8px;
+        color: #fca5a5;
+        font-size: 0.88rem;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 52px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        background: var(--crimson);
+        color: #fff;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.2s;
+        border: none;
+      }
+
+      .btn-primary:hover { background: var(--crimson-soft); transform: translateY(-2px); }
+
+      .btn-gold {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .btn-gold:hover { background: var(--gold-soft); transform: translateY(-2px); }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        border: 1px solid rgba(254,243,199,0.3);
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        background: rgba(255,255,255,0.04);
+        transition: all 0.2s;
+      }
+
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      .btn-sm {
+        height: 40px;
+        padding: 0 18px;
+        font-size: 0.85rem;
+      }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+        padding-top: 38px;
+        border-top: 1px solid rgba(239,68,68,0.2);
+      }
+
+      .hero-stat .num {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2.8rem, 6vw, 4.2rem);
+        font-weight: 600;
+        color: #f87171;
+        line-height: 1;
+      }
+
+      .hero-stat .label {
+        font-size: 0.78rem;
+        color: var(--ink-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 6px;
+        max-width: 130px;
+      }
+
+      /* ===== SECTIONS ===== */
+      .section { padding: 80px 22px; position: relative; }
+
+      .section-dark {
+        background: linear-gradient(to bottom, #0a0a2e, #080828, #0a0a2e);
+      }
+
+      .section-warm {
+        background: linear-gradient(to bottom, #0a0a2e, #100820, #0a0a2e);
+      }
+
+      .section-crimson {
+        background: linear-gradient(to bottom, #0a0a2e, #1a0505, #0a0a2e);
+      }
+
+      .section-inner { max-width: 1200px; margin: 0 auto; }
+      .section-narrow { max-width: 920px; margin: 0 auto; }
+
+      .section-stripe-top {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(to right, transparent, rgba(212,165,55,0.35), transparent);
+      }
+
+      .section-stripe-red {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(to right, transparent, rgba(185,28,28,0.6), transparent);
+      }
+
+      /* ===== SECTION HEADINGS ===== */
+      .sh { text-align: center; margin-bottom: 52px; }
+
+      .sh-eyebrow {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(212,165,55,0.1);
+        border: 1px solid rgba(212,165,55,0.28);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+
+      .sh-eyebrow-red {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(185,28,28,0.12);
+        border: 1px solid rgba(239,68,68,0.3);
+        color: #fca5a5;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+
+      .sh h2 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.15;
+      }
+
+      .sh p {
+        margin-top: 14px;
+        color: var(--ink-muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sh-deco {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .sh-line { height: 1px; width: 52px; background: rgba(212,165,55,0.4); }
+      .sh-line-red { height: 1px; width: 52px; background: rgba(185,28,28,0.5); }
+
+      .sh-star { width: 16px; height: 16px; color: var(--gold); }
+      .sh-star-red { width: 16px; height: 16px; color: #f87171; }
+
+      /* ===== QUOTE BLOCKS ===== */
+      .qb {
+        border-left: 4px solid rgba(212,165,55,0.5);
+        padding: 20px 20px 20px 24px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 22px;
+        background: rgba(212,165,55,0.06);
+      }
+
+      .qb p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.12rem;
+        line-height: 1.75;
+        color: rgba(254,243,199,0.92);
+        font-style: italic;
+        margin: 0;
+      }
+
+      .qb cite {
+        display: block;
+        margin-top: 10px;
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .qb-red {
+        border-left-color: rgba(239,68,68,0.5);
+        background: rgba(185,28,28,0.07);
+      }
+
+      .qb-red p { color: rgba(254,243,199,0.88); }
+      .qb-red cite { color: #fca5a5; }
+
+      /* ===== EGW STYLE ===== */
+      .egw {
+        border-left: 4px solid rgba(212,165,55,0.5);
+        padding: 20px 20px 20px 26px;
+        border-radius: 0 12px 12px 0;
+        margin: 22px 0;
+        background: linear-gradient(135deg, rgba(20,20,60,0.7), rgba(10,10,48,0.7));
+        border: 1px solid rgba(212,165,55,0.18);
+        border-left: 4px solid rgba(212,165,55,0.55);
+      }
+
+      .egw p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.1rem;
+        line-height: 1.8;
+        color: rgba(254,243,199,0.9);
+        font-style: italic;
+        margin: 0;
+      }
+
+      .egw cite {
+        display: block;
+        margin-top: 10px;
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      /* ===== PATTERN TABLE ===== */
+      .pattern-table {
+        width: 100%;
+        border-collapse: separate;
+        border-spacing: 0 8px;
+        margin: 32px 0;
+      }
+
+      .pattern-table th {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.05rem;
+        font-weight: 700;
+        color: var(--gold-soft);
+        text-align: left;
+        padding: 14px 18px;
+        border-bottom: 2px solid rgba(212,165,55,0.3);
+        background: rgba(10,10,46,0.9);
+      }
+
+      .pattern-table td {
+        padding: 16px 18px;
+        font-size: 0.95rem;
+        line-height: 1.7;
+        color: var(--ink-muted);
+        background: rgba(20,20,68,0.5);
+      }
+
+      .pattern-table tr td:first-child { border-radius: 10px 0 0 10px; border-left: 3px solid rgba(212,165,55,0.3); }
+      .pattern-table tr td:last-child { border-radius: 0 10px 10px 0; }
+      .pattern-table .row-red td { background: rgba(40,5,5,0.5); }
+      .pattern-table .row-red td:first-child { border-left-color: rgba(239,68,68,0.4); }
+      .pattern-table td strong { color: #fef3c7; }
+      .pattern-table .tag {
+        display: inline-block;
+        padding: 3px 10px;
+        border-radius: 999px;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .tag-gold { background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.35); color: var(--gold-soft); }
+      .tag-red { background: rgba(185,28,28,0.15); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; }
+
+      /* ===== FEATURE CARDS ===== */
+      .feature-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .feature-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 28px 24px;
+        background: linear-gradient(135deg, rgba(20,20,68,0.8), rgba(10,10,48,0.8));
+        transition: all 0.25s;
+      }
+
+      .feature-card:hover {
+        border-color: rgba(212,165,55,0.45);
+        transform: translateY(-3px);
+      }
+
+      .feature-card.red-card {
+        border-color: rgba(185,28,28,0.3);
+        background: linear-gradient(135deg, rgba(40,5,5,0.8), rgba(10,10,48,0.8));
+      }
+
+      .feature-card.red-card:hover { border-color: rgba(239,68,68,0.5); }
+
+      .feature-card .fc-icon {
+        font-size: 2.2rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .feature-card h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #fef3c7;
+        margin-bottom: 10px;
+      }
+
+      .feature-card p {
+        color: var(--ink-muted);
+        font-size: 0.95rem;
+        line-height: 1.75;
+      }
+
+      /* ===== COMPARE BOXES ===== */
+      .compare-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; margin-bottom: 32px; }
+
+      .compare-box {
+        border-radius: 16px;
+        padding: 28px 24px;
+        border: 2px solid;
+      }
+
+      .compare-gold {
+        border-color: rgba(212,165,55,0.45);
+        background: linear-gradient(135deg, rgba(28,20,0,0.75), rgba(10,10,48,0.85));
+      }
+
+      .compare-red {
+        border-color: rgba(220,50,50,0.4);
+        background: linear-gradient(135deg, rgba(40,5,5,0.75), rgba(10,10,48,0.85));
+      }
+
+      .compare-label {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      .label-gold { background: rgba(212,165,55,0.14); border: 1px solid rgba(212,165,55,0.4); color: var(--gold-soft); }
+      .label-red { background: rgba(220,50,50,0.12); border: 1px solid rgba(220,50,50,0.4); color: #f87171; }
+
+      .compare-box h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      .compare-box ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 9px;
+      }
+
+      .compare-box ul li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: var(--ink-muted);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .compare-box ul li::before { content: '›'; color: var(--gold); flex-shrink: 0; font-weight: 700; }
+      .compare-red ul li::before { color: #f87171; }
+      .compare-result {
+        margin-top: 16px;
+        padding: 10px 14px;
+        border-radius: 8px;
+        font-size: 0.88rem;
+        font-weight: 700;
+        text-align: center;
+      }
+      .result-gold { background: rgba(212,165,55,0.12); color: var(--gold-soft); border: 1px solid rgba(212,165,55,0.28); }
+      .result-red { background: rgba(220,50,50,0.1); color: #f87171; border: 1px solid rgba(220,50,50,0.25); }
+
+      /* ===== SQ (QUOTE/SCRIPTURE BOXES) ===== */
+      .sq {
+        border-radius: 14px;
+        padding: 24px 22px;
+        margin-bottom: 20px;
+      }
+
+      .sq-gold {
+        background: rgba(212,165,55,0.08);
+        border: 1px solid rgba(212,165,55,0.28);
+      }
+
+      .sq-dark {
+        background: linear-gradient(135deg, rgba(20,20,68,0.7), rgba(10,10,46,0.8));
+        border: 1px solid rgba(255,255,255,0.06);
+      }
+
+      .sq-red {
+        background: rgba(185,28,28,0.09);
+        border: 1px solid rgba(239,68,68,0.25);
+      }
+
+      .sq p, .sq blockquote {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.06rem;
+        line-height: 1.8;
+        color: rgba(254,243,199,0.9);
+        font-style: italic;
+        margin: 0;
+      }
+
+      .sq h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.25rem;
+        font-weight: 600;
+        color: #fef3c7;
+        margin-bottom: 12px;
+      }
+
+      .sq cite {
+        display: block;
+        margin-top: 10px;
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .sq-red cite { color: #fca5a5; }
+
+      /* ===== PDF DOCUMENT GRID ===== */
+      .doc-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+        gap: 18px;
+        margin-top: 32px;
+      }
+
+      .doc-card {
+        background: linear-gradient(135deg, rgba(20,20,68,0.82), rgba(10,10,48,0.85));
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 22px 18px;
+        transition: all 0.25s;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .doc-card:hover {
+        border-color: rgba(212,165,55,0.45);
+        transform: translateY(-2px);
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+      }
+
+      .doc-card-icon {
+        font-size: 1.8rem;
+      }
+
+      .doc-card h4 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.35;
+        flex: 1;
+      }
+
+      .doc-card .doc-desc {
+        font-size: 0.86rem;
+        color: var(--ink-muted);
+        line-height: 1.6;
+      }
+
+      .doc-card .doc-actions {
+        display: flex;
+        gap: 8px;
+        flex-wrap: wrap;
+        margin-top: 6px;
+      }
+
+      .doc-btn {
+        display: inline-flex;
+        align-items: center;
+        height: 34px;
+        padding: 0 14px;
+        border-radius: 8px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.18s;
+      }
+
+      .doc-btn-gold {
+        background: var(--gold);
+        color: #111;
+      }
+
+      .doc-btn-gold:hover { background: var(--gold-soft); }
+
+      .doc-btn-outline {
+        border: 1px solid rgba(212,165,55,0.3);
+        color: var(--ink-muted);
+        background: transparent;
+      }
+
+      .doc-btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      .doc-featured {
+        grid-column: span 2;
+        border-color: rgba(212,165,55,0.4);
+        background: linear-gradient(135deg, rgba(30,24,0,0.85), rgba(10,10,48,0.9));
+      }
+
+      /* ===== CALLOUT BOX ===== */
+      .callout {
+        border: 2px solid rgba(239,68,68,0.55);
+        border-radius: 16px;
+        padding: 28px 26px;
+        background: linear-gradient(135deg, rgba(40,5,5,0.85), rgba(10,10,48,0.9));
+        box-shadow: 0 0 40px rgba(185,28,28,0.18);
+        margin: 32px 0;
+      }
+
+      .callout h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.5rem;
+        font-weight: 700;
+        color: #fff;
+        margin-bottom: 14px;
+      }
+
+      .callout p {
+        color: #d1d5db;
+        font-size: 1rem;
+        line-height: 1.85;
+        margin-bottom: 12px;
+      }
+
+      .callout p:last-child { margin-bottom: 0; }
+
+      /* ===== GRID LAYOUTS ===== */
+      .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+      .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 22px; }
+
+      /* ===== EYEBROW ===== */
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        padding: 8px 14px;
+        border-radius: 999px;
+        background: rgba(212,165,55,0.12);
+        border: 1px solid rgba(212,165,55,0.28);
+        color: var(--gold);
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.82rem;
+      }
+
+      .eyebrow-red {
+        background: rgba(185,28,28,0.12);
+        border-color: rgba(239,68,68,0.3);
+        color: #fca5a5;
+      }
+
+      /* ===== SPOTLIGHT WARNING BANNER ===== */
+      .warn-banner {
+        background: linear-gradient(90deg, rgba(127,29,29,0.92), rgba(180,83,9,0.88), rgba(127,29,29,0.92));
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        padding: 20px 28px;
+        text-align: center;
+        border-radius: 14px;
+        margin-bottom: 32px;
+      }
+
+      .warn-banner p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        color: #fff;
+        line-height: 1.5;
+      }
+
+      .warn-banner span { color: var(--gold-soft); }
+
+      /* ===== EXTERNAL CALLOUT (144000.com) ===== */
+      .ext-callout {
+        border: 2px solid rgba(212,165,55,0.45);
+        border-radius: 20px;
+        padding: 36px 32px;
+        text-align: center;
+        background: linear-gradient(135deg, rgba(30,24,0,0.82), rgba(10,10,48,0.9));
+        box-shadow: 0 20px 50px rgba(0,0,0,0.35);
+        margin: 40px 0;
+      }
+
+      .ext-callout h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: #fef3c7;
+        margin-bottom: 14px;
+      }
+
+      .ext-callout p {
+        color: #d1d5db;
+        font-size: 1rem;
+        line-height: 1.85;
+        max-width: 640px;
+        margin: 0 auto 22px;
+      }
+
+      .ext-callout a {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.45rem;
+        font-weight: 700;
+        color: var(--gold);
+        text-decoration: underline;
+        transition: color 0.18s;
+        display: inline-block;
+        margin-bottom: 20px;
+      }
+
+      .ext-callout a:hover { color: var(--gold-soft); }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        background: #050518;
+        border-top: 1px solid rgba(180,130,50,0.2);
+      }
+
+      .footer-banner {
+        text-align: center;
+        padding: 32px 22px 28px;
+        border-bottom: 1px solid rgba(212,165,55,0.12);
+      }
+
+      .footer-banner p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: rgba(254,243,199,0.8);
+        max-width: 700px;
+        margin: 0 auto 8px;
+      }
+
+      .footer-banner cite {
+        font-size: 0.85rem;
+        color: var(--gold-soft);
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .footer-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 22px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-col h4 {
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      .footer-col p { color: #6b7280; font-size: 0.9rem; line-height: 1.75; }
+
+      .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+
+      .footer-col ul a { color: #9ca3af; text-decoration: none; font-size: 0.9rem; transition: color 0.18s; }
+      .footer-col ul a:hover { color: var(--gold-soft); }
+
+      .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+      .footer-brand-name span { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: #fff; }
+      .footer-brand-name span em { color: var(--gold); font-style: normal; }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(212,165,55,0.1);
+        padding: 20px 22px;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .footer-bottom p { color: #6b7280; font-size: 0.85rem; }
+
+      .footer-flags { display: flex; gap: 3px; }
+      .flag-r { width: 22px; height: 14px; background: #b91c1c; border-radius: 2px 0 0 2px; }
+      .flag-w { width: 22px; height: 14px; background: #f3f4f6; }
+      .flag-b { width: 22px; height: 14px; background: #1e3a8a; border-radius: 0 2px 2px 0; }
+
+      .footer-stripe {
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--gold), rgba(185,28,28,0.6), var(--gold), transparent);
+      }
+
+      /* ===== BTT ===== */
+      .btt {
+        position: fixed;
+        bottom: 28px;
+        right: 28px;
+        width: 46px;
+        height: 46px;
+        border-radius: 50%;
+        background: var(--gold);
+        color: #111;
+        border: none;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        opacity: 0;
+        transform: translateY(12px);
+        transition: all 0.25s;
+        z-index: 200;
+      }
+
+      .btt.visible { opacity: 1; transform: none; }
+      .btt:hover { background: var(--gold-soft); }
+
+      /* ===== TIMELINE LIST ===== */
+      .timeline {
+        position: relative;
+        padding-left: 32px;
+        margin: 28px 0;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(to bottom, rgba(239,68,68,0.6), rgba(212,165,55,0.4));
+      }
+
+      .tl-item {
+        position: relative;
+        margin-bottom: 28px;
+      }
+
+      .tl-item::before {
+        content: '';
+        position: absolute;
+        left: -26px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--crimson);
+        border: 2px solid rgba(239,68,68,0.4);
+      }
+
+      .tl-item.gold::before { background: var(--gold); border-color: rgba(212,165,55,0.5); }
+
+      .tl-date {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: #fca5a5;
+        margin-bottom: 4px;
+      }
+
+      .tl-item.gold .tl-date { color: var(--gold-soft); }
+
+      .tl-title {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.15rem;
+        font-weight: 600;
+        color: #fef3c7;
+        margin-bottom: 6px;
+      }
+
+      .tl-desc {
+        color: var(--ink-muted);
+        font-size: 0.93rem;
+        line-height: 1.7;
+      }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1100px) {
+        .menu-btn { display: flex; }
+        .nav-link { display: none; }
+        .nav-cta { display: none; }
+        .nav-row-bottom { display: none; }
+        .feature-grid { grid-template-columns: repeat(2, 1fr); }
+        .footer-main { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 768px) {
+        .compare-grid { grid-template-columns: 1fr; }
+        .grid-2 { grid-template-columns: 1fr; }
+        .grid-3 { grid-template-columns: 1fr; }
+        .feature-grid { grid-template-columns: 1fr; }
+        .doc-featured { grid-column: span 1; }
+        .footer-main { grid-template-columns: 1fr; }
+        .pattern-table { font-size: 0.87rem; }
+      }
+
+      @media (max-width: 480px) {
+        .hero h1 { font-size: 3rem; }
+        .section { padding: 52px 18px; }
+      }
+    </style>
+  </head>
+
+  <body>
+
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-bg">
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay2"></div>
+      </div>
+      <div class="hero-stripe"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Heaven&rsquo;s Final Amplified Warning &mdash; Revelation 18:1&ndash;4
+        </div>
+
+        <h1 class="serif">The <span class="red">Loud</span> <span class="gold">Cry</span></h1>
+        <p class="hero-subtitle">&ldquo;Come Out of Her, My People&rdquo;</p>
+
+        <div class="hero-verse">
+          &ldquo;And I heard another voice from heaven, saying, Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues. For her sins have reached unto heaven, and God hath remembered her iniquities.&rdquo;
+          <cite>&mdash; Revelation 18:4&ndash;5 (KJV)</cite>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#pattern" class="btn-primary">The Two-Message Pattern</a>
+          <a href="#1904" class="btn-gold">April 15, 1904</a>
+          <a href="#evidence" class="btn-outline">The Evidence</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num serif">1844</div>
+            <div class="label">Second Angel + Midnight Cry</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num serif">1904</div>
+            <div class="label">Church &amp; State United</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num serif">Rev. 18</div>
+            <div class="label">Loud Cry Joins Third Angel</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECTION 1: THE AMPLIFICATION PATTERN ===== -->
+    <section id="pattern" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <div class="sh-line"></div>
+          </div>
+          <div class="sh-eyebrow">The Pattern of Heaven</div>
+          <h2 class="serif">The Same Warning &mdash; <span style="color:#f87171;">Amplified</span></h2>
+          <p>The Loud Cry of Revelation 18 is not a new message. It is the same separation call of 1843&ndash;1844, now swelled to a final thunder. Heaven used the same pattern before: the Midnight Cry joined the Second Angel. At the end, the Loud Cry joins the Third Angel.</p>
+        </div>
+
+        <div style="overflow-x:auto;">
+          <table class="pattern-table">
+            <thead>
+              <tr>
+                <th>Era</th>
+                <th>Primary Message</th>
+                <th>Amplifying Cry</th>
+                <th>Result</th>
+                <th>Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td><strong>1843&ndash;1844</strong></td>
+                <td><strong>Second Angel (Rev. 14:8)</strong><br><em style="font-size:0.88rem;color:#d1d5db;">&ldquo;Babylon is fallen, is fallen&rdquo;</em></td>
+                <td><strong>Midnight Cry (Matt. 25:6)</strong><br><em style="font-size:0.88rem;color:#d1d5db;">&ldquo;Behold, the bridegroom cometh; go ye out&rdquo;</em></td>
+                <td>God&rsquo;s people called <strong>OUT</strong> of fallen Protestant churches into the Advent movement</td>
+                <td><span class="tag tag-gold">Matt. 25:6</span></td>
+              </tr>
+              <tr class="row-red">
+                <td><strong>Final Days</strong></td>
+                <td><strong>Third Angel (Rev. 14:9&ndash;12)</strong><br><em style="font-size:0.88rem;color:#d1d5db;">&ldquo;If any man worship the beast&hellip;&rdquo;</em></td>
+                <td><strong>Loud Cry (Rev. 18:1&ndash;4)</strong><br><em style="font-size:0.88rem;color:#d1d5db;">&ldquo;Come out of her, my people&rdquo;</em></td>
+                <td>Honest souls called <strong>OUT</strong> of Babylon&rsquo;s corruption into final readiness for the Bridegroom</td>
+                <td><span class="tag tag-red">Rev. 18:4</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="grid-3" style="margin-top:36px;">
+          <div class="compare-box compare-gold">
+            <span class="compare-label label-gold">The Second Angel</span>
+            <h3 class="serif" style="color:#fef3c7;">Declares the Fall</h3>
+            <p style="color:#d1d5db;line-height:1.8;">Announces the moral fall of Babylon &mdash; the Protestant churches that rejected the first angel&rsquo;s judgment-hour message in 1843&ndash;1844.</p>
+            <div class="compare-result result-gold">"Babylon is fallen, is fallen." — Rev. 14:8</div>
+          </div>
+          <div class="compare-box compare-gold">
+            <span class="compare-label label-gold">The Midnight Cry</span>
+            <h3 class="serif" style="color:#fef3c7;">Calls God&rsquo;s People Out</h3>
+            <p style="color:#d1d5db;line-height:1.8;">Joins the Second Angel with power, awakening the waiting virgins and calling them to go out and meet the Bridegroom before the door closes.</p>
+            <div class="compare-result result-gold">"Go ye out to meet him." — Matt. 25:6</div>
+          </div>
+          <div class="compare-box compare-red">
+            <span class="compare-label label-red">The Loud Cry</span>
+            <h3 class="serif" style="color:#fef3c7;">Final Thunder</h3>
+            <p style="color:#d1d5db;line-height:1.8;">Joins the Third Angel at the end with greater light and power, warning honest souls still inside corrupt systems to come out before the plagues fall.</p>
+            <div class="compare-result result-red">"Come out of her, my people." — Rev. 18:4</div>
+          </div>
+        </div>
+
+        <div class="egw" style="margin-top:36px;">
+          <p>&ldquo;The message of the fall of Babylon, as given by the second angel, is repeated, with the additional mention of the corruptions which have been entering the churches since 1844. The work of this angel comes in at the right time to join in the last great work of the third angel&rsquo;s message as it swells to a loud cry.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Early Writings</em>, p. 277.1</cite>
+        </div>
+
+        <div class="egw">
+          <p>&ldquo;This message seemed to be an addition to the third message, joining it as the midnight cry joined the second angel&rsquo;s message in 1844&hellip; proclaiming the fall of Babylon and calling upon God&rsquo;s people to come out of her.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Early Writings</em>, p. 277.2</cite>
+        </div>
+
+        <div class="egw">
+          <p>&ldquo;When the messages of the three angels come prominently before the world again just before the second advent of Christ, the angel of Revelation 18:1 joins in the proclamation of the second angel in the message that &lsquo;Babylon is fallen.&rsquo; &lsquo;Come out of her, my people.&rsquo;&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Early Writings</em>, Appendix, p. 304.1</cite>
+        </div>
+
+        <div class="egw">
+          <p>&ldquo;The image to the beast represents <strong>ANOTHER religious body clothed with similar powers.</strong>&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>The Story of Redemption</em>, p. 381:2; <em>The Spirit of Prophecy</em>, Vol. 4, p. 277.2</cite>
+        </div>
+
+        <div class="egw">
+          <p>Babylon = &ldquo;<strong>religious bodies that were once pure and have become corrupt.</strong>&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>The Great Controversy</em>, p. 382.3</cite>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 2: WHAT WAS CALLED OUT, AND WHAT THE LOUD CRY EXPOSES ===== -->
+    <section id="backsliding" class="section section-warm">
+      <div class="section-stripe-red"></div>
+      <div class="section-inner">
+
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line-red"></div>
+            <svg class="sh-star-red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <div class="sh-line-red"></div>
+          </div>
+          <div class="sh-eyebrow-red">The Danger of Return</div>
+          <h2 class="serif">Do Not Go <span style="color:#f87171;">Back</span></h2>
+          <p>The Third Angel&rsquo;s Message is a warning not to backslide into the very errors the pioneers cast off during the Second Angel&rsquo;s Cry in 1843&ndash;1844. The Loud Cry exposes the corruptions that have entered the churches since October 22, 1844.</p>
+        </div>
+
+        <div class="warn-banner">
+          <p>&ldquo;The third angel&rsquo;s message was, and still is, a WARNING to the saints to &lsquo;hold fast,&rsquo; and not go back, and <strong>&lsquo;receive&rsquo; THE MARKS which the virgin band got rid of, during the second angel&rsquo;s cry.&rdquo;</strong></p>
+          <p style="margin-top:12px;font-size:1rem;color:#fcd34d;font-style:normal;">— James White, <em>A Word to the Little Flock</em>, p. 11</p>
+        </div>
+
+        <div class="grid-2" style="margin-top:32px;">
+          <div>
+            <div class="sq sq-dark">
+              <h3 class="serif">What Was Cast Off in 1843&ndash;1844</h3>
+              <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;">The early Advent movement separated from errors the Protestant Reformation had failed to fully leave behind. James White named them plainly:</p>
+            </div>
+            <div class="sq sq-gold" style="margin-top:0;">
+              <p>&ldquo;The greatest fault we can find in the Reformation is, the Reformers stopped reforming. Had they gone on, and onward, till they had left the last vestige of Papacy behind &mdash; such as natural immortality, sprinkling, the trinity, and Sunday-keeping &mdash; the church would now be free from her unscriptural errors.&rdquo;</p>
+              <cite>&mdash; James White, <em>Review &amp; Herald</em>, February 7, 1856, Vol. 7, No. 19, p. 148</cite>
+            </div>
+          </div>
+          <div>
+            <div class="compare-box compare-red" style="height:100%;">
+              <span class="compare-label label-red">Errors to Never Return To</span>
+              <h3 class="serif" style="color:#fef3c7;">The Marks Cast Off in 1844</h3>
+              <ul>
+                <li>Sunday-keeping (man&rsquo;s tradition replacing God&rsquo;s 7th-day Sabbath)</li>
+                <li>Natural immortality of the soul (contrary to Scripture)</li>
+                <li>Sprinkling (replacing immersion baptism)</li>
+                <li>The Trinitarian formula (vestiges of Papal doctrinal residue)</li>
+                <li>Church and State union (the very system the pioneers fled)</li>
+                <li>Corporate political incorporation under civil government</li>
+              </ul>
+              <div class="compare-result result-red">Heaven&rsquo;s command: Do not go back.</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="sq sq-dark" style="margin-top:28px;">
+          <h3 class="serif">The Pattern of Return</h3>
+          <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;">Backsliding is not advancement. It is not &ldquo;maturity.&rdquo; It is not &ldquo;institutional strength.&rdquo; It is the slow, polished, respectable return to what God once called a people to leave. What Heaven exposed, many later excused. What the protest cast off, later generations took back up.</p>
+        </div>
+
+        <div class="egw" style="margin-top:24px;">
+          <p>&ldquo;They had a bright light set up behind them at the first end of the path, which an angel told me was the Midnight Cry&hellip; Others rashly denied the light behind them&hellip; The light behind them went out, leaving their feet in perfect darkness.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Spiritual Gifts</em>, Vol. 2, p. 30.2</cite>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 3: APRIL 15, 1904 ===== -->
+    <section id="1904" class="section section-crimson">
+      <div class="section-stripe-red"></div>
+      <div class="section-inner">
+
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line-red"></div>
+            <svg class="sh-star-red" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <div class="sh-line-red"></div>
+          </div>
+          <div class="sh-eyebrow-red">Documentary Record</div>
+          <h2 class="serif">April 15, 1904 &mdash; <span style="color:#f87171;">The Day It Became Official</span></h2>
+          <p>What began as Laodicean drift in 1845 was crowned on April 15, 1904, in Washington, District of Columbia: the formation of a new corporate church-state entity bearing the historic Adventist name but departing from the pioneer foundations.</p>
+        </div>
+
+        <div class="egw" style="margin-bottom:24px;">
+          <p>&ldquo;Since the time of the Minneapolis meeting [1888], I have seen the state of the Laodicean church as never before&hellip; Like the Jews, many have closed their eyes lest they should see.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Review and Herald</em>, August 26, 1890</cite>
+        </div>
+
+        <div class="callout">
+          <h3 class="serif">The Warning Was Written Before the Event</h3>
+          <p>&ldquo;The enemy of souls has sought to bring in the supposition that a great reformation was to take place among Seventh-day Adventists, and that this reformation would consist in giving up the doctrines which stand as the pillars of our faith, and engaging in a process of reorganization&hellip; <strong>A new organization would be established&hellip;</strong> Books of a new order would be written&hellip; The Sabbath of course, would be lightly regarded&hellip; Nothing would be allowed to stand in the way of the new movement.&rdquo;</p>
+          <p style="margin-top:14px;color:#fca5a5;font-weight:700;">&mdash; Ellen G. White, <em>Selected Messages</em>, Book 1, p. 204 (1SM 204)</p>
+            <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:16px 20px 14px 20px;margin:18px 0 32px 0;">
+              <strong>Warning:</strong> The White Estate Trustees and General Conference leaders have engaged in extensive editing, re-compiling, and adding misleading headers to Ellen White’s writings—especially in books like <em>Evangelism</em>—to make it appear that she supported doctrines and practices she actually warned against. They have taken her words out of context to validate their rejection of truth sent from heaven and to cover their errors and sins. In amazement, people learn that Babylon is the church because of her rejection of the truth sent to her from heaven and her adoption of Rome’s false doctrines, such as the Trinity.
+              <br><br>
+              In 1980, the General Conference formally restored the Trinity doctrine as Fundamental Belief #2, a teaching the original pioneers had thrown out as a papal error. Neal C. Wilson, then president of the General Conference, stated under oath:
+              <br><br>
+              <em>"There is another universal and truly catholic organization, the Seventh-day Adventist Church..."</em> (EEOC vs. Pacific Press Publishing Association and GC, Civil Case #74-2025 CBR, 1974-1975, transcript, p. 4)
+              <br><br>
+              He also testified:
+              <br><br>
+              <em>"Although it is true that there was a period in the life of the Seventh-day Adventist Church when the denomination took a distinctly anti-Roman Catholic viewpoint, and the term 'hierarchy' was used in a pejorative sense to refer to the papal form of church governance, that attitude on the church's part was nothing more than a manifestation of widespread anti-popery among conservative Protestant denominations in the early part of this century and the latter part of the last, and which has now been consigned to the historical trash heap so far as the Seventh-day Adventist Church is concerned."</em> (EEOC vs. Pacific Press Publishing Association and GC, transcript, p. 4)
+              <br><br>
+              The White Estate, Inc.—a church-and-state corporation—has severely edited and changed Ellen White’s books to promote the Trinity and other doctrines the pioneers rejected. Many members have never heard the original warnings. When people ask their pastors about these things, the false shepherds often urge them to remain in their pews and ignore the evidence, working to keep the truth hidden.
+              <br><br>
+              <strong>To read the original, unedited pioneer books, articles, sermons, tracts, and charts, visit the <a href="http://localhost:4321/library">Pioneer Gateway Library</a>.</strong>
+            </div>
+        </div>
+
+        <div class="grid-2" style="margin-top:28px;">
+          <div>
+            <div class="sq sq-dark">
+              <h3 class="serif">The Timeline</h3>
+              <div class="timeline" style="margin-top:16px;">
+                <div class="tl-item gold">
+                  <div class="tl-date">October 22, 1844</div>
+                  <div class="tl-title">Christ Enters the Most Holy Place</div>
+                  <div class="tl-desc">The Third Angel&rsquo;s Message begins. The sealing of the 144,000 commences. The commandments of God and the faith of Jesus stand as present truth.</div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-date">1845 Onward</div>
+                  <div class="tl-title">Laodicean Drift Begins</div>
+                  <div class="tl-desc">The little flock begins to soften. Compromise enters. Errors cast off in 1844 are slowly welcomed back under new names.</div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-date">1867</div>
+                  <div class="tl-title">Ellen White Sees the Catholic Procession</div>
+                  <div class="tl-desc">&ldquo;The company now presented the appearance of a <strong>Catholic procession</strong>.&rdquo; — EGW, <em>Testimonies</em>, Vol. 1, p. 578 (January 29, 1867)</div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-date">April 15, 1904</div>
+                  <div class="tl-title">New Organization Incorporated</div>
+                  <div class="tl-desc">The General Conference Corporation of Seventh-day Adventists is formed in Washington, DC — a civil corporation bearing a Protestant name, married to the state.</div>
+                </div>
+                <div class="tl-item gold">
+                  <div class="tl-date">January, 1950</div>
+                  <div class="tl-title">EIN 52-0643036 Assigned</div>
+                  <div class="tl-desc">The parent organization is classified as a 501(c)(3) corporation with a federal tax number — recognized and sustained by the systems of this world.</div>
+                </div>
+                <div class="tl-item">
+                  <div class="tl-date">1981</div>
+                  <div class="tl-title">Open Confession</div>
+                  <div class="tl-desc">&ldquo;There is another universal and truly <strong>Catholic organization</strong>, the Seventh-day Adventist Church.&rdquo; — Neal C. Wilson, 1981</div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="sq sq-red" style="margin-bottom:18px;">
+              <h3 class="serif" style="color:#fca5a5;">501(c)(3) = Church and State Married</h3>
+              <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;">A 501(c)(3) designation is issued by the federal government. It places a religious organization under the authority, rules, and oversight of civil power — the very definition of the union of church and state that the Revelation 13 beast represents.</p>
+              <ul style="list-style:none;padding:0;margin-top:12px;display:grid;gap:8px;">
+                <li style="color:#d1d5db;font-size:0.93rem;display:flex;gap:8px;"><span style="color:#f87171;font-weight:700;">›</span>Church submits to state rules for tax exemption</li>
+                <li style="color:#d1d5db;font-size:0.93rem;display:flex;gap:8px;"><span style="color:#f87171;font-weight:700;">›</span>Civil government grants and can revoke the status</li>
+                <li style="color:#d1d5db;font-size:0.93rem;display:flex;gap:8px;"><span style="color:#f87171;font-weight:700;">›</span>Church becomes a registered, regulated business entity</li>
+                <li style="color:#d1d5db;font-size:0.93rem;display:flex;gap:8px;"><span style="color:#f87171;font-weight:700;">›</span>Controls thousands of subsidiary businesses under its parent structure</li>
+              </ul>
+            </div>
+
+            <div class="sq sq-dark">
+              <h3 class="serif">Like Korah, Dathan, and Abiram</h3>
+              <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;">This corporate rebellion bears a striking resemblance to Korah, Dathan, and Abiram in Numbers 16 — men who challenged Heaven&rsquo;s order while pretending to honor it. In many respects, Elder James White stood to the Advent movement as Moses stood to Israel: a leading laborer, a protester, a standard-bearer. Yet after the pioneer era, rebellious leadership steered many into Laodicean softness, policy, machinery, and compromise.</p>
+            </div>
+
+            <div class="sq sq-gold">
+              <p>&ldquo;As is the mother, so is her daughter.&rdquo;</p>
+              <cite>&mdash; Ezekiel 16:44 (KJV)</cite>
+            </div>
+
+            <div class="sq sq-dark">
+              <p>&ldquo;The desolation of Jerusalem [in 70 AD] stands as a solemn warning before the eyes of modern Israel [Adventists].&rdquo;</p>
+              <cite>&mdash; Ellen G. White</cite>
+            </div>
+          </div>
+        </div>
+
+        <!-- 1904 KEY DOCUMENTS -->
+        <div class="sh" style="margin-top:52px;">
+          <div class="sh-eyebrow">Primary Documents</div>
+          <h2 class="serif">The 1904 Corporate Record &mdash; Read It Yourself</h2>
+        </div>
+
+        <div class="doc-grid">
+          <div class="doc-card doc-featured">
+            <div class="doc-card-icon">📜</div>
+            <h4>General Conference Corporation Articles of Incorporation &mdash; April 15, 1904</h4>
+            <p class="doc-desc">The founding articles forming the General Conference Corporation of Seventh-day Adventists in Washington, DC on April 15, 1904 — the church-state merger that the pioneers warned against.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/general-conference-corporation-1904-articles-of-incorporation-sda-church-state-merger-babylon-falling-144000-ado.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+              <a href="/books/1904-image-of-papacy/1904.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">1904 Record</a>
+              <a href="/books/1904-image-of-papacy/1904SDA.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">1904 SDA Doc</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🏛️</div>
+            <h4>SDA Yearbook — January 1, 1905</h4>
+            <p class="doc-desc">The 1905 Yearbook listing the newly incorporated General Conference Corporation structure.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">⛓️</div>
+            <h4>501(c)(3) Corporations — Babylon Since 1904</h4>
+            <p class="doc-desc">Documents exposing the 501(c)(3) incorporation structure and its relationship to Babylon as described in Revelation 18.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/501c3-GC-SDA-CORPORATIONS-BABYLON-since-1904.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🔥</div>
+            <h4>Babylon SDA — The Betrayal Exposed</h4>
+            <p class="doc-desc">Ellen White&rsquo;s articles of incorporation warnings and the paper church betrayal of the original adventist platform explained.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/babylon-sda-paper-church-betrayal-ellen-white-articles-of-incorporation-1904-original-adventist-platform.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">⚰️</div>
+            <h4>Death of the General Conference 1904</h4>
+            <p class="doc-desc">A spiritual epitaph for the original Adventism — how the General Conference died spiritually in 1904 when it became a civil corporation.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/death-of-general-conference-1904-spiritual-epitaph-modern-adventism.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🔓</div>
+            <h4>GC-SDA 501(c)(3) — Babylon Mask Exposed</h4>
+            <p class="doc-desc">Fire, chains, and incorporation exposed — the mask of Babylon over the General Conference Corporation structure.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/GC-SDA-501c3-Babylon-Mask-Fire-Chains-Incorporation-Exposed.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">📋</div>
+            <h4>1904 SDA Corporation</h4>
+            <p class="doc-desc">The 1904 SDA corporate structure documents showing the formal union with civil power in the District of Columbia.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/1904SDACORPORATION.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">📑</div>
+            <h4>Parent Organization / EIN 52-0643036</h4>
+            <p class="doc-desc">Federal record identifying the General Conference as parent organization with EIN 52-0643036, ruling date January 1950.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/52-0643036-GCOSDA-aka-PARENT-ORGANIZATION-1950-ruling-year.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 4: INSURANCE & INVESTMENTS ===== -->
+    <section id="investments" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <div class="sh-line"></div>
+          </div>
+          <div class="sh-eyebrow">Documentary Proof</div>
+          <h2 class="serif">Insurance, Investments &amp; <span class="gold">Millions</span></h2>
+          <p>When tithes and offerings are placed into stocks, bonds, insurance pools, and corporate portfolios, those sacred funds become participants in everything those corporations do &mdash; including profiting from labor on God&rsquo;s holy Sabbath day.</p>
+        </div>
+
+        <div class="sq sq-red" style="max-width:860px;margin:0 auto 36px;">
+          <h3 class="serif" style="color:#fca5a5;">Not a Widow&rsquo;s Mite &mdash; But Millions</h3>
+          <p style="font-style:normal;color:#d1d5db;line-height:1.9;margin-top:8px;">The record shows assets of <strong style="color:#f87171;">$10,000,000 – $49,999,999+</strong> held by this registered corporate entity. This is not the scattered freewill offering of a little flock. This is a multi-million dollar system handling sacred funds inside worldly markets &mdash; the tithes and offerings of faithful people placed into the very Babylon they are called to come out of.</p>
+          <div style="margin-top:14px;display:flex;gap:14px;flex-wrap:wrap;">
+            <div style="padding:12px 18px;border-radius:10px;background:rgba(0,0,0,0.3);border:1px solid rgba(239,68,68,0.25);text-align:center;">
+              <div style="font-size:1.6rem;font-weight:700;color:#f87171;font-family:'Crimson Text',serif;">EIN</div>
+              <div style="font-size:1.1rem;color:#fca5a5;font-weight:700;">52-0643036</div>
+            </div>
+            <div style="padding:12px 18px;border-radius:10px;background:rgba(0,0,0,0.3);border:1px solid rgba(239,68,68,0.25);text-align:center;">
+              <div style="font-size:1.6rem;font-weight:700;color:#f87171;font-family:'Crimson Text',serif;">Type</div>
+              <div style="font-size:1.1rem;color:#fca5a5;font-weight:700;">Corporation</div>
+            </div>
+            <div style="padding:12px 18px;border-radius:10px;background:rgba(0,0,0,0.3);border:1px solid rgba(239,68,68,0.25);text-align:center;">
+              <div style="font-size:1.6rem;font-weight:700;color:#f87171;font-family:'Crimson Text',serif;">Status</div>
+              <div style="font-size:1.1rem;color:#fca5a5;font-weight:700;">Parent Organization</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div class="sq sq-dark">
+            <div class="eyebrow">Corporate Insurance Record</div>
+            <h3 class="serif">Insurance</h3>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.8;margin-top:8px;">Corporate insurance documents showing the General Conference&rsquo;s participation in institutional financial systems including municipal insurance underwriting &mdash; the kind of financial entanglement EGW warned against.</p>
+            <div style="margin-top:18px;border-radius:14px;overflow:hidden;border:1px solid rgba(180,130,50,0.25);">
+              <iframe
+                src="/books/1904-image-of-papacy/insurance.pdf#view=FitH"
+                title="Corporate Insurance Record"
+                loading="lazy"
+                style="width:100%;height:460px;border:0;background:#fff;">
+              </iframe>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/1904-image-of-papacy/insurance.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Open PDF</a>
+              <a href="/books/1904-image-of-papacy/6-22-25-GC-SDA-underwriting-municipal-insurance.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">Insurance Underwriting</a>
+            </div>
+          </div>
+
+          <div class="sq sq-dark">
+            <div class="eyebrow">Investment Portfolio Evidence</div>
+            <h3 class="serif">Investments</h3>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.8;margin-top:8px;">Investment portfolio documents showing sacred tithe funds placed into stocks, bonds, and corporate portfolios &mdash; the &ldquo;millions&rdquo; that represent departure from the principle of free-will offering in Spirit-led ministry.</p>
+            <div style="margin-top:18px;border-radius:14px;overflow:hidden;border:1px solid rgba(180,130,50,0.25);">
+              <iframe
+                src="/books/1904-image-of-papacy/investments.pdf#view=FitH"
+                title="Investment Portfolio Evidence"
+                loading="lazy"
+                style="width:100%;height:460px;border:0;background:#fff;">
+              </iframe>
+            </div>
+            <div style="margin-top:12px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/1904-image-of-papacy/investments.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Open PDF</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="sq sq-red" style="margin-top:28px;">
+          <h3 class="serif" style="color:#fca5a5;">Where the Accountability Falls</h3>
+          <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;">When tithes and offerings enter corporate systems, and those corporations operate on the Sabbath, or profit from labor on God&rsquo;s holy day &mdash; the profit is shared, and so is the responsibility. Participation is not erased by distance. What is supported is shared. This is precisely why God says <strong style="color:#f87171;">&ldquo;Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues&rdquo;</strong> (Rev. 18:4).</p>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 5: 1SM 204 NEW ORGANIZATION ===== -->
+    <section id="new-organization" class="section section-warm">
+      <div class="section-stripe-red"></div>
+      <div class="section-inner section-narrow">
+
+        <div class="sh">
+          <div class="sh-eyebrow-red">1SM 204</div>
+          <h2 class="serif">The &ldquo;New Organization&rdquo; Foretold</h2>
+          <p>Heaven sent the warning decades before the structure was formed. The description came first. The development followed. The condition matched the warning.</p>
+        </div>
+
+        <div class="callout">
+          <h3 class="serif">Ellen White&rsquo;s Warning — Selected Messages, Book 1, p. 204</h3>
+          <p>&ldquo;The enemy of souls has sought to bring in the supposition that a great reformation was to take place among Seventh-day Adventists, and that this reformation would consist in giving up the doctrines which stand as the pillars of our faith, and engaging in a process of reorganization&hellip; <strong>A new organization would be established&hellip;</strong> Books of a new order would be written&hellip; A system of intellectual philosophy would be introduced&hellip; The Sabbath of course, would be lightly regarded, as also the God who created it. Nothing would be allowed to stand in the way of the new movement.&rdquo;</p>
+          <p style="margin-top:14px;color:#fcd34d;font-weight:700;">&mdash; Ellen G. White, <em>Selected Messages</em>, Book 1, p. 204</p>
+        </div>
+
+        <div class="grid-2" style="margin-top:28px;">
+          <div class="sq sq-dark">
+            <h3 class="serif">The Warning (1867)</h3>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;">In 1867, Ellen White wrote: <strong style="color:#fca5a5;">&ldquo;The company now presented the appearance of a Catholic procession.&rdquo;</strong></p>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:10px;">The description was written <strong>37 years before</strong> the structure appeared. The warning came first. The fulfillment followed.</p>
+            <p style="font-style:normal;color:#9ca3af;font-size:0.9rem;margin-top:10px;">&mdash; <em>Testimonies for the Church</em>, Vol. 1, p. 578 (January 29, 1867)</p>
+          </div>
+          <div class="sq sq-dark">
+            <h3 class="serif">The Fulfillment (1904)</h3>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:8px;"><strong>April 15, 1904</strong> &mdash; a new structure arose. A civil corporation bearing the Adventist name was formed in Washington, DC. It joined church and state exactly as the Papacy had done &mdash; not by force, but by design and choice.</p>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.85;margin-top:10px;">Then in 1981 came the open confession: <strong style="color:#fca5a5;">&ldquo;There is another universal and truly Catholic organization, the Seventh-day Adventist Church.&rdquo;</strong></p>
+            <p style="font-style:normal;color:#9ca3af;font-size:0.9rem;margin-top:10px;">&mdash; Neal C. Wilson, 1981 / <a href="/books/1904-image-of-papacy/1981.pdf" target="_blank" rel="noopener" style="color:#fcd34d;">View Source (PDF)</a></p>
+          </div>
+        </div>
+
+        <div class="egw" style="margin-top:28px;">
+          <p>&ldquo;Study the 9th chapter of Ezekiel. These words will be literally fulfilled; yet the time is passing, and the people are asleep&hellip;&rdquo;</p>
+          <cite>&mdash; Ellen G. White, Letter 106, 1909</cite>
+        </div>
+
+        <div class="sq sq-gold" style="margin-top:24px;">
+          <p>&ldquo;In amazement they hear the testimony that Babylon is the church, fallen because of her errors and sins, because of her rejection of the truth sent to her from Heaven.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>The Great Controversy</em>, p. 606</cite>
+        </div>
+
+        <!-- The 1981 Neal Wilson document -->
+        <div style="margin-top:36px;">
+          <div class="eyebrow-red" style="display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(185,28,28,0.12);border:1px solid rgba(239,68,68,0.3);color:#fca5a5;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;margin-bottom:18px;">1981 — Open Confession in Print</div>
+          <div class="sq sq-dark">
+            <h3 class="serif">Review Herald March 5, 1981</h3>
+            <p style="font-style:normal;color:#d1d5db;line-height:1.8;margin-top:8px;">Neal C. Wilson&rsquo;s statement in the <em>Review Herald</em>, March 5, 1981 &mdash; the open confession that the Seventh-day Adventist Church is &ldquo;universal and truly Catholic.&rdquo; The original protest became the very thing it protested.</p>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/1904-image-of-papacy/1981.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read 1981 PDF</a>
+              <a href="/books/1904-image-of-papacy/Review%20Herald%20March%205%2C%201981%20Neal%20C.%20Wilson%20There%20is%20another%20universal%20and%20truly%20catholic%20organization%2C%20the%20Seventh%20day%20Adventist%20Church%2019810305-V158-10__B%20(1).pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">Review Herald Source</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 6: FULL EVIDENCE GRID ===== -->
+    <section id="evidence" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <div class="sh-line"></div>
+          </div>
+          <div class="sh-eyebrow">Primary Source Library</div>
+          <h2 class="serif">The Paper Trail <span class="gold">Does Not Lie</span></h2>
+          <p>These are not opinions. These are documented, verifiable exhibits. Numbered, registered, classified. Read them. Judge them. Then decide whether this is the old Protestant protest, or something that long ago learned to speak another language.</p>
+        </div>
+
+        <div class="doc-grid">
+          <div class="doc-card">
+            <div class="doc-card-icon">⚖️</div>
+            <h4>1872 Fundamental Principles</h4>
+            <p class="doc-desc">The original 1872 declaration of the doctrinal foundations of the Advent people &mdash; the pillars that the &ldquo;new organization&rdquo; was prophesied to abandon.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/1872.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">📰</div>
+            <h4>1983 &mdash; Year of the Bible (US Law)</h4>
+            <p class="doc-desc">US law making 1983 the &ldquo;Year of the Bible&rdquo; &mdash; a church-state step in the pattern leading toward Sunday observance enforcement.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/1983-Year-of-the-Bible-US-Law.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+              <a href="/books/1904-image-of-papacy/1983.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">1983 Record</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">⛪</div>
+            <h4>The Laodicean Church</h4>
+            <p class="doc-desc">Captain Joseph Bates examines the Laodicean condition in Revelation 3 and how the lukewarm state describes the post-1844 drift.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/LaodiceanChurch.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+              <a href="/books/1904-image-of-papacy/TheLaodiceanChurch.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">Alt Version</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">⚠️</div>
+            <h4>Laodicean Warning</h4>
+            <p class="doc-desc">The solemn warning to the Laodicean church calling for repentance, zeal, and faithfulness to the commandments of God.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/LaodiceanWarning.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🔐</div>
+            <h4>Top Secret</h4>
+            <p class="doc-desc">Documents revealing concealed aspects of the corporate structure and its relationship to civil power.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/topsecret.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🏗️</div>
+            <h4>General Conference Corporation Charter</h4>
+            <p class="doc-desc">The formal charter document of the General Conference Corporation of Seventh-day Adventists.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/General%20Conference%20Corporation%20of%20Seventh-day%20Adventist.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">🚒</div>
+            <h4>GC-SDA Municipal Insurance Underwriting</h4>
+            <p class="doc-desc">Evidence of the General Conference underwriting municipal insurance programs &mdash; the corporate financial entanglements EGW warned against.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/6-22-25-GC-SDA-underwriting-municipal-insurance.pdf" target="_blank" rel="noopener" class="doc-btn doc-btn-gold">Read PDF</a>
+            </div>
+          </div>
+
+          <div class="doc-card">
+            <div class="doc-card-icon">✝️</div>
+            <h4>Trinity Documentation</h4>
+            <p class="doc-desc">Documents in the trinity subfolder concerning the departure from pioneer non-Trinitarian positions back into Papal doctrinal structures.</p>
+            <div class="doc-actions">
+              <a href="/books/1904-image-of-papacy/trinity/" target="_blank" rel="noopener" class="doc-btn doc-btn-outline">Browse Folder</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 7: 144000.com CALLOUT ===== -->
+    <section id="144000" class="section section-crimson">
+      <div class="section-stripe-red"></div>
+      <div class="section-inner section-narrow">
+
+        <div class="ext-callout">
+          <div class="sh-eyebrow-red" style="display:inline-block;padding:8px 14px;border-radius:999px;background:rgba(185,28,28,0.12);border:1px solid rgba(239,68,68,0.3);color:#fca5a5;font-weight:700;text-transform:uppercase;letter-spacing:.08em;font-size:.82rem;margin-bottom:18px;">External Research Resource</div>
+          <h3>The Full List of Sins &amp; Crimes</h3>
+          <p>For a comprehensive documented catalog of the sins, crimes, and apostasies committed by the &ldquo;new organization&rdquo; corporate church structure since April 15, 1904 &mdash; the &ldquo;new organization&rdquo; (1SM 204) that has departed from the original pioneer three angels&rsquo; messages &mdash; see the research compiled at:</p>
+          <a href="https://144000.com" target="_blank" rel="noopener noreferrer">144000.com</a>
+          <p style="color:#9ca3af;font-size:0.9rem;">&ldquo;For her sins have reached unto heaven, and God hath remembered her iniquities.&rdquo; &mdash; Revelation 18:5 (KJV)</p>
+          <a href="https://144000.com" target="_blank" rel="noopener noreferrer" class="btn-primary" style="display:inline-flex;margin:0 auto;">Visit 144000.com &rarr;</a>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== SECTION 8: FINAL CALL ===== -->
+    <section id="final-call" class="section section-dark">
+      <div class="section-inner section-narrow" style="text-align:center;">
+
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true">
+              <path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/>
+            </svg>
+            <div class="sh-line"></div>
+          </div>
+          <h2 class="serif">The Same Warning &mdash; The Same Separation &mdash; The Same Preparation</h2>
+          <p>Heaven&rsquo;s message has not changed. The Loud Cry is not a polite suggestion to remain where truth has been buried under compromise. It is heaven&rsquo;s final alarm to honest souls still inside corrupt and backslidden systems.</p>
+        </div>
+
+        <div class="sq sq-gold" style="text-align:left;margin-bottom:24px;">
+          <p>The Second Angel said: <strong>Babylon is fallen.</strong><br>
+          The Midnight Cry said: <strong>Go ye out to meet Him.</strong><br>
+          The Loud Cry says: <strong>Come out of her, My people.</strong><br><br>
+          <strong>Same warning. Same separation. Same preparation for the Bridegroom.<br>
+          Come out. Stay out. Do not go back.</strong></p>
+        </div>
+
+        <div class="sq sq-dark" style="text-align:left;margin-bottom:24px;">
+          <h3 class="serif">Remember Lot&rsquo;s Wife. Remember the Sabbath.</h3>
+          <p style="font-style:normal;color:#d1d5db;line-height:1.95;margin-top:10px;">Christ said, <strong style="color:#fbbf24;">&ldquo;Remember Lot&rsquo;s wife.&rdquo;</strong> The fourth commandment says, <strong style="color:#fbbf24;">&ldquo;Remember the sabbath day, to keep it holy.&rdquo;</strong> One warning says: <strong style="color:#f87171;">do not look back.</strong> The other says: <strong style="color:#fbbf24;">do not forget what God made holy.</strong> The final crisis gathers around both memory and loyalty. Heaven calls a people to remember, to separate, to obey, and to be ready.</p>
+        </div>
+
+        <div class="hero-btns" style="justify-content:center;margin-bottom:36px;">
+          <a href="/books/charles-fitch" class="btn-gold">Read Charles Fitch — Come Out</a>
+          <a href="/#three-angels" class="btn-outline">The Three Angels&rsquo; Messages</a>
+          <a href="/april-15-1904-new-organization" class="btn-primary">The 1904 Record</a>
+        </div>
+
+        <div class="grid-2" style="text-align:left;margin-top:32px;">
+          <div class="sq sq-gold">
+            <p>&ldquo;Study the original books, articles, sermons, tracts, and prophecy charts of the keen, noble, and true Adventist pioneers. Let the aged men who were pioneers in our work speak plainly, and let those who are dead speak also by the reprinting of their articles.&rdquo;</p>
+            <cite>&mdash; Ellen G. White, Manuscript 62, 1905</cite>
+          </div>
+          <div class="sq sq-dark">
+            <p>&ldquo;Thus saith the LORD, Stand ye in the ways, and see, and ask for the old paths, where is the good way, and walk therein, and ye shall find rest for your souls.&rdquo;</p>
+            <cite>&mdash; Jeremiah 6:16 (KJV)</cite>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#final-choice">The Final Choice</a></li>
+            <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="/#three-angels">Three Angels</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+            <li><a href="/#second-beast">Second Beast</a></li>
+            <li><a href="/#pioneer-library">Pioneer Library</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/books/charles-fitch">Charles Fitch</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; The Loud Cry: Come Out of Her, My People &mdash; Revelation 18:4</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script is:inline>
+
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    </script>
+
+    <SiteFooter
+      scripture="And after these things I saw another angel come down from heaven, having great power; and the earth was lightened with his glory."
+      scriptureRef="Revelation 18:1 (KJV)"
+      pageLinks={[
+        { label: 'The Loud Cry — Revelation 18', href: '/loud-cry' },
+        { label: 'The Midnight Cry', href: '/midnight-cry' },
+        { label: 'Three Angels\u2019 Messages', href: '/books/3angels' },
+        { label: 'Charles Fitch — Come Out of Her 1843', href: '/books/charles-fitch' }
+      ]}
+    />
+
+    <ShareBar />
+
+  </body>
+</html>

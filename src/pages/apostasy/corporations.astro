@@ -1,0 +1,942 @@
+---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>GC-SDA Corporate Empire — The 501(c)(3) Umbrella Exposed | SundayLaw.com</title>
+    <meta name="description" content="The General Conference of Seventh-day Adventists (EIN 52-0643036) controls a global corporate empire: hospitals, universities, publishing houses, television networks, relief agencies, insurance subsidiaries, and 7,500+ schools — all operating under IRS Group Exemption GEN 1071, filing as Protestant while the GC President called it 'truly Catholic.'">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/corporations">
+    <meta property="og:title" content="GC-SDA Corporate Empire — The 501(c)(3) Umbrella Exposed">
+    <meta property="og:description" content="From Amazing Facts to ADRA, Loma Linda to it Is Written — the full corporate map of the 1904 'new organization' with EIN numbers, revenues, and the IRS Group Exemption GEN 1071 that binds them all.">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/apostasy/corporations">
+    <meta name="twitter:card" content="summary_large_image">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505;
+        --bg-soft: #120808;
+        --bg-card: #160a0a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --red: #dc2626;
+        --red-soft: #ef4444;
+        --red-muted: #fca5a5;
+        --crimson: #9f1239;
+        --line: rgba(220,38,38,0.22);
+        --line-soft: rgba(220,38,38,0.12);
+        --line-gold: rgba(212,165,55,0.22);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      /* NAV */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .mobile-nav a:hover { color: var(--red-muted); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* LAYOUT */
+      .page { max-width: 1200px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* HERO */
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .alert-banner { background: linear-gradient(135deg, rgba(127,0,0,0.35), rgba(80,0,0,0.4)); border: 1px solid rgba(220,38,38,0.5); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; display: flex; align-items: flex-start; gap: 14px; }
+      .alert-icon { font-size: 1.5rem; flex-shrink: 0; line-height: 1; margin-top: 2px; }
+      .alert-body h2 { font-family: 'Crimson Text', serif; font-size: 1.3rem; font-weight: 600; color: var(--red-muted); margin-bottom: 6px; }
+      .alert-body p { font-size: 0.88rem; color: rgba(254,243,199,0.8); line-height: 1.75; }
+      .alert-body strong { color: var(--red-muted); }
+      .alert-body a { color: var(--gold); text-decoration: underline; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(159,18,57,0.15); border: 1px solid rgba(159,18,57,0.4); color: var(--red-muted); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.2rem, 5vw, 3.4rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: var(--red-muted); }
+      .page-header .subtitle { font-size: 1.02rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      /* PARENT ORG BOX */
+      .parent-box { background: linear-gradient(135deg, rgba(60,0,0,0.7), rgba(12,5,5,0.95)); border: 2px solid rgba(220,38,38,0.5); border-radius: 22px; padding: 28px 32px; margin-bottom: 40px; display: flex; flex-wrap: wrap; gap: 24px; align-items: flex-start; }
+      .parent-seal { width: 80px; height: 80px; border-radius: 50%; background: rgba(159,18,57,0.2); border: 2px solid rgba(220,38,38,0.5); display: flex; align-items: center; justify-content: center; font-size: 2rem; flex-shrink: 0; }
+      .parent-info { flex: 1; min-width: 260px; }
+      .parent-info h2 { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; }
+      .parent-info .ein-badge { display: inline-flex; align-items: center; gap: 6px; padding: 4px 12px; border-radius: 999px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.4); color: var(--gold); font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; margin-bottom: 10px; }
+      .parent-info p { font-size: 0.88rem; color: rgba(254,243,199,0.75); line-height: 1.75; }
+      .parent-stats { display: flex; flex-direction: column; gap: 8px; min-width: 200px; }
+      .p-stat { background: rgba(30,10,10,0.7); border: 1px solid var(--line-soft); border-radius: 10px; padding: 10px 16px; }
+      .p-stat-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.08em; color: var(--ink-muted); font-weight: 700; margin-bottom: 2px; }
+      .p-stat-value { font-size: 0.9rem; color: var(--red-muted); font-weight: 700; }
+
+      /* SECTION */
+      .section { padding: 48px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 28px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: var(--red-muted); font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* CORP CARDS GRID */
+      .corp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 18px; }
+      .corp-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 16px; padding: 22px 20px; display: flex; flex-direction: column; gap: 10px; transition: all 0.2s; position: relative; overflow: hidden; }
+      .corp-card::before { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px; }
+      .corp-card.cat-media::before { background: linear-gradient(to right, #7c3aed, #4f46e5); }
+      .corp-card.cat-health::before { background: linear-gradient(to right, #059669, #10b981); }
+      .corp-card.cat-education::before { background: linear-gradient(to right, #f59e0b, #d97706); }
+      .corp-card.cat-publishing::before { background: linear-gradient(to right, #0284c7, #0369a1); }
+      .corp-card.cat-relief::before { background: linear-gradient(to right, #dc2626, #b91c1c); }
+      .corp-card.cat-insurance::before { background: linear-gradient(to right, #374151, #111827); }
+      .corp-card.cat-parent::before { background: linear-gradient(to right, #9f1239, #7f1d1d); }
+      .corp-card.cat-conference::before { background: linear-gradient(to right, #92400e, #78350f); }
+      .corp-card:hover { border-color: rgba(220,38,38,0.35); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,0,0,0.5); }
+
+      .card-cat { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; width: fit-content; }
+      .cat-media .card-cat { background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.35); color: #c4b5fd; }
+      .cat-health .card-cat { background: rgba(5,150,105,0.15); border: 1px solid rgba(5,150,105,0.35); color: #6ee7b7; }
+      .cat-education .card-cat { background: rgba(245,158,11,0.15); border: 1px solid rgba(245,158,11,0.35); color: #fcd34d; }
+      .cat-publishing .card-cat { background: rgba(2,132,199,0.15); border: 1px solid rgba(2,132,199,0.35); color: #7dd3fc; }
+      .cat-relief .card-cat { background: rgba(220,38,38,0.15); border: 1px solid rgba(220,38,38,0.35); color: var(--red-muted); }
+      .cat-insurance .card-cat { background: rgba(55,65,81,0.3); border: 1px solid rgba(107,114,128,0.35); color: #d1d5db; }
+      .cat-parent .card-cat { background: rgba(159,18,57,0.2); border: 1px solid rgba(159,18,57,0.4); color: var(--red-muted); }
+      .cat-conference .card-cat { background: rgba(146,64,14,0.2); border: 1px solid rgba(146,64,14,0.4); color: #fcd34d; }
+
+      .card-name { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+      .card-ein { font-size: 0.75rem; color: var(--gold); font-weight: 700; font-family: 'Courier New', monospace; display: flex; align-items: center; gap: 5px; }
+      .card-ein::before { content: 'EIN'; font-size: 0.62rem; padding: 1px 5px; border-radius: 4px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.3); font-family: 'Inter', sans-serif; letter-spacing: 0.06em; }
+      .card-desc { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.65; flex: 1; }
+      .card-meta { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+      .card-tag { font-size: 0.68rem; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.05); color: rgba(156,163,175,0.8); border: 1px solid rgba(255,255,255,0.07); }
+      .card-revenue { font-size: 0.75rem; color: var(--red-muted); font-weight: 700; }
+      .card-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.76rem; color: rgba(156,163,175,0.6); transition: color 0.15s; margin-top: 2px; }
+      .card-link:hover { color: var(--gold); }
+
+      /* STATS BAR */
+      .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(160px, 1fr)); gap: 14px; background: rgba(20,8,8,0.8); border: 1px solid var(--line); border-radius: 16px; padding: 24px 28px; margin-bottom: 36px; }
+      .stat-item { text-align: center; }
+      .stat-num { font-family: 'Crimson Text', serif; font-size: 2rem; font-weight: 600; color: var(--red-muted); line-height: 1; margin-bottom: 4px; }
+      .stat-label { font-size: 0.73rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+      /* QUOTE BLOCK */
+      .quote-block { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 22px 24px; margin-bottom: 22px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.15rem; color: rgba(254,243,199,0.92); line-height: 1.85; margin-bottom: 8px; }
+      .quote-block cite { font-size: 0.8rem; color: var(--gold); font-style: italic; }
+
+      /* ORG CHART TREE */
+      .org-tree { background: rgba(15,5,5,0.8); border: 1px solid var(--line); border-radius: 16px; padding: 28px; font-size: 0.88rem; }
+      .org-root { display: flex; align-items: center; gap: 12px; padding: 14px 18px; background: linear-gradient(to right, rgba(159,18,57,0.3), rgba(80,0,0,0.2)); border: 2px solid rgba(220,38,38,0.5); border-radius: 12px; margin-bottom: 20px; }
+      .org-root-name { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: var(--red-muted); }
+      .org-root-ein { font-size: 0.75rem; color: var(--gold); font-family: monospace; }
+      .org-branches { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 10px; padding-left: 20px; border-left: 2px solid rgba(220,38,38,0.25); }
+      .org-branch { padding: 10px 14px; background: rgba(25,10,10,0.7); border: 1px solid var(--line-soft); border-radius: 10px; }
+      .ob-cat { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.07em; color: var(--ink-muted); font-weight: 700; margin-bottom: 3px; }
+      .ob-name { font-weight: 600; color: rgba(254,243,199,0.9); font-size: 0.88rem; line-height: 1.3; }
+      .ob-ein { font-size: 0.72rem; color: rgba(212,165,55,0.7); font-family: monospace; }
+
+      /* FRAUD SECTION */
+      .fraud-box { background: linear-gradient(135deg, rgba(80,0,0,0.4), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.4); border-radius: 16px; padding: 26px 28px; }
+      .fraud-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; }
+      @media (max-width: 640px) { .fraud-grid { grid-template-columns: 1fr; } }
+      .fraud-col h3 { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-weight: 600; margin-bottom: 12px; padding-bottom: 10px; border-bottom: 1px solid rgba(255,255,255,0.1); }
+      .fraud-col.protestant h3 { color: var(--gold); }
+      .fraud-col.catholic h3 { color: var(--red-muted); }
+      .fraud-col li { font-size: 0.87rem; color: rgba(254,243,199,0.8); line-height: 1.75; margin-bottom: 6px; padding-left: 16px; position: relative; }
+      .fraud-col li::before { content: '►'; position: absolute; left: 0; font-size: 0.6rem; top: 5px; }
+      .fraud-col.protestant li::before { color: var(--gold); }
+      .fraud-col.catholic li::before { color: var(--red-muted); }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 32px; text-align: center; margin-top: 52px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.9rem; color: var(--ink); margin-bottom: 10px; }
+      .cta-bar p { font-size: 0.92rem; color: var(--ink-muted); line-height: 1.8; max-width: 580px; margin: 0 auto 22px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 12px 22px; border-radius: 10px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: var(--gold-soft); }
+
+      /* FOOTER */
+      .footer { border-top: 1px solid var(--line-soft); padding: 28px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .corp-grid { grid-template-columns: 1fr; } .parent-box { flex-direction: column; } .stats-bar { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+  </head>
+  <body>
+
+    <!-- NAV -->
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn" onclick="this.nextSibling.classList.toggle('open')">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link active" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3) Trap</a>
+          <a class="nav-bottom-link" href="/april-15-1904-new-organization">April 15, 1904</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/schools">Schools Fraud</a>
+        <a href="/apostasy/hospitals">Hospitals</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+        <a href="/501c3">501(c)(3) Trap</a>
+        <a href="/library">Pioneer Library</a>
+        <a href="/pioneers">Pioneers</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/babylon-antichrist-library">Babylon Library</a><span>›</span>
+          Corporate Empire
+        </div>
+
+        <div class="alert-banner">
+          <div class="alert-icon">⚠️</div>
+          <div class="alert-body">
+            <h2>Filed as Protestant. Confessed as Catholic. Operating as a Global Corporation.</h2>
+            <p>The General Conference Corporation of Seventh-day Adventists (<strong>EIN 52-0643036</strong>, ruling year 1950) is registered with the IRS as a <strong>Protestant (X21)</strong> nonprofit — yet its own president confessed in 1981: <strong>"There is another universal and truly Catholic organization, the Seventh-day Adventist Church."</strong> Under <strong>IRS Group Exemption GEN 1071</strong>, thousands of subsidiaries operate under this same fraudulent Protestant umbrella. <a href="/501c3">See the 501(c)(3) Trap →</a></p>
+          </div>
+        </div>
+
+        <div class="page-eyebrow">Corporate Apostasy Exposed</div>
+        <div class="page-header">
+          <h1>The GC-SDA <em>Corporate Empire</em></h1>
+          <p class="subtitle">What began on April 15, 1904 as the "new organization" Ellen White warned against (1SM 204) has become a multi-billion dollar global conglomerate — media networks, hospital chains, universities, insurance subsidiaries, relief agencies, and over 7,500 schools — all operating under the 501(c)(3) umbrella of the General Conference Corporation of Seventh-day Adventists, IRS Group Exemption GEN 1071.</p>
+        </div>
+
+        <!-- STATS BAR -->
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-num">7,500+</div>
+            <div class="stat-label">Schools Worldwide</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">173</div>
+            <div class="stat-label">Hospitals & Sanitariums</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">133</div>
+            <div class="stat-label">Universities & Colleges</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">$1B+</div>
+            <div class="stat-label">Adventist HealthCare Revenue</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1904</div>
+            <div class="stat-label">Corporate Birth — D.C.</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">GEN 1071</div>
+            <div class="stat-label">IRS Group Exemption</div>
+          </div>
+        </div>
+
+        <!-- PARENT ORG -->
+        <div class="parent-box">
+          <div class="parent-seal">⚖️</div>
+          <div class="parent-info">
+            <h2>General Conference Corporation of Seventh-day Adventists</h2>
+            <div class="ein-badge">EIN 52-0643036 — Parent Organization — IRS Ruling Year: 1950</div>
+            <p>Incorporated April 15, 1904 in the District of Columbia. Headquartered at 12501 Old Columbia Pike, Silver Spring, MD 20904. Classified as <strong>Protestant (X21)</strong> on IRS filings. IRS Group Exemption Number: <strong>GEN 1071</strong> — allowing thousands of SDA subsidiaries to operate tax-free under this corporate umbrella without individual IRS applications. Primary business activity on IRS filings: <strong>underwriting municipal insurance</strong>.</p>
+          </div>
+          <div class="parent-stats">
+            <div class="p-stat">
+              <div class="p-stat-label">IRS Classification</div>
+              <div class="p-stat-value">Protestant (X21) — FALSE</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-label">Group Exemption</div>
+              <div class="p-stat-value">GEN 1071</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-label">Self-Identified (1981)</div>
+              <div class="p-stat-value">Catholic</div>
+            </div>
+            <div class="p-stat">
+              <div class="p-stat-label">Trademark Registered</div>
+              <div class="p-stat-value">1981 — Reg. #1177185</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MEDIA & BROADCASTING -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Media &amp; Broadcasting</div>
+          <h2>Television, Radio &amp; <em>Digital Ministries</em></h2>
+          <p>Media arms of the 501(c)(3) empire — each operating under GEN 1071 or as affiliated 501(c)(3) entities, broadcasting under the "Protestant" brand while teaching Catholic Trinity doctrine and ecumenical theology rejected by all SDA pioneers.</p>
+        </div>
+        <div class="corp-grid">
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Media / Evangelism</div>
+            <div class="card-name">Amazing Facts International</div>
+            <div class="card-ein">68-0389022</div>
+            <div class="card-desc">Television and internet ministry founded by Joe Crews (1966), now led by Doug Batchelor. Produces evangelistic content broadcasting the Trinitarian doctrine rejected by pioneer James White. GuideStar-listed 501(c)(3) under California.</div>
+            <div class="card-meta">
+              <span class="card-tag">amazingfacts.org</span>
+              <span class="card-tag">TV / Internet</span>
+              <span class="card-tag">Trinity doctrine</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/68-0389022" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Television Ministry</div>
+            <div class="card-name">It Is Written</div>
+            <div class="card-ein">68-0022498</div>
+            <div class="card-desc">Television ministry founded by George Vandeman in 1956. Now based in Chattanooga, TN under Mark Finley-era leadership. Broadcasts internationally under the SDA brand with Trinitarian/ecumenical content. 501(c)(3) in California.</div>
+            <div class="card-meta">
+              <span class="card-tag">itiswritten.com</span>
+              <span class="card-tag">Cable / Satellite TV</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Broadcast Network</div>
+            <div class="card-name">Three Angels Broadcasting Network (3ABN)</div>
+            <div class="card-ein">37-1261871</div>
+            <div class="card-desc">24-hour satellite television and radio network broadcasting SDA programming globally. Based in Thompsonville, Illinois. 501(c)(3) entity with global reach, broadcasting content affirming the 1980 27 Fundamental Beliefs — including the Trinity.</div>
+            <div class="card-meta">
+              <span class="card-tag">3abn.tv</span>
+              <span class="card-tag">Satellite / Cable</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Radio Ministry</div>
+            <div class="card-name">Voice of Prophecy (HNA)</div>
+            <div class="card-ein">N/A — GEN 1071 umbrella</div>
+            <div class="card-desc">Radio ministry of the SDA Church, operating under the North American Division. Originally founded by H.M.S. Richards Sr. in 1929 as a genuinely Protestant radio voice. Now aligned with the 27 Fundamentals and GC doctrinal framework.</div>
+            <div class="card-meta">
+              <span class="card-tag">voiceofprophecy.com</span>
+              <span class="card-tag">Radio / Podcast</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Television Network</div>
+            <div class="card-name">Hope Channel (GC Media)</div>
+            <div class="card-ein">Under EIN 52-0643036</div>
+            <div class="card-desc">Official television network of the General Conference. Broadcasts in multiple languages globally. Operated directly by the GC as a department — funded by world tithe and broadcast under Protestant branding while teaching Catholic Trinitarian doctrine.</div>
+            <div class="card-meta">
+              <span class="card-tag">hopechannel.com</span>
+              <span class="card-tag">GC Department</span>
+              <span class="card-tag">Global satellite</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Radio / Aviation</div>
+            <div class="card-name">Adventist World Radio</div>
+            <div class="card-ein">Under EIN 52-0643036</div>
+            <div class="card-desc">Global shortwave and internet radio outreach of the GC. Founded 1971. Broadcasts in 70+ languages. GC department; funded from world tithe distributed from EIN 52-0643036.</div>
+            <div class="card-meta">
+              <span class="card-tag">awr.org</span>
+              <span class="card-tag">Shortwave / Internet</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-media">
+            <div class="card-cat">Flight Ministry</div>
+            <div class="card-name">Adventist World Aviation</div>
+            <div class="card-ein">38-3242404</div>
+            <div class="card-desc">Aviation ministry providing air transport for mission workers in remote areas. GuideStar-listed 501(c)(3). Operates under the GC-SDA institutional framework.</div>
+            <div class="card-meta">
+              <span class="card-tag">adventistworldaviation.org</span>
+              <span class="card-tag">Mission Aviation</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/38-3242404" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- RELIEF & HUMANITARIAN -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Relief &amp; Humanitarian</div>
+          <h2>ADRA &amp; <em>Community Services</em></h2>
+          <p>Humanitarian arms used to project a benevolent public face — funded by donor tithes and government grants — while the doctrinal infrastructure that drives them teaches Catholic theology.</p>
+        </div>
+        <div class="corp-grid">
+
+          <div class="corp-card cat-relief">
+            <div class="card-cat">International Relief</div>
+            <div class="card-name">ADRA International</div>
+            <div class="card-ein">52-1314847</div>
+            <div class="card-desc">Adventist Development and Relief Agency — the humanitarian arm of the GC-SDA. Headquartered in Silver Spring, MD. Receives U.S. government grants (USAID, USDA) while operating under the GC's 501(c)(3) Protestant cover. Annual revenues in the hundreds of millions.</div>
+            <div class="card-meta">
+              <span class="card-tag">adra.org</span>
+              <span class="card-tag">USAID grants</span>
+              <span class="card-tag">185+ countries</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/52-1314847" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-relief">
+            <div class="card-cat">North American Relief</div>
+            <div class="card-name">Adventist Community Services North America</div>
+            <div class="card-ein">20-3519054</div>
+            <div class="card-desc">Domestic humanitarian and community services arm coordinating disaster response and local aid programs for North American SDA congregations under the GC framework.</div>
+            <div class="card-meta">
+              <span class="card-tag">Community aid</span>
+              <span class="card-tag">Disaster response</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/20-3519054" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-relief">
+            <div class="card-cat">Investigative Ministry</div>
+            <div class="card-name">Secrets Unsealed</div>
+            <div class="card-ein">20-2149191</div>
+            <div class="card-desc">Stephen Bohr-led ministry based in Fresno, CA. 501(c)(3) SDA-affiliated evangelism ministry. Teaches partial pioneer truths but operates under the Trinitarian/27 Fundamentals doctrinal framework of the 1904 corporation.</div>
+            <div class="card-meta">
+              <span class="card-tag">secretsunsealed.org</span>
+              <span class="card-tag">Evangelism</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/20-2149191" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- HEALTH SYSTEMS -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Health Systems</div>
+          <h2>Hospitals &amp; <em>Medical Centers</em></h2>
+          <p>173 hospitals and sanitariums worldwide operating under the SDA corporate brand. Several are among the largest hospital systems in the United States. See the full <a href="/apostasy/hospitals">Hospitals Page →</a></p>
+        </div>
+        <div class="corp-grid">
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">Hospital System — Mid-Atlantic</div>
+            <div class="card-name">Adventist HealthCare, Inc.</div>
+            <div class="card-ein">52-1532556</div>
+            <div class="card-desc">Maryland and Washington D.C. region hospital system. Revenue ~$910M (2022). CEO Terry Forde compensation $700K+. Includes Shady Grove Medical Center, Washington Adventist Hospital, and others. One of the largest regional health systems in the Mid-Atlantic.</div>
+            <div class="card-meta">
+              <span class="card-revenue">~$910M Revenue (2022)</span>
+              <span class="card-tag">Maryland / D.C.</span>
+              <span class="card-tag">adventisthealthcare.com</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/52-1532556" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">Hospital System — Southeast</div>
+            <div class="card-name">Adventist Health System Sunbelt Healthcare Corporation</div>
+            <div class="card-ein">59-2170012</div>
+            <div class="card-desc">Florida-based Adventist Health System (now Advent Health), one of the largest 501(c)(3) healthcare systems in the United States. Operates dozens of hospitals across the Southeast and beyond. Formerly known as Florida Hospital system.</div>
+            <div class="card-meta">
+              <span class="card-tag">adventhealth.com</span>
+              <span class="card-tag">Southeast US</span>
+              <span class="card-tag">Multi-billion revenue</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/59-2170012" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">Hospital System — West</div>
+            <div class="card-name">Adventist Health Bakersfield</div>
+            <div class="card-ein">95-2294234</div>
+            <div class="card-desc">California-based Adventist Health regional medical center. Part of the Adventist Health network operating across California, Oregon, Washington, and Hawaii.</div>
+            <div class="card-meta">
+              <span class="card-tag">adventisthealth.org</span>
+              <span class="card-tag">California / Pacific West</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/95-2294234" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">Academic Medical Center</div>
+            <div class="card-name">Loma Linda University Health</div>
+            <div class="card-ein">95-3804495</div>
+            <div class="card-desc">One of the flagship Adventist medical institutions in the world. Loma Linda, CA. Medical school, multiple hospitals, and research centers. Revenue in billions. Operates under the SDA 501(c)(3) brand while teaching Trinitarian theology throughout its educational programs.</div>
+            <div class="card-meta">
+              <span class="card-tag">lluh.org</span>
+              <span class="card-tag">Academic medicine</span>
+              <span class="card-tag">Research / Graduate</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/95-3804495" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">Health System — Colorado</div>
+            <div class="card-name">Portercare Adventist Health System</div>
+            <div class="card-ein">84-0438224</div>
+            <div class="card-desc">Colorado-based Adventist healthcare network. Part of the Adventist Health System network serving the mountain states region.</div>
+            <div class="card-meta">
+              <span class="card-tag">Colorado</span>
+              <span class="card-tag">adventisthealth.org</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/84-0438224" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">International Health</div>
+            <div class="card-name">Adventist Health International</div>
+            <div class="card-ein">33-0940020</div>
+            <div class="card-desc">International health development arm managing SDA hospitals in developing countries. Partners with the GC to expand the health institutional brand globally.</div>
+            <div class="card-meta">
+              <span class="card-tag">Global hospitals</span>
+              <span class="card-tag">Developing world</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/33-0940020" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-health">
+            <div class="card-cat">Healthcare Network</div>
+            <div class="card-name">Adventist Health Partners, Inc.</div>
+            <div class="card-ein">36-4138353</div>
+            <div class="card-desc">Partnership and network coordination entity for Adventist Health system affiliates.</div>
+            <div class="card-meta">
+              <span class="card-tag">Network coordination</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/36-4138353" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- UNIVERSITIES -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Higher Education</div>
+          <h2>Universities &amp; <em>Colleges</em></h2>
+          <p>133 colleges and universities worldwide operated under the GC-SDA brand. Each teaches the 27 Fundamental Beliefs — including the Trinity (Fundamental Belief #2) — while many receive accreditation from bodies with Catholic-influenced standards. <a href="/apostasy/schools">See Schools Page →</a></p>
+        </div>
+        <div class="corp-grid">
+
+          <div class="corp-card cat-education">
+            <div class="card-cat">University — Michigan</div>
+            <div class="card-name">Andrews University</div>
+            <div class="card-ein">38-1627600</div>
+            <div class="card-desc">Flagship SDA university in Berrien Springs, MI. Revenue $101.7M (2022). President Andrea Luxton compensation $101,799. Degree programs in theology, education, business, architecture, and health. Fully accredited under the Higher Learning Commission.</div>
+            <div class="card-meta">
+              <span class="card-revenue">$101.7M Revenue (2022)</span>
+              <span class="card-tag">andrews.edu</span>
+              <span class="card-tag">HLC accredited</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/38-1627600" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-education">
+            <div class="card-cat">University — California</div>
+            <div class="card-name">Loma Linda University</div>
+            <div class="card-ein">95-3804495</div>
+            <div class="card-desc">Medical and health sciences university in Loma Linda, CA. One of the largest SDA educational institutions. Schools of medicine, dentistry, pharmacy, public health, and allied health professions. Affiliated with Loma Linda University Health system.</div>
+            <div class="card-meta">
+              <span class="card-tag">llu.edu</span>
+              <span class="card-tag">Medical / Health sciences</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-education">
+            <div class="card-cat">University — Tennessee</div>
+            <div class="card-name">Southern Adventist University</div>
+            <div class="card-ein">62-0527040</div>
+            <div class="card-desc">Liberal arts university in Collegedale, TN. SACSCOC accredited. Nursing, theology, education, and business programs. Teaches 27 Fundamental Beliefs including Trinitarian doctrine across theology curriculum.</div>
+            <div class="card-meta">
+              <span class="card-tag">southern.edu</span>
+              <span class="card-tag">SACSCOC accredited</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-education">
+            <div class="card-cat">University — Alabama</div>
+            <div class="card-name">Oakwood University</div>
+            <div class="card-ein">63-0376813</div>
+            <div class="card-desc">Historically Black Adventist university in Huntsville, AL. SACSCOC accredited. Significant role in Black SDA community. Theology, business, education, and science programs.</div>
+            <div class="card-meta">
+              <span class="card-tag">oakwood.edu</span>
+              <span class="card-tag">HBCU</span>
+              <span class="card-tag">SACSCOC</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-education">
+            <div class="card-cat">University — California</div>
+            <div class="card-name">La Sierra University</div>
+            <div class="card-ein">95-3067126</div>
+            <div class="card-desc">Liberal arts university in Riverside, CA. WASC accredited. Known for controversial evolution teaching controversy (2010) within an SDA-branded institution. Business, theology, biology programs.</div>
+            <div class="card-meta">
+              <span class="card-tag">lasierra.edu</span>
+              <span class="card-tag">WASC accredited</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-education">
+            <div class="card-cat">University — Maryland</div>
+            <div class="card-name">Washington Adventist University</div>
+            <div class="card-ein">52-0680782</div>
+            <div class="card-desc">Liberal arts university in Takoma Park / Silver Spring, MD — same campus area as GC headquarters. Health, business, theology, and education programs under the GC's doorstep.</div>
+            <div class="card-meta">
+              <span class="card-tag">wau.edu</span>
+              <span class="card-tag">MSCHE accredited</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PUBLISHING -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Publishing Houses</div>
+          <h2>Books of a <em>New Order</em> — The Publishers</h2>
+          <p>The publishing infrastructure that produced and distributed the "Books of a New Order" prophesied in 1SM 204. These houses printed Froom's *Questions on Doctrine*, *Movement of Destiny*, and the 27 Fundamentals — while suppressing pioneer voices.</p>
+        </div>
+        <div class="corp-grid">
+
+          <div class="corp-card cat-publishing">
+            <div class="card-cat">Publishing — Pacific</div>
+            <div class="card-name">Pacific Press Publishing Association</div>
+            <div class="card-ein">94-1156258</div>
+            <div class="card-desc">West Coast SDA publishing house in Nampa, Idaho. One of the two main SDA publishing houses. Published *Questions on Doctrine* (1957) and other doctrinal materials of the "new order." 501(c)(3) entity under the GC institutional umbrella.</div>
+            <div class="card-meta">
+              <span class="card-tag">pacificpress.com</span>
+              <span class="card-tag">Books / Periodicals</span>
+              <span class="card-tag">Questions on Doctrine</span>
+            </div>
+          </div>
+
+          <div class="corp-card cat-publishing">
+            <div class="card-cat">Publishing — East Coast</div>
+            <div class="card-name">Review and Herald Publishing Association</div>
+            <div class="card-ein">52-0649610</div>
+            <div class="card-desc">Historic SDA publishing house in Hagerstown, MD. Published the *Review & Herald* — the flagship SDA periodical where Neal C. Wilson published his 1981 "truly Catholic organization" declaration. Repository of both pioneer writings and new order literature.</div>
+            <div class="card-meta">
+              <span class="card-tag">rhpa.org</span>
+              <span class="card-tag">Adventist Review</span>
+              <span class="card-tag">Wilson's 1981 Catholic admission</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CONFERENCES -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Conferences &amp; Divisions</div>
+          <h2>The Organizational <em>Hierarchy</em></h2>
+          <p>Under GEN 1071, thousands of local churches and conferences are automatically tax-exempt under the parent EIN. Here are key division and conference EINs confirmed by GuideStar.</p>
+        </div>
+        <div class="corp-grid">
+
+          <div class="corp-card cat-conference">
+            <div class="card-cat">Division — North America</div>
+            <div class="card-name">North American Division of Seventh-day Adventists</div>
+            <div class="card-ein">20-3164300</div>
+            <div class="card-desc">Coordinates all SDA operations in the United States, Canada, and Bermuda. Oversees local conferences, churches, schools, and health institutions in North America under the GC parent structure.</div>
+            <div class="card-meta">
+              <span class="card-tag">nadadventist.org</span>
+              <span class="card-tag">US / Canada / Bermuda</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/20-3164300" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-conference">
+            <div class="card-cat">Conference — Rocky Mountain</div>
+            <div class="card-name">Rocky Mountain Conference of SDA</div>
+            <div class="card-ein">27-4456014</div>
+            <div class="card-desc">Regional conference overseeing SDA churches, schools, and institutions in Colorado and Wyoming.</div>
+            <div class="card-meta">
+              <span class="card-tag">rmcsda.org</span>
+              <span class="card-tag">Colorado / Wyoming</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/27-4456014" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-conference">
+            <div class="card-cat">Conference — Idaho</div>
+            <div class="card-name">Idaho Conference of Seventh-day Adventists</div>
+            <div class="card-ein">82-6004797</div>
+            <div class="card-desc">Regional conference overseeing SDA churches, schools, and institutions in Idaho.</div>
+            <div class="card-meta">
+              <span class="card-tag">idahosda.org</span>
+              <span class="card-tag">Idaho</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/82-6004797" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-conference">
+            <div class="card-cat">GC — Alternate Filing</div>
+            <div class="card-name">General Conference of Seventh-day Adventists (Alt. EIN)</div>
+            <div class="card-ein">90-0866024</div>
+            <div class="card-desc">Alternate EIN listed on GuideStar under the same organization name. Multiple EINs for the same parent body suggest complex corporate structuring.</div>
+            <div class="card-meta">
+              <span class="card-tag">Alt. filing</span>
+              <span class="card-tag">GuideStar confirmed</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/90-0866024" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-conference">
+            <div class="card-cat">GC Corporation — Alternate</div>
+            <div class="card-name">General Conference Corporation of SDA</div>
+            <div class="card-ein">52-6037545</div>
+            <div class="card-desc">Legal corporate entity filing separate from the parent EIN 52-0643036. Multiple corporate identities for the same institutional body.</div>
+            <div class="card-meta">
+              <span class="card-tag">Corp. entity</span>
+              <span class="card-tag">D.C. incorporated</span>
+            </div>
+            <a class="card-link" href="https://www.guidestar.org/profile/52-6037545" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="corp-card cat-insurance">
+            <div class="card-cat">Insurance / Risk</div>
+            <div class="card-name">GC-SDA — Municipal Insurance Underwriting</div>
+            <div class="card-ein">52-0643036 (parent)</div>
+            <div class="card-desc">The IRS filing for EIN 52-0643036 lists the primary business activity as <strong>"underwriting municipal insurance"</strong> — meaning the GC assumes financial risk for local governments and Sabbath-breaking institutions in exchange for premiums. Not ministry. Finance.</div>
+            <div class="card-meta">
+              <span class="card-tag">IRS primary activity</span>
+              <span class="card-tag">Sabbath-breaking entities insured</span>
+              <span class="card-tag">Matthew 6:24</span>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- THE FRAUD EXPOSED -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Core Fraud</div>
+          <h2>Protestant on the IRS Form. <em>Catholic in the Pulpit.</em></h2>
+        </div>
+
+        <div class="fraud-box">
+          <div class="fraud-grid">
+            <div class="fraud-col protestant">
+              <h3>What They Tell the IRS (1950–Present)</h3>
+              <ul>
+                <li>Classification: Protestant (X21) nonprofit religious organization</li>
+                <li>Purpose: Advancing Protestant Christianity</li>
+                <li>Pioneer Adventist heritage claimed on public-facing materials</li>
+                <li>Fundraising as a "mainstream Protestant church"</li>
+                <li>7,500 schools advertised to donors as Protestant institutions</li>
+                <li>Charitable donations received under Protestant religious identity</li>
+              </ul>
+            </div>
+            <div class="fraud-col catholic">
+              <h3>What They Confess Under Oath &amp; In Print</h3>
+              <ul>
+                <li>"There is another universal and truly <strong>Catholic</strong> organization, the Seventh-day Adventist Church." — Neal C. Wilson, Adventist Review, March 5, 1981</li>
+                <li>Anti-Catholic stance "consigned to the historical <strong>trash heap</strong>" — Wilson, federal court, 1974</li>
+                <li>27 Fundamental Beliefs: Trinity doctrine (#2) = Catholic Catechism #234</li>
+                <li>Ecumenical partnerships with Vatican-aligned bodies</li>
+                <li>Schools teach Catholic-approved accreditation curriculum</li>
+                <li>GC primary business: underwriting municipal insurance</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <div class="quote-block" style="margin-top: 22px;">
+          <blockquote>&ldquo;The Lord has declared that the history of the past shall be rehearsed as we enter upon the closing work. Every truth that He has given for these last days is to be proclaimed to the world. Every pillar that He has established is to be strengthened. We cannot now step off the foundation that God has established. <strong>We cannot now enter into any new organization; for this would mean apostasy from the truth.</strong>&rdquo;</blockquote>
+          <cite>— Ellen G. White, Manuscript 129, 1905 &bull; 2 Selected Messages, p. 390.1</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"A new organization would be established. Books of a new order would be written… Our religion would be changed."</blockquote>
+          <cite>— Ellen G. White, Selected Messages, Book 1, p. 204.2 (written 1903, fulfilled April 15, 1904)</cite>
+        </div>
+        <div class="quote-block" style="border-left-color:rgba(220,38,38,0.7);">
+          <blockquote style="color:#fca5a5;">&ldquo;The same work that has been done in the past will be carried forward under the guise of the General Conference Association&hellip; That same work will be done again, and done with greater power, as it was in the days when the Papacy was in its strength.&rdquo;</blockquote>
+          <cite style="color:#f87171;">— Ellen G. White, Letter 81, May 31, 1896 &bull; 1888 Materials, pp. 1558&ndash;1573 &mdash; Written <strong>8 years before April 15, 1904</strong></cite>
+        </div>
+        <div class="quote-block" style="border-left-color:rgba(220,38,38,0.9); margin-top: 22px;">
+          <blockquote style="color:#fca5a5;">&ldquo;One thing is certain: Those Seventh-day Adventists who take their stand under Satan&rsquo;s banner will first give up their faith in the warnings and reproofs contained in the Testimonies of God&rsquo;s Spirit.&rdquo;</blockquote>
+          <cite style="color:#f87171;">— Ellen G. White, Selected Messages, Book 3, p. 84 (Letter 156, 1903)</cite>
+        </div>
+      </section>
+
+      <!-- ORG TREE OVERVIEW -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Corporate Structure</div>
+          <h2>The Full <em>Corporate Tree</em></h2>
+          <p>IRS Group Exemption GEN 1071 means these entities do not apply for individual 501(c)(3) status — they are automatically covered under the parent EIN 52-0643036.</p>
+        </div>
+        <div class="org-tree">
+          <div class="org-root">
+            <div>
+              <div class="org-root-name">General Conference Corporation of Seventh-day Adventists</div>
+              <div class="org-root-ein">EIN 52-0643036 | GEN 1071 | Incorporated April 15, 1904, Washington D.C.</div>
+            </div>
+          </div>
+          <div class="org-branches">
+            <div class="org-branch">
+              <div class="ob-cat">Media</div>
+              <div class="ob-name">Amazing Facts International</div>
+              <div class="ob-ein">EIN 68-0389022</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Media</div>
+              <div class="ob-name">It Is Written</div>
+              <div class="ob-ein">EIN 68-0022498</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Media</div>
+              <div class="ob-name">3ABN</div>
+              <div class="ob-ein">EIN 37-1261871</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Media</div>
+              <div class="ob-name">Hope Channel</div>
+              <div class="ob-ein">Under GC EIN</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Relief</div>
+              <div class="ob-name">ADRA International</div>
+              <div class="ob-ein">EIN 52-1314847</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Relief</div>
+              <div class="ob-name">Adventist Community Services</div>
+              <div class="ob-ein">EIN 20-3519054</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Health</div>
+              <div class="ob-name">Adventist HealthCare, Inc.</div>
+              <div class="ob-ein">EIN 52-1532556</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Health</div>
+              <div class="ob-name">Loma Linda University Health</div>
+              <div class="ob-ein">EIN 95-3804495</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Health</div>
+              <div class="ob-name">Advent Health (Sunbelt)</div>
+              <div class="ob-ein">EIN 59-2170012</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Education</div>
+              <div class="ob-name">Andrews University</div>
+              <div class="ob-ein">EIN 38-1627600</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Education</div>
+              <div class="ob-name">Southern Adventist University</div>
+              <div class="ob-ein">EIN 62-0527040</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Education</div>
+              <div class="ob-name">7,500+ K–12 Schools</div>
+              <div class="ob-ein">Under GEN 1071</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Publishing</div>
+              <div class="ob-name">Pacific Press</div>
+              <div class="ob-ein">EIN 94-1156258</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Publishing</div>
+              <div class="ob-name">Review &amp; Herald</div>
+              <div class="ob-ein">EIN 52-0649610</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Conferences</div>
+              <div class="ob-name">~60 North American Conferences</div>
+              <div class="ob-ein">Under GEN 1071</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Conferences</div>
+              <div class="ob-name">~600 World Field Conferences</div>
+              <div class="ob-ein">Under GC structure</div>
+            </div>
+            <div class="org-branch">
+              <div class="ob-cat">Churches</div>
+              <div class="ob-name">~21,000 NA Congregations</div>
+              <div class="ob-ein">Under GEN 1071</div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>"Come Out of Her, My People"</h2>
+        <p>You now have the evidence. The corporate empire built on April 15, 1904 stands exposed — Protestant on the tax form, Catholic in the pulpit. Revelation 18:4 is God's answer.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/schools">Schools Fraud (7,500+) →</a>
+          <a class="cta-btn cta-btn-primary" href="/apostasy/hospitals">173 Hospitals →</a>
+          <a class="cta-btn cta-btn-secondary" href="/501c3">501(c)(3) Trap →</a>
+          <a class="cta-btn cta-btn-secondary" href="/babylon-antichrist-library">Babylon Library →</a>
+          <a class="cta-btn cta-btn-secondary" href="/apostasy">Apostate Shepherds →</a>
+        </div>
+      </div>
+    </main>
+
+<SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'SDA Hospital Apostasy', href: '/apostasy/hospitals' },
+        { label: 'Apostate Shepherds', href: '/apostasy' },
+        { label: '501(c)(3) Speech Trap', href: '/apostasy/501c3' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,349 @@
+---
+// ============================================================
+// TEMPLATE: GENERAL CONTENT PAGE
+// Matches the main index.astro navy/gold color scheme.
+// Use for: topic pages, history articles, doctrine pages, etc.
+//
+// BEFORE USING:
+//  1. Copy this file to src/pages/YOUR-PAGE-SLUG.astro
+//  2. Find/replace every ALL_CAPS placeholder below
+//  3. Update the nav active link (add class="active" where needed)
+//  4. Fill in your content sections
+// ============================================================
+import Analytics from '../components/Analytics.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteSearch from '../components/SiteSearch.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO: FILL IN ALL 5 ══════════════════════════════════ -->
+  <title>PAGE_TITLE — SundayLaw.com</title>
+  <meta name="description" content="PAGE_META_DESCRIPTION">
+  <link rel="canonical" href="https://sundaylaw.com/PAGE-SLUG">
+
+  <!-- ══ OPEN GRAPH (shows in Facebook / Signal / WhatsApp previews) -->
+  <meta property="og:title" content="PAGE_OG_TITLE — SundayLaw.com">
+  <meta property="og:description" content="PAGE_OG_DESCRIPTION">
+  <meta property="og:image" content="https://sundaylaw.com/images/PAGE_OG_IMAGE.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sundaylaw.com/PAGE-SLUG">
+  <meta property="og:site_name" content="SundayLaw.com">
+
+  <!-- ══ TWITTER / X CARD ═══════════════════════════════════ -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PAGE_OG_TITLE — SundayLaw.com">
+  <meta name="twitter:description" content="PAGE_OG_DESCRIPTION">
+  <meta name="twitter:image" content="https://sundaylaw.com/images/PAGE_OG_IMAGE.jpg">
+
+  <!-- ══ SCHEMA.ORG (voice AI / Google rich results) ════════ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebPage",
+    "name": "PAGE_TITLE",
+    "description": "PAGE_META_DESCRIPTION",
+    "url": "https://sundaylaw.com/PAGE-SLUG",
+    "inLanguage": "en",
+    "isPartOf": { "@type": "WebSite", "name": "SundayLaw.com", "url": "https://sundaylaw.com" },
+    "publisher": {
+      "@type": "Organization",
+      "name": "SundayLaw.com",
+      "url": "https://sundaylaw.com",
+      "logo": { "@type": "ImageObject", "url": "https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg" }
+    }
+  }
+  </script>
+
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══ COLOR TOKENS (navy — matches index.astro) ═══════════ */
+    :root {
+      --bg:        #0a0a2e;
+      --bg-soft:   #0d0d3a;
+      --ink:       #fef3c7;
+      --muted:     #9ca3af;
+      --gold:      #d4a537;
+      --gold-soft: #fcd34d;
+      --amber:     #f59e0b;
+      --line:      rgba(212,165,55,0.22);
+      --line-soft: rgba(212,165,55,0.12);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; min-height: 100vh; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .serif { font-family: 'Crimson Text', serif; }
+
+    /* ══ NAV ═════════════════════════════════════════════════ */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+    .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+    .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+    .nav-cta:hover { background: var(--gold-soft); }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mobile-nav a:hover { color: var(--gold-soft); }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+    /* ══ PAGE WRAPPER ════════════════════════════════════════ */
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+
+    /* ══ BREADCRUMB ══════════════════════════════════════════ */
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ══ PAGE HERO ═══════════════════════════════════════════ */
+    .page-hero { padding: 52px 0 40px; text-align: center; max-width: 780px; margin: 0 auto; }
+    .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 999px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.28); color: var(--gold-soft); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+    .page-hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.2rem, 5vw, 3.6rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 18px; }
+    .page-hero h1 em { font-style: italic; color: var(--gold-soft); }
+    .page-hero p { font-size: 1.05rem; color: rgba(254,243,199,0.8); line-height: 1.85; margin-bottom: 28px; }
+    .hero-cta-row { display: flex; gap: 12px; flex-wrap: wrap; justify-content: center; }
+
+    /* ══ CTA BUTTONS ════════════════════════════════════════ */
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 14px 26px; border-radius: 12px; background: transparent; border: 1px solid var(--line); color: var(--muted); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+    /* ══ CONTENT SECTIONS ════════════════════════════════════ */
+    .section { padding: 52px 0; border-top: 1px solid var(--line-soft); }
+    .section-header { text-align: center; margin-bottom: 36px; }
+    .section-header .sh-eyebrow { display: inline-block; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.73rem; font-weight: 700; margin-bottom: 12px; }
+    .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; }
+    .section-header p { color: var(--muted); font-size: 0.97rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+
+    /* ══ PROSE / ARTICLE BODY ════════════════════════════════ */
+    .prose { max-width: 760px; margin: 0 auto; font-size: 1rem; color: rgba(254,243,199,0.85); line-height: 1.95; }
+    .prose h2 { font-family: 'Crimson Text', serif; font-size: 1.9rem; color: var(--ink); margin: 40px 0 14px; }
+    .prose h3 { font-family: 'Crimson Text', serif; font-size: 1.45rem; color: var(--gold-soft); margin: 28px 0 10px; }
+    .prose p { margin-bottom: 18px; }
+    .prose strong { color: var(--gold-soft); }
+    .prose em { color: rgba(254,243,199,0.9); }
+    .prose blockquote { border-left: 4px solid var(--gold); padding: 14px 20px; margin: 24px 0; background: rgba(212,165,55,0.06); border-radius: 0 10px 10px 0; font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic; color: #fde68a; }
+    .prose blockquote cite { display: block; margin-top: 8px; font-size: 0.82rem; color: var(--muted); font-style: normal; }
+
+    /* ══ SCRIPTURE PULL QUOTE ════════════════════════════════ */
+    .pull-scripture { background: rgba(212,165,55,0.06); border: 1px solid rgba(212,165,55,0.2); border-left: 4px solid var(--gold); border-radius: 0 14px 14px 0; padding: 20px 24px; margin: 28px 0; }
+    .pull-scripture .ref { font-size: 0.75rem; color: var(--gold-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .pull-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; color: #fde68a; line-height: 1.65; }
+    .pull-scripture cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(253,230,138,0.6); font-style: normal; }
+
+    /* ══ INFO / FACT CARD GRID ════════════════════════════════ */
+    .card-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .card { background: linear-gradient(135deg, rgba(22,22,68,0.8), rgba(13,13,45,0.9)); border: 1px solid rgba(180,130,50,0.25); border-radius: 16px; padding: 24px 22px; }
+    .card h3 { font-family: 'Crimson Text', serif; font-size: 1.2rem; color: var(--ink); margin-bottom: 8px; }
+    .card p { font-size: 0.9rem; color: var(--muted); line-height: 1.75; }
+
+    /* ══ RELATED RESOURCES GRID ══════════════════════════════ */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .related-card { background: rgba(13,13,53,0.7); border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 18px; transition: all 0.2s; text-decoration: none; display: block; }
+    .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .related-card .r-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+    .related-card h4 { font-size: 0.95rem; color: var(--ink); font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+    .related-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    /* ══ BACK TO TOP ══════════════════════════════════════════ */
+    .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+    .btt.visible { display: flex; }
+    .btt:hover { background: rgba(212,165,55,0.3); }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ═════════════════════════════════════════════════ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a class="nav-brand" href="/">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com — The Final Warning" />
+        </a>
+        <a class="nav-link" href="/#final-choice">The Final Choice</a>
+        <a class="nav-link" href="/#seal-vs-mark">Seal vs. Mark</a>
+        <a class="nav-link" href="/#pioneer-library">Pioneer Library</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Full Library</a>
+        <a class="nav-cta" href="/#take-stand">Take Your Stand</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link" href="/#three-angels">Three Angels</a>
+        <a class="nav-bottom-link" href="/#second-beast">Second Beast</a>
+        <a class="nav-bottom-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-bottom-link" href="/loud-cry">The Loud Cry</a>
+        <a class="nav-bottom-link" href="/prophecy-charts">Prophecy Charts</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+        <a class="nav-bottom-link" href="/contact">Contact</a>
+        <a class="nav-bottom-link" href="/donate">Donate</a>
+        <a class="nav-bottom-link" href="/midnight-cry">Midnight Cry Movie</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/#final-choice">The Final Choice</a>
+      <a href="/#seal-vs-mark">Seal vs. Mark</a>
+      <a href="/#three-angels">Three Angels' Messages</a>
+      <a href="/#second-beast">Second Beast</a>
+      <a href="/#pioneer-library">Pioneer Library</a>
+      <a href="/library">Full Pioneer Gateway</a>
+      <a href="/religious-liberty">Religious Liberty</a>
+      <a href="/loud-cry">The Loud Cry</a>
+      <a href="/midnight-cry">The Midnight Cry</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate">Donate</a>
+      <a href="/#take-stand">Take Your Stand &rarr;</a>
+    </div>
+  </nav>
+
+  <!-- ══ MAIN ═══════════════════════════════════════════════ -->
+  <div class="page">
+
+    <!-- breadcrumb: update path to match your page location -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <!-- <a href="/library">Pioneer Library</a><span>›</span> -->
+      <span>PAGE_TITLE</span>
+    </nav>
+
+    <!-- hero -->
+    <div class="page-hero">
+      <div class="eyebrow">EYEBROW_LABEL</div>
+      <h1>PAGE_H1_TITLE</h1>
+      <p>PAGE_SUBTITLE_PARAGRAPH</p>
+      <div class="hero-cta-row">
+        <a href="#content" class="btn-gold">START HERE LABEL &darr;</a>
+        <a href="/library" class="btn-outline">Pioneer Library</a>
+      </div>
+    </div>
+
+    <!-- ══ SCRIPTURE PULL QUOTE (optional) ══════════════════ -->
+    <div class="pull-scripture">
+      <div class="ref">BOOK CHAPTER:VERSE (KJV)</div>
+      <blockquote>&ldquo;SCRIPTURE TEXT HERE.&rdquo;</blockquote>
+      <cite>&mdash; BOOK CHAPTER:VERSE (KJV) &mdash; Brief context note</cite>
+    </div>
+
+    <!-- ══ SECTION 1: MAIN CONTENT ═══════════════════════════ -->
+    <section class="section" id="content">
+      <div class="section-header">
+        <div class="sh-eyebrow">SECTION_1_EYEBROW</div>
+        <h2>SECTION_1_H2</h2>
+        <p>SECTION_1_SUBHEAD</p>
+      </div>
+
+      <!-- Option A: prose article -->
+      <div class="prose">
+        <p>PARAGRAPH_ONE</p>
+        <p>PARAGRAPH_TWO</p>
+        <blockquote>
+          &ldquo;QUOTE_TEXT&rdquo;
+          <cite>&mdash; SOURCE</cite>
+        </blockquote>
+        <p>PARAGRAPH_THREE</p>
+      </div>
+
+      <!-- Option B: card grid (uncomment to use instead) -->
+      <!--
+      <div class="card-grid">
+        <div class="card">
+          <h3>Card Title</h3>
+          <p>Card body text.</p>
+        </div>
+        <div class="card">
+          <h3>Card Title</h3>
+          <p>Card body text.</p>
+        </div>
+      </div>
+      -->
+    </section>
+
+    <!-- ══ SECTION 2 (add as many sections as needed) ════════ -->
+    <section class="section">
+      <div class="section-header">
+        <div class="sh-eyebrow">SECTION_2_EYEBROW</div>
+        <h2>SECTION_2_H2</h2>
+        <p>SECTION_2_SUBHEAD</p>
+      </div>
+      <!-- content here -->
+    </section>
+
+    <!-- ══ RELATED RESOURCES ═════════════════════════════════ -->
+    <section class="section">
+      <div class="section-header">
+        <div class="sh-eyebrow">Further Study</div>
+        <h2>Related Resources</h2>
+      </div>
+      <div class="related-grid">
+        <a href="/library" class="related-card">
+          <div class="r-label">Pioneer Library</div>
+          <h4>All Pioneer Books &amp; Tracts</h4>
+          <p>Browse the full SundayLaw.com pioneer book gateway.</p>
+        </a>
+        <a href="/pioneers" class="related-card">
+          <div class="r-label">Biographies</div>
+          <h4>Adventist Pioneer Profiles</h4>
+          <p>Full biographies of every major pioneer of the Advent movement.</p>
+        </a>
+        <a href="/prophecy-charts" class="related-card">
+          <div class="r-label">Prophecy Charts</div>
+          <h4>1843 &amp; 1850 Charts</h4>
+          <p>The prophetic charts that launched the Advent awakening.</p>
+        </a>
+        <!-- ADD MORE RELATED CARDS HERE -->
+      </div>
+    </section>
+
+  </div><!-- /page -->
+
+  <!-- ══ FOOTER ═════════════════════════════════════════════ -->
+  <SiteFooter />
+
+  <!-- ══ FLOATING COMPONENTS ═══════════════════════════════ -->
+  <ShareBar />
+  <SiteSearch />
+
+  <!-- ══ BACK TO TOP ════════════════════════════════════════ -->
+  <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script is:inline>
+    // Mobile nav toggle
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    // Back to top
+    const btt = document.getElementById('btt');
+    if (btt) {
+      window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), { passive: true });
+    }
+  </script>
+
+</body>
+</html>

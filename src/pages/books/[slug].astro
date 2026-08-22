@@ -1,0 +1,586 @@
+﻿---
+import { getEntry, render } from 'astro:content';
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+
+
+export async function getStaticPaths() {
+  const books = await import.meta.glob('../../content/books/*.md');
+  const slugs = Object.keys(books).map((path) => path.split('/').pop().replace('.md', ''));
+  return slugs.map((slug) => ({ params: { slug }, props: { slug } }));
+}
+
+const { slug } = Astro.props;
+const bookEntry = await getEntry('books', slug);
+const { Content } = await render(bookEntry);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>{bookEntry.data.title} | Advent Pioneer Library</title>
+    <meta name="description" content={bookEntry.data.description}>
+    <meta property="og:title" content={`${bookEntry.data.title} | Advent Pioneer Library`}>
+    <meta property="og:description" content={bookEntry.data.description}>
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="book">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #070a16;
+        --ink: #f4f0de;
+        --ink-muted: #c6bc97;
+        --line: rgba(212, 165, 55, 0.26);
+        --gold: #d4a537;
+        --gold-soft: #f0cf7b;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 15% 8%, rgba(212, 165, 55, 0.14), transparent 40%),
+          radial-gradient(circle at 82% 78%, rgba(61, 90, 134, 0.18), transparent 46%),
+          linear-gradient(160deg, #04060f 0%, #090d1d 55%, #070810 100%);
+      }
+
+      .serif { font-family: 'Cormorant Garamond', serif; }
+
+      .header {
+        position: sticky;
+        top: 0;
+        z-index: 50;
+        border-bottom: 1px solid var(--line);
+        background: rgba(8, 10, 22, 0.78);
+        backdrop-filter: blur(10px);
+      }
+
+      .header-inner {
+        max-width: 1220px;
+        margin: 0 auto;
+        padding: 14px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .header-title {
+        color: var(--ink);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-size: 0.86rem;
+      }
+
+      .header-title strong { color: var(--gold-soft); }
+
+      .header-links {
+        display: flex;
+        gap: 14px;
+        margin-left: auto;
+      }
+
+      .header-links a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .header-links a:hover { color: var(--gold-soft); }
+
+      .header-tools {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+      }
+
+      .breadcrumb {
+        font-size: 0.9rem;
+        color: var(--ink-muted);
+      }
+
+      .breadcrumb a {
+        color: var(--gold-soft);
+        text-decoration: none;
+        font-weight: 700;
+      }
+
+      #google_translate_element {
+        min-width: 155px;
+      }
+
+      #google_translate_element .goog-te-gadget {
+        color: transparent;
+        font-size: 0;
+      }
+
+      #google_translate_element .goog-te-combo {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.86rem;
+      }
+
+      .lang-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        height: 36px;
+        padding: 0 10px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .lang-badge::before {
+        content: '◎';
+        font-size: 0.78rem;
+        margin-right: 6px;
+        opacity: 0.9;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 12px 22px 14px;
+        background: rgba(8, 10, 22, 0.92);
+      }
+
+      .mobile-nav.open { display: grid; gap: 8px; }
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+      }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      .container {
+        max-width: 1140px;
+        margin: 28px auto 0;
+        padding: 0 22px 72px;
+      }
+
+      .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+        gap: 22px;
+      }
+
+      .hero-copy,
+      .hero-side {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: linear-gradient(150deg, rgba(15, 20, 36, 0.94), rgba(8, 11, 21, 0.88));
+      }
+
+      .hero-copy {
+        padding: 34px;
+      }
+
+      .pill {
+        display: inline-block;
+        margin-bottom: 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 12px;
+        color: var(--gold-soft);
+        font-size: 0.73rem;
+        font-weight: 700;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 6vw, 4rem);
+        line-height: 0.95;
+      }
+
+      .meta {
+        margin-top: 12px;
+        color: var(--gold-soft);
+        font-size: 1.08rem;
+      }
+
+      .description {
+        margin-top: 16px;
+        color: #d9deee;
+        line-height: 1.85;
+        font-size: 1.05rem;
+      }
+
+      .hero-side {
+        padding: 28px;
+        display: grid;
+        align-content: start;
+        gap: 14px;
+      }
+
+      .side-label {
+        color: var(--gold-soft);
+        font-size: 0.82rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .side-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 18px;
+      }
+
+      .side-card p {
+        margin: 0;
+        color: var(--ink-muted);
+        line-height: 1.75;
+      }
+
+      .side-card a {
+        color: var(--gold-soft);
+        font-weight: 700;
+        text-decoration: none;
+      }
+
+      .side-card a:hover { text-decoration: underline; }
+
+      .divider {
+        margin: 26px 0;
+        height: 1px;
+        background: linear-gradient(90deg, transparent, var(--gold), transparent);
+      }
+
+      .content-card {
+        border: 1px solid var(--line);
+        border-radius: 20px;
+        background: linear-gradient(160deg, rgba(14, 18, 34, 0.95), rgba(8, 10, 20, 0.9));
+        padding: 30px;
+      }
+
+      .content-card h2 {
+        margin: 0 0 10px;
+        color: var(--gold-soft);
+        font-size: 2rem;
+      }
+
+      .content-card p {
+        margin: 0;
+        color: #d9deee;
+        line-height: 1.9;
+      }
+
+      .footer-nav {
+        margin-top: 22px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .footer-nav a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 48px;
+        padding: 0 20px;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--ink);
+        text-decoration: none;
+        font-weight: 700;
+        transition: all 0.25s ease;
+      }
+
+      .footer-nav a:hover {
+        border-color: rgba(212, 165, 55, 0.58);
+        color: var(--gold-soft);
+        transform: translateY(-1px);
+      }
+
+      .site-footer {
+        border-top: 1px solid var(--line);
+        background: rgba(8, 10, 20, 0.68);
+        margin-top: 36px;
+      }
+
+      .site-footer-main {
+        max-width: 1140px;
+        margin: 0 auto;
+        padding: 28px 22px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 18px;
+      }
+
+      .site-footer h4 {
+        margin: 0 0 8px;
+        color: var(--gold-soft);
+        font-size: 1.05rem;
+      }
+
+      .site-footer p {
+        margin: 0;
+        color: #a6acc3;
+        line-height: 1.7;
+      }
+
+      .site-footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .site-footer-links a {
+        color: #c5bb95;
+        text-decoration: none;
+      }
+
+      .site-footer-links a:hover { color: var(--gold-soft); }
+
+      .site-footer-bottom {
+        border-top: 1px solid var(--line);
+        padding: 16px 22px;
+        text-align: center;
+        color: #8c8f9f;
+        font-size: 0.88rem;
+      }
+
+      .goog-te-banner-frame.skiptranslate { display: none !important; }
+      body { top: 0 !important; }
+      .goog-logo-link, .goog-te-gadget span { display: none !important; }
+
+      @media (max-width: 930px) {
+        .hero { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 700px) {
+        .header-inner {
+          align-items: center;
+          flex-wrap: nowrap;
+        }
+
+        .header-links { display: none; }
+        .breadcrumb { display: none; }
+        .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .header-tools { margin-left: auto; }
+        .site-footer-main { grid-template-columns: 1fr; }
+        .hero-copy,
+        .hero-side,
+        .content-card { padding: 22px; }
+      }
+    </style>
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-inner">
+        <a href="/books" class="header-title">Advent <strong>Pioneer Library</strong></a>
+        <nav class="header-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/pioneers">Pioneers</a>
+          <a href="/books">Books</a>
+          <a href="/midnight-cry">Midnight Cry Movie</a>
+          <a href="/books/captain-joseph-bates-autobiography-1868">Bates Autobiography</a>
+        </nav>
+        <div class="header-tools">
+          <span class="lang-badge" id="lang-badge">EN</span>
+          <div id="google_translate_element"></div>
+          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+        <div class="breadcrumb">
+          <a href="/books">Books</a> / {bookEntry.data.title}
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/pioneers">Pioneers</a>
+        <a href="/books">Books</a>
+        <a href="/midnight-cry">1844 Midnight Cry Movie</a>
+      </nav>
+    </div>
+
+    <div class="container">
+      <section class="hero">
+        <div class="hero-copy">
+          <span class="pill">Historical Work</span>
+          <h1 class="serif">{bookEntry.data.title}</h1>
+          <div class="meta">by {bookEntry.data.author} · {bookEntry.data.published}</div>
+          <p class="description">{bookEntry.data.description}</p>
+        </div>
+
+        <aside class="hero-side">
+          <div class="side-label">Why it matters</div>
+          <div class="side-card">
+            <p>{bookEntry.data.importance}</p>
+          </div>
+          {bookEntry.data.link ? (
+            <div class="side-card">
+              <p><a href={bookEntry.data.link} target="_blank" rel="noopener">Learn more / read online</a></p>
+            </div>
+          ) : null}
+        </aside>
+      </section>
+
+      <div class="divider"></div>
+
+      <section class="content-card">
+        <h2 class="serif">Why This Book Matters Today</h2>
+        <p>{bookEntry.data.importance}</p>
+      </section>
+
+      <section class="markdown-content">
+        <Content />
+      </section>
+
+      <div class="footer-nav">
+        <a href="/books">← Back to Book Library</a>
+        <a href="/pioneers">Back to Pioneer Library</a>
+      </div>
+    </div>
+
+    <footer class="site-footer">
+      <div class="site-footer-main">
+        <div>
+          <h4 class="serif">Advent Pioneer Library</h4>
+          <p>Source texts and biographies presented together so readers can move naturally between history, theology, and life story.</p>
+        </div>
+        <div>
+          <h4 class="serif">Navigate</h4>
+          <ul class="site-footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pioneers">Pioneer Library</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/midnight-cry">1844 Midnight Cry Movie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="serif">Continue Reading</h4>
+          <ul class="site-footer-links">
+            <li><a href="/books">Browse More Books</a></li>
+            <li><a href="/pioneers">Return to Biographies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="site-footer-bottom">&copy; 2026 Advent Pioneer Library</div>
+    </footer>
+
+    <script is:inline>
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const langBadge = document.getElementById('lang-badge');
+
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      function updateLanguageBadge(lang) {
+        if (!langBadge) return;
+        const normalized = (lang || 'en').replace('/en/', '').replace('/', '');
+        langBadge.textContent = normalized || 'en';
+      }
+
+      function getCurrentGoogTrans() {
+        const match = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : '/en/en';
+      }
+
+      function applyAutoTranslation() {
+        const rawLang = (navigator.language || 'en').toLowerCase();
+        let browserLang = rawLang.split('-')[0];
+
+        if (rawLang.startsWith('zh-tw') || rawLang.startsWith('zh-hk')) {
+          browserLang = 'zh-TW';
+        } else if (rawLang.startsWith('zh')) {
+          browserLang = 'zh-CN';
+        }
+
+        if (!browserLang || browserLang === 'en') return;
+
+        const target = '/en/' + browserLang;
+        updateLanguageBadge(browserLang);
+        if (document.cookie.includes('googtrans=' + target)) return;
+
+        document.cookie = 'googtrans=' + target + ';path=/';
+        document.cookie = 'googtrans=' + target + ';domain=' + location.hostname + ';path=/';
+
+        if (!sessionStorage.getItem('gt_auto_applied')) {
+          sessionStorage.setItem('gt_auto_applied', '1');
+          location.reload();
+        }
+      }
+
+      function initGoogleTranslate() {
+        if (!window.google || !window.google.translate) return;
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            autoDisplay: false,
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+          },
+          'google_translate_element'
+        );
+        updateLanguageBadge(getCurrentGoogTrans());
+        applyAutoTranslation();
+
+        setTimeout(() => {
+          const select = document.querySelector('#google_translate_element select');
+          if (!select) return;
+          select.addEventListener('change', (event) => {
+            updateLanguageBadge(event.target.value);
+          });
+        }, 800);
+      }
+
+      window.initGoogleTranslate = initGoogleTranslate;
+    </script>
+    <script is:inline src="//translate.google.com/translate_a/element.js?cb=initGoogleTranslate"></script>
+    <SiteFooter
+      pageLinks={[
+        { label: 'All Pioneer Books', href: '/library' },
+        { label: 'All Pioneer Biographies', href: '/pioneers' },
+        { label: 'SDA Apostasy Documented', href: '/apostasy' },
+        { label: 'Prophecy Charts — 1843 & 1850', href: '/prophecy-charts' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+  </body>
+</html>

@@ -1,0 +1,387 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>James R. Scott — Signer No. 3 of the 1904 Incorporation | SundayLaw.com</title>
+  <meta name="description" content="James R. Scott of Washington, D.C., was the third signatory on the Articles of Incorporation of the General Conference Corporation of Seventh-day Adventists, April 15, 1904 — filed in the District of Columbia, the 'New Rome,' in direct defiance of God's prophetic warning.">
+  <link rel="canonical" href="https://sundaylaw.com/1904-signers/james-r-scott">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f; --bg-soft: #0d0018;
+      --ink: #f8f1dd; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --red: #ef4444; --red-soft: #fca5a5;
+      --blue: #3b82f6; --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3); --line-blue: rgba(59,130,246,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-link { color: var(--muted); font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); } .breadcrumb span { margin: 0 6px; }
+    .breadcrumb .current { color: var(--ink); }
+    .hero { padding: 44px 0 36px; }
+    .signer-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.73rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .hero-grid { display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: start; }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+    .charge-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 600; color: var(--ink); line-height: 1.15; margin-bottom: 10px; }
+    .charge-col h1 em { color: var(--red-soft); font-style: italic; }
+    .charge-sub { font-size: 0.97rem; color: rgba(248,241,221,0.78); line-height: 1.85; margin-bottom: 22px; }
+    .fact-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .fact-box { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 10px; padding: 11px 13px; }
+    .fact-label { font-size: 0.69rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+    .fact-val { font-size: 0.88rem; color: var(--gold-soft); font-weight: 600; }
+    .fact-val.red { color: var(--red-soft); }
+    .sect { padding: 48px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .sect-body { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 14px; }
+    .sect-body strong { color: var(--gold-soft); }
+    .sect-body em { color: var(--red-soft); }
+    .warn-box { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.35); border-radius: 18px; padding: 28px 26px; margin: 22px 0; }
+    .warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--red); margin-bottom: 10px; }
+    .warn-box blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.1rem, 1.9vw, 1.5rem); font-style: italic; color: #fde8e8; line-height: 1.65; margin-bottom: 10px; }
+    .warn-box cite { font-size: 0.8rem; color: rgba(252,165,165,0.7); font-style: normal; font-weight: 600; }
+    .crime-list { list-style: none; margin: 18px 0; }
+    .crime-list li { display: flex; gap: 13px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(239,68,68,0.08); }
+    .crime-list li:last-child { border-bottom: none; }
+    .crime-num { width: 32px; height: 32px; border-radius: 8px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82rem; color: var(--red-soft); flex-shrink: 0; }
+    .crime-text { font-size: 0.94rem; color: rgba(248,241,221,0.82); line-height: 1.75; padding-top: 3px; }
+    .crime-text strong { color: var(--red-soft); }
+    .const-strip { background: rgba(30,58,138,0.1); border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; padding: 22px 24px; margin: 24px 0; }
+    .const-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 10px; }
+    .const-strip blockquote { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.7; }
+    .const-strip cite { font-size: 0.78rem; color: rgba(147,197,253,0.6); font-style: normal; margin-top: 8px; display: block; }
+    .const-strip p { font-size: 0.92rem; color: rgba(248,241,221,0.78); line-height: 1.8; margin-top: 12px; }
+    .const-strip a { color: var(--blue-soft); text-decoration: underline; }
+    .doc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 600px) { .doc-pair { grid-template-columns: 1fr; } }
+    .doc-frame { border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; overflow: hidden; }
+    .doc-frame img { width: 100%; height: auto; display: block; }
+    .doc-caption { padding: 8px 13px; background: rgba(30,5,5,0.7); font-size: 0.77rem; color: var(--red-soft); line-height: 1.5; }
+    .rome-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 24px 0; }
+    @media (max-width: 600px) { .rome-grid { grid-template-columns: 1fr; } }
+    .rome-col { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 14px; padding: 22px 20px; }
+    .rome-col h3 { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; margin-bottom: 10px; }
+    .rome-col ul { list-style: none; }
+    .rome-col li { padding: 5px 0; font-size: 0.9rem; color: rgba(248,241,221,0.8); line-height: 1.6; border-bottom: 1px solid rgba(255,255,255,0.04); }
+    .rome-col li:before { content: "— "; color: var(--muted); }
+    .signer-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 24px; }
+    .sn-card { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; padding: 13px 14px; text-decoration: none; display: block; transition: all 0.2s; }
+    .sn-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-2px); }
+    .sn-card.active { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.2); }
+    .sn-num { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 4px; }
+    .sn-name { font-size: 0.87rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .sn-loc { font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+    .site-footer { background: #04000a; border-top: 1px solid rgba(180,130,50,0.15); }
+    .footer-banner { padding: 20px; text-align: center; background: linear-gradient(to right, rgba(127,29,29,0.15), rgba(127,29,29,0.08), rgba(127,29,29,0.15)); }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.85rem; font-weight: 600; font-style: normal; display: block; margin-top: 5px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 38px 22px; display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.08); padding: 16px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #7f1d1d, #b91c1c, #d97706, #b91c1c, #7f1d1d); }
+  </style>
+</head>
+<body>
+  <div class="top-stripe"></div>
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a href="/" style="flex-shrink:0;margin-right:auto;">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com" style="height:38px;width:auto;display:block;border-radius:4px;" />
+        </a>
+        <a class="nav-link" href="/1904-signers">The 5 Signers</a>
+        <a class="nav-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Pioneer Library</a>
+        <a class="nav-cta" href="/loud-cry">Loud Cry — Rev. 18:4</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link" href="/1904-signers/arthur-g-daniells">Daniells</a>
+        <a class="nav-bottom-link" href="/1904-signers/amos-p-needham">Needham</a>
+        <a class="nav-bottom-link active" href="/1904-signers/james-r-scott">Scott</a>
+        <a class="nav-bottom-link" href="/1904-signers/harvey-edson-rogers">Rogers</a>
+        <a class="nav-bottom-link" href="/1904-signers/daniel-k-nicola">Nicola</a>
+        <a class="nav-bottom-link" href="/1904-signers">All 5 Signers</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/1904-signers">All 5 Signers</a>
+      <a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a>
+      <a href="/1904-signers/amos-p-needham">Amos P. Needham</a>
+      <a href="/1904-signers/james-r-scott">James R. Scott</a>
+      <a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a>
+      <a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a>
+      <a href="/april-15-1904-new-organization">April 15, 1904 Record</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/1904-signers">The 5 Signers</a><span>›</span>
+        <span class="current">James R. Scott</span>
+      </div>
+
+      <div class="hero">
+        <div class="signer-badge">Signer No. 3 — Washington, D.C. — April 15, 1904</div>
+        <div class="hero-grid">
+          <div>
+            <div style="background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.25);border-radius:16px;padding:26px 20px;text-align:center;">
+              <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#7f1d1d,#450a0a);border:2px solid rgba(239,68,68,0.35);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Crimson Text',serif;font-size:2.2rem;color:#fca5a5;font-weight:600;">JS</span>
+              </div>
+              <div style="font-family:'Crimson Text',serif;font-size:1.32rem;font-weight:600;color:var(--ink);margin-bottom:4px;">James R. Scott</div>
+              <div style="font-size:0.75rem;color:var(--red-soft);font-weight:700;text-transform:uppercase;letter-spacing:0.07em;padding:5px 12px;border:1px solid rgba(239,68,68,0.3);border-radius:999px;display:inline-block;margin-top:6px;">Washington, D.C.</div>
+            </div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+              <a href="/april-15-1904-new-organization" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.83rem;">Full 1904 Evidence Page &rarr;</a>
+              <a href="/books/1904-image-of-papacy/1904.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(212,165,55,0.1);border:1px solid rgba(212,165,55,0.25);color:var(--gold-soft);font-weight:700;font-size:0.83rem;">1904 Articles PDF</a>
+            </div>
+          </div>
+          <div class="charge-col">
+            <h1>James R. Scott &mdash;<br><em>The Man Who Filed in the "New Rome"</em></h1>
+            <p class="charge-sub">
+              James R. Scott was a Washington, D.C. resident — one of three D.C.-based signatories whose local addresses gave the 1904 incorporation its territorial claim to D.C. jurisdiction. The filing in the District of Columbia was not incidental. <strong style="color:var(--gold-soft);">Washington, D.C. is a federal territory</strong> — designed after Rome, governed by a special federal charter, home to the Capitol dome that echoes the Roman Pantheon. Scott's D.C. address placed the "new organization" explicitly within the jurisdiction of the federal government's own seat of power.
+            </p>
+            <div class="fact-row">
+              <div class="fact-box"><div class="fact-label">Location</div><div class="fact-val">Washington, D.C.</div></div>
+              <div class="fact-box"><div class="fact-label">Jurisdiction</div><div class="fact-val red">Federal / D.C.</div></div>
+              <div class="fact-box"><div class="fact-label">Crime Date</div><div class="fact-val red">April 15, 1904</div></div>
+              <div class="fact-box"><div class="fact-label">EGW Warning</div><div class="fact-val red">Oct. 1903</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WASHINGTON D.C. — NEW ROME -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Location — Why It Matters</div>
+        <h2>Washington, D.C. — The "New Rome"</h2>
+        <p class="sect-body">The District of Columbia was established in 1790–1791 as a special federal territory — not a state, not subject to the ordinary sovereignty claimed by the thirteen original states — but a jurisdiction belonging entirely to the federal government. Its founders deliberately modeled it after Rome.</p>
+        <div class="rome-grid">
+          <div class="rome-col">
+            <h3 style="color:#fca5a5;">Rome — The Original</h3>
+            <ul>
+              <li>The Pantheon — dome dedicated to all gods</li>
+              <li>The Forum — center of civic and religious law</li>
+              <li>The Tiber Island — sacred judicial ground</li>
+              <li>Obelisk brought from Egypt — sun worship symbol</li>
+              <li>Senate — from Latin "senatus" (council of elders)</li>
+              <li>Church-state unity under Roman law</li>
+            </ul>
+          </div>
+          <div class="rome-col">
+            <h3 style="color:#fca5a5;">Washington, D.C. — The Copy</h3>
+            <ul>
+              <li>U.S. Capitol dome — deliberately Pantheon-shaped</li>
+              <li>The National Mall — seat of civic and legal power</li>
+              <li>Supreme Court — modeled on Roman legal tradition</li>
+              <li>Washington Monument — Egyptian obelisk, sun symbol</li>
+              <li>U.S. Senate — direct heir of Rome's "senatus"</li>
+              <li>Church-state unity via civil incorporation — April 1904</li>
+            </ul>
+          </div>
+        </div>
+        <p class="sect-body">James R. Scott's Washington, D.C. address was the geographic stamp that placed the 1904 corporation inside this Roman-modeled federal structure. The pioneers left old Rome behind in 1844. Scott and the other signers walked back into New Rome in 1904.</p>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; What Alonzo T. Jones Wrote About This System — 1891</div>
+          <blockquote>&ldquo;When Church and State are united — when religious organizations use the power of civil government to enforce their religious observances — that is the very essence of the Papacy.&rdquo;</blockquote>
+          <cite>&mdash; Alonzo T. Jones, "The Two Republics," 1891. Jones had just argued before the U.S. Senate against the National Sunday Law. In 1904, his own denomination did what he spent his life opposing.</cite>
+        </div>
+      </div>
+
+      <!-- THE ACT -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Act — April 15, 1904</div>
+        <h2>What James R. Scott Signed</h2>
+        <p class="sect-body">Scott signed the Articles of Incorporation for the <strong>&ldquo;General Conference Corporation of Seventh-day Adventists&rdquo;</strong> in the District of Columbia on April 15, 1904. His Washington, D.C. residency made him one of the legally required local signatories to establish D.C. jurisdiction for the new civil-religious corporation.</p>
+        <p class="sect-body">Under D.C. corporate law, articles of incorporation required signatories to establish legal domicile and citizenship within the jurisdiction. Scott's three D.C. co-signers (including Rogers and Nicola) collectively guaranteed that the corporation was validly formed within the federal capital's legal authority. <em>The church was now a creature of Caesar's own city.</em></p>
+
+        <div class="doc-pair">
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA1.jpg" alt="1904 Articles of Incorporation — Page 1" loading="lazy" />
+            <div class="doc-caption">The document filed in Washington, D.C. — in the city designed as New Rome — where Scott's address gave it jurisdictional force.</div>
+          </div>
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA2.jpg" alt="1904 Articles of Incorporation — Signatures Page" loading="lazy" />
+            <div class="doc-caption">Scott's signature among the D.C. residents: the three Washingtonians whose addresses placed this document under federal jurisdiction.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WARNINGS -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Warnings He Ignored</div>
+        <h2>What Ellen White Told GC Leadership Before April 1904</h2>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; October 1903 — The Direct Warning</div>
+          <blockquote>&ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; The District of Columbia Warning — Prophetic Context</div>
+          <blockquote>&ldquo;And I beheld another beast coming up out of the earth; and he had two horns like a lamb, and he spake as a dragon.&rdquo;</blockquote>
+          <cite>&mdash; Revelation 13:11 — The "lamb-like beast" whose seat of government is in Washington, D.C. — the "New Rome." By incorporating in D.C., the GC placed itself under the authority of this prophetic power the pioneers had spent decades exposing.</cite>
+        </div>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:20px 22px;margin:20px 0;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.1rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">&ldquo;The two-horned beast represents those religious bodies who, following in the steps of Rome, would cause the earth to look toward, and worship, the image of the Papacy.&rdquo;</p>
+          <cite style="font-size:0.78rem;color:var(--muted);font-weight:600;font-style:normal;">&mdash; James White, Review &amp; Herald, 1877 — James White identified Washington, D.C. as the seat of prophetic power in Revelation 13. Scott filed the 1904 papers in this very city.</cite>
+        </div>
+      </div>
+
+      <!-- CRIMES -->
+      <div class="sect">
+        <div class="sect-eyebrow">Spiritual &amp; Prophetic Record</div>
+        <h2>The Charges Against James R. Scott</h2>
+        <ul class="crime-list">
+          <li>
+            <div class="crime-num">I</div>
+            <div class="crime-text"><strong>Providing D.C. jurisdiction for the 1904 apostasy.</strong> Scott's Washington, D.C. address was legally required to establish the corporation's federal capital jurisdictional basis. Without D.C.-based signatories, the filing could not have constituted a valid D.C. corporation. His participation was structurally essential.</div>
+          </li>
+          <li>
+            <div class="crime-num">II</div>
+            <div class="crime-text"><strong>Placing the church under the authority of prophetic Babylon.</strong> By filing in the city the pioneers themselves identified as the seat of prophetic power (Rev. 13, the lamb-like beast), Scott placed the Seventh-day Adventist identity under the authority of the very system the Three Angels' Messages call God's people to "come out of."</div>
+          </li>
+          <li>
+            <div class="crime-num">III</div>
+            <div class="crime-text"><strong>Rejecting the prophetic warning against a "new organization."</strong> Ellen White's Letter 242 (October 1903) was written to all GC leadership, not to Daniells alone. Scott, as a D.C.-resident GC-aligned officer, had access to or knowledge of the prophetic warning and chose to sign in defiance of it.</div>
+          </li>
+          <li>
+            <div class="crime-num">IV</div>
+            <div class="crime-text"><strong>IRS Subjugation.</strong> The D.C. corporation eventually became the parent denomination for 501(c)(3) tax-exempt status under the IRS — a U.S. Treasury entity. The church's freedom to preach became conditional on the government's tax-exemption rules. Scott's filing made this possible.</div>
+          </li>
+          <li>
+            <div class="crime-num">V</div>
+            <div class="crime-text"><strong>Contributing to Idem Sonans name theft.</strong> By helping constitute the D.C. corporation bearing the name "Seventh-day Adventists," Scott was complicit in building the legal entity that would claim the pioneer movement's name, libraries, and legacy via Idem Sonans doctrinal identity.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="const-strip">
+        <div class="const-label">First Amendment — The Freedom Voluntarily Surrendered in D.C.</div>
+        <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof&hellip;&rdquo;</blockquote>
+        <cite>&mdash; First Amendment, U.S. Constitution, ratified December 15, 1791</cite>
+        <p>The First Amendment was designed specifically to prevent the Congress — whose chambers sat in the same city where Scott filed the 1904 papers — from controlling religion. Scott voluntarily brought the church into D.C. corporate jurisdiction, handing Congress (and eventually the IRS) the legal hook it needed to monitor, condition, and regulate the denomination's institutional behavior. <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank" rel="noopener noreferrer">Official source: constitution.congress.gov &rarr;</a></p>
+      </div>
+
+      <div class="sect">
+        <div class="sect-eyebrow">The Other Four Signers</div>
+        <h2>Five Men. One Act of Apostasy.</h2>
+        <div class="signer-nav">
+          <a href="/1904-signers/arthur-g-daniells" class="sn-card"><div class="sn-num">Signer 1</div><div class="sn-name">Arthur G. Daniells</div><div class="sn-loc">Takoma Park, MD</div></a>
+          <a href="/1904-signers/amos-p-needham" class="sn-card"><div class="sn-num">Signer 2</div><div class="sn-name">Amos P. Needham</div><div class="sn-loc">Takoma Park, MD</div></a>
+          <a href="/1904-signers/james-r-scott" class="sn-card active"><div class="sn-num">Signer 3</div><div class="sn-name">James R. Scott</div><div class="sn-loc">Washington, D.C.</div></a>
+          <a href="/1904-signers/harvey-edson-rogers" class="sn-card"><div class="sn-num">Signer 4</div><div class="sn-name">Harvey Edson Rogers</div><div class="sn-loc">Washington, D.C.</div></a>
+          <a href="/1904-signers/daniel-k-nicola" class="sn-card"><div class="sn-num">Signer 5</div><div class="sn-name">Daniel K. Nicola</div><div class="sn-loc">Washington, D.C.</div></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-banner">
+      <p>&ldquo;It is a backsliding church that lessens the distance between itself and the Papacy.&rdquo;</p>
+      <cite>&mdash; Ellen G. White, Signs of the Times, February 19, 1894 — Filed in Rome's own image city on April 15, 1904</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:10px;">SundayLaw.com</div>
+        <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;">Preserving the 1841–1850 pioneer platform. Exposing the 1904 corporate apostasy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The 5 Signers</h4>
+        <ul>
+          <li><a href="/1904-signers">Overview — All 5</a></li>
+          <li><a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a></li>
+          <li><a href="/1904-signers/amos-p-needham">Amos P. Needham</a></li>
+          <li><a href="/1904-signers/james-r-scott">James R. Scott</a></li>
+          <li><a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a></li>
+          <li><a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pioneer Platform</h4>
+        <ul>
+          <li><a href="/library">Full Pioneer Library</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>SundayLaw.com — "Come out of her, My people" — Revelation 18:4</p></div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn?.addEventListener('click', () => { mobileNav?.classList.toggle('open'); });
+  </script>
+  <SiteFooter
+    scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+    scriptureRef="Revelation 18:4 (KJV)"
+    pageLinks={[
+      { label: 'All Five 1904 Signers', href: '/1904-signers' },
+      { label: 'April 15, 1904 — The Record', href: '/april-15-1904-new-organization' },
+      { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+      { label: 'Apostate Shepherds', href: '/apostasy' }
+    ]}
+  />
+  <ShareBar />
+  <SiteSearch />
+</body>
+</html>

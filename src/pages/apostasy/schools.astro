@@ -1,0 +1,514 @@
+---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDA School Fraud Exposed — 7,500+ Schools Teaching Catholic Doctrine Under Protestant Name | SundayLaw.com</title>
+    <meta name="description" content="Over 7,500 Seventh-day Adventist schools worldwide claim to be Protestant while teaching Catholic doctrine — the Trinity (Catholic Catechism #234), ecumenical partnerships, and state-accredited curriculum. Sunnydale Academy exposed. Arthur Daniells initiated this Catholic accreditation framework in 1904.">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/schools">
+    <meta property="og:title" content="SDA School Fraud — 7,500+ Schools Teaching Catholic Doctrine Under Protestant Name">
+    <meta property="og:description" content="Sunnydale Adventist Academy and 7,500+ SDA schools collect donations as Protestant institutions while teaching the Trinity (Catholic Catechism #234) and state-accredited Catholic curriculum. Arthur Daniells initiated this system in 1904.">
+    <meta property="og:type" content="article">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* HERO */
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .alert-banner { background: linear-gradient(135deg, rgba(127,0,0,0.35), rgba(80,0,0,0.4)); border: 1px solid rgba(220,38,38,0.5); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; display: flex; align-items: flex-start; gap: 14px; }
+      .alert-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+      .alert-body h2 { font-family: 'Crimson Text', serif; font-size: 1.3rem; font-weight: 600; color: var(--red-muted); margin-bottom: 6px; }
+      .alert-body p { font-size: 0.88rem; color: rgba(254,243,199,0.8); line-height: 1.75; }
+      .alert-body strong { color: var(--red-muted); }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(159,18,57,0.15); border: 1px solid rgba(159,18,57,0.4); color: var(--red-muted); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: var(--red-muted); }
+      .page-header .subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; background: rgba(20,8,8,0.8); border: 1px solid var(--line); border-radius: 16px; padding: 22px 26px; margin-bottom: 40px; }
+      .stat-item { text-align: center; }
+      .stat-num { font-family: 'Crimson Text', serif; font-size: 2rem; font-weight: 600; color: var(--red-muted); line-height: 1; margin-bottom: 4px; }
+      .stat-label { font-size: 0.72rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+      .section { padding: 44px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 26px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: var(--red-muted); font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* SUNNYDALE FEATURE */
+      .sunnydale-card { background: linear-gradient(135deg, rgba(60,0,0,0.6), rgba(12,5,5,0.98)); border: 2px solid rgba(220,38,38,0.5); border-radius: 22px; overflow: hidden; margin-bottom: 32px; }
+      .sc-header { background: linear-gradient(to right, rgba(159,18,57,0.4), rgba(80,0,0,0.3)); padding: 22px 28px; border-bottom: 1px solid rgba(220,38,38,0.3); display: flex; align-items: center; gap: 14px; flex-wrap: wrap; }
+      .sc-badge { display: inline-flex; padding: 5px 14px; border-radius: 999px; background: rgba(220,38,38,0.2); border: 1px solid rgba(220,38,38,0.5); color: var(--red-muted); font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; }
+      .sc-header h3 { font-family: 'Crimson Text', serif; font-size: 1.5rem; color: var(--ink); font-weight: 600; flex: 1; }
+      .sc-body { padding: 26px 28px; display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+      @media (max-width: 640px) { .sc-body { grid-template-columns: 1fr; } }
+      .sc-section h4 { font-size: 0.78rem; text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; margin-bottom: 10px; padding-bottom: 8px; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      .sc-section.protestant h4 { color: var(--gold); }
+      .sc-section.catholic h4 { color: var(--red-muted); }
+      .sc-list li { font-size: 0.87rem; color: rgba(254,243,199,0.8); line-height: 1.75; margin-bottom: 6px; padding-left: 16px; position: relative; list-style: none; }
+      .sc-list li::before { content: '►'; position: absolute; left: 0; font-size: 0.6rem; top: 5px; }
+      .sc-section.protestant .sc-list li::before { color: var(--gold); }
+      .sc-section.catholic .sc-list li::before { color: var(--red-muted); }
+      .sc-footer { padding: 18px 28px; border-top: 1px solid rgba(220,38,38,0.15); display: flex; flex-wrap: wrap; gap: 12px; align-items: center; }
+      .sc-meta { font-size: 0.82rem; color: var(--ink-muted); }
+      .sc-meta strong { color: rgba(254,243,199,0.9); }
+
+      /* SCHOOL TABLE */
+      .school-table-wrap { overflow-x: auto; }
+      .school-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; }
+      .school-table thead { background: rgba(20,8,8,0.9); }
+      .school-table thead th { padding: 12px 16px; text-align: left; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; color: var(--gold); border-bottom: 1px solid rgba(212,165,55,0.25); white-space: nowrap; }
+      .school-table tbody tr { border-bottom: 1px solid rgba(255,255,255,0.05); transition: background 0.15s; }
+      .school-table tbody tr:hover { background: rgba(220,38,38,0.05); }
+      .school-table td { padding: 12px 16px; vertical-align: top; line-height: 1.6; }
+      .school-table td:first-child { color: rgba(254,243,199,0.92); font-weight: 600; }
+      .school-table td:nth-child(2) { color: var(--gold); font-family: monospace; font-size: 0.78rem; }
+      .school-table td:nth-child(3) { color: var(--ink-muted); }
+      .school-table td:last-child { color: var(--red-muted); font-size: 0.8rem; }
+
+      /* CRIME CARDS */
+      .crime-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 16px; }
+      .crime-card { background: var(--bg-card); border: 1px solid rgba(220,38,38,0.2); border-radius: 14px; padding: 20px 18px; }
+      .crime-icon { font-size: 1.6rem; margin-bottom: 10px; }
+      .crime-title { font-family: 'Crimson Text', serif; font-size: 1.1rem; font-weight: 600; color: var(--red-muted); margin-bottom: 8px; }
+      .crime-desc { font-size: 0.85rem; color: var(--ink-muted); line-height: 1.7; }
+
+      /* DANIELLS CONNECTION */
+      .daniells-box { background: linear-gradient(135deg, rgba(40,20,0,0.6), rgba(12,10,5,0.95)); border: 1px solid rgba(212,165,55,0.3); border-radius: 18px; padding: 28px; }
+      .daniells-box h3 { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-weight: 600; color: var(--gold); margin-bottom: 14px; }
+      .daniells-box p { font-size: 0.9rem; color: rgba(254,243,199,0.8); line-height: 1.85; margin-bottom: 14px; }
+      .daniells-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 10px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.35); color: var(--gold); font-weight: 700; font-size: 0.86rem; transition: all 0.2s; }
+      .daniells-link:hover { background: rgba(212,165,55,0.2); color: var(--gold-soft); }
+
+      /* QUOTE */
+      .quote-block { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 20px 22px; margin-bottom: 20px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: rgba(254,243,199,0.92); line-height: 1.85; margin-bottom: 6px; }
+      .quote-block cite { font-size: 0.78rem; color: var(--gold); font-style: italic; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: var(--gold-soft); }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .stats-bar { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link active" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3) Trap</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/schools">Schools Fraud</a>
+        <a href="/apostasy/hospitals">Hospitals</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+        <a href="/501c3">501(c)(3) Trap</a>
+        <a href="/library">Pioneer Library</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/apostasy/corporations">Corporate Empire</a><span>›</span>
+          Schools
+        </div>
+
+        <div class="alert-banner">
+          <div class="alert-icon">🚨</div>
+          <div class="alert-body">
+            <h2>Religious Donation Fraud — 7,500 Schools Collecting Protestant Donations to Teach Catholic Doctrine</h2>
+            <p>The Seventh-day Adventist Church operates <strong>over 7,500 schools worldwide</strong> soliciting donations from parents and church members as a <strong>"mainstream Protestant church."</strong> These same schools teach the <strong>Trinity (Catholic Catechism #234, SDA Fundamental Belief #2)</strong>, operate under Catholic-influenced regional accreditation, and are part of the <strong>501(c)(3) corporate structure formed April 15, 1904</strong> by Arthur G. Daniells — the man who initiated Catholic school accreditation in Adventism.</p>
+          </div>
+        </div>
+
+        <div class="page-eyebrow">School Fraud Exposed</div>
+        <div class="page-header">
+          <h1><em>7,500+ Schools</em> — Protestant Label, Catholic Doctrine</h1>
+          <p class="subtitle">From Sunnydale Academy in Missouri to Andrews University in Michigan — every SDA school that claims "Protestant" identity while teaching the Trinity, seeking Catholic-influenced accreditation, and operating under the IRS Group Exemption GEN 1071 of the April 15, 1904 corporation is participating in religious donation fraud.</p>
+        </div>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-num">7,500+</div>
+            <div class="stat-label">SDA Schools Worldwide</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">133</div>
+            <div class="stat-label">Colleges &amp; Universities</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1904</div>
+            <div class="stat-label">Catholic Accreditation Initiated</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">#234</div>
+            <div class="stat-label">Catholic Catechism — Trinity Taught</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">GEN 1071</div>
+            <div class="stat-label">IRS Group Exemption</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- SUNNYDALE FEATURE -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Case Study — Sunnydale Academy</div>
+          <h2>The <em>Sunnydale Fraud</em> — Missouri's False Protestant School</h2>
+          <p>Sunnydale Adventist Academy in Centralia, Missouri is a textbook example of the donation fraud operating at every one of the 7,500+ SDA schools worldwide.</p>
+        </div>
+
+        <div class="sunnydale-card">
+          <div class="sc-header">
+            <div class="sc-badge">False Protestant Claim</div>
+            <h3>Sunnydale Adventist Academy — Centralia, MO 65240</h3>
+          </div>
+          <div class="sc-body">
+            <div class="sc-section protestant">
+              <h4>What They Tell Donors</h4>
+              <ul class="sc-list">
+                <li>"The Seventh-day Adventist Church is a mainstream <strong>Protestant</strong> church with approximately 19 million members worldwide"</li>
+                <li>Fundraising materials emphasize Sabbath-keeping and Protestant Christian values</li>
+                <li>Presents as a faith-based alternative to public education</li>
+                <li>Solicits tithes and donations from local church members and parents</li>
+                <li>Claims historic Adventist educational heritage</li>
+              </ul>
+            </div>
+            <div class="sc-section catholic">
+              <h4>What They Actually Teach</h4>
+              <ul class="sc-list">
+                <li>The <strong>Trinity</strong> — Catholic Catechism #234 / SDA Fundamental Belief #2 (rejected by all SDA pioneers)</li>
+                <li><strong>Union of Church and State</strong> — District of Columbia incorporation 1904</li>
+                <li><strong>Ecumenical partnerships</strong> with Papal institutions and accreditation bodies</li>
+                <li>Curriculum compliant with <strong>state-accredited (Catholic-influenced) regional standards</strong></li>
+                <li>Replaces Pioneer sanctuary truths with Rome's theology as part of 27 Fundamentals</li>
+              </ul>
+            </div>
+          </div>
+          <div class="sc-footer">
+            <div class="sc-meta"><strong>Address:</strong> 6818 Audrain Road 9139, Centralia, MO 65240</div>
+            <div class="sc-meta"><strong>Contact:</strong> info@sunnydale.org | (573) 682-2164</div>
+            <div class="sc-meta"><strong>Affiliated site:</strong> sunnydalechurch.org</div>
+            <div class="sc-meta"><strong>Under:</strong> GC-SDA 501(c)(3) Umbrella — EIN 52-0643036 / GEN 1071</div>
+          </div>
+        </div>
+
+        <div class="quote-block">
+          <blockquote>"The time is coming when in their fraud and insolence men will reach a point that the Lord will not permit them to pass, and they will learn that there is a limit to the forbearance of Jehovah."</blockquote>
+          <cite>— Ellen G. White, Testimonies for the Church, Vol. 9, p. 13 (1909) / LDE 40.4</cite>
+        </div>
+      </section>
+
+      <!-- THE CRIMES -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Legal &amp; Spiritual Crimes</div>
+          <h2>Four Crimes Against <em>Every Donor</em></h2>
+          <p>When a school collects donations claiming Protestant identity while teaching Catholic doctrine under a corporate 501(c)(3) structure, these are not theological disagreements — they are legal and moral violations.</p>
+        </div>
+        <div class="crime-grid">
+          <div class="crime-card">
+            <div class="crime-icon">⚖️</div>
+            <div class="crime-title">Religious Donation Fraud</div>
+            <div class="crime-desc">Soliciting donations under a false religious identity (Protestant) while operating under a Catholic doctrinal framework. Donors are materially deceived about the nature of the institution they are funding.</div>
+          </div>
+          <div class="crime-card">
+            <div class="crime-icon">🎭</div>
+            <div class="crime-title">False Religious Advertising</div>
+            <div class="crime-desc">Advertising as a "mainstream Protestant church" on school and church websites used to recruit students and solicit funds — while the sponsoring institution's own president confessed "truly Catholic organization" (1981).</div>
+          </div>
+          <div class="crime-card">
+            <div class="crime-icon">🏛️</div>
+            <div class="crime-title">Misuse of Tax-Exempt Status</div>
+            <div class="crime-desc">The 501(c)(3) Protestant tax-exempt status obtained in 1950 (EIN 52-0643036) was granted based on Protestant classification. Operating as a Catholic-doctrine organization while claiming Protestant tax benefits is fraudulent use of IRS exemption.</div>
+          </div>
+          <div class="crime-card">
+            <div class="crime-icon">📜</div>
+            <div class="crime-title">Material Misrepresentation to Donors</div>
+            <div class="crime-desc">When a donor gives tithe or a donation believing it will fund Protestant education, and that money instead funds Catholic-accredited, Trinity-teaching instruction — this is material misrepresentation under general principles of charitable donation law.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- KNOWN SCHOOL EINS -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">IRS Records</div>
+          <h2>Confirmed School <em>EIN Numbers</em></h2>
+          <p>These schools are individually registered 501(c)(3) entities or operate under the umbrella Group Exemption GEN 1071. All confirmed via GuideStar / ProPublica public records.</p>
+        </div>
+        <div class="school-table-wrap">
+          <table class="school-table">
+            <thead>
+              <tr>
+                <th>School Name</th>
+                <th>EIN</th>
+                <th>Location</th>
+                <th>Accreditation / Note</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Sunnydale Adventist Academy</td>
+                <td>Under GEN 1071</td>
+                <td>Centralia, MO</td>
+                <td>False Protestant claim on sunnydalechurch.org</td>
+              </tr>
+              <tr>
+                <td>Highland View Academy</td>
+                <td>52-0851123</td>
+                <td>Hagerstown, MD</td>
+                <td>Middle States accreditation</td>
+              </tr>
+              <tr>
+                <td>Forest Lake Academy</td>
+                <td>59-0816443</td>
+                <td>Apopka, FL</td>
+                <td>SACS/CASI accredited</td>
+              </tr>
+              <tr>
+                <td>Portland Adventist Academy</td>
+                <td>93-0446528</td>
+                <td>Portland, OR</td>
+                <td>NWEA / state accredited</td>
+              </tr>
+              <tr>
+                <td>Columbia Adventist Academy</td>
+                <td>91-0640498</td>
+                <td>Battle Ground, WA</td>
+                <td>NWEA accredited</td>
+              </tr>
+              <tr>
+                <td>Hillside SDA School</td>
+                <td>25-1605069</td>
+                <td>Pennsylvania</td>
+                <td>State accredited</td>
+              </tr>
+              <tr>
+                <td>Valley View Adventist School</td>
+                <td>77-0482349</td>
+                <td>California</td>
+                <td>WASC candidate</td>
+              </tr>
+              <tr>
+                <td>Weimar Institute</td>
+                <td>94-2423430</td>
+                <td>Weimar, CA</td>
+                <td>Health/lifestyle focus</td>
+              </tr>
+              <tr>
+                <td>Advent Ridge Academy</td>
+                <td>26-4136229</td>
+                <td>Colorado</td>
+                <td>Under GC conference structure</td>
+              </tr>
+              <tr>
+                <td>Mt. Pleasant SDA Church &amp; School</td>
+                <td>38-3194119</td>
+                <td>Michigan</td>
+                <td>NCA/CASI accreditation</td>
+              </tr>
+              <tr>
+                <td>Andrews University</td>
+                <td>38-1627600</td>
+                <td>Berrien Springs, MI</td>
+                <td>HLC accredited — flagship SDA university</td>
+              </tr>
+              <tr>
+                <td>Southern Adventist University</td>
+                <td>62-0527040</td>
+                <td>Collegedale, TN</td>
+                <td>SACSCOC accredited</td>
+              </tr>
+              <tr>
+                <td>Oakwood University</td>
+                <td>63-0376813</td>
+                <td>Huntsville, AL</td>
+                <td>SACSCOC — HBCU</td>
+              </tr>
+              <tr>
+                <td>La Sierra University</td>
+                <td>95-3067126</td>
+                <td>Riverside, CA</td>
+                <td>WASC accredited; evolution controversy 2010</td>
+              </tr>
+              <tr>
+                <td>Washington Adventist University</td>
+                <td>52-0680782</td>
+                <td>Takoma Park, MD</td>
+                <td>MSCHE accredited</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <p style="font-size: 0.8rem; color: var(--ink-muted); margin-top: 14px;">Sources: <a href="https://www.guidestar.org" target="_blank" rel="noopener">GuideStar.org</a> | <a href="https://projects.propublica.org/nonprofits" target="_blank" rel="noopener">ProPublica Nonprofits</a> | <a href="https://144000.com/schoolfraud/" target="_blank" rel="noopener">144000.com/schoolfraud</a></p>
+      </section>
+
+      <!-- DANIELLS CONNECTION -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Root Cause</div>
+          <h2>Arthur Daniells <em>Started This</em> in 1904</h2>
+        </div>
+        <div class="daniells-box">
+          <h3>How Catholic Accreditation Entered SDA Schools</h3>
+          <p>When <strong>Arthur G. Daniells</strong> became General Conference President (1901–1922) and signed the Articles of Incorporation on <strong>April 15, 1904</strong>, he began the process of aligning SDA educational institutions with government-regulated accreditation bodies. This was a strategic move to gain academic credibility — but it came at a devastating doctrinal cost.</p>
+          <p>Under Daniells' administration, SDA schools were brought into regional accreditation frameworks that had been shaped by Catholic educational philosophy — particularly the <strong>Higher Learning Commission</strong>, <strong>SACSCOC</strong>, and <strong>WASC</strong> systems, all of which require curriculum standards compatible with mainstream theological positions (including Trinitarian Christianity).</p>
+          <p>The result: SDA schools were forced to adopt <strong>Trinity-affirming theological statements</strong>, <strong>ecumenically acceptable academic standards</strong>, and <strong>state-approved curriculum</strong> — while continuing to raise funds from pioneer-tradition families who believed they were supporting Protestant, non-Trinitarian, sanctuary-truth-based education.</p>
+          <p><strong>Daniells built the trap. Froom filled it with the books of a new order. And 7,500+ schools now operate in it — funded by your tithe.</strong></p>
+          <a class="daniells-link" href="/apostasy/arthur-grosvenor-daniells">Read Daniells Full Resume of Apostasy →</a>
+        </div>
+      </section>
+
+      <!-- WHAT THE ACCREDITATION REQUIRES -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Accreditation Requirements</div>
+          <h2>What Catholic-Influenced Accreditation <em>Forces SDA Schools to Teach</em></h2>
+        </div>
+        <div class="quote-block">
+          <blockquote>"The Seventh-day Adventist Church is a mainstream Protestant church with approximately 19 million members worldwide… operating 173 hospitals and sanitariums and more than 7,500 schools around the world."</blockquote>
+          <cite>— Official SDA language on adventist.org and thousands of local church/school websites, used to solicit donations</cite>
+        </div>
+
+        <div class="crime-grid" style="margin-top: 20px;">
+          <div class="crime-card">
+            <div class="crime-icon">✝️</div>
+            <div class="crime-title">Trinity Doctrine (Required)</div>
+            <div class="crime-desc">Regional accreditation bodies accept Trinitarian Christianity as the standard. SDA Fundamental Belief #2 (Trinity) mirrors Catholic Catechism #234. Pioneer James White explicitly called the Trinity a "Papal error" in 1856.</div>
+          </div>
+          <div class="crime-card">
+            <div class="crime-icon">📚</div>
+            <div class="crime-title">State-Approved Curriculum</div>
+            <div class="crime-desc">Accreditation requires curriculum that meets government academic standards — standards rooted in post-Reformation Catholic-influenced educational philosophy. The Pioneer health reform, prophetic-chart based curriculum of Battle Creek is gone.</div>
+          </div>
+          <div class="crime-card">
+            <div class="crime-icon">🤝</div>
+            <div class="crime-title">Ecumenical Partnerships</div>
+            <div class="crime-desc">Accredited SDA schools may partner with other "Christian" colleges, transfer credits to Catholic universities, and participate in ecumenical academic initiatives — directly fulfilling EGW's nightmare vision of Adventists becoming a "Catholic procession."</div>
+          </div>
+          <div class="crime-card">
+            <div class="crime-icon">🏛️</div>
+            <div class="crime-title">Government Oversight Accepted</div>
+            <div class="crime-desc">By accepting accreditation and 501(c)(3) status, SDA schools submit to Caesar's jurisdiction over their educational mission — exactly what EGW's dream depicted: "This house is proscribed. The goods must be confiscated."</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>Save Your Children From This Fraud</h2>
+        <p>The schools are exposed. The accreditation system is exposed. Daniells is exposed. Now share this with every Adventist parent you know.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">The Full Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/apostasy/hospitals">173 Hospitals →</a>
+          <a class="cta-btn cta-btn-secondary" href="/apostasy">Apostate Shepherds →</a>
+          <a class="cta-btn cta-btn-secondary" href="/babylon-antichrist-library">Babylon Library →</a>
+          <a class="cta-btn cta-btn-secondary" href="/501c3">501(c)(3) Trap →</a>
+        </div>
+      </div>
+    </main>
+
+    <SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'SDA Schools Directory', href: '/apostasy/schools' },
+        { label: 'SDA Hospital Apostasy', href: '/apostasy/hospitals' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'Apostasy Overview', href: '/apostasy' }
+      ]}
+    />
+
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

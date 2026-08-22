@@ -1,0 +1,427 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Daniel K. Nicola — Signer No. 5 — The Final Signature | SundayLaw.com</title>
+  <meta name="description" content="Daniel K. Nicola of Washington, D.C., placed the fifth and final signature on the Articles of Incorporation of the General Conference Corporation of Seventh-day Adventists, April 15, 1904 — completing the act of corporate apostasy that Ellen White had explicitly warned against six months earlier.">
+  <link rel="canonical" href="https://sundaylaw.com/1904-signers/daniel-k-nicola">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f; --bg-soft: #0d0018;
+      --ink: #f8f1dd; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --red: #ef4444; --red-soft: #fca5a5;
+      --blue: #3b82f6; --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-link { color: var(--muted); font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); } .breadcrumb span { margin: 0 6px; }
+    .breadcrumb .current { color: var(--ink); }
+    .hero { padding: 44px 0 36px; }
+    .signer-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.73rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .final-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 18px; border-radius: 999px; background: rgba(180,5,5,0.4); border: 1px solid #dc2626; color: #fff; font-size: 0.78rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; margin-left: 10px; }
+    .hero-grid { display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: start; }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+    .charge-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 600; color: var(--ink); line-height: 1.15; margin-bottom: 10px; }
+    .charge-col h1 em { color: var(--red-soft); font-style: italic; }
+    .charge-sub { font-size: 0.97rem; color: rgba(248,241,221,0.78); line-height: 1.85; margin-bottom: 22px; }
+    .fact-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .fact-box { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 10px; padding: 11px 13px; }
+    .fact-label { font-size: 0.69rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+    .fact-val { font-size: 0.88rem; color: var(--gold-soft); font-weight: 600; }
+    .fact-val.red { color: var(--red-soft); }
+    .sect { padding: 48px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .sect-body { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 14px; }
+    .sect-body strong { color: var(--gold-soft); }
+    .sect-body em { color: var(--red-soft); }
+    .warn-box { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.35); border-radius: 18px; padding: 28px 26px; margin: 22px 0; }
+    .warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--red); margin-bottom: 10px; }
+    .warn-box blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.1rem, 1.9vw, 1.5rem); font-style: italic; color: #fde8e8; line-height: 1.65; margin-bottom: 10px; }
+    .warn-box cite { font-size: 0.8rem; color: rgba(252,165,165,0.7); font-style: normal; font-weight: 600; }
+    .crime-list { list-style: none; margin: 18px 0; }
+    .crime-list li { display: flex; gap: 13px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(239,68,68,0.08); }
+    .crime-list li:last-child { border-bottom: none; }
+    .crime-num { width: 32px; height: 32px; border-radius: 8px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82rem; color: var(--red-soft); flex-shrink: 0; }
+    .crime-text { font-size: 0.94rem; color: rgba(248,241,221,0.82); line-height: 1.75; padding-top: 3px; }
+    .crime-text strong { color: var(--red-soft); }
+    .const-strip { background: rgba(30,58,138,0.1); border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; padding: 22px 24px; margin: 24px 0; }
+    .const-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 10px; }
+    .const-strip blockquote { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.7; }
+    .const-strip cite { font-size: 0.78rem; color: rgba(147,197,253,0.6); font-style: normal; margin-top: 8px; display: block; }
+    .const-strip p { font-size: 0.92rem; color: rgba(248,241,221,0.78); line-height: 1.8; margin-top: 12px; }
+    .const-strip a { color: var(--blue-soft); text-decoration: underline; }
+    .doc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 600px) { .doc-pair { grid-template-columns: 1fr; } }
+    .doc-frame { border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; overflow: hidden; }
+    .doc-frame img { width: 100%; height: auto; display: block; }
+    .doc-caption { padding: 8px 13px; background: rgba(30,5,5,0.7); font-size: 0.77rem; color: var(--red-soft); line-height: 1.5; }
+    .timeline { margin: 28px 0; display: flex; flex-direction: column; gap: 0; }
+    .tl-item { display: grid; grid-template-columns: 100px 1fr; gap: 18px; border-left: 2px solid rgba(239,68,68,0.25); padding: 0 0 24px 22px; position: relative; }
+    .tl-item:last-child { padding-bottom: 0; border-left-color: rgba(239,68,68,0.5); }
+    .tl-item::before { content: ''; width: 12px; height: 12px; border-radius: 50%; background: var(--red); position: absolute; left: -7px; top: 4px; }
+    .tl-year { font-weight: 800; font-size: 0.88rem; color: var(--gold-soft); padding-top: 2px; }
+    .tl-text { font-size: 0.9rem; color: rgba(248,241,221,0.8); line-height: 1.7; }
+    .signer-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 24px; }
+    .sn-card { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; padding: 13px 14px; text-decoration: none; display: block; transition: all 0.2s; }
+    .sn-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-2px); }
+    .sn-card.active { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.2); }
+    .sn-num { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 4px; }
+    .sn-name { font-size: 0.87rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .sn-loc { font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+    .site-footer { background: #04000a; border-top: 1px solid rgba(180,130,50,0.15); }
+    .footer-banner { padding: 20px; text-align: center; background: linear-gradient(to right, rgba(127,29,29,0.18), rgba(127,29,29,0.1), rgba(127,29,29,0.18)); }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.85rem; font-weight: 600; font-style: normal; display: block; margin-top: 5px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 38px 22px; display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.08); padding: 16px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #7f1d1d, #b91c1c, #d97706, #b91c1c, #7f1d1d); }
+  </style>
+</head>
+<body>
+  <div class="top-stripe"></div>
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a href="/" style="flex-shrink:0;margin-right:auto;">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com" style="height:38px;width:auto;display:block;border-radius:4px;" />
+        </a>
+        <a class="nav-link" href="/1904-signers">The 5 Signers</a>
+        <a class="nav-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Pioneer Library</a>
+        <a class="nav-cta" href="/loud-cry">Loud Cry — Rev. 18:4</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link" href="/1904-signers/arthur-g-daniells">Daniells</a>
+        <a class="nav-bottom-link" href="/1904-signers/amos-p-needham">Needham</a>
+        <a class="nav-bottom-link" href="/1904-signers/james-r-scott">Scott</a>
+        <a class="nav-bottom-link" href="/1904-signers/harvey-edson-rogers">Rogers</a>
+        <a class="nav-bottom-link active" href="/1904-signers/daniel-k-nicola">Nicola</a>
+        <a class="nav-bottom-link" href="/1904-signers">All 5 Signers</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/1904-signers">All 5 Signers</a>
+      <a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a>
+      <a href="/1904-signers/amos-p-needham">Amos P. Needham</a>
+      <a href="/1904-signers/james-r-scott">James R. Scott</a>
+      <a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a>
+      <a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a>
+      <a href="/april-15-1904-new-organization">April 15, 1904 Record</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/1904-signers">The 5 Signers</a><span>›</span>
+        <span class="current">Daniel K. Nicola</span>
+      </div>
+
+      <div class="hero">
+        <div style="display:flex;align-items:center;flex-wrap:wrap;gap:8px;margin-bottom:16px;">
+          <div class="signer-badge">Signer No. 5 — Washington, D.C. — April 15, 1904</div>
+          <div class="final-badge">The Final Signature</div>
+        </div>
+        <div class="hero-grid">
+          <div>
+            <div style="background:linear-gradient(135deg,rgba(180,5,5,0.25),rgba(127,29,29,0.15));border:2px solid rgba(220,38,38,0.4);border-radius:16px;padding:26px 20px;text-align:center;">
+              <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#7f1d1d,#450a0a);border:3px solid #dc2626;margin:0 auto 14px;display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Crimson Text',serif;font-size:2.2rem;color:#fca5a5;font-weight:600;">DN</span>
+              </div>
+              <div style="font-family:'Crimson Text',serif;font-size:1.32rem;font-weight:600;color:var(--ink);margin-bottom:4px;">Daniel K. Nicola</div>
+              <div style="font-size:0.72rem;color:#fca5a5;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;background:#7f1d1d;padding:5px 14px;border-radius:999px;display:inline-block;margin-top:6px;">THE FINAL SIGNATURE</div>
+            </div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+              <a href="/april-15-1904-new-organization" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.83rem;">Full 1904 Evidence Page &rarr;</a>
+              <a href="/books/1904-image-of-papacy/general-conference-corporation-1904-articles-of-incorporation-sda-church-state-merger-babylon-falling-144000-ado.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(212,165,55,0.1);border:1px solid rgba(212,165,55,0.25);color:var(--gold-soft);font-weight:700;font-size:0.83rem;">Articles of Incorporation PDF</a>
+            </div>
+          </div>
+          <div class="charge-col">
+            <h1>Daniel K. Nicola &mdash;<br><em>The Last Name That Completed Babylon</em></h1>
+            <p class="charge-sub">
+              Daniel K. Nicola wrote the fifth and final signature on the Articles of Incorporation of the General Conference Corporation of Seventh-day Adventists on April 15, 1904. His pen stroke was <strong style="color:var(--red-soft);">the last act required to legally complete</strong> the formation of the corporation. When he lifted his pen, it was done. The free Advent movement — born in the prophetic study of 1841, constituted at the 1844 Disappointment, and named in 1860 — was from that moment onward impersonated by a state-registered civil entity in Caesar's own capital city.
+            </p>
+            <p class="charge-sub">He was last. He knew what the four before him had done. He wrote his name anyway.</p>
+            <div class="fact-row">
+              <div class="fact-box"><div class="fact-label">Location</div><div class="fact-val">Washington, D.C.</div></div>
+              <div class="fact-box"><div class="fact-label">Signer No.</div><div class="fact-val red">5 of 5 — Final</div></div>
+              <div class="fact-box"><div class="fact-label">Crime Date</div><div class="fact-val red">April 15, 1904</div></div>
+              <div class="fact-box"><div class="fact-label">EGW Warning</div><div class="fact-val red">Oct. 1903</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT HIS SIGNATURE DID -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Final Act — April 15, 1904</div>
+        <h2>What Daniel K. Nicola's Signature Accomplished</h2>
+        <p class="sect-body">Civil corporate law requires a minimum number of signatories to validate the formation of a corporation. Each signature is not redundant — each one builds the legal weight of the document. The fifth signature was the <strong>closing act.</strong> Without it, the document was incomplete. With it, the incorporation was accomplished.</p>
+        <p class="sect-body">When Nicola's ink dried on April 15, 1904:</p>
+        <ul style="list-style:none;margin:0 0 18px;padding:0;display:flex;flex-direction:column;gap:8px;">
+          <li style="display:flex;gap:12px;align-items:flex-start;font-size:0.95rem;color:rgba(248,241,221,0.82);padding:12px 14px;background:rgba(127,29,29,0.1);border:1px solid rgba(239,68,68,0.15);border-radius:10px;line-height:1.7;">
+            <span style="color:var(--red-soft);font-weight:800;flex-shrink:0;">→</span>
+            The <strong style="color:var(--red-soft);">"General Conference Corporation of Seventh-day Adventists"</strong> was legally constituted as a D.C.-jurisdiction civil corporation.
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;font-size:0.95rem;color:rgba(248,241,221,0.82);padding:12px 14px;background:rgba(127,29,29,0.1);border:1px solid rgba(239,68,68,0.15);border-radius:10px;line-height:1.7;">
+            <span style="color:var(--red-soft);font-weight:800;flex-shrink:0;">→</span>
+            The name <strong style="color:var(--red-soft);">"Seventh-day Adventist"</strong> was effectively appropriated into a civil legal structure — making the pioneer name a registered corporate asset.
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;font-size:0.95rem;color:rgba(248,241,221,0.82);padding:12px 14px;background:rgba(127,29,29,0.1);border:1px solid rgba(239,68,68,0.15);border-radius:10px;line-height:1.7;">
+            <span style="color:var(--red-soft);font-weight:800;flex-shrink:0;">→</span>
+            The prophetic structure Ellen White had warned against six months earlier — <em>"a new organization"</em> = <em>"apostasy from the truth"</em> — was formally established.
+          </li>
+          <li style="display:flex;gap:12px;align-items:flex-start;font-size:0.95rem;color:rgba(248,241,221,0.82);padding:12px 14px;background:rgba(127,29,29,0.1);border:1px solid rgba(239,68,68,0.15);border-radius:10px;line-height:1.7;">
+            <span style="color:var(--red-soft);font-weight:800;flex-shrink:0;">→</span>
+            The Image of the Papacy — a church body using civil legal authority — was created in Washington, D.C., the city designed after Rome.
+          </li>
+        </ul>
+
+        <div class="doc-pair">
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA1.jpg" alt="1904 Articles of Incorporation — Page 1" loading="lazy" />
+            <div class="doc-caption">The document completed by Nicola's fifth and final signature on April 15, 1904.</div>
+          </div>
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA2.jpg" alt="1904 Articles of Incorporation — Signatures — Nicola Final" loading="lazy" />
+            <div class="doc-caption">Nicola's name — the last on the list. The fifth signature that closed the loop and legalized Babylon's paper church.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Apostasy Timeline — From Eden to Nicola's Pen</div>
+        <h2>How We Got Here</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-year">1841</div>
+            <div class="tl-text">William Miller begins preaching the Advent message. The first angel's message goes out: <em>"Fear God and give glory to Him, for the hour of His judgment is come."</em></div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1844</div>
+            <div class="tl-text">The Great Disappointment. The faithful remnant emerged from the Second Advent experience with the Three Angels' Messages and the heavenly sanctuary light. The "shut door" group became the founding generation.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1848</div>
+            <div class="tl-text">James White: <em>"Making a creed is setting the stakes, and driving them firmly."</em> He refused any organizational structure that placed human authority over the free Spirit of God. The movement was intentionally unincorporated.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1860</div>
+            <div class="tl-text">The name "Seventh-day Adventist" is chosen at Buck's Bridge, New York. A free spiritual identity — no government, no registration, no trademark. Belonging to all who hold the Commandments of God and the Faith of Jesus.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">1861</div>
+            <div class="tl-text">John N. Loughborough describes the 5 Steps of Apostasy in the Review &amp; Herald — warning against the exact path that would be walked in 1904.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-year">Oct. 1903</div>
+            <div class="tl-text">Ellen White writes Letter 242: <em>"We cannot now enter into any new organization, for this would mean apostasy from the truth."</em> The warning is circulated among GC leadership.</div>
+          </div>
+          <div class="tl-item" style="border-left-color:#dc2626;">
+            <div class="tl-year" style="color:var(--red-soft);">Apr. 15, 1904</div>
+            <div class="tl-text"><strong style="color:var(--red-soft);">Daniel K. Nicola writes the fifth and final signature.</strong> The General Conference Corporation of Seventh-day Adventists is legally constituted in Washington, D.C. The warning is fulfilled. The apostasy is complete.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WARNINGS -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Warnings He Ignored</div>
+        <h2>The Last Man Had the Most Warning of All</h2>
+        <p class="sect-body">By the time Nicola's pen touched the paper, four others had already signed. If the Spirit of Prophecy testimony was clear to the first signer, it was <em>even more available</em> to the fifth. The document was in front of him. The ink of four signatures was drying. He could have refused. He could have been the one who stood in the breach and said: <em>"I will not sign this. I have read Letter 242."</em></p>
+        <p class="sect-body">He did not.</p>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; The Warning — Six Months Before Nicola Signed</div>
+          <blockquote>&ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth. Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; The Test of EW Counsel — Nicola's Failure</div>
+          <blockquote>&ldquo;Those who have a knowledge of the testimonies, and yet pursue a course in direct opposition to the light God has given, show that they despise that light. If they continue in this course, they will drift into irretrievable darkness.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, Testimonies to Ministers, p. 109</cite>
+        </div>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; What Loughborough Prophesied — 43 Years Earlier — Fulfilled by Nicola's Pen</div>
+          <blockquote>&ldquo;The first step of apostasy is to get up a creed, telling us what we shall believe. The second is to make that creed a test of fellowship. The third is to try members by that creed. The fourth to denounce as heretics those who do not believe that creed. And fifth, to commence persecution against such.&rdquo;</blockquote>
+          <cite>&mdash; John N. Loughborough, Review &amp; Herald, October 8, 1861 — Nicola's signature completed the institutional instrument that would carry out each of these five steps.</cite>
+        </div>
+      </div>
+
+      <!-- CRIMES -->
+      <div class="sect">
+        <div class="sect-eyebrow">Spiritual &amp; Prophetic Record</div>
+        <h2>The Charges Against Daniel K. Nicola</h2>
+        <ul class="crime-list">
+          <li>
+            <div class="crime-num">I</div>
+            <div class="crime-text"><strong>Completing the act of corporate apostasy.</strong> Nicola's was the signature that legally completed the formation of the 1904 corporation. Without his fifth name, the document was incomplete. He bore personal responsibility for the crossing of the final legal threshold.</div>
+          </li>
+          <li>
+            <div class="crime-num">II</div>
+            <div class="crime-text"><strong>Deliberate defiance of prophetic testimony.</strong> As the last signer, Nicola had more opportunity than any other signatory to reflect on what was being done and to refuse. Four signatures before his had already been written. He had time, example, and the Spirit of Prophecy's plain testimony. He chose the corporate document over the prophetic counsel.</div>
+          </li>
+          <li>
+            <div class="crime-num">III</div>
+            <div class="crime-text"><strong>Completing the Image of the Papacy structure.</strong> The 1904 corporation — fully constituted the moment Nicola signed — became the parent entity of a church-state structure the pioneers had spent their lives exposing. Nicola completed it.</div>
+          </li>
+          <li>
+            <div class="crime-num">IV</div>
+            <div class="crime-text"><strong>Contributing to perpetual name theft.</strong> The corporation whose legal existence was sealed by Nicola's pen has, for over a century, claimed the name "Seventh-day Adventist" as a registered trademark — excluding, persecuting, and bringing legal action against non-corporate Adventists who use their own pioneers' prophetic name. This was made possible by Nicola's signature.</div>
+          </li>
+          <li>
+            <div class="crime-num">V</div>
+            <div class="crime-text"><strong>Completing voluntary subjugation to Caesar.</strong> With the fifth signature, the formation of the D.C. corporation was complete — and with it, the voluntary placement of the Advent movement under the laws of the very nation-system the prophetic charts had identified as the seat of the second beast of Revelation 13.</div>
+          </li>
+          <li>
+            <div class="crime-num">VI</div>
+            <div class="crime-text"><strong>Refusing to stand in the breach.</strong> The greatest charge against Nicola is not only what he did — but what he refused to do. He had four examples before him, a plain prophetic warning, and the full knowledge of what was being accomplished. He became the final act of a tragedy he had the unique power to prevent. He wrote his name anyway.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="const-strip">
+        <div class="const-label">First Amendment — Completed Surrender — April 15, 1904</div>
+        <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof&hellip;&rdquo;</blockquote>
+        <cite>&mdash; First Amendment, U.S. Constitution, December 15, 1791</cite>
+        <p>The First Amendment protected Adventist believers from government entanglement in religion. Daniel K. Nicola's fifth signature — the final act in the April 15, 1904 incorporation — completed the voluntary surrender of that constitutional protection. With his name, the church's legal existence was placed under the laws of D.C., the IRS, and the civil courts. The freedom was absolute until the moment Nicola's pen lifted from the page. <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank" rel="noopener noreferrer">Official source: constitution.congress.gov &rarr;</a></p>
+      </div>
+
+      <!-- IRS EVIDENCE -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Corporate Chain — What Nicola's Signature Made Possible</div>
+        <h2>EIN #52-0643036 — The IRS Chain</h2>
+        <p class="sect-body">The General Conference Corporation of Seventh-day Adventists, constituted by the five signatures including Nicola's, is the parent organization registered with the IRS under Employer Identification Number <strong>52-0643036</strong>. The 1950 IRS ruling confirming this status is publicly available. Nicola's pen made it possible.</p>
+        <img src="/images/sundaylaw/52-0643036-GCOSDA-aka-PARENT-ORGANIZATION-1950-ruling-year_Page_1.jpg" alt="IRS EIN 52-0643036 — GC Corp SDA — Parent Organization — 1950 Ruling" loading="lazy" style="width:100%;border-radius:14px;margin:18px 0;border:1px solid rgba(239,68,68,0.15);" />
+      </div>
+
+      <!-- OTHER SIGNERS NAV -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Other Four Signers</div>
+        <h2>Five Men. One Act of Apostasy.</h2>
+        <div class="signer-nav">
+          <a href="/1904-signers/arthur-g-daniells" class="sn-card"><div class="sn-num">Signer 1</div><div class="sn-name">Arthur G. Daniells</div><div class="sn-loc">Takoma Park, MD</div></a>
+          <a href="/1904-signers/amos-p-needham" class="sn-card"><div class="sn-num">Signer 2</div><div class="sn-name">Amos P. Needham</div><div class="sn-loc">Takoma Park, MD</div></a>
+          <a href="/1904-signers/james-r-scott" class="sn-card"><div class="sn-num">Signer 3</div><div class="sn-name">James R. Scott</div><div class="sn-loc">Washington, D.C.</div></a>
+          <a href="/1904-signers/harvey-edson-rogers" class="sn-card"><div class="sn-num">Signer 4</div><div class="sn-name">Harvey Edson Rogers</div><div class="sn-loc">Washington, D.C.</div></a>
+          <a href="/1904-signers/daniel-k-nicola" class="sn-card active"><div class="sn-num">Signer 5</div><div class="sn-name">Daniel K. Nicola</div><div class="sn-loc">Washington, D.C.</div></a>
+        </div>
+        <div style="margin-top:22px;text-align:center;">
+          <a href="/1904-signers" style="display:inline-flex;align-items:center;gap:8px;padding:14px 26px;border-radius:12px;background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.3);color:var(--red-soft);font-weight:700;font-size:0.95rem;">View the Complete 1904 Signers Overview &rarr;</a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-banner">
+      <p>&ldquo;Come out of her, My people, that ye be not partakers of her sins, and that ye receive not of her plagues.&rdquo;</p>
+      <cite>&mdash; Revelation 18:4 — The call that went out after the corporate apostasy was completed by Nicola's fifth signature on April 15, 1904</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:10px;">SundayLaw.com</div>
+        <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;">Preserving the 1841–1850 pioneer platform. Exposing the 1904 corporate apostasy. Proclaiming the Three Angels' Messages.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The 5 Signers</h4>
+        <ul>
+          <li><a href="/1904-signers">Overview — All 5</a></li>
+          <li><a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a></li>
+          <li><a href="/1904-signers/amos-p-needham">Amos P. Needham</a></li>
+          <li><a href="/1904-signers/james-r-scott">James R. Scott</a></li>
+          <li><a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a></li>
+          <li><a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pioneer Platform</h4>
+        <ul>
+          <li><a href="/library">Full Pioneer Library</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/pioneers">Pioneer Biographies</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>SundayLaw.com — Three Angels' Messages — Revelation 14:6–12 — "Come out of her, My people" — Revelation 18:4</p></div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn?.addEventListener('click', () => { mobileNav?.classList.toggle('open'); });
+  </script>
+  <SiteFooter
+    scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+    scriptureRef="Revelation 18:4 (KJV)"
+    pageLinks={[
+      { label: 'All Five 1904 Signers', href: '/1904-signers' },
+      { label: 'April 15, 1904 — The Record', href: '/april-15-1904-new-organization' },
+      { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+      { label: 'Apostate Shepherds', href: '/apostasy' }
+    ]}
+  />
+  <ShareBar />
+  <SiteSearch />
+</body>
+</html>

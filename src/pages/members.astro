@@ -1,0 +1,301 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Join &amp; Members — SundayLaw.com</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+      :root {
+        --bg: #0a0a2e; --bg-soft: #0d0d3a; --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      }
+      body { background: var(--bg); color: var(--ink); }
+      .page-wrap { max-width: 860px; margin: 0 auto; padding: 56px 22px 80px; }
+      .page-hero { text-align: center; padding: 0 0 40px; }
+      .page-hero .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 999px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.28); color: var(--gold-soft); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+      .page-hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 600; color: var(--ink); margin-bottom: 14px; line-height: 1.1; }
+      .page-hero h1 .gold { color: var(--gold); }
+      .page-hero p { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+      .form-card { background: linear-gradient(135deg, rgba(26,26,78,0.8), rgba(13,13,53,0.8)); border: 1px solid rgba(180,130,50,0.3); border-radius: 20px; padding: 32px 28px; }
+      .form-card.hidden { display: none; }
+      .form-card h2 { font-family: 'Crimson Text', serif; font-size: 1.65rem; color: var(--ink); margin-bottom: 6px; }
+      .form-card .desc { color: var(--ink-muted); font-size: 0.9rem; margin-bottom: 22px; line-height: 1.7; }
+      .form-group { margin-bottom: 16px; }
+      .form-group label { display: block; font-size: 0.875rem; color: var(--ink-muted); margin-bottom: 6px; font-weight: 500; }
+      .form-group input,
+      .form-group textarea,
+      .form-group select { width: 100%; background: rgba(10,10,46,0.6); border: 1px solid rgba(100,100,150,0.4); border-radius: 8px; padding: 12px 14px; color: var(--ink); font-size: 0.875rem; font-family: inherit; transition: border-color 0.2s; }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus { outline: none; border-color: var(--gold); }
+      .form-group select option { background: #0d0d35; }
+      .form-group textarea { min-height: 140px; resize: vertical; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } .form-card { padding: 18px 8px; } }
+      .btn-submit { display: block; width: 100%; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; transition: all 0.2s; text-align: center; font-family: inherit; background: linear-gradient(to right,#b45309,#d97706); color: #fff; margin-top: 12px; }
+      .btn-submit:hover { background: linear-gradient(to right,#d97706,#f59e0b); }
+      .error { color: #f87171; font-size: 0.92rem; margin-bottom: 8px; }
+      .success { color: #10b981; font-size: 1rem; margin-bottom: 8px; }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+    <div class="page-wrap">
+      <div class="page-hero">
+        <div class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          SundayLaw.com
+        </div>
+        <h1>Membership <span class="gold">Join</span></h1>
+        <p>Access exclusive resources, updates, and community features.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs member-tabs" role="tablist">
+        <button class="tab tab-gold active" id="tab-join" role="tab" aria-selected="true" aria-controls="form-join">Join</button>
+        <button class="tab tab-purple" id="tab-login" role="tab" aria-selected="false" aria-controls="form-login">Login</button>
+        <button class="tab tab-blue" id="tab-forgot" role="tab" aria-selected="false" aria-controls="form-forgot">Forgot Password</button>
+      </div>
+
+      <!-- Join Form -->
+      <div id="form-join" class="form-card" role="tabpanel">
+        <h2>Become a Member</h2>
+        <p class="desc">Fill out the form below to join our community.</p>
+        <form method="POST" action="/api/join.php" id="joinForm" autocomplete="on">
+          <div class="form-row">
+            <div class="form-group">
+              <label for="j-name">Full Name *</label>
+              <input type="text" id="j-name" name="name" required placeholder="Your name" autocomplete="name" aria-label="Name" />
+            </div>
+            <div class="form-group">
+              <label for="j-email">Email *</label>
+              <input type="email" id="j-email" name="email" required placeholder="your@email.com" autocomplete="email" aria-label="Email" />
+            </div>
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="j-password">Password *</label>
+              <input type="password" id="j-password" name="password" required placeholder="Create a password" autocomplete="new-password" aria-label="Password" minlength="8" />
+            </div>
+            <div class="form-group">
+              <label for="j-password2">Confirm Password *</label>
+              <input type="password" id="j-password2" name="password2" required placeholder="Re-enter password" autocomplete="new-password" aria-label="Confirm Password" minlength="8" />
+            </div>
+            <div class="form-group">
+              <label for="j-phone">Phone</label>
+              <input type="tel" id="j-phone" name="phone" placeholder="Phone number" autocomplete="tel" aria-label="Phone" />
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="j-address1">Address Line 1</label>
+            <input type="text" id="j-address1" name="address1" placeholder="Street address" autocomplete="address-line1" aria-label="Address line 1" />
+          </div>
+          <div class="form-group">
+            <label for="j-address2">Address Line 2</label>
+            <input type="text" id="j-address2" name="address2" placeholder="Apt, suite, unit, etc. (optional)" autocomplete="address-line2" aria-label="Address line 2" />
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="j-city">City</label>
+              <input type="text" id="j-city" name="city" placeholder="City" autocomplete="address-level2" aria-label="City" />
+            </div>
+            <div class="form-group">
+              <label for="j-state">State</label>
+              <input type="text" id="j-state" name="state" placeholder="State" autocomplete="address-level1" aria-label="State" />
+            </div>
+              <div class="form-group">
+                <label for="j-zip">ZIP/Postal Code *</label>
+                <input type="text" id="j-zip" name="zip" required placeholder="ZIP or Postal Code" autocomplete="postal-code" aria-label="ZIP or Postal Code" />
+              </div>
+              <div class="form-group">
+                <label for="j-country">Country *</label>
+                <input type="text" id="j-country" name="country" required placeholder="Country" autocomplete="country" aria-label="Country" />
+              </div>
+          </div>
+          <div class="form-group">
+            <label for="j-hear">How did you hear about us?</label>
+            <input type="text" id="j-hear" name="heard_about" placeholder="Friend, web search, event, etc." aria-label="How did you hear about us" />
+          </div>
+          <button type="submit" class="btn-submit">Join Now</button>
+        </form>
+      </div>
+
+      <!-- Login Form -->
+      <div id="form-login" class="form-card hidden" role="tabpanel">
+        <h2>Member Login</h2>
+        <p class="desc">Returning member? Log in to access your account.</p>
+        <form method="POST" action="/api/login.php" id="loginForm" autocomplete="on">
+          <div class="form-group">
+            <label for="l-email">Email *</label>
+            <input type="email" id="l-email" name="email" required placeholder="your@email.com" autocomplete="email" aria-label="Email" />
+          </div>
+          <div class="form-group">
+            <label for="l-password">Password *</label>
+            <input type="password" id="l-password" name="password" required placeholder="Your password" autocomplete="current-password" aria-label="Password" />
+          </div>
+          <button type="submit" class="btn-submit btn-purple">Login</button>
+        </form>
+      </div>
+
+      <!-- Forgot Password Form -->
+      <div id="form-forgot" class="form-card hidden" role="tabpanel">
+        <h2>Forgot Password</h2>
+        <p class="desc">Enter your email to receive a password reset link.</p>
+        <form method="POST" action="/api/forgot.php" id="forgotForm" autocomplete="on">
+          <div class="form-group">
+            <label for="f-email">Email *</label>
+            <input type="email" id="f-email" name="email" required placeholder="your@email.com" autocomplete="email" aria-label="Email" />
+          </div>
+          <button type="submit" class="btn-submit btn-blue">Send Reset Link</button>
+        </form>
+      </div>
+
+      <style>
+        .member-tabs {
+          display: flex;
+          gap: 6px;
+          margin-bottom: 28px;
+          background: rgba(26,26,78,0.4);
+          padding: 6px;
+          border-radius: 12px;
+          max-width: 520px;
+          margin-left: auto;
+          margin-right: auto;
+        }
+        .tab {
+          flex: 1;
+          padding: 10px 8px;
+          text-align: center;
+          border-radius: 8px;
+          font-weight: 600;
+          font-size: 0.95rem;
+          cursor: pointer;
+          border: none;
+          margin: 0;
+          background: transparent;
+          color: var(--ink-muted);
+          transition: background 0.18s, color 0.18s;
+        }
+        .tab:hover {
+          color: var(--ink);
+        }
+        .tab-gold.active {
+          background: linear-gradient(to right,#b45309,#d97706);
+          color: #fff;
+        }
+        .tab-purple.active {
+          background: linear-gradient(to right,#7c3aed,#6d28d9);
+          color: #fff;
+        }
+        .tab-blue.active {
+          background: linear-gradient(to right,#1d4ed8,#2563eb);
+          color: #fff;
+        }
+        .tab-gold:not(.active), .tab-purple:not(.active), .tab-blue:not(.active) {
+          background: transparent;
+          color: var(--ink-muted);
+        }
+        @media (max-width: 600px) {
+          .member-tabs { flex-wrap: wrap; }
+          .tab { flex: 1 0 calc(50% - 6px); }
+        }
+      </style>
+      <script>
+        // Tab switching (fix for event handler)
+        document.querySelectorAll('.member-tabs .tab').forEach(btn => {
+          btn.addEventListener('click', function(e) {
+            e.preventDefault();
+            const name = this.id.replace('tab-','');
+            ['join','login','forgot'].forEach(id => {
+              const card = document.getElementById('form-' + id);
+              const tab = document.getElementById('tab-' + id);
+              if (card) card.classList.toggle('hidden', id !== name);
+              if (tab) {
+                if (id === name) tab.classList.add('active');
+                else tab.classList.remove('active');
+                tab.setAttribute('aria-selected', id === name ? 'true' : 'false');
+              }
+            });
+            window.scrollTo({ top: 0, behavior: 'smooth' });
+          });
+        });
+        // Password match validation
+        document.getElementById('joinForm').addEventListener('submit', function(e) {
+          var pw = document.getElementById('j-password').value;
+          var pw2 = document.getElementById('j-password2').value;
+          if (pw !== pw2) {
+            alert('Passwords do not match.');
+            e.preventDefault();
+          }
+        });
+      </script>
+        </form>
+      </div>
+      <!-- Login Form -->
+      <div id="form-login" class="form-card hidden" role="tabpanel">
+        <form method="POST" action="/api/login.php" id="loginForm" autocomplete="on">
+          <div class="form-group">
+            <label for="l-email">Email *</label>
+            <input type="email" id="l-email" name="email" required placeholder="your@email.com" autocomplete="email" tabindex="1" aria-label="Email" />
+          </div>
+          <div class="form-group">
+            <label for="l-password">Password *</label>
+            <input type="password" id="l-password" name="password" required placeholder="Your password" autocomplete="current-password" tabindex="2" aria-label="Password" />
+          </div>
+          <button type="submit" class="btn-submit" tabindex="3">Login</button>
+        </form>
+      </div>
+      <!-- Forgot Password Form -->
+      <div id="form-forgot" class="form-card hidden" role="tabpanel">
+        <form method="POST" action="/api/forgot.php" id="forgotForm" autocomplete="on">
+          <div class="form-group">
+            <label for="f-email">Email *</label>
+            <input type="email" id="f-email" name="email" required placeholder="your@email.com" autocomplete="email" tabindex="1" aria-label="Email" />
+          </div>
+          <button type="submit" class="btn-submit" tabindex="2">Send Reset Link</button>
+        </form>
+      </div>
+    </div>
+    <SiteFooter />
+    <script>
+      // Tab switching
+      function showTab(name) {
+        ['join','login','forgot'].forEach(id => {
+          const card = document.getElementById('form-' + id);
+          const tab = document.getElementById('tab-' + id);
+          if (card) card.classList.toggle('hidden', id !== name);
+          if (tab) {
+            tab.classList.toggle('active', id === name);
+            tab.setAttribute('aria-selected', id === name ? 'true' : 'false');
+          }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+      // Auto-tab/advance between fields
+      document.querySelectorAll('.form-card input').forEach((el, idx, arr) => {
+        el.addEventListener('keydown', function(e) {
+          if (e.key === 'Enter' && this.type !== 'password') {
+            e.preventDefault();
+            if (arr[idx+1]) arr[idx+1].focus();
+          }
+        });
+      });
+      // Inline validation
+      document.querySelectorAll('.form-card input').forEach(el => {
+        el.addEventListener('input', function(e) {
+          if (e.target.checkValidity()) {
+            e.target.style.borderColor = '#10b981';
+          } else {
+            e.target.style.borderColor = '#f87171';
+          }
+        });
+      });
+    </script>
+  </body>
+</html>

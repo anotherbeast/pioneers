@@ -1,0 +1,353 @@
+---
+/**
+ * SiteNav.astro — Sitewide navigation component for SundayLaw.com
+ *
+ * Usage:
+ *   <SiteNav />                          ← Standard pages (auto-detects active, home variant)
+ *   <SiteNav bottomLinks={[...]} />      ← Pages with section-specific bottom row
+ *   <SiteNav mobileLinks={[...]} />      ← Pages with custom mobile nav
+ *
+ * Active state is determined automatically via Astro.url.pathname.
+ * Home variant (hash-only anchors) is detected by pathname === '/'.
+ *
+ * To add a new link sitewide: edit defaultBottomLinks below — one edit updates every page.
+ */
+
+import SiteSearch from './SiteSearch.astro';
+
+interface NavLink {
+  href: string;
+  label: string;
+}
+
+interface Props {
+  bottomLinks?: NavLink[];
+  mobileLinks?: NavLink[];
+}
+
+const { bottomLinks, mobileLinks } = Astro.props;
+
+const currentPath = Astro.url.pathname;
+const isHome = currentPath === '/';
+
+// ── Top row links ──────────────────────────────────────────────────────────────
+const standardTopLinks: NavLink[] = [
+  { href: '/#final-choice',                label: 'The Final Choice'   },
+  { href: '/#pioneer-library',             label: 'Pioneer Library'    },
+  { href: '/religious-liberty',            label: 'Religious Liberty'  },
+  { href: '/library',                      label: 'Full Library'       },
+  { href: '/members',                      label: 'Members'            },
+];
+
+const homeTopLinks: NavLink[] = [
+  { href: '#final-choice',   label: 'The Final Choice'  },
+  { href: '#seal-vs-mark',   label: 'Seal vs. Mark'     },
+  { href: '#pioneer-library', label: 'Pioneer Library'  },
+  { href: '/religious-liberty', label: 'Religious Liberty' },
+  { href: '/library',        label: 'Full Library'      },
+  { href: '/members',        label: 'Members'           },
+];
+
+const topLinks    = isHome ? homeTopLinks    : standardTopLinks;
+const ctaHref     = isHome ? '#take-stand'   : '/#take-stand';
+
+// ── Bottom row defaults — ADD NEW SITEWIDE LINKS HERE ─────────────────────────
+// Split navigation links into two rows for better visibility
+const navRow1: NavLink[] = [
+  { href: '/white-estate-secrecy', label: 'The Sealed Prophecy Scandal' },
+  { href: '/divine-romance', label: 'The Bridegroom\'s Call: Enter the Most Holy Place!' },
+  { href: '/books/ellen-white-great-controversy', label: 'The Book Rome Fears Most' },
+  { href: '/pioneer-books', label: 'Featured Pioneer Books' },
+  { href: '/april-15-1904-new-organization', label: '1904 Record' },
+  { href: '/loud-cry', label: 'The Loud Cry' },
+];
+const navRow2: NavLink[] = [
+  { href: '/prophecy-charts', label: 'Prophecy Charts' },
+  { href: '/1860-name-selection', label: '1860 Name' },
+  { href: '/prophecy-explained', label: 'The Great Test' },
+  { href: '/midnight-cry', label: 'Midnight Cry Movie' },
+  { href: '/contact', label: 'Contact' },
+  { href: '/donate', label: 'Donate' },
+];
+
+// ── Mobile nav defaults ────────────────────────────────────────────────────────
+const defaultMobileLinks: NavLink[] = [
+  { href: '/',                      label: 'Home'                    },
+  { href: '/#final-choice',         label: 'The Final Choice'        },
+  { href: '/#seal-vs-mark',         label: 'Seal vs. Mark'           },
+  { href: '/#three-angels',         label: "Three Angels' Messages"  },
+  { href: '/#second-beast',         label: 'Second Beast'            },
+  { href: '/#pioneer-library',      label: 'Pioneer Library'         },
+  { href: '/library',               label: 'Full Pioneer Gateway'    },
+  { href: '/religious-liberty',     label: 'Religious Liberty'       },
+  { href: '/april-15-1904-new-organization', label: '1904 Record'   },
+  { href: '/loud-cry',              label: 'The Loud Cry'            },
+  { href: '/prophecy-charts',       label: 'Prophecy Charts'         },
+  { href: '/prophecy-explained',    label: 'The Great Test'          },
+  { href: '/1860-name-selection',   label: '1860 Name Selection'     },
+  { href: '/pioneers',              label: 'Pioneer Biographies'     },
+  { href: '/pioneer-books',         label: '★ Featured Pioneer Books' },
+  { href: '/books',                 label: 'All Pioneer Books'       },
+  { href: '/contact',               label: 'Contact'                 },
+  { href: '/donate',                label: 'Donate'                  },
+  { href: '/midnight-cry',          label: '1844 Midnight Cry Movie' },
+  { href: '/books/captain-joseph-bates-autobiography-1868', label: 'Bates Autobiography' },
+  { href: '/books/ellen-white-great-controversy',           label: 'The Great Controversy' },
+  { href: ctaHref,                  label: 'Take Your Stand \u2192'  },
+];
+
+const resolvedBottomLinks  = bottomLinks  ?? navRow1;
+const resolvedMobileLinks  = mobileLinks  ?? defaultMobileLinks;
+
+function isActive(href: string): boolean {
+  if (href.startsWith('#') || href.startsWith('/#')) return false;
+  return currentPath === href;
+}
+---
+
+<nav class="sn" id="navbar">
+  <div class="sn-wrap">
+
+    <!-- Top row: brand + page links + search + CTA + hamburger -->
+    <div class="sn-row sn-top">
+      <a class="sn-brand" href="/">
+        <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg"
+             alt="SundayLaw.com — The Final Warning" />
+      </a>
+
+      {topLinks.map(link => (
+        <a class="sn-link" href={link.href}>{link.label}</a>
+      ))}
+
+      <!-- Search trigger — inline in nav (no fixed-position overlap) -->
+      <button id="ss-open" class="sn-search" aria-label="Search site" title="Search (/)">
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24"
+             fill="none" stroke="currentColor" stroke-width="2.2"
+             stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+          <circle cx="11" cy="11" r="8"/>
+          <line x1="21" y1="21" x2="16.65" y2="16.65"/>
+        </svg>
+        <span class="sn-search-txt">Search</span>
+        <kbd class="sn-kbd">/</kbd>
+      </button>
+
+      <a class="sn-cta" href={ctaHref}>Take Your Stand</a>
+      <button class="sn-menu" id="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+    </div>
+
+    <!-- Bottom row: first half of main links -->
+    <div class="sn-row sn-bottom">
+      {navRow1.map(link => (
+        <a class={`sn-bl${isActive(link.href) ? ' active' : ''}`} href={link.href}>{link.label}</a>
+      ))}
+    </div>
+
+    <!-- Third row: second half of main links -->
+    <div class="sn-row sn-third" style="display:flex; flex-wrap:wrap; justify-content:center; background:rgba(255,255,255,0.04); gap:0.5em 1.2em; padding:0.5em 0 0.3em 0;">
+      {navRow2.map(link => (
+        <a class={`sn-bl${isActive(link.href) ? ' active' : ''}`} href={link.href}>{link.label}</a>
+      ))}
+    </div>
+
+    <!-- Third row removed to prevent duplication and overflow. -->
+
+  </div>
+
+  <!-- Mobile nav (shown on ≤ 860 px) -->
+  <div class="sn-mob" id="mobile-nav">
+    {resolvedMobileLinks.map(link => (
+      <a href={link.href}>{link.label}</a>
+    ))}
+  </div>
+</nav>
+
+<!-- Search modal (trigger button is above in the nav to avoid z-index overlap) -->
+<SiteSearch showTrigger={false} />
+
+<style>
+  /* ── Layout ─────────────────────────────────────────────────────────── */
+  .sn {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(5, 5, 30, 0.94);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid rgba(212, 165, 55, 0.22);
+  }
+
+  .sn-wrap { max-width: 1280px; margin: 0 auto; }
+
+  .sn-row {
+    display: flex;
+    align-items: center;
+    padding: 0 22px;
+  }
+
+  .sn-top {
+    gap: 28px;
+    height: 62px;
+    border-bottom: 1px solid rgba(212, 165, 55, 0.10);
+  }
+
+  .sn-bottom {
+    gap: 22px;
+    height: 42px;
+    font-size: 0.82rem;
+    overflow-x: auto;
+    scrollbar-width: none;
+  }
+  .sn-bottom::-webkit-scrollbar { display: none; }
+
+  /* ── Brand ──────────────────────────────────────────────────────────── */
+  .sn-brand {
+    text-decoration: none;
+    color: #fef3c7;
+    font-weight: 700;
+    font-size: 1.05rem;
+    flex-shrink: 0;
+    display: flex;
+    align-items: center;
+    margin-right: auto;
+  }
+  .sn-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+
+  /* ── Top nav links ──────────────────────────────────────────────────── */
+  .sn-link {
+    color: rgba(156, 163, 175, 0.9);
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.9rem;
+    white-space: nowrap;
+    transition: color 0.18s;
+    flex-shrink: 0;
+  }
+  .sn-link:hover { color: #fcd34d; }
+
+  /* ── Inline search button (no fixed positioning = no z-index fights) ── */
+  .sn-search {
+    display: inline-flex;
+    align-items: center;
+    gap: 7px;
+    height: 34px;
+    padding: 0 12px;
+    border-radius: 8px;
+    border: 1px solid rgba(212, 165, 55, 0.35);
+    background: rgba(10, 10, 46, 0.6);
+    color: rgba(254, 243, 199, 0.75);
+    font-family: 'Inter', sans-serif;
+    font-size: 0.82rem;
+    font-weight: 500;
+    cursor: pointer;
+    white-space: nowrap;
+    flex-shrink: 0;
+    transition: background 0.18s, border-color 0.18s, color 0.18s;
+  }
+  .sn-search:hover {
+    background: rgba(20, 20, 60, 0.95);
+    border-color: rgba(212, 165, 55, 0.65);
+    color: #fef3c7;
+  }
+  .sn-kbd {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    height: 18px;
+    min-width: 18px;
+    padding: 0 4px;
+    border-radius: 3px;
+    border: 1px solid rgba(212, 165, 55, 0.3);
+    background: rgba(212, 165, 55, 0.08);
+    color: rgba(212, 165, 55, 0.7);
+    font-size: 0.7rem;
+    font-family: 'Inter', sans-serif;
+    font-weight: 600;
+  }
+
+  /* ── CTA button ─────────────────────────────────────────────────────── */
+  .sn-cta {
+    display: inline-flex;
+    align-items: center;
+    height: 38px;
+    padding: 0 18px;
+    border-radius: 8px;
+    background: #d4a537;
+    color: #111;
+    font-weight: 700;
+    font-size: 0.88rem;
+    text-decoration: none;
+    flex-shrink: 0;
+    transition: background 0.18s;
+    white-space: nowrap;
+  }
+  .sn-cta:hover { background: #fcd34d; color: #111; }
+
+  /* ── Bottom row links ───────────────────────────────────────────────── */
+  .sn-bl {
+    color: rgba(156, 163, 175, 0.8);
+    text-decoration: none;
+    font-weight: 500;
+    white-space: nowrap;
+    transition: color 0.18s;
+    flex-shrink: 0;
+  }
+  .sn-bl:hover,
+  .sn-bl.active { color: #fcd34d; }
+
+  /* ── Hamburger button ───────────────────────────────────────────────── */
+  .sn-menu {
+    display: none;
+    width: 40px;
+    height: 40px;
+    border: 1px solid rgba(212, 165, 55, 0.22);
+    border-radius: 8px;
+    background: rgba(255, 255, 255, 0.03);
+    color: #fef3c7;
+    font-size: 1.2rem;
+    cursor: pointer;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: center;
+  }
+
+  /* ── Mobile nav ─────────────────────────────────────────────────────── */
+  .sn-mob {
+    display: none;
+    border-top: 1px solid rgba(212, 165, 55, 0.22);
+    padding: 14px 22px 18px;
+    background: rgba(5, 5, 30, 0.97);
+  }
+  .sn-mob.open { display: grid; gap: 6px; }
+  .sn-mob a {
+    color: rgba(156, 163, 175, 0.9);
+    text-decoration: none;
+    font-weight: 600;
+    padding: 8px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    display: block;
+  }
+  .sn-mob a:hover { color: #fcd34d; }
+
+  /* ── Responsive breakpoints ────────────────────────────────────────── */
+  @media (max-width: 860px) {
+    .sn-bottom { display: none; }
+    .sn-menu   { display: inline-flex; }
+    .sn-link   { display: none; }
+    .sn-cta    { display: none; }
+    .sn-search { gap: 0; padding: 0 10px; }
+    .sn-search-txt { display: none; }
+    .sn-kbd    { display: none; }
+  }
+</style>
+
+<script>
+  // Mobile hamburger — handled here once so pages don't need their own copy
+  const menuBtn  = document.getElementById('menu-btn');
+  const mobileNav = document.getElementById('mobile-nav');
+  if (menuBtn && mobileNav) {
+    menuBtn.addEventListener('click', () => {
+      const open = mobileNav.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+    });
+  }
+</script>

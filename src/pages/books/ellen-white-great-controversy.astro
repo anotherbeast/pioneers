@@ -1,0 +1,781 @@
+---
+/**
+ * PIONEER FEATURED BOOK PAGE — Template Type: "Pioneer Featured Book Page"
+ * Naming convention: [author-slug]-[book-slug].astro
+ * All Pioneer Featured Book Pages use: SiteNav, SiteFooter, ShareBar, Analytics
+ * SEO: Full OG + Twitter Card + JSON-LD Book + BreadcrumbList
+ */
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteNav from '../../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Great Controversy — Ellen White (1884) | The Book Satan Does Not Want You to Read | Free PDF | SundayLaw.com</title>
+    <meta name="description" content="The Great Controversy by Ellen G. White — the book that maps the past, present, and future of the cosmic conflict between Christ and Satan. Three editions from 1858 to 1888. An angel's light shone from her window as she wrote. Your eternal destiny may depend on reading this book. Free PDF.">
+    <link rel="canonical" href="https://sundaylaw.com/books/ellen-white-great-controversy">
+    <meta name="keywords" content="The Great Controversy Ellen White, Great Controversy free PDF, Ellen White books, Adventist pioneer books, sanctuary message, 1858 Great Controversy, 1884 Great Controversy, 1888 Great Controversy, angel helped Ellen White, mark of the beast, Sunday law, seal of God, Habakkuk 2:2, 1850 prophecy chart, sanctuary hidden truth">
+
+    <!-- Open Graph -->
+    <meta property="og:title" content="The Great Controversy — Ellen White | The Book Satan Does Not Want You to Read">
+    <meta property="og:description" content="The book that maps the past, present, and future of the cosmic conflict. An angel's light shone from Ellen White's window as she wrote. Three editions — 1858, 1884, 1888. Read free.">
+    <meta property="og:image" content="/images/pioneers/ellen-white.jpg">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="book">
+    <meta property="og:url" content="https://sundaylaw.com/books/ellen-white-great-controversy">
+    <meta property="og:site_name" content="SundayLaw.com">
+
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Great Controversy — Ellen White | Free PDF | SundayLaw.com">
+    <meta name="twitter:description" content="The book Satan does not want you to read. Maps the past, present and future of the great conflict. Free PDF — three editions.">
+    <meta name="twitter:image" content="/images/pioneers/ellen-white.jpg">
+
+    <!-- JSON-LD: Book + BreadcrumbList + FAQPage -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "The Great Controversy Between Christ and Satan",
+        "alternateName": ["The Great Controversy", "Spirit of Prophecy Vol. 4", "Great Controversy 1884"],
+        "author": {
+          "@type": "Person",
+          "name": "Ellen G. White",
+          "givenName": "Ellen",
+          "familyName": "White",
+          "birthDate": "1827-11-26",
+          "deathDate": "1915-07-16",
+          "jobTitle": "Adventist Pioneer, Prophet, Author",
+          "sameAs": "https://en.wikipedia.org/wiki/Ellen_G._White"
+        },
+        "datePublished": "1884",
+        "inLanguage": "en",
+        "genre": "Religious History / Biblical Prophecy / Christian Testimony",
+        "description": "The Great Controversy traces the cosmic conflict between Christ and Satan from the fall of Lucifer through the Reformation, the Advent movement, the sealing of the 144,000, the seven last plagues, and the final triumph of God's people. Ellen White writes as an eyewitness to scenes shown to her in vision — angel-assisted, night-written, and produced under circumstances that still astonish those who investigate them.",
+        "publisher": { "@type": "Organization", "name": "Pacific Press Publishing Association" },
+        "url": "https://sundaylaw.com/books/ellen-white-great-controversy",
+        "image": "/images/pioneers/ellen-white.jpg",
+        "sameAs": "https://en.wikipedia.org/wiki/The_Great_Controversy_(book)",
+        "isAccessibleForFree": true,
+        "license": "https://creativecommons.org/licenses/publicdomain/",
+        "workExample": [
+          { "@type": "Book", "name": "Spiritual Gifts Vol. 1 (1858)", "datePublished": "1858" },
+          { "@type": "Book", "name": "The Great Controversy — 1884 First Edition", "datePublished": "1884" },
+          { "@type": "Book", "name": "The Great Controversy — 1888 Edition", "datePublished": "1888" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sundaylaw.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Pioneer Library", "item": "https://sundaylaw.com/library" },
+          { "@type": "ListItem", "position": 3, "name": "Ellen G. White", "item": "https://sundaylaw.com/pioneers/ellen-white" },
+          { "@type": "ListItem", "position": 4, "name": "The Great Controversy (1884)", "item": "https://sundaylaw.com/books/ellen-white-great-controversy" }
+        ]
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Why is The Great Controversy the most important book Ellen White wrote?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ellen White herself wrote: 'I am more anxious to see a wide circulation for this book than for any other I have written; for in The Great Controversy, the last message of warning to the world is given more distinctly than in any of my other books.' (Colporteur Ministry, p. 127)" }
+          },
+          {
+            "@type": "Question",
+            "name": "Did an angel help Ellen White write The Great Controversy?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Ellen White recorded: 'While writing the manuscript of The Great Controversy, I was often conscious of the presence of the angels of God. And many times the scenes I was describing were so vividly impressed upon my mind that I seemed to be an eyewitness to the events.' (Life Sketches, p. 162)" }
+          },
+          {
+            "@type": "Question",
+            "name": "What editions of The Great Controversy exist?",
+            "acceptedAnswer": { "@type": "Answer", "text": "There are three major editions: (1) 1858, published as Spiritual Gifts Vol. 1; (2) 1884, the first edition titled 'The Great Controversy Between Christ and Satan' — the first edition; (3) 1888, the greatly expanded edition, considered the standard edition. The 1858 and 1884 editions contain material not in later revisions." }
+          },
+          {
+            "@type": "Question",
+            "name": "What does The Great Controversy say about the sanctuary?",
+            "acceptedAnswer": { "@type": "Answer", "text": "The Great Controversy contains a pivotal chapter on the sanctuary — the subject that answered the Great Disappointment of October 22, 1844. The 1850 Prophecy Chart (made by Otis Nichols under divine direction and endorsed by Ellen White) made this message visually plain, fulfilling Habakkuk 2:2-3: 'Write the vision and make it plain upon tables, that he may run that readeth it.'" }
+          }
+        ]
+      }
+    ]
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg:       #06080f;
+        --bg-soft:  #0a0d1c;
+        --bg-card:  #0d1022;
+        --ink:      #f4f0de;
+        --ink-muted:#c6bc97;
+        --gold:     #d4a537;
+        --gold-soft:#f0cf7b;
+        --amber:    #f59e0b;
+        --teal:     #14b8a6;
+        --teal-soft:#5eead4;
+        --crimson:  #dc2626;
+        --line:     rgba(212,165,55,0.22);
+        --line-soft:rgba(212,165,55,0.10);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+
+      /* ── Page container ── */
+      .page { max-width: 1140px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* ── Breadcrumb ── */
+      .breadcrumb { display: flex; flex-wrap: wrap; align-items: center; gap: 6px; font-size: 0.8rem; color: var(--ink-muted); padding: 20px 0 28px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--gold); }
+      .breadcrumb span { color: rgba(198,188,151,0.4); }
+
+      /* ── Hero card ── */
+      .hero-card {
+        display: grid;
+        grid-template-columns: 200px 1fr;
+        gap: 40px;
+        background: linear-gradient(135deg, rgba(10,14,30,0.97), rgba(6,8,18,0.99));
+        border: 1px solid rgba(212,165,55,0.28);
+        border-radius: 20px;
+        padding: 44px 42px;
+        align-items: start;
+        margin-bottom: 6px;
+      }
+      @media (max-width: 700px) { .hero-card { grid-template-columns: 1fr; padding: 28px 22px; gap: 28px; } }
+
+      .pioneer-col { display: flex; flex-direction: column; align-items: center; gap: 12px; text-align: center; }
+      .pioneer-portrait { width: 160px; height: 160px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--gold); box-shadow: 0 0 32px rgba(212,165,55,0.25); }
+      .pioneer-name { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-weight: 600; color: var(--ink); }
+      .pioneer-dates { font-size: 0.8rem; color: var(--ink-muted); }
+      .pioneer-role { font-size: 0.72rem; font-weight: 600; letter-spacing: 0.13em; text-transform: uppercase; color: var(--gold); background: rgba(212,165,55,0.1); border: 1px solid rgba(212,165,55,0.25); border-radius: 20px; padding: 5px 12px; }
+      .pioneer-bio-link { display: inline-flex; align-items: center; gap: 6px; margin-top: 4px; font-size: 0.82rem; color: var(--teal); border: 1px solid rgba(20,184,166,0.3); border-radius: 8px; padding: 7px 14px; transition: all 0.2s; }
+      .pioneer-bio-link:hover { background: rgba(20,184,166,0.1); color: var(--teal-soft); border-color: rgba(20,184,166,0.55); }
+
+      .book-col { display: flex; flex-direction: column; gap: 18px; }
+
+      .eyebrow { display: inline-flex; align-items: center; gap: 8px; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--crimson); background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.22); border-radius: 20px; padding: 5px 14px; width: fit-content; }
+
+      h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 4.5vw, 2.9rem); line-height: 1.15; font-weight: 600; color: var(--ink); }
+      h1 em { color: var(--gold); font-style: italic; }
+
+      .book-meta { display: flex; flex-wrap: wrap; gap: 14px; font-size: 0.85rem; }
+      .book-meta-item strong { color: var(--gold); }
+
+      .book-excerpt { font-family: 'Crimson Text', serif; font-size: 1.12rem; line-height: 1.72; color: #e6dcc0; }
+      .book-excerpt strong { color: var(--gold-soft); font-weight: 600; }
+
+      /* ── Version buttons ── */
+      .btn-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 4px; }
+      .btn-teal { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 20px; border-radius: 9px; background: var(--teal); color: #06080f; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .btn-teal:hover { background: var(--teal-soft); color: #06080f; }
+      .btn-gold { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 20px; border-radius: 9px; background: var(--gold); color: #06080f; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .btn-gold:hover { background: var(--gold-soft); color: #06080f; }
+      .btn-outline { display: inline-flex; align-items: center; gap: 8px; height: 40px; padding: 0 18px; border-radius: 9px; border: 1px solid var(--line); color: var(--ink-muted); font-weight: 600; font-size: 0.86rem; text-decoration: none; flex-shrink: 0; transition: all 0.18s; }
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+
+      /* ── Sections ── */
+      .section { margin-top: 56px; }
+      .section-header { margin-bottom: 28px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); line-height: 1.25; }
+      .sh-eyebrow { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.18em; text-transform: uppercase; color: var(--gold); margin-bottom: 8px; }
+      .section-header p { color: var(--ink-muted); font-size: 1rem; line-height: 1.65; margin-top: 10px; max-width: 760px; }
+      .section-divider { height: 1px; background: var(--line-soft); margin: 52px 0 0; }
+
+      /* ── Quote blocks ── */
+      .egw-quote-block {
+        background: linear-gradient(135deg, rgba(10,14,30,0.95), rgba(8,12,26,0.98));
+        border-left: 4px solid var(--gold);
+        border-radius: 0 12px 12px 0;
+        padding: 26px 30px 22px;
+        margin: 28px 0;
+      }
+      .egw-quote-block blockquote {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        font-style: italic;
+        line-height: 1.7;
+        color: #f0e8cc;
+      }
+      .egw-quote-block .q-source {
+        margin-top: 12px;
+        font-size: 0.8rem;
+        font-weight: 600;
+        letter-spacing: 0.08em;
+        color: var(--gold);
+        text-transform: uppercase;
+      }
+      .egw-quote-block .q-label {
+        font-size: 0.72rem;
+        color: var(--ink-muted);
+        margin-bottom: 8px;
+        font-weight: 600;
+        letter-spacing: 0.12em;
+        text-transform: uppercase;
+      }
+
+      /* ── Crimson warning block ── */
+      .warning-block {
+        background: rgba(220,38,38,0.07);
+        border: 1px solid rgba(220,38,38,0.22);
+        border-radius: 14px;
+        padding: 28px 30px;
+        margin: 28px 0;
+      }
+      .warning-block h3 { font-family: 'Crimson Text', serif; font-size: 1.35rem; color: #fca5a5; margin-bottom: 12px; }
+      .warning-block p { color: #e0b8b8; font-size: 0.95rem; line-height: 1.65; }
+
+      /* ── Scripture pull ── */
+      .scripture-pull {
+        background: rgba(212,165,55,0.06);
+        border: 1px solid rgba(212,165,55,0.2);
+        border-radius: 14px;
+        padding: 26px 30px;
+        margin: 28px 0;
+      }
+      .scripture-pull .ref { font-size: 0.73rem; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; color: var(--gold); margin-bottom: 10px; }
+      .scripture-pull blockquote { font-family: 'Crimson Text', serif; font-size: 1.18rem; font-style: italic; line-height: 1.65; color: #f0e8cc; }
+      .scripture-pull cite { display: block; margin-top: 10px; font-size: 0.82rem; color: var(--ink-muted); font-style: normal; }
+
+      /* ── Versions grid ── */
+      .versions-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 22px; margin-top: 24px; }
+      .version-card {
+        background: var(--bg-card);
+        border: 1px solid var(--line);
+        border-radius: 14px;
+        padding: 26px 24px 22px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        transition: border-color 0.2s, box-shadow 0.2s;
+      }
+      .version-card:hover { border-color: rgba(212,165,55,0.5); box-shadow: 0 6px 32px rgba(0,0,0,0.4); }
+      .version-year { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.16em; text-transform: uppercase; color: var(--teal); }
+      .version-title { font-family: 'Crimson Text', serif; font-size: 1.22rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+      .version-desc { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.6; flex: 1; }
+      .version-btns { display: flex; gap: 10px; flex-wrap: wrap; margin-top: 6px; }
+
+      /* ── Chart section ── */
+      .chart-section {
+        background: linear-gradient(135deg, rgba(6,8,18,0.98), rgba(10,14,28,0.97));
+        border: 1px solid rgba(212,165,55,0.3);
+        border-radius: 18px;
+        padding: 36px 36px 32px;
+        margin-top: 28px;
+      }
+      .chart-row { display: flex; flex-wrap: wrap; gap: 14px; margin-top: 20px; }
+
+      .chart-img-wrap { margin-top: 22px; border-radius: 12px; overflow: hidden; border: 1px solid rgba(212,165,55,0.25); }
+      .chart-img-wrap img { width: 100%; display: block; }
+
+      /* ── Facts grid ── */
+      .facts-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 16px; margin-top: 24px; }
+      .fact-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 12px; padding: 20px 18px; }
+      .fact-icon { font-size: 1.4rem; margin-bottom: 8px; }
+      .fact-label { font-size: 0.72rem; font-weight: 700; letter-spacing: 0.12em; text-transform: uppercase; color: var(--gold); margin-bottom: 6px; }
+      .fact-text { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.55; }
+
+      /* ── Key chapters ── */
+      .chapters-list { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 10px; margin-top: 18px; }
+      .chapter-item { display: flex; align-items: flex-start; gap: 10px; padding: 12px 14px; background: rgba(255,255,255,0.025); border: 1px solid rgba(255,255,255,0.06); border-radius: 9px; font-size: 0.87rem; color: var(--ink-muted); }
+      .chapter-item::before { content: "›"; color: var(--gold); font-size: 1.1rem; line-height: 1.3; flex-shrink: 0; }
+
+      /* ── PDF Embed ── */
+      .pdf-toolbar { display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; background: rgba(10,14,28,0.95); border: 1px solid var(--line); border-bottom: none; border-radius: 12px 12px 0 0; padding: 12px 18px; font-size: 0.84rem; }
+      .pdf-toolbar a { color: var(--teal); display: inline-flex; align-items: center; gap: 6px; }
+      .pdf-toolbar a:hover { color: var(--teal-soft); }
+      .pdf-embed-wrap object, .pdf-embed-wrap iframe { width: 100%; height: 800px; border: 1px solid var(--line); border-radius: 0 0 12px 12px; display: block; background: #fff; }
+      @media (max-width: 640px) { .pdf-embed-wrap object, .pdf-embed-wrap iframe { height: 500px; } }
+
+      /* ── Alert banner ── */
+      .suppression-banner {
+        background: linear-gradient(90deg, rgba(180,30,30,0.12), rgba(212,165,55,0.06));
+        border: 1px solid rgba(220,38,38,0.3);
+        border-left: 4px solid var(--crimson);
+        border-radius: 0 12px 12px 0;
+        padding: 18px 24px;
+        margin: 24px 0;
+        font-size: 0.9rem;
+        color: #e8c8c8;
+        line-height: 1.6;
+      }
+      .suppression-banner strong { color: #fca5a5; }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+
+    <div class="page">
+
+      <!-- BREADCRUMB -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/library">Pioneer Library</a><span>›</span>
+        <a href="/pioneers/ellen-white">Ellen G. White</a><span>›</span>
+        <span style="color:var(--ink)">The Great Controversy (1884)</span>
+      </nav>
+
+      <!-- ══════════════════════════════════════════════════
+           HERO CARD
+      ══════════════════════════════════════════════════ -->
+      <div class="hero-card">
+
+        <!-- Portrait Column -->
+        <div class="pioneer-col">
+          <img
+            src="/images/pioneers/ellen-white.jpg" loading="eager"
+            alt="Ellen G. White — Adventist Prophet and Author, 1827–1915"
+            class="pioneer-portrait"
+          />
+          <div class="pioneer-name">Ellen G. White</div>
+          <div class="pioneer-dates">1827 &ndash; 1915</div>
+          <div class="pioneer-role">Prophet &amp; Messenger</div>
+          <a href="/pioneers/ellen-white" class="pioneer-bio-link">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+            Full Biography &rarr;
+          </a>
+        </div>
+
+        <!-- Book Text Column -->
+        <div class="book-col">
+          <div class="eyebrow">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            The Book Satan Does Not Want You to Read
+          </div>
+
+          <h1>The Great Controversy<br><em>Between Christ and Satan</em></h1>
+
+          <div class="book-meta">
+            <span class="book-meta-item"><strong>First published:</strong> 1858</span>
+            <span class="book-meta-item"><strong>Featured edition:</strong> 1884 (1st ed.)</span>
+            <span class="book-meta-item"><strong>Author:</strong> Ellen G. White</span>
+            <span class="book-meta-item"><strong>Format:</strong> Book / Free PDF</span>
+            <span class="book-meta-item"><strong>Also available:</strong> 1888 expanded edition</span>
+          </div>
+
+          <p class="book-excerpt">
+            There is a war older than recorded history — a conflict that began in the courts of heaven, moved into Eden, 
+            passed through every generation of earth&rsquo;s inhabitants, and is even now approaching its final, 
+            decisive hour. <strong>The Great Controversy</strong> does something no merely human book can do: 
+            it shows you where you are in that story. The past — from Lucifer&rsquo;s fall to the Reformation. 
+            The present — the Sunday law, the 501(c)(3) church-state union, the mark of the beast forming. 
+            The future — the seven last plagues, the close of probation, the second coming, the millennium, 
+            and the earth made new. Ellen White wrote it under angelic light visible to her neighbors. 
+            <strong>Your eternal destiny may depend on knowing what is in this book.</strong>
+          </p>
+
+          <div class="btn-row">
+            <a href="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read 1884 Edition (PDF)
+            </a>
+            <a href="#read-online" class="btn-teal">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+              Read in Browser
+            </a>
+            <a href="#all-editions" class="btn-outline">All Editions &darr;</a>
+            <a href="/pioneers/ellen-white" class="btn-outline">Biography &rarr;</a>
+          </div>
+        </div>
+      </div><!-- /hero-card -->
+
+      <!-- ══════════════════════════════════════════════════
+           THE ANGEL'S TESTIMONY — EGW Quotes
+      ══════════════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Author&rsquo;s Own Testimony</div>
+          <h2>Written Under the Light of Heaven</h2>
+          <p>
+            Ellen White did not merely research and compile this book. She wrote it as an eyewitness — 
+            scenes shown to her in vision so vividly that she could describe them in the language of 
+            someone present. Her own words about how this book was written are among the most remarkable 
+            statements in the history of Christian literature.
+          </p>
+        </div>
+
+        <div class="egw-quote-block">
+          <div class="q-label">On the Writing of The Great Controversy</div>
+          <blockquote>
+            &ldquo;While writing the manuscript of The Great Controversy, I was often conscious of the presence 
+            of the angels of God. And many times the scenes I was describing were so vividly impressed upon 
+            my mind that I seemed to be an eyewitness to the events.&rdquo;
+          </blockquote>
+          <div class="q-source">— Ellen G. White &mdash; Life Sketches, p. 162</div>
+        </div>
+
+        <div class="egw-quote-block">
+          <div class="q-label">Why This Book Above All Others</div>
+          <blockquote>
+            &ldquo;I am more anxious to see a wide circulation for this book than for any other I have written; 
+            for in The Great Controversy, the last message of warning to the world is given more distinctly 
+            than in any of my other books.&rdquo;
+          </blockquote>
+          <div class="q-source">— Ellen G. White &mdash; Colporteur Ministry, p. 127</div>
+        </div>
+
+        <div class="egw-quote-block">
+          <div class="q-label">A Light in the Night — The Healdsburg Account, 1884</div>
+          <blockquote>
+            &ldquo;When Mother wrote at night, the light in her room was so bright that it could be seen 
+            through the windows, and on at least one occasion neighbors noticed the unusual brightness 
+            and inquired about it the following morning, unaware that any lamp could produce such an effect.&rdquo;
+          </blockquote>
+          <div class="q-source">— W. C. White (Ellen White&rsquo;s son), describing the writing of the 1884 edition at Healdsburg, California &mdash; EGW Estate Historical Records</div>
+        </div>
+
+        <div class="egw-quote-block">
+          <div class="q-label">The Book&rsquo;s Purpose — Her Own Words</div>
+          <blockquote>
+            &ldquo;The Great Controversy between Christ and Satan that has been carried on for the past six 
+            thousand years is soon to close; and the wicked one redoubles his efforts to defeat the work 
+            of Christ in man&rsquo;s behalf and to fasten souls in his snares. To hold the people in darkness 
+            and impenitence till the Saviour&rsquo;s mediation is ended, and there is no longer a sacrifice 
+            for sin — this is the object which he seeks to accomplish.&rdquo;
+          </blockquote>
+          <div class="q-source">— Ellen G. White &mdash; The Great Controversy (1888), p. 518</div>
+        </div>
+
+        <div class="egw-quote-block">
+          <div class="q-label">Her Most Urgent Counsel for the Last Days</div>
+          <blockquote>
+            &ldquo;The book should go everywhere. Let it be scattered like the leaves of autumn. It contains 
+            the story of the past, of the present, and of the future. In its outline of the closing scenes 
+            of this earth&rsquo;s history, it bears a strong, decided witness to the truth.&rdquo;
+          </blockquote>
+          <div class="q-source">— Ellen G. White &mdash; Colporteur Ministry, p. 128</div>
+        </div>
+
+        <div class="scripture-pull">
+          <div class="ref">Revelation 12:11 (KJV)</div>
+          <blockquote>&ldquo;And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death.&rdquo;</blockquote>
+          <cite>The Great Controversy is the extended testimony of those who overcame — the record of the blood-sealed witness of the Protestant Reformation and the Advent movement.</cite>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           WHY SATAN OPPOSES THIS BOOK
+      ══════════════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Why Satan Fears This Book</div>
+          <h2>The Book That Exposes the Entire Counterfeit Kingdom</h2>
+        </div>
+
+        <div class="warning-block">
+          <h3>A Warning That Has Never Been More Urgent</h3>
+          <p>
+            The Great Controversy names names. It traces the papacy&rsquo;s role in changing the Sabbath from 
+            Saturday to Sunday — the very act that placed a mark of human authority over God&rsquo;s Law. It 
+            documents the Reformation. It explains the 2,300-day prophecy of Daniel 8:14. It exposes spiritualism, 
+            the false Sunday resurrection argument, the coming Sunday law, and the final events that will test 
+            every soul on earth. Satan&rsquo;s goal has always been to keep this book out of your hands — and 
+            out of the pulpits of the organization that incorporated on April 15, 1904, and accepted 501(c)(3) 
+            tax status in 1950 — legally gagged from speaking the full prophetic truth.
+          </p>
+        </div>
+
+        <div class="suppression-banner">
+          <strong>The 1904 Organization That Suppressed This Message:</strong> On April 15, 1904, the General 
+          Conference Corporation of Seventh-day Adventists was incorporated in Washington, D.C. Ellen White 
+          directly opposed this act in letters and testimonies dated months before. The new organization — 
+          operating as a State-chartered corporation — has since 1950 accepted 501(c)(3) government tax status, 
+          which legally prohibits speaking publicly against the government&rsquo;s Sunday law agenda. The very 
+          message of this book is what those constraints are designed to silence. Read the source. Judge for yourself.
+          <div style="margin-top:12px">
+            <a href="/april-15-1904-new-organization" style="color:var(--gold)">→ The April 15, 1904 Incorporation Record</a>
+            &nbsp;&nbsp;
+            <a href="/501c3" style="color:var(--gold)">→ The 501(c)(3) Trap</a>
+          </div>
+        </div>
+
+        <p style="color:#fca5a5;font-size:1.08rem;font-weight:600;margin:32px 0 18px 0;">
+          <strong>Suppression by Incorporation and Copyright:</strong><br>
+          Few realize that after Ellen White’s death, General Conference president Arthur G. Daniells led the move to incorporate the White Estate, Inc. as a legal entity—placing the prophetic writings under corporate control. The White Estate, Inc. trademarked Ellen White’s name and copyrighted her works, restricting free access and publication. This unprecedented step allowed the organization to control, edit, and even suppress the distribution of her most vital warnings—including <em>The Great Controversy</em>. The very truths meant to prepare a people for the final crisis were locked behind legal barriers, ensuring that only “approved” versions would reach the public. The result? The message that exposes the final deception has been systematically withheld from the pulpits and the people. The truth was never meant to be trademarked.
+        </p>
+        <div class="facts-grid">
+          <div class="fact-card">
+            <div class="fact-icon">📖</div>
+            <div class="fact-label">First Vision: 1844</div>
+            <div class="fact-text">Ellen White received the foundational vision for this book in 1844 — the year of the Great Disappointment. The visions directly answered the mystery of October 22, 1844.</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">✍️</div>
+            <div class="fact-label">Three Editions: 1858–1888</div>
+            <div class="fact-text">The book grew across three major editions over 30 years. The 1858 Spiritual Gifts Vol. 1 was the seed. The 1884 first edition titled it "Great Controversy." The 1888 edition expanded it to 678 pages.</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🕯️</div>
+            <div class="fact-label">Written by Angelic Light</div>
+            <div class="fact-text">Contemporaries and family members recorded that the light in Ellen White&rsquo;s room while writing at night was so unusual that neighbors took notice and asked about it.</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🌍</div>
+            <div class="fact-label">Translated into 200+ Languages</div>
+            <div class="fact-text">The Great Controversy has been translated into more than 200 languages and distributed in tens of millions of copies — one of the most widely distributed Christian books in history.</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">🔒</div>
+            <div class="fact-label">The Sanctuary Hidden Since 1904</div>
+            <div class="fact-text">The chapter on the Heavenly Sanctuary — the very answer to 1844 — is the subject most suppressed by the post-1904 organization. The 1850 chart made it visually plain. See below.</div>
+          </div>
+          <div class="fact-card">
+            <div class="fact-icon">⚖️</div>
+            <div class="fact-label">Your Eternal Destiny</div>
+            <div class="fact-text">&ldquo;Now is the time&rdquo; is the theme of this book. The close of probation is not a future theory — it is the next act in a drama already in motion. This book tells you what to do before it closes.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           KEY CHAPTERS
+      ══════════════════════════════════════════════════ -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">What Is in This Book</div>
+          <h2>The Past. The Present. The Future.</h2>
+          <p>No other book in print maps the full arc of the great controversy from heaven to the new earth with primary source documentation and prophetic precision.</p>
+        </div>
+        <div class="chapters-list">
+          <div class="chapter-item">The Destruction of Jerusalem — A.D. 70 and its prophetic meaning</div>
+          <div class="chapter-item">The Roman Empire and the rise of the Papacy</div>
+          <div class="chapter-item">John Wycliffe — the Morning Star of the Reformation</div>
+          <div class="chapter-item">Huss and Jerome — who would not compromise</div>
+          <div class="chapter-item">Martin Luther and the Reformation thunder</div>
+          <div class="chapter-item">The Bible and the French Revolution</div>
+          <div class="chapter-item">William Miller and the Advent Awakening of the 1840s</div>
+          <div class="chapter-item">The Great Disappointment of October 22, 1844</div>
+          <div class="chapter-item">The Heavenly Sanctuary — the answer to 1844</div>
+          <div class="chapter-item">The Origin of Evil — Lucifer&rsquo;s fall explained</div>
+          <div class="chapter-item">Enmity Between Man and Satan</div>
+          <div class="chapter-item">Spiritualism — the coming delusion exposed</div>
+          <div class="chapter-item">The Impending Sunday Law — the final test</div>
+          <div class="chapter-item">The Mark of the Beast and the Seal of God</div>
+          <div class="chapter-item">The Seven Last Plagues — what to expect</div>
+          <div class="chapter-item">The Time of Trouble — and God&rsquo;s protection</div>
+          <div class="chapter-item">The Second Coming of Christ</div>
+          <div class="chapter-item">The Millennium and the Final Judgment</div>
+          <div class="chapter-item">The Earth Made New — what eternity looks like</div>
+          <div class="chapter-item">The Close of Probation — when mercy ceases</div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           ALL EDITIONS — Version Cards
+      ══════════════════════════════════════════════════ -->
+      <div class="section" id="all-editions">
+        <div class="section-header">
+          <div class="sh-eyebrow">Three Editions — One Message</div>
+          <h2>Read Every Version Ellen White Wrote</h2>
+          <p>
+            Ellen White revised and expanded this work over three decades. Each edition contains truth. 
+            The 1858 and 1884 editions contain material the later revisions condensed or restructured. 
+            Serious students of the Great Controversy read all three.
+          </p>
+        </div>
+
+        <div class="versions-grid">
+
+          <!-- 1858 edition -->
+          <div class="version-card">
+            <div class="version-year">1858 — First Published</div>
+            <div class="version-title">Spiritual Gifts, Vol. 1<br><em style="font-size:0.95rem;color:var(--ink-muted)">The Great Controversy Between Christ and His Angels, and Satan and His Angels</em></div>
+            <p class="version-desc">
+              The seed form of the Great Controversy — 219 pages — written at Lovett&rsquo;s Grove, Ohio, 
+              after a vision on March 14, 1858. This edition covers the conflict from Lucifer&rsquo;s fall 
+              to the earth made new with intense prophetic compression. Many who have read all three editions 
+              regard the 1858 as the most spiritually concentrated. 
+              <strong style="color:var(--gold)">Two scan versions available.</strong>
+            </p>
+            <div class="version-btns">
+              <a href="/books/ellen-white/1858TheGreatControversy.pdf" target="_blank" rel="noopener noreferrer" class="btn-teal">Open 1858 (Version A)</a>
+              <a href="/books/ellen-white/1858.Great.Controversy.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Open 1858 (Version B)</a>
+            </div>
+          </div>
+
+          <!-- 1884 edition -->
+          <div class="version-card" style="border-color:rgba(212,165,55,0.45);">
+            <div class="version-year" style="color:var(--gold)">1884 — 1st Named Edition ★ Featured</div>
+            <div class="version-title">The Great Controversy Between Christ and Satan<br><em style="font-size:0.95rem;color:var(--ink-muted)">Spirit of Prophecy, Vol. 4 — First Edition</em></div>
+            <p class="version-desc">
+              The first edition to bear the now-famous title. Published by Pacific Press in 1884 while 
+              Ellen White was in California. This edition is closer in structure to the 1858 than the later 
+              1888 expansion — less revised, more direct in certain prophetic and historical sections. 
+              The edition featured on this page. <strong style="color:var(--gold)">Written under the light witnesses observed at Healdsburg.</strong>
+            </p>
+            <div class="version-btns">
+              <a href="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">Open 1884 Edition</a>
+              <a href="#read-online" class="btn-outline">Read in Browser</a>
+            </div>
+          </div>
+
+          <!-- 1888 edition -->
+          <div class="version-card">
+            <div class="version-year">1888 — Standard Expanded Edition</div>
+            <div class="version-title">The Great Controversy Between Christ and Satan<br><em style="font-size:0.95rem;color:var(--ink-muted)">Greatly Enlarged — 678 Pages</em></div>
+            <p class="version-desc">
+              The most widely distributed edition and the one most often cited. Expanded with new historical 
+              chapters on the Reformation, America as a prophetic entity, and the coming crisis of church-state 
+              union. If you read only one edition, this is the standard — but compare it with 1884 and 1858 
+              for the full picture. <strong style="color:var(--gold)">Tens of millions of copies in 200+ languages.</strong>
+            </p>
+            <div class="version-btns">
+              <a href="/books/ellen-white/1888greatcontroverywhite.pdf" target="_blank" rel="noopener noreferrer" class="btn-teal">Open 1888 Edition</a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           THE SANCTUARY — HIDDEN IN PLAIN SIGHT
+      ══════════════════════════════════════════════════ -->
+      <div class="section" id="sanctuary">
+        <div class="section-header">
+          <div class="sh-eyebrow">Habakkuk 2:2–3 — Write the Vision, Make It Plain</div>
+          <h2>The Sanctuary Message — Hidden from the People Since April 15, 1904</h2>
+        </div>
+
+        <div class="scripture-pull">
+          <div class="ref">Habakkuk 2:2–3 (KJV)</div>
+          <blockquote>
+            &ldquo;Write the vision, and make it plain upon tables, that he may run that readeth it. 
+            For the vision is yet for an appointed time, but at the end it shall speak, and not lie: 
+            though it tarry, wait for it; because it will surely come, it will not tarry.&rdquo;
+          </blockquote>
+          <cite>
+            The pioneers — including Ellen White, Hiram Edson, and Otis Nichols — understood Habakkuk 2:2–3 
+            as directly fulfilled by the 1843 and 1850 Prophecy Charts: written plainly on tables so that 
+            &ldquo;he that runneth may read.&rdquo;
+          </cite>
+        </div>
+
+        <div class="chart-section">
+          <div class="sh-eyebrow">The 1850 Prophecy Chart</div>
+          <h2 style="font-family:'Crimson Text',serif;font-size:1.6rem;margin:10px 0 8px">The Sanctuary Made Plain — Otis Nichols, 1850</h2>
+          <p style="color:var(--ink-muted);font-size:0.95rem;line-height:1.65;max-width:700px">
+            The 1850 chart, prepared by Otis Nichols under the blessing of Ellen White and the early Adventist 
+            pioneers, laid out the heavenly sanctuary, the 2,300-day prophecy, and the meaning of October 22, 1844 
+            in vivid visual form. Ellen White endorsed these charts and warned they had been directed by God and 
+            were not to be altered. The April 15, 1904 incorporated organization — the current General Conference 
+            Corporation of Seventh-day Adventists — has suppressed the sanctuary message that answered the Great 
+            Disappointment. This is the truth the Great Controversy restores.
+          </p>
+
+          <div class="egw-quote-block" style="margin-top:20px">
+            <div class="q-label">Ellen White on the Prophecy Charts</div>
+            <blockquote>
+              &ldquo;I saw that the two charts were directed by the hand of the Lord, and that they should not be 
+              altered; that the figures were as He wanted them. That His hand was over and hid a mistake in some 
+              of the figures, and that it was not to be altered; the minds of the people were directed to the 
+              time — and if it had been without a figure they would have been just as correct.&rdquo;
+            </blockquote>
+            <div class="q-source">— Ellen G. White &mdash; Early Writings, p. 74–75 (1882, from 1851 vision)</div>
+          </div>
+
+          <div class="chart-img-wrap">
+            <img
+              src="/images/sundaylaw/1850-36x48-SDA-Pioneer-Prophetic-Chart-Otis-Nichols.jpg"
+              alt="1850 Adventist Prophecy Chart — Otis Nichols — The Sanctuary, 2300 Days, October 22 1844"
+              loading="lazy"
+            />
+          </div>
+
+          <div class="chart-row">
+            <a href="/books/otis-nichols/1850-36x48-SDA-Pioneer-Prophetic-Chart-Otis-Nichols.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Open 1850 Chart (PDF)
+            </a>
+            <a href="/books/1850-prophecy-chart/1850_Chart_Key_of_Explanation.pdf" target="_blank" rel="noopener noreferrer" class="btn-teal">
+              1850 Chart Key of Explanation
+            </a>
+            <a href="/books/1850-prophecy-chart/1850-chart.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">
+              1850 Chart (alternate scan)
+            </a>
+            <a href="/books/joseph-bates/Bates_anExplanationOfTheTypicalAndAnti-typicalSanctuary_1850.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">
+              Bates: Explanation of the Sanctuary (1850)
+            </a>
+          </div>
+
+          <div style="margin-top:28px;border-top:1px solid var(--line-soft);padding-top:24px;">
+            <div class="sh-eyebrow" style="margin-bottom:10px">The 1843 Prophecy Chart — Charles Fitch &amp; Apollos Hale</div>
+            <p style="color:var(--ink-muted);font-size:0.9rem;margin-bottom:14px">The chart that launched the Advent Awakening. Made plain upon tables that he may run that readeth it. Habakkuk 2:2 fulfilled in the Millerite movement.</p>
+            <div class="chart-row">
+              <a href="/books/1843-prophecy-chart/1843-chart.pdf" target="_blank" rel="noopener noreferrer" class="btn-teal">Open 1843 Chart (PDF)</a>
+              <a href="/books/1843-prophecy-chart/1843_Chart_Key_of_Explaination.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">1843 Chart Key of Explanation</a>
+              <a href="/books/prophecy-charts/1843 and 1850 Charts.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">Both Charts Combined (PDF)</a>
+              <a href="/prophecy-charts" class="btn-outline">Prophecy Charts Page &rarr;</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ══════════════════════════════════════════════════
+           PDF EMBED — 1884 Edition
+      ══════════════════════════════════════════════════ -->
+      <div class="section" id="read-online">
+        <div class="section-header">
+          <div class="sh-eyebrow">Read In Browser</div>
+          <h2>The Great Controversy — 1884 First Edition</h2>
+          <p>Read the complete 1884 first edition below. Download, print, or share. This is the book Satan does not want in your hands.</p>
+        </div>
+
+        <div class="pdf-embed-wrap">
+          <div class="pdf-toolbar">
+            <span style="font-weight:600;color:var(--ink);">Ellen G. White &mdash; The Great Controversy (1884, 1st Ed.)</span>
+            <div style="display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open Full Screen
+              </a>
+            </div>
+          </div>
+          <object
+            data="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf"
+            type="application/pdf"
+            title="The Great Controversy 1884 — Ellen G. White"
+          >
+            <div style="padding:48px;text-align:center;color:var(--ink-muted);background:rgba(6,8,18,0.9);">
+              <p style="margin-bottom:16px;font-size:1rem;">Your browser cannot display PDFs inline.</p>
+              <a href="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:inline-flex;">
+                Download &amp; Read the PDF
+              </a>
+            </div>
+          </object>
+        </div>
+
+        <!-- Other editions quick links -->
+        <div style="margin-top:20px;padding:20px 24px;background:var(--bg-card);border:1px solid var(--line-soft);border-radius:12px;">
+          <div class="sh-eyebrow" style="margin-bottom:12px">All Editions — Open or Download</div>
+          <div style="display:flex;flex-wrap:wrap;gap:10px;">
+            <a href="/books/ellen-white/1858TheGreatControversy.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">1858 Edition (Version A)</a>
+            <a href="/books/ellen-white/1858.Great.Controversy.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">1858 Edition (Version B)</a>
+            <a href="/books/ellen-white/White-Great-Controversy-1884-1st-Ed.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">1884 Edition (Featured)</a>
+            <a href="/books/ellen-white/1888greatcontroverywhite.pdf" target="_blank" rel="noopener noreferrer" class="btn-outline">1888 Edition</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- /page -->
+
+    <ShareBar />
+    <SiteFooter />
+  </body>
+</html>

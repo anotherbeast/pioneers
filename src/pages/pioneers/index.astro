@@ -1,0 +1,869 @@
+﻿---
+import { getCollection } from 'astro:content';
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+
+function formatDate(value: string | undefined) {
+  if (!value) return '';
+  const match = value.match(/^(\d{4})-(\d{2})-(\d{2})$/);
+  const date = match
+    ? new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3])))
+    : new Date(value);
+  if (isNaN(date.valueOf())) return value;
+  return new Intl.DateTimeFormat('en-US', {
+    timeZone: 'UTC',
+    year: 'numeric',
+    month: 'long',
+    day: 'numeric'
+  }).format(date);
+}
+
+function normalizeImageSrc(value: string | undefined) {
+  if (!value) return '';
+  if (/^(https?:)?\/\//.test(value)) return value;
+  return value.startsWith('/') ? value : `/${value}`;
+}
+
+const pioneers = await getCollection('pioneers');
+
+const topPinnedIds = [
+  'william-miller',
+  'captain-joseph-bates',
+  'charles-fitch',
+  'apollos-hale',
+  'james-white',
+  'ellen-white',
+  'otis-nichols',
+  'john-nevins-andrews',
+  'hiram-edson',
+  'john-byington',
+  'david-hewitt',
+  'joshua-vaughan-himes',
+  'josiah-litch',
+  'rachel-oakes-preston',
+  'stephen-nelson-haskell',
+  'alonzo-trevier-jones',
+  'ellet-joseph-waggoner',
+  'james-nevins-waggoner',
+  'frederick-wheeler',
+  'mary-bird-nichols',
+  'john-harvey-waggoner',
+  'william-ward-simpson'
+];
+
+const pioneersById = new Map(pioneers.map((p) => [p.id, p]));
+const pinnedIdSet = new Set<string>(topPinnedIds);
+
+const pinnedPioneers = topPinnedIds
+  .map((id) => pioneersById.get(id))
+  .filter((p): p is (typeof pioneers)[number] => Boolean(p));
+
+const remainingPioneers = pioneers
+  .filter((p) => !pinnedIdSet.has(p.id))
+  .sort((a, b) => a.data.name.localeCompare(b.data.name));
+
+const orderedPioneers = [...pinnedPioneers, ...remainingPioneers];
+const featuredCount = Math.min(50, orderedPioneers.length);
+const featuredPioneers = orderedPioneers.slice(0, featuredCount);
+const allOtherPioneers = orderedPioneers.slice(featuredCount);
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Advent Pioneer Library</title>
+    <meta name="description" content="Biographies of the original Seventh-day Adventist pioneers — the men and women who built the Advent movement before the 1904 incorporation.">
+    <meta property="og:title" content="Advent Pioneer Library | Pioneer Biographies">
+    <meta property="og:description" content="Biographies of the original Seventh-day Adventist pioneers — the men and women who built the Advent movement before the 1904 incorporation.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/pioneers">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <Analytics />
+    <style>
+      :root {
+        --bg: #070a16;
+        --bg2: #11162a;
+        --ink: #f4f0de;
+        --ink-muted: #c6bc97;
+        --line: rgba(212, 165, 55, 0.26);
+        --gold: #d4a537;
+        --gold-soft: #f0cf7b;
+      }
+
+      * { box-sizing: border-box; }
+      body {
+        margin: 0;
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--ink);
+        min-height: 100vh;
+        background:
+          radial-gradient(circle at 12% 8%, rgba(212, 165, 55, 0.14), transparent 40%),
+          radial-gradient(circle at 86% 78%, rgba(63, 93, 138, 0.2), transparent 48%),
+          linear-gradient(160deg, #04060f 0%, #090d1d 55%, #070810 100%);
+      }
+
+      .serif { font-family: 'Cormorant Garamond', serif; }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 10, 22, 0.78);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 14px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+      }
+
+      .brand {
+        color: var(--ink);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-size: 0.86rem;
+      }
+
+      .brand strong { color: var(--gold-soft); }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; }
+      .nav-link:hover { color: var(--gold-soft); }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        margin-left: auto;
+      }
+
+      .nav-tools {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .nav-links a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .nav-links a:hover { color: var(--gold-soft); }
+
+      #google_translate_element {
+        min-width: 155px;
+      }
+
+      #google_translate_element .goog-te-gadget {
+        color: transparent;
+        font-size: 0;
+      }
+
+      #google_translate_element .goog-te-combo {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.86rem;
+      }
+
+      .lang-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        height: 36px;
+        padding: 0 10px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .lang-badge::before {
+        content: '◎';
+        font-size: 0.78rem;
+        margin-right: 6px;
+        opacity: 0.9;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 12px 22px 14px;
+        background: rgba(7, 10, 22, 0.92);
+      }
+
+      .mobile-nav.open { display: grid; gap: 8px; }
+
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+      }
+
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      .hero {
+        max-width: 1320px;
+        margin: 26px auto 0;
+        padding: 0 22px;
+      }
+
+      .hero-card {
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: linear-gradient(150deg, rgba(15, 20, 36, 0.94), rgba(8, 11, 21, 0.88));
+        padding: 44px;
+        box-shadow: 0 24px 74px rgba(0, 0, 0, 0.45);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 13px;
+        color: var(--gold-soft);
+        font-size: 0.74rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5.5vw, 4rem);
+        color: var(--ink);
+        line-height: 0.95;
+      }
+
+      .hero h1 span { color: var(--gold-soft); }
+
+      .hero p {
+        margin: 16px 0 0;
+        max-width: 70ch;
+        color: var(--ink-muted);
+        line-height: 1.8;
+        font-size: 1.06rem;
+      }
+
+      .stats {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 14px;
+      }
+
+      .stat strong { color: var(--gold-soft); margin-right: 6px; }
+
+      /* ===== SEARCH ===== */
+      .search-wrap {
+        margin-top: 28px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .search-inner {
+        position: relative;
+        width: 100%;
+        max-width: 520px;
+        display: flex;
+        align-items: center;
+      }
+
+      .search-icon {
+        position: absolute;
+        left: 14px;
+        color: var(--gold-soft);
+        pointer-events: none;
+        flex-shrink: 0;
+      }
+
+      #pioneer-search {
+        width: 100%;
+        padding: 13px 90px 13px 44px;
+        border-radius: 12px;
+        border: 1px solid rgba(212,165,55,0.4);
+        background: rgba(255,255,255,0.05);
+        color: var(--ink);
+        font-family: 'Source Sans 3', sans-serif;
+        font-size: 1rem;
+        outline: none;
+        transition: border-color 0.2s, background 0.2s;
+      }
+
+      #pioneer-search::placeholder { color: var(--ink-muted); }
+
+      #pioneer-search:focus {
+        border-color: var(--gold);
+        background: rgba(255,255,255,0.08);
+      }
+
+      .search-count {
+        position: absolute;
+        right: 14px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--gold-soft);
+        white-space: nowrap;
+        pointer-events: none;
+      }
+
+      .container {
+        max-width: 1320px;
+        margin: 20px auto 0;
+        padding: 0 22px 72px;
+      }
+
+      .grid-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 18px;
+      }
+
+      .section-header {
+        display: flex;
+        align-items: baseline;
+        justify-content: space-between;
+        gap: 12px;
+        margin: 0 0 14px;
+      }
+
+      .section-title {
+        margin: 0;
+        color: var(--gold-soft);
+        font-size: clamp(1.5rem, 3.6vw, 2rem);
+      }
+
+      .section-subtitle {
+        margin: 0;
+        color: var(--ink-muted);
+        font-size: 0.9rem;
+        letter-spacing: 0.05em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .section-block + .section-block {
+        margin-top: 34px;
+      }
+
+      .pioneer-card {
+        color: inherit;
+        text-decoration: none;
+        display: block;
+      }
+
+      .card-background {
+        height: 100%;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        overflow: hidden;
+        background: linear-gradient(155deg, rgba(18, 22, 38, 0.95), rgba(10, 12, 24, 0.9));
+        transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+      }
+
+      .pioneer-card:hover .card-background {
+        transform: translateY(-5px);
+        border-color: rgba(212, 165, 55, 0.52);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42);
+      }
+
+      .card-image {
+        width: 100%;
+        height: 280px;
+        object-fit: contain;
+        object-position: center top;
+        background: #141a30;
+        display: block;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .card-content {
+        padding: 22px;
+        display: flex;
+        flex-direction: column;
+        min-height: 260px;
+      }
+
+      .card-name {
+        margin: 0;
+        color: var(--gold-soft);
+        font-size: 1.7rem;
+        line-height: 1.04;
+      }
+
+      .card-dates {
+        margin: 10px 0 0;
+        color: #9aa1b9;
+        font-size: 0.9rem;
+        font-weight: 600;
+      }
+
+      .card-birthplace {
+        margin: 8px 0 0;
+        color: var(--ink-muted);
+        font-size: 0.9rem;
+      }
+
+      .card-title {
+        margin: 12px 0 0;
+        color: var(--ink);
+        font-size: 1.14rem;
+      }
+
+      .card-excerpt {
+        margin: 12px 0 0;
+        color: #d2d6e6;
+        line-height: 1.65;
+        display: -webkit-box;
+        -webkit-line-clamp: 3;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
+      }
+
+      .card-link {
+        margin-top: auto;
+        padding-top: 16px;
+        font-weight: 700;
+        color: var(--gold-soft);
+        letter-spacing: 0.02em;
+      }
+
+      .empty-state {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        text-align: center;
+        padding: 48px 20px;
+        color: var(--ink-muted);
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        background: rgba(8, 10, 20, 0.68);
+        margin-top: 36px;
+      }
+
+      .footer-main {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 28px 22px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 18px;
+      }
+
+      .footer h4 {
+        margin: 0 0 8px;
+        color: var(--gold-soft);
+        font-size: 1.05rem;
+      }
+
+      .footer p {
+        margin: 0;
+        color: #a6acc3;
+        line-height: 1.7;
+      }
+
+      .footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .footer-links a {
+        color: #c5bb95;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover { color: var(--gold-soft); }
+
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding: 16px 22px;
+        text-align: center;
+        color: #8c8f9f;
+        font-size: 0.88rem;
+      }
+
+      .goog-te-banner-frame.skiptranslate { display: none !important; }
+      body { top: 0 !important; }
+      .goog-logo-link, .goog-te-gadget span { display: none !important; }
+
+      @media (max-width: 860px) {
+        .hero-card { padding: 30px 22px; }
+        .footer-main { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 700px) {
+        .grid-container { grid-template-columns: 1fr; }
+        .nav-inner { flex-wrap: nowrap; }
+        .nav-links { display: none; }
+        .nav-link { display: none; }
+        .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .nav-tools { margin-left: auto; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="/">Advent <strong>Pioneer Library</strong></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/pioneers">Pioneers</a>
+          <a href="/books">Books</a>
+          <a href="/prophecy-charts">Prophecy Charts</a>
+          <a href="/midnight-cry">Midnight Cry Movie</a>
+          <a href="/books/captain-joseph-bates-autobiography-1868">Bates Autobiography</a>
+        </nav>
+        <div class="nav-tools">
+          <span class="lang-badge" id="lang-badge">EN</span>
+          <div id="google_translate_element"></div>
+          <a class="nav-link" href="/">Home</a>
+          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/pioneers">Pioneers</a>
+        <a href="/books">Books</a>
+        <a href="/prophecy-charts">Prophecy Charts</a>
+        <a href="/midnight-cry">1844 Midnight Cry Movie</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Biographical Archive</span>
+        <h1 class="serif">The Pioneer <span>Library</span></h1>
+        <p>
+          Explore detailed life sketches of Advent pioneers, arranged for immersive reading with historically grounded context and key publication links.
+        </p>
+        <div class="stats">
+          <div class="stat"><strong>{orderedPioneers.length}</strong> Profiles</div>
+          <div class="stat"><strong>19th Century</strong> Primary Era</div>
+          <div class="stat"><strong>Global</strong> Mission Footprint</div>
+        </div>
+        <div class="search-wrap">
+          <div class="search-inner">
+            <svg class="search-icon" width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><path d="m21 21-4.35-4.35"/></svg>
+            <input
+              id="pioneer-search"
+              type="search"
+              placeholder="Search pioneers by name or role…"
+              autocomplete="off"
+              aria-label="Search pioneers"
+            >
+            <span id="search-count" class="search-count" aria-live="polite"></span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <div class="container">
+      {orderedPioneers.length === 0 ? (
+        <div class="empty-state">
+          <p>No pioneers found yet. Check back soon.</p>
+        </div>
+      ) : (
+        <>
+          <div id="no-results-msg" style="display:none;text-align:center;padding:60px 20px;color:var(--ink-muted);font-size:1.1rem;">No pioneers match your search. Try a different name or role.</div>
+          <section class="section-block" aria-label="Featured Pioneers">
+            <div class="section-header">
+              <h2 class="section-title serif">Featured 20</h2>
+              <p class="section-subtitle">Pinned Leaders First</p>
+            </div>
+            <div class="grid-container">
+              {featuredPioneers.map((p) => (
+                <a href={`/pioneers/${p.id}`} class="pioneer-card" data-name={p.data.name.toLowerCase()} data-title={p.data.title.toLowerCase()} data-excerpt={(p.data.excerpt || '').toLowerCase()} data-categories={(p.data.categories || []).join(' ').toLowerCase()}>
+                  <div class="card-background">
+                    <img
+                      src={normalizeImageSrc(p.data.image)}
+                      alt={p.data.name}
+                      loading="lazy"
+                      class="card-image"
+                    />
+
+                    <div class="card-content">
+                      <h2 class="card-name serif">
+                        {p.data.name}
+                      </h2>
+
+                      <p class="card-dates">
+                        {formatDate(p.data.birthDate) || p.data.birth} - {formatDate(p.data.deathDate) || p.data.death}
+                      </p>
+
+                      {p.data.birthPlace ? (
+                        <p class="card-birthplace">
+                          {p.data.birthPlace}
+                        </p>
+                      ) : null}
+
+                      <p class="card-title serif">
+                        {p.data.title}
+                      </p>
+
+                      {p.data.excerpt ? (
+                        <p class="card-excerpt">
+                          {p.data.excerpt}
+                        </p>
+                      ) : null}
+
+                      <div class="card-link">Read Biography →</div>
+                    </div>
+                  </div>
+                </a>
+              ))}
+            </div>
+          </section>
+
+          {allOtherPioneers.length > 0 ? (
+            <section class="section-block" aria-label="All Remaining Pioneers">
+              <div class="section-header">
+                <h2 class="section-title serif">All Pioneers</h2>
+                <p class="section-subtitle">Alphabetical After Featured</p>
+              </div>
+              <div class="grid-container">
+                {allOtherPioneers.map((p) => (
+                  <a href={`/pioneers/${p.id}`} class="pioneer-card" data-name={p.data.name.toLowerCase()} data-title={p.data.title.toLowerCase()} data-excerpt={(p.data.excerpt || '').toLowerCase()} data-categories={(p.data.categories || []).join(' ').toLowerCase()}>
+                    <div class="card-background">
+                      <img
+                        src={normalizeImageSrc(p.data.image)}
+                        alt={p.data.name}
+                        loading="lazy"
+                        class="card-image"
+                      />
+
+                      <div class="card-content">
+                        <h2 class="card-name serif">
+                          {p.data.name}
+                        </h2>
+
+                        <p class="card-dates">
+                          {formatDate(p.data.birthDate) || p.data.birth} - {formatDate(p.data.deathDate) || p.data.death}
+                        </p>
+
+                        {p.data.birthPlace ? (
+                          <p class="card-birthplace">
+                            {p.data.birthPlace}
+                          </p>
+                        ) : null}
+
+                        <p class="card-title serif">
+                          {p.data.title}
+                        </p>
+
+                        {p.data.excerpt ? (
+                          <p class="card-excerpt">
+                            {p.data.excerpt}
+                          </p>
+                        ) : null}
+
+                        <div class="card-link">Read Biography →</div>
+                      </div>
+                    </div>
+                  </a>
+                ))}
+              </div>
+            </section>
+          ) : null}
+        </>
+      )}
+    </div>
+
+    <footer class="footer">
+      <div class="footer-main">
+        <div>
+          <h4 class="serif">Advent Pioneer Library</h4>
+          <p>Study the pioneers through visual context, historical metadata, and narrative biography.</p>
+        </div>
+        <div>
+          <h4 class="serif">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pioneers">Pioneer Library</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/midnight-cry">1844 Midnight Cry Movie</a></li>
+            <li><a href="/pioneers/1843-prophecy-chart">1843 Prophetic Chart</a></li>
+            <li><a href="/pioneers/1850-prophecy-chart">1850 Prophetic Chart</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="serif">Continue Reading</h4>
+          <ul class="footer-links">
+            <li><a href="/pioneers">Browse More Biographies</a></li>
+            <li><a href="/books">Read Key Works</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Advent Pioneer Library</div>
+    </footer>
+
+    <script is:inline>
+      // ===== PIONEER SEARCH =====
+      (function() {
+        const input = document.getElementById('pioneer-search');
+        const countEl = document.getElementById('search-count');
+        if (!input) return;
+
+        const allCards = Array.from(document.querySelectorAll('.pioneer-card'));
+        const sections = Array.from(document.querySelectorAll('.section-block'));
+        const noResults = document.getElementById('no-results-msg');
+
+        function runSearch() {
+          const q = input.value.trim().toLowerCase();
+          let visible = 0;
+
+          allCards.forEach(card => {
+            const name = card.dataset.name || '';
+            const title = card.dataset.title || '';
+            const excerpt = card.dataset.excerpt || '';
+            const categories = card.dataset.categories || '';
+            const match = !q || name.includes(q) || title.includes(q) || excerpt.includes(q) || categories.includes(q);
+            card.style.display = match ? '' : 'none';
+            if (match) visible++;
+          });
+
+          // Hide section headers when all cards in that section are hidden
+          sections.forEach(section => {
+            const cards = section.querySelectorAll('.pioneer-card');
+            const anyVisible = Array.from(cards).some(c => c.style.display !== 'none');
+            section.style.display = anyVisible ? '' : 'none';
+          });
+
+          if (noResults) noResults.style.display = (q && visible === 0) ? '' : 'none';
+          if (countEl) countEl.textContent = q ? `${visible} result${visible !== 1 ? 's' : ''}` : '';
+        }
+
+        input.addEventListener('input', runSearch);
+      })();
+
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const langBadge = document.getElementById('lang-badge');
+
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      function updateLanguageBadge(lang) {
+        if (!langBadge) return;
+        const normalized = (lang || 'en').replace('/en/', '').replace('/', '');
+        langBadge.textContent = normalized || 'en';
+      }
+
+      function getCurrentGoogTrans() {
+        const match = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : '/en/en';
+      }
+
+      function applyAutoTranslation() {
+        const rawLang = (navigator.language || 'en').toLowerCase();
+        let browserLang = rawLang.split('-')[0];
+
+        if (rawLang.startsWith('zh-tw') || rawLang.startsWith('zh-hk')) {
+          browserLang = 'zh-TW';
+        } else if (rawLang.startsWith('zh')) {
+          browserLang = 'zh-CN';
+        }
+
+        if (!browserLang || browserLang === 'en') return;
+
+        const target = '/en/' + browserLang;
+        updateLanguageBadge(browserLang);
+        if (document.cookie.includes('googtrans=' + target)) return;
+
+        document.cookie = 'googtrans=' + target + ';path=/';
+        document.cookie = 'googtrans=' + target + ';domain=' + location.hostname + ';path=/';
+
+        if (!sessionStorage.getItem('gt_auto_applied')) {
+          sessionStorage.setItem('gt_auto_applied', '1');
+          location.reload();
+        }
+      }
+
+      function initGoogleTranslate() {
+        if (!window.google || !window.google.translate) return;
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            autoDisplay: false,
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+          },
+          'google_translate_element'
+        );
+        updateLanguageBadge(getCurrentGoogTrans());
+        applyAutoTranslation();
+
+        setTimeout(() => {
+          const select = document.querySelector('#google_translate_element select');
+          if (!select) return;
+          select.addEventListener('change', (event) => {
+            updateLanguageBadge(event.target.value);
+          });
+        }, 800);
+      }
+
+      window.initGoogleTranslate = initGoogleTranslate;
+    </script>
+    <script is:inline src="//translate.google.com/translate_a/element.js?cb=initGoogleTranslate"></script>
+    <SiteFooter
+      scripture="Here are they that keep the commandments of God, and the faith of Jesus."
+      scriptureRef="Revelation 14:12 (KJV)"
+      pageLinks={[
+        { label: 'All Pioneer Biographies', href: '/pioneers' },
+        { label: 'All Pioneer Books', href: '/library' },
+        { label: '1843 Prophecy Chart', href: '/pioneers/1843-prophecy-chart' },
+        { label: '1850 Prophecy Chart', href: '/pioneers/1850-prophecy-chart' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+</body>
+</html>

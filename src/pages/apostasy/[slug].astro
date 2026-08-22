@@ -1,0 +1,318 @@
+---
+import { getCollection } from 'astro:content';
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+
+export async function getStaticPaths() {
+  const leaders = await getCollection('apostasy');
+  return leaders.map((leader) => ({
+    params: { slug: leader.id },
+    props: { leader }
+  }));
+}
+
+const { leader } = Astro.props;
+const { data } = leader;
+
+function fmtYear(v: string | undefined) { return v || ''; }
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{data.name} — Resume of Apostasy | SundayLaw.com</title>
+    <meta name="description" content={data.excerpt || `Biographical record documenting the apostasy of ${data.name}, ${data.title}.`}>
+    <link rel="canonical" href={`https://sundaylaw.com/apostasy/${leader.id}`}>
+    <meta property="og:title" content={`${data.name} — Resume of Apostasy`}>
+    <meta property="og:type" content="article">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .layout { max-width: 1200px; margin: 0 auto; padding: 40px 22px 80px; display: grid; grid-template-columns: 1fr 320px; gap: 40px; align-items: start; }
+      @media (max-width: 900px) { .layout { grid-template-columns: 1fr; } }
+
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 22px; grid-column: 1 / -1; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      /* HERO */
+      .hero { margin-bottom: 32px; }
+      .apostasy-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 999px; background: rgba(159,18,57,0.15); border: 1px solid rgba(159,18,57,0.4); color: #fca5a5; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; margin-bottom: 12px; }
+      .hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 600; color: var(--ink); line-height: 1.1; margin-bottom: 6px; }
+      .hero-title { font-size: 0.95rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+      .hero-dates { font-size: 0.82rem; color: var(--ink-muted); margin-bottom: 14px; }
+      .hero-excerpt { font-size: 0.95rem; color: rgba(254,243,199,0.78); line-height: 1.85; max-width: 680px; }
+
+      /* ARTICLE BODY */
+      .article-body { font-size: 0.9rem; line-height: 1.85; color: rgba(254,243,199,0.82); }
+      .article-body h2 { font-family: 'Crimson Text', serif; font-size: 1.6rem; color: var(--ink); margin: 36px 0 12px; padding-bottom: 8px; border-bottom: 1px solid var(--line-soft); }
+      .article-body h3 { font-family: 'Crimson Text', serif; font-size: 1.25rem; color: var(--gold); margin: 26px 0 8px; }
+      .article-body p { margin-bottom: 14px; }
+      .article-body ul, .article-body ol { padding-left: 22px; margin-bottom: 14px; }
+      .article-body li { margin-bottom: 6px; }
+      .article-body table { width: 100%; border-collapse: collapse; margin: 20px 0; font-size: 0.84rem; }
+      .article-body th { background: rgba(220,38,38,0.12); color: var(--red-muted); padding: 8px 12px; text-align: left; font-weight: 700; border: 1px solid var(--line); font-size: 0.75rem; text-transform: uppercase; letter-spacing: 0.06em; }
+      .article-body td { padding: 8px 12px; border: 1px solid rgba(220,38,38,0.1); vertical-align: top; }
+      .article-body tr:nth-child(even) td { background: rgba(255,255,255,0.02); }
+      .article-body blockquote { background: linear-gradient(135deg, rgba(40,0,0,0.4), rgba(12,5,5,0.8)); border-left: 3px solid var(--red); padding: 14px 18px; margin: 20px 0; border-radius: 0 10px 10px 0; font-family: 'Crimson Text', serif; font-size: 1.05rem; color: rgba(254,243,199,0.88); }
+      .article-body strong { color: var(--ink); font-weight: 700; }
+      .article-body em { color: var(--red-muted); }
+      .article-body a { color: var(--gold); }
+      .article-body a:hover { color: var(--gold-soft); }
+      .article-body hr { border: none; border-top: 1px solid var(--line-soft); margin: 32px 0; }
+
+      /* SIDEBAR */
+      .sidebar { display: flex; flex-direction: column; gap: 20px; }
+      .sidebar-card { background: var(--bg-card); border: 1px solid rgba(220,38,38,0.18); border-radius: 14px; padding: 18px; }
+      .sidebar-card h3 { font-family: 'Crimson Text', serif; font-size: 1rem; color: var(--gold); margin-bottom: 12px; padding-bottom: 8px; border-bottom: 1px solid rgba(212,165,55,0.15); }
+      .sidebar-row { display: flex; flex-direction: column; gap: 3px; margin-bottom: 10px; }
+      .sidebar-row:last-child { margin-bottom: 0; }
+      .sidebar-label { font-size: 0.67rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+      .sidebar-value { font-size: 0.82rem; color: var(--ink); font-weight: 500; }
+      .sidebar-value.red { color: var(--red-muted); }
+      .sidebar-value.gold { color: var(--gold); }
+
+      .works-list { display: flex; flex-direction: column; gap: 10px; }
+      .work-item { padding: 10px 12px; background: rgba(255,255,255,0.03); border-radius: 8px; border: 1px solid rgba(255,255,255,0.06); }
+      .work-title { font-size: 0.82rem; color: var(--ink); font-weight: 600; margin-bottom: 2px; }
+      .work-year { font-size: 0.7rem; color: var(--gold); }
+      .work-note { font-size: 0.73rem; color: var(--ink-muted); margin-top: 3px; line-height: 1.5; }
+      .work-type { display: inline-block; font-size: 0.63rem; padding: 1px 6px; border-radius: 3px; background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.15); color: rgba(252,165,165,0.7); text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 3px; }
+
+      .quotes-list { display: flex; flex-direction: column; gap: 12px; }
+      .quote-item { border-left: 2px solid var(--red); padding: 8px 12px; background: rgba(220,38,38,0.05); border-radius: 0 8px 8px 0; }
+      .quote-text { font-family: 'Crimson Text', serif; font-size: 0.88rem; color: rgba(254,243,199,0.85); line-height: 1.65; margin-bottom: 4px; }
+      .quote-source { font-size: 0.68rem; color: var(--gold); font-style: italic; }
+
+      .cats-list { display: flex; flex-wrap: wrap; gap: 5px; }
+      .cat-tag { font-size: 0.68rem; padding: 3px 9px; border-radius: 4px; background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.18); color: rgba(252,165,165,0.8); }
+
+      .back-btn { display: inline-flex; align-items: center; gap: 5px; padding: 9px 16px; border-radius: 8px; background: transparent; border: 1px solid var(--line); color: var(--ink-muted); font-size: 0.8rem; font-weight: 600; transition: all 0.2s; }
+      .back-btn:hover { background: rgba(220,38,38,0.08); color: var(--red-muted); border-color: rgba(220,38,38,0.3); }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3)</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+      </div>
+    </nav>
+
+    <div class="layout">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/apostasy">Apostate Shepherds</a><span>›</span>
+        {data.name}
+      </div>
+
+      <!-- MAIN -->
+      <div>
+        <div class="hero">
+          <div class="apostasy-badge">Resume of Apostasy</div>
+          <h1>{data.name}</h1>
+          <div class="hero-title">{data.title}</div>
+          <div class="hero-dates">
+            {data.birth}{data.death ? ` – ${data.death}` : ''}
+            {data.birthPlace && ` · Born: ${data.birthPlace}`}
+            {data.deathPlace && ` · Died: ${data.deathPlace}`}
+          </div>
+          {data.excerpt && <p class="hero-excerpt">{data.excerpt}</p>}
+        </div>
+
+        <article class="article-body" set:html={leader.body} />
+
+        <div style="margin-top: 40px;">
+          <a class="back-btn" href="/apostasy">← All Apostate Shepherds</a>
+        </div>
+      </div>
+
+      <!-- SIDEBAR -->
+      <aside class="sidebar">
+
+        <!-- VITAL STATS -->
+        <div class="sidebar-card">
+          <h3>Vital Record</h3>
+          <div class="sidebar-row">
+            <span class="sidebar-label">Born</span>
+            <span class="sidebar-value">{data.birthDate || data.birth}</span>
+          </div>
+          {data.birthPlace && (
+            <div class="sidebar-row">
+              <span class="sidebar-label">Birthplace</span>
+              <span class="sidebar-value">{data.birthPlace}</span>
+            </div>
+          )}
+          <div class="sidebar-row">
+            <span class="sidebar-label">Died</span>
+            <span class="sidebar-value">{data.deathDate || data.death || 'Living'}</span>
+          </div>
+          {data.deathPlace && (
+            <div class="sidebar-row">
+              <span class="sidebar-label">Place of Death</span>
+              <span class="sidebar-value">{data.deathPlace}</span>
+            </div>
+          )}
+          {data.affiliation && (
+            <div class="sidebar-row">
+              <span class="sidebar-label">Affiliation</span>
+              <span class="sidebar-value red">{data.affiliation}</span>
+            </div>
+          )}
+          {data.apostasyDate && (
+            <div class="sidebar-row">
+              <span class="sidebar-label">Key Apostasy Date</span>
+              <span class="sidebar-value red">{data.apostasyDate}</span>
+            </div>
+          )}
+        </div>
+
+        <!-- CATEGORIES -->
+        {data.categories && data.categories.length > 0 && (
+          <div class="sidebar-card">
+            <h3>Category</h3>
+            <div class="cats-list">
+              {data.categories.map((cat: string) => (
+                <span class="cat-tag">{cat}</span>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- WORKS -->
+        {data.works && data.works.length > 0 && (
+          <div class="sidebar-card">
+            <h3>Works of Apostasy</h3>
+            <div class="works-list">
+              {data.works.map((w: any) => (
+                <div class="work-item">
+                  <span class="work-type">{w.type}</span>
+                  {w.url ? (
+                    <div class="work-title"><a href={w.url} target="_blank" rel="noopener">{w.title}</a></div>
+                  ) : (
+                    <div class="work-title">{w.title}</div>
+                  )}
+                  {w.year && <div class="work-year">{w.year}</div>}
+                  {w.note && <div class="work-note">{w.note}</div>}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- QUOTES -->
+        {data.quotes && data.quotes.length > 0 && (
+          <div class="sidebar-card">
+            <h3>Damning Quotes</h3>
+            <div class="quotes-list">
+              {data.quotes.map((q: any) => (
+                <div class="quote-item">
+                  <div class="quote-text">"{q.text}"</div>
+                  {(q.source || q.year) && (
+                    <div class="quote-source">— {[q.source, q.year].filter(Boolean).join(', ')}</div>
+                  )}
+                </div>
+              ))}
+            </div>
+          </div>
+        )}
+
+        <!-- NAVIGATION -->
+        <div class="sidebar-card">
+          <h3>The Apostasy Exposed</h3>
+          <div style="display:flex;flex-direction:column;gap:6px;">
+            <a href="/apostasy/corporations" style="font-size:0.82rem;color:var(--red-muted);">Corporate Empire (EINs) →</a>
+            <a href="/apostasy/schools" style="font-size:0.82rem;color:var(--red-muted);">Schools Fraud (7,500+) →</a>
+            <a href="/apostasy/hospitals" style="font-size:0.82rem;color:var(--red-muted);">Hospital Empire (173) →</a>
+            <a href="/501c3" style="font-size:0.82rem;color:var(--red-muted);">501(c)(3) Trap →</a>
+            <a href="/babylon-antichrist-library" style="font-size:0.82rem;color:var(--red-muted);">Babylon Library →</a>
+          </div>
+        </div>
+
+      </aside>
+    </div>
+
+    <SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'Apostate Shepherds', href: '/apostasy' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'SDA Schools Directory', href: '/apostasy/schools' },
+        { label: 'SDA Hospital Apostasy', href: '/apostasy/hospitals' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

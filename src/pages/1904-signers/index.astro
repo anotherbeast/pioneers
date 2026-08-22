@@ -1,0 +1,696 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Five Men Who Signed Away Adventism — April 15, 1904 | SundayLaw.com</title>
+  <meta name="description" content="On April 15, 1904, five men signed the Articles of Incorporation creating a corporate Adventist church — six months after Ellen White warned that entering any new organization would mean apostasy from the truth. Learn who they were and what they did.">
+  <link rel="canonical" href="https://sundaylaw.com/1904-signers">
+  <meta property="og:title" content="The Five Who Signed Away Adventism — April 15, 1904">
+  <meta property="og:description" content="Five men. One document. April 15, 1904. The day the General Conference Corporation was incorporated — six months after Ellen White said it would mean apostasy.">
+  <meta property="og:image" content="https://sundaylaw.com/images/sundaylaw/1904SDA2.jpg">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f; --bg-soft: #0d0018; --bg-card: rgba(20,5,35,0.85);
+      --ink: #f8f1dd; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --amber: #f59e0b; --red: #ef4444; --red-soft: #fca5a5;
+      --blue: #3b82f6; --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3); --line-blue: rgba(59,130,246,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+
+    /* HERO */
+    .hero-banner { padding: 60px 0 44px; text-align: center; border-bottom: 1px solid rgba(212,165,55,0.1); }
+    .indictment-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 18px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 20px; }
+    .hero-h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.2rem, 5vw, 3.8rem); font-weight: 600; color: var(--ink); line-height: 1.1; margin-bottom: 18px; }
+    .hero-h1 em { color: var(--red-soft); font-style: italic; }
+    .hero-sub { font-size: 1.05rem; color: rgba(248,241,221,0.75); line-height: 1.85; max-width: 720px; margin: 0 auto 28px; }
+    .hero-date-badge { display: inline-flex; align-items: center; gap: 10px; padding: 10px 28px; border-radius: 12px; background: rgba(127,29,29,0.25); border: 1px solid rgba(239,68,68,0.35); font-size: 0.9rem; font-weight: 700; color: var(--red-soft); }
+
+    /* SECTION */
+    .sect { padding: 50px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .sect-sub { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 18px; }
+    .sect-sub strong { color: var(--gold-soft); }
+    .sect-sub em { color: var(--red-soft); }
+
+    /* MEGA WARN */
+    .mega-warn { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.4); border-radius: 20px; padding: 38px 36px; margin: 32px 0; text-align: center; }
+    .mega-warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--red); margin-bottom: 16px; }
+    .warn-date-pill { display: inline-block; padding: 4px 14px; border-radius: 999px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.35); font-size: 0.72rem; font-weight: 700; color: var(--red-soft); margin-bottom: 18px; }
+    .mega-warn blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.4rem, 2.5vw, 2rem); font-style: italic; color: #fde8e8; line-height: 1.6; margin-bottom: 16px; }
+    .mega-warn cite { font-size: 0.85rem; color: rgba(252,165,165,0.75); font-style: normal; font-weight: 600; }
+
+    /* SIGNERS GRID */
+    .signers-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(200px, 1fr)); gap: 16px; margin: 28px 0; }
+    .signer-card { background: rgba(13,5,25,0.8); border: 1px solid var(--line-soft); border-radius: 16px; padding: 22px 18px; text-decoration: none; display: block; transition: all 0.22s; }
+    .signer-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(127,29,29,0.2); }
+    .signer-num { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 8px; }
+    .signer-name { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.25; }
+    .signer-loc { font-size: 0.75rem; color: var(--muted); margin-bottom: 6px; }
+    .signer-role { font-size: 0.78rem; color: var(--gold-soft); font-weight: 600; margin-bottom: 12px; }
+    .signer-link { font-size: 0.78rem; color: var(--red-soft); font-weight: 700; display: flex; align-items: center; gap: 4px; }
+
+    /* STEPS LIST */
+    .steps-list { list-style: none; margin: 22px 0; display: flex; flex-direction: column; gap: 14px; }
+    .steps-list li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; }
+    .step-num { width: 36px; height: 36px; border-radius: 8px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.88rem; color: var(--red-soft); flex-shrink: 0; }
+    .step-text { font-size: 0.95rem; color: rgba(248,241,221,0.82); line-height: 1.75; padding-top: 5px; }
+    .step-text strong { color: var(--red-soft); }
+
+    /* IDEM STRIP */
+    .idem-strip { background: rgba(30,58,138,0.1); border: 1px solid rgba(59,130,246,0.25); border-radius: 16px; padding: 32px 28px; margin: 28px 0; }
+    .idem-title { font-family: 'Crimson Text', serif; font-size: 1.7rem; font-style: italic; color: var(--blue-soft); margin-bottom: 14px; }
+    .idem-compare { display: grid; grid-template-columns: 1fr auto 1fr; gap: 16px; align-items: center; margin: 22px 0; }
+    @media (max-width: 600px) { .idem-compare { grid-template-columns: 1fr; } }
+    .idem-name { background: rgba(20,5,35,0.7); border: 1px solid rgba(59,130,246,0.2); border-radius: 12px; padding: 16px 18px; }
+    .idem-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+    .idem-val { font-family: 'Crimson Text', serif; font-size: 1.05rem; color: var(--blue-soft); font-style: italic; line-height: 1.4; }
+    .idem-vs { font-weight: 800; color: var(--red-soft); font-size: 1.1rem; text-align: center; }
+    .idem-strip p { font-size: 0.93rem; color: rgba(248,241,221,0.8); line-height: 1.85; margin-bottom: 10px; }
+    .idem-strip strong { color: var(--gold-soft); }
+    .idem-strip a { color: var(--blue-soft); text-decoration: underline; }
+
+    /* CONSTITUTION STRIP */
+    .const-strip { background: rgba(30,58,138,0.1); border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; padding: 28px 28px; margin: 28px 0; }
+    .const-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 12px; }
+    .const-strip blockquote { font-family: 'Crimson Text', serif; font-size: 1.3rem; font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.7; }
+    .const-strip cite { font-size: 0.8rem; color: rgba(147,197,253,0.6); font-style: normal; margin-top: 10px; display: block; }
+    .const-analysis { font-size: 0.93rem; color: rgba(248,241,221,0.8); line-height: 1.85; margin-top: 14px; }
+    .const-analysis strong { color: var(--red-soft); }
+    .const-gov-link { color: var(--blue-soft); text-decoration: underline; }
+
+    /* TIMELINE */
+    .timeline { display: flex; flex-direction: column; gap: 0; margin: 24px 0; }
+    .tl-item { display: flex; gap: 20px; padding: 0 0 28px 0; position: relative; }
+    .tl-item::before { content: ''; position: absolute; left: 18px; top: 38px; bottom: 0; width: 2px; background: rgba(212,165,55,0.15); }
+    .tl-item:last-child::before { display: none; }
+    .tl-dot { width: 38px; height: 38px; border-radius: 50%; background: rgba(13,5,25,0.9); border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; }
+    .tl-dot.red { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.3); }
+    .tl-year { font-size: 0.7rem; font-weight: 800; color: var(--gold-soft); }
+    .tl-year.red { color: var(--red-soft); }
+    .tl-content { padding-top: 6px; }
+    .tl-title { font-size: 0.97rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .tl-desc { font-size: 0.87rem; color: rgba(248,241,221,0.72); line-height: 1.75; }
+    .tl-desc strong { color: var(--gold-soft); }
+
+    /* DOC PAIR */
+    .doc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    @media (max-width: 600px) { .doc-pair { grid-template-columns: 1fr; } }
+    .doc-frame { border: 1px solid rgba(239,68,68,0.25); border-radius: 14px; overflow: hidden; }
+    .doc-frame img { width: 100%; height: auto; display: block; }
+    .doc-caption { padding: 10px 14px; background: rgba(30,5,5,0.7); font-size: 0.78rem; color: var(--red-soft); line-height: 1.5; }
+
+    /* RESOURCE GRID */
+    .resource-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin: 22px 0; }
+    .resource-card { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; padding: 18px 16px; text-decoration: none; display: block; transition: all 0.2s; }
+    .resource-card:hover { border-color: var(--line); transform: translateY(-2px); }
+    .resource-card-label { font-size: 0.68rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 6px; }
+    .resource-card-title { font-size: 0.92rem; font-weight: 600; color: var(--gold-soft); line-height: 1.35; margin-bottom: 4px; }
+    .resource-card-desc { font-size: 0.8rem; color: var(--muted); line-height: 1.6; }
+
+    /* FOOTER */
+    .site-footer { background: #04000a; border-top: 1px solid rgba(180,130,50,0.15); }
+    .footer-banner { padding: 22px; text-align: center; background: linear-gradient(to right, rgba(127,29,29,0.15), rgba(127,29,29,0.08), rgba(127,29,29,0.15)); }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.05rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 5px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 44px 22px; display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.08); padding: 18px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #7f1d1d, #b91c1c, #d97706, #b91c1c, #7f1d1d); }
+  </style>
+</head>
+<body>
+  <div class="top-stripe"></div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a href="/" style="flex-shrink:0;margin-right:auto;">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com" style="height:38px;width:auto;display:block;border-radius:4px;" />
+        </a>
+        <a class="nav-link" href="/1904-signers">The 5 Signers</a>
+        <a class="nav-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Pioneer Library</a>
+        <a class="nav-cta" href="/loud-cry">Loud Cry &mdash; Rev. 18:4</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link active" href="/1904-signers">All 5 Signers</a>
+        <a class="nav-bottom-link" href="/1904-signers/arthur-g-daniells">Daniells</a>
+        <a class="nav-bottom-link" href="/1904-signers/amos-p-needham">Needham</a>
+        <a class="nav-bottom-link" href="/1904-signers/james-r-scott">Scott</a>
+        <a class="nav-bottom-link" href="/1904-signers/harvey-edson-rogers">Rogers</a>
+        <a class="nav-bottom-link" href="/1904-signers/daniel-k-nicola">Nicola</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+        <a class="nav-bottom-link" href="/april-15-1904-new-organization">1904 Record</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/1904-signers">All 5 Signers (Index)</a>
+      <a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a>
+      <a href="/1904-signers/amos-p-needham">Amos P. Needham</a>
+      <a href="/1904-signers/james-r-scott">James R. Scott</a>
+      <a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a>
+      <a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a>
+      <a href="/april-15-1904-new-organization">April 15, 1904 Record</a>
+      <a href="/library">Pioneer Library</a>
+      <a href="/loud-cry">The Loud Cry</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page">
+
+      <!-- HERO BANNER -->
+      <div class="hero-banner">
+        <div class="indictment-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          The Apostasy Record &mdash; Washington, D.C.
+        </div>
+        <h1 class="hero-h1">The Five Men Who<br><em>Signed Away Adventism</em></h1>
+        <p class="hero-sub">
+          Six months after Ellen White warned that entering any new organization would mean
+          <strong style="color:#fca5a5;">&ldquo;apostasy from the truth,&rdquo;</strong>
+          five men gathered in the District of Columbia and signed the Articles of Incorporation
+          creating the General Conference Corporation of Seventh-day Adventists.
+          The pioneer movement was over. The corporate church had begun.
+        </p>
+        <div class="hero-date-badge">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+          April 15, 1904 &mdash; Takoma Park &amp; Washington, D.C.
+        </div>
+      </div>
+
+      <!-- DOCUMENT EVIDENCE -->
+      <div class="sect">
+        <div class="sect-eyebrow">Primary Source Evidence</div>
+        <h2>The Document They Signed</h2>
+        <p class="sect-sub">
+          The Articles of Incorporation were filed on April 15, 1904, and later published in the
+          <strong>1905 Seventh-day Adventist Yearbook</strong> (pages 139&ndash;156).
+          The document bears five signatures. Each man listed below signed his name to this act of apostasy.
+        </p>
+        <div class="doc-pair">
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA1.jpg" alt="Articles of Incorporation, April 15, 1904 — Page 1" loading="lazy" />
+            <div class="doc-caption">Articles of Incorporation &mdash; April 15, 1904 &mdash; The document that created the corporate Adventist church</div>
+          </div>
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA2.jpg" alt="Articles of Incorporation, April 15, 1904 — Page 2 — Signers" loading="lazy" />
+            <div class="doc-caption">Page 2: Five signatures. Daniells first. The church now belongs to the state.</div>
+          </div>
+        </div>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:16px;">
+          <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.3);color:var(--gold-soft);font-weight:700;font-size:0.88rem;">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            1905 Yearbook PDF &mdash; pp. 139&ndash;156
+          </a>
+          <a href="/april-15-1904-new-organization" style="display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.88rem;">
+            Full April 15, 1904 Evidence Page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- EGW MEGA-WARNING -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Warning They Rejected &mdash; October 1903</div>
+        <h2>What Ellen White Said Six Months Before</h2>
+        <p class="sect-sub">
+          These five men did not act in ignorance. Ellen White had addressed the General Conference leadership
+          directly in October 1903 &mdash; six months before April 15, 1904 &mdash; with an explicit warning
+          about entering a new organization. Her words could not be misunderstood. They signed anyway.
+        </p>
+        <div class="mega-warn">
+          <div class="mega-warn-eyebrow">&#9888; Ellen G. White &mdash; Letter 242 &mdash; Written October 1903</div>
+          <div class="warn-date-pill">Six months before the April 15, 1904 signing</div>
+          <blockquote>
+            &ldquo;We have our Bibles. We have our experience, attesting to the truth of God&rsquo;s word,
+            and <em>we cannot now enter into any new organization, for this would mean apostasy from the truth.</em>&rdquo;
+          </blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+        <div style="background:rgba(127,29,29,0.15);border:1px solid rgba(239,68,68,0.2);border-radius:14px;padding:24px 26px;margin-top:20px;">
+          <p style="font-size:0.93rem;color:rgba(248,241,221,0.85);line-height:1.85;margin-bottom:10px;">
+            The word <strong style="color:var(--red-soft);">&ldquo;apostasy&rdquo;</strong> is not a mild term. It means a complete rejection and betrayal of the faith &mdash;
+            a turning from God&rsquo;s established order to a human system. This is the word Ellen White chose.
+            She did not say it would be &ldquo;unwise&rdquo; or &ldquo;premature.&rdquo; She said it would be <em>apostasy.</em>
+          </p>
+          <p style="font-size:0.93rem;color:rgba(248,241,221,0.85);line-height:1.85;">
+            In the same letter, she wrote: <strong style="color:#fde8e8;">&ldquo;The enemy of souls has sought to bring in the supposition that a great reformation was to take place
+            among Seventh-day Adventists&hellip; The principles of truth that God in His wisdom has given to the remnant church, would be discarded.
+            Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;</strong>
+          </p>
+        </div>
+      </div>
+
+      <!-- THE FIVE SIGNERS -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Five Signatories &mdash; April 15, 1904</div>
+        <h2>Five Men. One April Morning. One Act of Apostasy.</h2>
+        <p class="sect-sub">
+          The Articles of Incorporation list five signatories. Two groups: three from Washington, D.C. proper,
+          and two from Takoma Park, Maryland (at the time still partly in Maryland jurisdiction).
+          Each man held a position of authority and trust within the Adventist movement.
+          Each betrayed that trust on April 15, 1904.
+        </p>
+        <div class="signers-grid">
+          <a href="/1904-signers/arthur-g-daniells" class="signer-card">
+            <div class="signer-num">Signer No. 1 &mdash; Takoma Park, MD</div>
+            <div class="signer-name">Arthur G. Daniells</div>
+            <div class="signer-loc">1858 &ndash; 1935</div>
+            <div class="signer-role">General Conference President (1901&ndash;1922)</div>
+            <div class="signer-link">Full Indictment &rarr;</div>
+          </a>
+          <a href="/1904-signers/amos-p-needham" class="signer-card">
+            <div class="signer-num">Signer No. 2 &mdash; Takoma Park, MD</div>
+            <div class="signer-name">Amos P. Needham</div>
+            <div class="signer-loc">1843 &ndash; 1916</div>
+            <div class="signer-role">General Conference Treasurer</div>
+            <div class="signer-link">Full Indictment &rarr;</div>
+          </a>
+          <a href="/1904-signers/james-r-scott" class="signer-card">
+            <div class="signer-num">Signer No. 3 &mdash; Washington, D.C.</div>
+            <div class="signer-name">James R. Scott</div>
+            <div class="signer-loc">1854 &ndash; 1925</div>
+            <div class="signer-role">Attorney &amp; GC Secretary</div>
+            <div class="signer-link">Full Indictment &rarr;</div>
+          </a>
+          <a href="/1904-signers/harvey-edson-rogers" class="signer-card">
+            <div class="signer-num">Signer No. 4 &mdash; Washington, D.C.</div>
+            <div class="signer-name">Harvey Edson Rogers</div>
+            <div class="signer-loc">1852 &ndash; 1920</div>
+            <div class="signer-role">Assistant Treasurer</div>
+            <div class="signer-link">Full Indictment &rarr;</div>
+          </a>
+          <a href="/1904-signers/daniel-k-nicola" class="signer-card">
+            <div class="signer-num">Signer No. 5 &mdash; Washington, D.C.</div>
+            <div class="signer-name">Daniel K. Nicola</div>
+            <div class="signer-loc">1862 &ndash; 1926</div>
+            <div class="signer-role">Notary Public, D.C.</div>
+            <div class="signer-link">Full Indictment &rarr;</div>
+          </a>
+        </div>
+      </div>
+
+      <!-- LOUGHBOROUGH'S 5 STEPS -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Prophetic Map &mdash; Foretold in 1861</div>
+        <h2>Loughborough&rsquo;s Five Steps of Apostasy</h2>
+        <p class="sect-sub">
+          John Norton Loughborough was one of the founding pioneers of Seventh-day Adventism.
+          He helped James White build the original movement from the ground up, beginning in 1848.
+          In October 1861 &mdash; forty-three years before Daniells signed the incorporation &mdash;
+          Loughborough wrote the following in the <em>Review and Herald.</em>
+          It is a precise description of what the five 1904 signers did.
+        </p>
+        <ul class="steps-list">
+          <li>
+            <div class="step-num">1</div>
+            <div class="step-text"><strong>Get up a creed,</strong> telling us what we shall believe. <span style="color:var(--muted);">The 1904 incorporation imposed a legal structure defining who the Adventist Church is and what it may do &mdash; a civil creed, enforceable by courts.</span></div>
+          </li>
+          <li>
+            <div class="step-num">2</div>
+            <div class="step-text"><strong>Make that creed a test of fellowship.</strong> <span style="color:var(--muted);">Membership in the corporate body became the test &mdash; those outside the corporation are excluded from the name, the buildings, and the platform.</span></div>
+          </li>
+          <li>
+            <div class="step-num">3</div>
+            <div class="step-text"><strong>Try members by that creed.</strong> <span style="color:var(--muted);">Disfellowship proceedings in the corporate denominational church follow the corporate bylaws, not the naked Bible standard of the pioneers.</span></div>
+          </li>
+          <li>
+            <div class="step-num">4</div>
+            <div class="step-text"><strong>Denounce as heretics those who do not believe that creed.</strong> <span style="color:var(--muted);">Non-corporate Adventists who preach the original pioneer platform are labeled &ldquo;independent,&rdquo; &ldquo;off-shoot,&rdquo; or &ldquo;fanatical&rdquo; by the corporate body.</span></div>
+          </li>
+          <li>
+            <div class="step-num">5</div>
+            <div class="step-text"><strong>Commence persecution against such.</strong> <span style="color:var(--muted);">The corporate body uses trademark law and civil courts to prevent non-corporate Adventists from using the name &ldquo;Seventh-day Adventist&rdquo; &mdash; the name the pioneers chose in 1860 and never registered with any government.</span></div>
+          </li>
+        </ul>
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;margin-top:10px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.1rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">
+            &ldquo;The first step of apostasy is to get up a creed, telling us what we shall believe&hellip;
+            the second is to make that creed a test of fellowship; the third is to try members by that creed;
+            the fourth to denounce as heretics those who do not believe that creed;
+            and fifth, to commence persecution against such.&rdquo;
+          </p>
+          <cite style="font-size:0.8rem;color:var(--muted);font-weight:600;">&mdash; John N. Loughborough, <em>Review &amp; Herald,</em> October 8, 1861</cite>
+        </div>
+      </div>
+
+      <!-- IDEM SONANS -->
+      <div class="sect">
+        <div class="sect-eyebrow">Legal Doctrine &mdash; Name Theft</div>
+        <h2>How They Stole the Pioneer Name</h2>
+        <p class="sect-sub">
+          The name <strong style="color:#6ee7b7;">&ldquo;Seventh-day Adventist&rdquo;</strong> was chosen in 1860 by
+          a free assembly of the founding pioneers. It was never registered with any government.
+          It was a prophetic name &mdash; belonging to all who kept the Commandments of God
+          and had the Faith of Jesus (Revelation 14:12). It was not owned. It was inhabited.
+        </p>
+        <div class="idem-strip">
+          <div class="idem-title">Idem Sonans &mdash; &ldquo;Sounding the Same&rdquo;</div>
+          <div class="idem-compare">
+            <div class="idem-name">
+              <div class="idem-label">Pioneer Name &mdash; 1860</div>
+              <div class="idem-val">&ldquo;Seventh-day Adventist&rdquo;</div>
+            </div>
+            <div class="idem-vs">&#8800;</div>
+            <div class="idem-name">
+              <div class="idem-label">Corporate Name &mdash; April 15, 1904</div>
+              <div class="idem-val">&ldquo;General Conference Corporation of Seventh-day Adventists&rdquo;</div>
+            </div>
+          </div>
+          <p>
+            Under the legal doctrine of <strong>Idem Sonans</strong> (&ldquo;sounding the same&rdquo;),
+            two names that sound nearly identical are treated as referring to the same entity in legal proceedings.
+            The 1904 corporate name was deliberately engineered to echo the pioneer name.
+            Any layperson hearing both would assume they referred to the same body of believers.
+          </p>
+          <p>
+            This is how the five signers <strong>stole the identity, legacy, and moral authority of the pioneer movement.</strong>
+            They used the ancient name to capture its credibility &mdash; then used civil courts to prevent the actual spiritual heirs
+            of that name from legally claiming it. The corporate body has since <strong>trademarked &ldquo;Seventh-day Adventist&rdquo;</strong>
+            and litigated against independent Adventist congregations who use their own pioneers&rsquo; name.
+          </p>
+          <a href="https://en.wikipedia.org/wiki/Idem_sonans" target="_blank" rel="noopener noreferrer">Wikipedia: Idem Sonans &rarr;</a>
+          &nbsp;&bull;&nbsp;
+          <a href="https://legal-resources.uslegalforms.com/i/idem-sonans" target="_blank" rel="noopener noreferrer">US Legal Forms &rarr;</a>
+        </div>
+      </div>
+
+      <!-- FIRST AMENDMENT -->
+      <div class="sect">
+        <div class="sect-eyebrow">Constitutional Context &mdash; United States, 1791</div>
+        <h2>The First Amendment They Surrendered</h2>
+        <div class="const-strip">
+          <div class="const-label">
+            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            First Amendment &mdash; United States Constitution &mdash; Ratified December 15, 1791
+          </div>
+          <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof&hellip;&rdquo;</blockquote>
+          <cite>&mdash; First Amendment, Bill of Rights, U.S. Constitution, December 15, 1791</cite>
+          <p class="const-analysis">
+            The First Amendment was designed by men who had fled state-church tyranny.
+            It guaranteed that no church would be placed under government legal authority.
+            By voluntarily incorporating under the laws of the District of Columbia &mdash;
+            a federal jurisdiction under the &ldquo;UNITED STATES&rdquo; corporate entity &mdash;
+            the five signers placed the Adventist church under government oversight.
+            <strong>The First Amendment protected them from government control of their religion.
+            They voluntarily surrendered that protection on April 15, 1904.</strong>
+          </p>
+          <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank" rel="noopener noreferrer" class="const-gov-link">Official Source: constitution.congress.gov &rarr;</a>
+        </div>
+      </div>
+
+      <!-- MAYFLOWER TO MOST HOLY PLACE -->
+      <div class="sect">
+        <div class="sect-eyebrow">1620 &mdash; 1844 &mdash; The Unbroken Thread of Religious Liberty</div>
+        <h2>From the Mayflower to the Most Holy Place</h2>
+        <p class="sect-sub">
+          The story did not begin with William Miller. It began two centuries before, on a wooden ship fleeing
+          the state churches of Europe. The Pilgrims did not merely cross an ocean &mdash; they carried with them
+          the conviction that <strong>no government, no king, and no corporate ecclesiastical body</strong>
+          could stand between a soul and its God. That conviction became the soil in which the Advent movement was planted.
+          In 1904, five men buried it.
+        </p>
+        <div style="border-radius:18px;overflow:hidden;border:1px solid rgba(212,165,55,0.2);margin:28px 0;position:relative;">
+          <img
+            src="/images/sundaylaw/mayflower-1620-religious-freedom-james-white-family-escaping-state-church-tyranny-sundaylaw.jpg"
+            alt="The Mayflower 1620 — Religious Freedom — James White family roots — Escaping state-church tyranny"
+            style="width:100%;height:auto;display:block;"
+            loading="lazy"
+          />
+          <div style="position:absolute;bottom:0;left:0;right:0;padding:18px 22px;background:linear-gradient(to top,rgba(7,0,15,0.95),rgba(7,0,15,0.6),transparent);">
+            <p style="font-family:'Crimson Text',serif;font-size:1.1rem;font-style:italic;color:#fde68a;line-height:1.5;margin-bottom:4px;">
+              &ldquo;They came to this continent fleeing state-church tyranny &mdash; to worship God according to conscience alone.&rdquo;
+            </p>
+            <p style="font-size:0.75rem;color:rgba(212,165,55,0.7);font-weight:600;">The Mayflower, 1620 &mdash; The unbroken thread that runs from Plymouth Rock to the Most Holy Place</p>
+          </div>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px;margin:28px 0;">
+          <div style="background:rgba(13,5,25,0.8);border:1px solid rgba(212,165,55,0.18);border-radius:16px;padding:24px 22px;">
+            <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold-soft);margin-bottom:10px;">1620 &mdash; The Mayflower Compact</div>
+            <p style="font-family:'Crimson Text',serif;font-size:1.05rem;font-style:italic;color:rgba(248,241,221,0.9);line-height:1.65;margin-bottom:10px;">
+              &ldquo;Having undertaken, for the Glory of God and advancement of the Christian Faith&hellip;&rdquo;
+            </p>
+            <p style="font-size:0.88rem;color:rgba(248,241,221,0.72);line-height:1.75;">
+              The Pilgrims fled the Church of England &mdash; a state church backed by civil law and civil courts.
+              They did not seek to build a new state church. They sought only the freedom to follow God&rsquo;s Word
+              without a corporate institution standing between them and their conscience.
+              James White&rsquo;s own family roots trace to these same New England dissenter communities.
+            </p>
+          </div>
+          <div style="background:rgba(13,5,25,0.8);border:1px solid rgba(212,165,55,0.18);border-radius:16px;padding:24px 22px;">
+            <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--gold-soft);margin-bottom:10px;">1844 &mdash; The Most Holy Place Opened</div>
+            <p style="font-family:'Crimson Text',serif;font-size:1.05rem;font-style:italic;color:rgba(248,241,221,0.9);line-height:1.65;margin-bottom:10px;">
+              &ldquo;The temple of God was opened in heaven, and there was seen in His temple the ark of His testament.&rdquo;
+              &mdash; Revelation 11:19
+            </p>
+            <p style="font-size:0.88rem;color:rgba(248,241,221,0.72);line-height:1.75;">
+              On October 22, 1844, the veil before the Most Holy Place was drawn aside. The remnant &mdash; the
+              direct spiritual heirs of every soul who ever fled state-church tyranny for conscience&rsquo; sake &mdash;
+              entered by faith into a ministry no earthly organization could contain, register, or trademark.
+              The arc from Plymouth Rock to the Advent movement was complete.
+            </p>
+          </div>
+          <div style="background:rgba(127,29,29,0.15);border:1px solid rgba(239,68,68,0.25);border-radius:16px;padding:24px 22px;">
+            <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:var(--red-soft);margin-bottom:10px;">1904 &mdash; The Betrayal</div>
+            <p style="font-family:'Crimson Text',serif;font-size:1.05rem;font-style:italic;color:#fde8e8;line-height:1.65;margin-bottom:10px;">
+              The very thing the Pilgrims crossed an ocean to escape &mdash;<br>a civil church with legal authority &mdash;
+              was created in Washington, D.C. on April 15, 1904.
+            </p>
+            <p style="font-size:0.88rem;color:rgba(248,241,221,0.72);line-height:1.75;">
+              By incorporating under the laws of Caesar&rsquo;s own capital, the five signers
+              erected the precise structure their spiritual forebears had died to escape.
+              <strong style="color:var(--red-soft);">Not a church fleeing the state. A church asking the state to define and protect it.</strong>
+              The 284-year arc of religious liberty was broken on a single April morning.
+            </p>
+          </div>
+        </div>
+
+        <div style="background:rgba(20,5,35,0.7);border:1px solid rgba(212,165,55,0.15);border-radius:14px;padding:26px 28px;margin-top:4px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(248,241,221,0.92);line-height:1.7;margin-bottom:12px;">
+            &ldquo;To the end of time, the presence of the Spirit is to abide with the true church.&rdquo;
+          </p>
+          <cite style="font-size:0.8rem;color:var(--gold-soft);font-weight:600;">&mdash; Ellen G. White, <em>The Acts of the Apostles,</em> p. 55</cite>
+          <p style="font-size:0.9rem;color:rgba(248,241,221,0.72);line-height:1.8;margin-top:14px;">
+            No civil incorporation can constitute the true church. No Articles of Incorporation can create it.
+            No five signatures can end it. The true church &mdash; from the Mayflower to the Most Holy Place &mdash;
+            exists wherever two or three gather in the name of Christ, holding the Commandments of God and the Faith of Jesus.
+            It cannot be trademarked. It cannot be incorporated away.
+          </p>
+        </div>
+      </div>
+
+      <!-- TIMELINE -->
+      <div class="sect">
+        <div class="sect-eyebrow">Prophetic &amp; Historical Timeline</div>
+        <h2>From the Advent Movement to April 15, 1904</h2>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-year">1841</span></div>
+            <div class="tl-content">
+              <div class="tl-title">The Advent Awakening Begins</div>
+              <div class="tl-desc"><strong>William Miller</strong> begins his public lectures on the 2,300-day prophecy. The First Angel&rsquo;s Message goes to the world. Adventism is born as a free, unincorporated, Spirit-led movement with no church organization, no creed, and no civil connection.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-year">1844</span></div>
+            <div class="tl-content">
+              <div class="tl-title">The Great Disappointment &mdash; Oct. 22, 1844</div>
+              <div class="tl-desc">The cleansing of the Sanctuary begins. The remnant is separated from Babylon. Those who remain faithful receive the Sabbath light through the Bates-Andrews-White platform (1848&ndash;1850). The Third Angel&rsquo;s Message is established on the 1850 Prophetic Chart.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-year">1860</span></div>
+            <div class="tl-content">
+              <div class="tl-title">The Name &ldquo;Seventh-day Adventist&rdquo; Chosen Freely</div>
+              <div class="tl-desc">A free assembly of pioneer believers votes to adopt the name &ldquo;Seventh-day Adventist.&rdquo; The name is <strong>not registered</strong> with any government. It belongs to the people. No entity owns it. It is a prophetic description, not a trademark.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"><span class="tl-year">1861</span></div>
+            <div class="tl-content">
+              <div class="tl-title">Loughborough&rsquo;s Warning &mdash; October 8, 1861</div>
+              <div class="tl-desc">John N. Loughborough publishes his Five Steps of Apostasy in the <em>Review and Herald.</em> He describes exactly what would happen if the Adventist movement followed the path of every other church body before it. His words are prophetic. They will be fulfilled in 43 years.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot red"><span class="tl-year red">1903</span></div>
+            <div class="tl-content">
+              <div class="tl-title">Ellen White&rsquo;s Direct Warning &mdash; October 1903</div>
+              <div class="tl-desc"><strong>Letter 242:</strong> &ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo; Written six months before the signing. Read by General Conference leadership. Ignored by all five signers.</div>
+            </div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot red"><span class="tl-year red">1904</span></div>
+            <div class="tl-content">
+              <div class="tl-title">April 15, 1904 &mdash; The Act of Apostasy</div>
+              <div class="tl-desc"><strong>Arthur G. Daniells, Amos P. Needham, James R. Scott, Harvey Edson Rogers, and Daniel K. Nicola</strong> sign the Articles of Incorporation in Washington, D.C. The General Conference Corporation of Seventh-day Adventists becomes a legally registered civil entity under the laws of the United States. The pioneer movement is over.</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- RESOURCES -->
+      <div class="sect">
+        <div class="sect-eyebrow">Primary Sources &amp; Further Study</div>
+        <h2>The Documentary Record</h2>
+        <p class="sect-sub">Each of the resource links below is part of the public historical record. This is not interpretation &mdash; it is documentation.</p>
+        <div class="resource-grid">
+          <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" class="resource-card">
+            <div class="resource-card-label">Primary Source &mdash; PDF</div>
+            <div class="resource-card-title">1905 SDA Yearbook</div>
+            <div class="resource-card-desc">The official publication containing the full text of the April 15, 1904 Articles of Incorporation, pp. 139&ndash;156.</div>
+          </a>
+          <a href="/april-15-1904-new-organization" class="resource-card">
+            <div class="resource-card-label">Evidence Page</div>
+            <div class="resource-card-title">April 15, 1904 Record</div>
+            <div class="resource-card-desc">The complete documentary evidence page with document photos, full text analysis, and context.</div>
+          </a>
+          <a href="/1860-name-selection" class="resource-card">
+            <div class="resource-card-label">Context</div>
+            <div class="resource-card-title">The 1860 Name Decision</div>
+            <div class="resource-card-desc">How the pioneers freely chose the name &ldquo;Seventh-day Adventist&rdquo; without government registration, and what that means today.</div>
+          </a>
+          <a href="/books/john-norton-loughborough" class="resource-card">
+            <div class="resource-card-label">Pioneer Library</div>
+            <div class="resource-card-title">John N. Loughborough</div>
+            <div class="resource-card-desc">Writings of the founding pioneer who foretold the five steps of apostasy &mdash; 43 years before they were fulfilled.</div>
+          </a>
+          <a href="/books/ellen-white" class="resource-card">
+            <div class="resource-card-label">Spirit of Prophecy</div>
+            <div class="resource-card-title">Ellen G. White Library</div>
+            <div class="resource-card-desc">Selected Messages contains Letter 242 (1SM 204) &mdash; the direct warning delivered to GC leadership in October 1903.</div>
+          </a>
+          <a href="/prophecy-charts" class="resource-card">
+            <div class="resource-card-label">Prophetic Context</div>
+            <div class="resource-card-title">1843 &amp; 1850 Prophecy Charts</div>
+            <div class="resource-card-desc">The original Advent Movement prophetic charts &mdash; the platform the five signers abandoned on April 15, 1904.</div>
+          </a>
+          <a href="/apostasy/herbert-camden-lacey" class="resource-card">
+            <div class="resource-card-label">Apostasy Record</div>
+            <div class="resource-card-title">Herbert Camden Lacey</div>
+            <div class="resource-card-desc">Architect of Trinitarian theology in Adventism. See his apostasy record.</div>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-banner">
+      <p>&ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo;</p>
+      <cite>&mdash; Ellen G. White, Letter 242, October 1903 &mdash; Six months before Arthur G. Daniells signed the incorporation</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div style="font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:10px;">SundayLaw.com</div>
+        <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;">
+          Preserving the 1841&ndash;1850 pioneer platform.
+          Exposing the 1904 corporate apostasy.
+          Proclaiming the Three Angels&rsquo; Messages without compromise.
+        </p>
+      </div>
+      <div class="footer-col">
+        <h4>The 5 Signers</h4>
+        <ul>
+          <li><a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a></li>
+          <li><a href="/1904-signers/amos-p-needham">Amos P. Needham</a></li>
+          <li><a href="/1904-signers/james-r-scott">James R. Scott</a></li>
+          <li><a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a></li>
+          <li><a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pioneer Platform</h4>
+        <ul>
+          <li><a href="/library">Full Pioneer Library</a></li>
+          <li><a href="/books/charles-fitch">Charles Fitch</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/pioneers">Pioneer Biographies</a></li>
+          <li><a href="/books/william-miller">William Miller</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SundayLaw.com &mdash; Three Angels&rsquo; Messages &mdash; Revelation 14:6&ndash;12 &mdash; &ldquo;Come out of her, My people&rdquo; &mdash; Revelation 18:4</p>
+    </div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileNav?.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+  <SiteFooter
+    scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+    scriptureRef="Revelation 18:4 (KJV)"
+    pageLinks={[
+      { label: 'All Five 1904 Signers', href: '/1904-signers' },
+      { label: 'April 15, 1904 — The Record', href: '/april-15-1904-new-organization' },
+      { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+      { label: 'Apostate Shepherds', href: '/apostasy' }
+    ]}
+  />
+  <ShareBar />
+  <SiteSearch />
+</body>
+</html>

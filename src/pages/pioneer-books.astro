@@ -1,0 +1,474 @@
+---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>Featured Pioneer Books | SundayLaw.com</title>
+    <meta name="description" content="The key books and tracts written by the original Advent pioneers — Joseph Bates, Charles Fitch, J.N. Andrews, William Miller, and James White. Read free.">
+    <link rel="canonical" href="https://sundaylaw.com/pioneer-books">
+    <meta property="og:title" content="Featured Pioneer Books | SundayLaw.com">
+    <meta property="og:description" content="The key books and tracts written by the original Advent pioneers — free to read.">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/pioneer-books">
+    <meta property="og:image" content="https://sundaylaw.com/images/books-written-by-the-144000/joseph-bates-autobiography-1868-adventist-pioneer-book-poster.jpg">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #070a16;
+        --ink: #f4f0de;
+        --ink-muted: #c6bc97;
+        --line: rgba(212, 165, 55, 0.26);
+        --gold: #d4a537;
+        --gold-soft: #f0cf7b;
+      }
+
+      * { box-sizing: border-box; margin: 0; padding: 0; }
+
+      body {
+        min-height: 100vh;
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 8%,  rgba(212,165,55,0.14), transparent 40%),
+          radial-gradient(circle at 86% 78%, rgba(63,93,138,0.20),  transparent 48%),
+          linear-gradient(160deg, #04060f 0%, #090d1d 55%, #070810 100%);
+      }
+
+      /* ── hero ── */
+      .hero {
+        max-width: 860px;
+        margin: 0 auto;
+        padding: 64px 24px 40px;
+        text-align: center;
+      }
+
+      .hero-eyebrow {
+        font-size: 0.78rem;
+        font-weight: 600;
+        letter-spacing: 0.18em;
+        text-transform: uppercase;
+        color: var(--gold);
+        margin-bottom: 16px;
+      }
+
+      .hero h1 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(2rem, 5vw, 3rem);
+        font-weight: 700;
+        line-height: 1.18;
+        color: var(--ink);
+        margin-bottom: 18px;
+      }
+
+      .hero-sub {
+        font-size: 1.05rem;
+        color: var(--ink-muted);
+        line-height: 1.65;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+
+      /* ── grid ── */
+      .grid-wrap {
+        max-width: 1180px;
+        margin: 0 auto;
+        padding: 0 24px 80px;
+      }
+
+      .book-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+        gap: 32px;
+      }
+
+      /* ── card ── */
+      .book-card {
+        background: rgba(255,255,255,0.035);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        overflow: hidden;
+        display: flex;
+        flex-direction: column;
+        transition: border-color 0.2s, transform 0.2s, box-shadow 0.2s;
+      }
+
+      .book-card:hover {
+        border-color: rgba(212,165,55,0.55);
+        transform: translateY(-3px);
+        box-shadow: 0 10px 40px rgba(0,0,0,0.45);
+      }
+
+      .card-img-wrap {
+        aspect-ratio: 4 / 3;
+        overflow: hidden;
+        background: #0a0d1d;
+      }
+
+        .card-img-wrap img {
+          width: 100%;
+          height: 100%;
+          object-fit: cover;
+          object-position: center 3%;
+          transition: transform 0.35s ease;
+        }
+
+      .book-card:hover .card-img-wrap img {
+        transform: scale(1.04);
+      }
+
+      .card-body {
+        padding: 22px 22px 20px;
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        gap: 10px;
+      }
+
+      .card-year {
+        font-size: 0.73rem;
+        font-weight: 600;
+        letter-spacing: 0.14em;
+        text-transform: uppercase;
+        color: var(--gold);
+      }
+
+      .card-title {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.25rem;
+        font-weight: 700;
+        line-height: 1.3;
+        color: var(--ink);
+      }
+
+      .card-author {
+        font-size: 0.85rem;
+        font-weight: 500;
+        color: var(--gold-soft);
+        opacity: 0.8;
+      }
+
+      .card-desc {
+        font-size: 0.9rem;
+        color: var(--ink-muted);
+        line-height: 1.6;
+        flex: 1;
+      }
+
+      .card-cta {
+        display: inline-flex;
+        align-items: center;
+        gap: 6px;
+        margin-top: 6px;
+        font-size: 0.88rem;
+        font-weight: 600;
+        color: var(--gold);
+        text-decoration: none;
+        letter-spacing: 0.04em;
+        transition: gap 0.2s, color 0.2s;
+      }
+
+      .card-cta:hover {
+        color: var(--gold-soft);
+        gap: 10px;
+      }
+
+      /* ── divider ── */
+      .section-divider {
+        max-width: 1180px;
+        margin: 0 auto 40px;
+        padding: 0 24px;
+        border-top: 1px solid var(--line);
+      }
+
+      /* ── browse-all ── */
+      .browse-all {
+        text-align: center;
+        padding: 0 24px 80px;
+      }
+
+      .browse-all p {
+        font-size: 1rem;
+        color: var(--ink-muted);
+        margin-bottom: 18px;
+      }
+
+      .browse-all a {
+        display: inline-block;
+        padding: 11px 30px;
+        border: 1px solid var(--gold);
+        border-radius: 6px;
+        color: var(--gold);
+        font-size: 0.9rem;
+        font-weight: 600;
+        letter-spacing: 0.06em;
+        text-decoration: none;
+        text-transform: uppercase;
+        transition: background 0.2s, color 0.2s;
+      }
+
+      .browse-all a:hover {
+        background: var(--gold);
+        color: #07090f;
+      }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+
+    <section class="hero">
+      <p class="hero-eyebrow">Pioneer Library</p>
+      <h1>Books Written by the<br>Original Advent Pioneers</h1>
+      <p class="hero-sub">
+        The tracts, histories, and testimonies that formed the foundation of the original
+        Seventh-day Adventist platform of truth — written by those who lived the message.
+        Free to read.
+      </p>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== THE ANGEL SAID — MR VOL 13 P.369 ===== -->
+    <div style="max-width:860px;margin:0 auto 60px;padding:0 24px;">
+      <div style="text-align:center;margin-bottom:24px;">
+        <div style="display:inline-block;padding:5px 18px;border-radius:999px;border:1px solid rgba(212,165,55,0.35);color:#fcd34d;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;">The Angel Said&hellip;</div>
+      </div>
+      <div style="padding:36px 40px;background:rgba(18,12,0,0.7);border:1px solid rgba(212,165,55,0.25);border-left:5px solid rgba(212,165,55,0.65);border-radius:0 16px 16px 0;">
+        <p style="font-family:'Crimson Text',Georgia,serif;font-size:clamp(1.05rem,2vw,1.22rem);color:rgba(254,243,199,0.93);line-height:1.95;font-style:italic;margin:0 0 16px;">
+          &ldquo;I saw that they were in terrible conflict as to whether to take their stand for or against the light that God has permitted me to bear to the world. It seemed to me like a life-and-death question. I cannot describe it, but the conflict was a terrible one. The seductive presentations [trinity doctrine] framed by satanic agencies were presented by subtle reasoning, and their minds had well-nigh become overwhelmed when a heavenly messenger let light shine forth.
+        </p>
+        <p style="font-family:'Crimson Text',Georgia,serif;font-size:clamp(1.05rem,2vw,1.22rem);color:rgba(254,243,199,0.93);line-height:1.95;font-style:italic;margin:0 0 16px;">
+          There came to them the thought, <strong style="color:#fef3c7;font-style:normal;">&lsquo;Review the past experience of the people of God; review the history of the work from the first, as if you were beholding it in a mirror. Has this work been what it has been represented to you to be?&rsquo;</strong> Then another and still another scene was presented before them by the heavenly messenger, until they saw truth bearing the signature of the heavenly in the past, then present, and still more decidedly in the future.
+        </p>
+        <p style="font-family:'Crimson Text',Georgia,serif;font-size:clamp(1.05rem,2vw,1.22rem);color:rgba(254,243,199,0.93);line-height:1.95;font-style:italic;margin:0;">
+          The words were spoken, &ldquo;Strait is the gate, and narrow is the way, that leadeth unto life, and few there be that find it. Broad is the road and wide is the gate that leadeth to destruction, and many there be which go in thereat.&rdquo;&rsquo;
+        </p>
+        <div style="margin-top:22px;padding-top:18px;border-top:1px solid rgba(212,165,55,0.2);">
+          <cite style="font-size:0.85rem;color:#9ca3af;font-style:normal;">— Ellen G. White, <em>Manuscript Releases</em>, vol. 13 [Nos. 1000&ndash;1080], p. 369.1</cite>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid-wrap">
+      <div class="book-grid">
+
+        <!-- Ellen White — The Great Controversy -->
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/pioneers/ellen-white.jpg" loading="lazy"
+              alt="The Great Controversy — Ellen G. White"
+              loading="eager"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1858 &middot; 1884 &middot; 1888</span>
+            <h2 class="card-title">The Great Controversy</h2>
+            <p class="card-author">Ellen G. White</p>
+            <p class="card-desc">
+              The book Satan does not want you to read. Maps the past, present, and future
+              of the cosmic conflict &mdash; from Lucifer&rsquo;s fall to the earth made
+              new. Written under angelic light visible to neighbors. Three editions. Free PDF.
+            </p>
+            <a href="/books/ellen-white-great-controversy" class="card-cta">Read Free &rarr;</a>
+          </div>
+        </article>
+
+        <!-- Captain Joseph Bates Autobiography -->
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/books-written-by-the-144000/joseph-bates-autobiography-1868-adventist-pioneer-book-poster.jpg"
+              alt="The Autobiography of Elder Joseph Bates (1868)"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1868</span>
+            <h2 class="card-title">The Autobiography of Elder Joseph Bates</h2>
+            <p class="card-author">Captain Joseph Bates</p>
+            <p class="card-desc">
+              From cabin boy at 15 to master mariner — from War of 1812 captive to abolitionist
+              reformer — the man who published the Sabbath tracts that converted James and Ellen
+              White. The greatest conversion narrative in Adventist history. Free PDF.
+            </p>
+            <a href="/books/captain-joseph-bates-autobiography-1868" class="card-cta">Read Free →</a>
+          </div>
+        </article>
+
+        <!-- Captain Joseph Bates — The Seventh Day Sabbath, A Perpetual Sign (1846) -->
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/pioneers/captain-joseph-bates.jpg" loading="lazy"
+              alt="Captain Joseph Bates — The Seventh Day Sabbath, A Perpetual Sign (1846)"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1846</span>
+            <h2 class="card-title">The Seventh Day Sabbath, A Perpetual Sign</h2>
+            <p class="card-author">Captain Joseph Bates</p>
+            <p class="card-desc">
+              The foundational 1846 treatise that launched the Sabbath movement and the sealing of the 144,000. Bates explains the Sabbath as the sign of God's covenant and the Bride's loyalty. Essential for understanding the Most Holy Place message and the final sealing.
+            </p>
+            <a href="/books/sabbath" class="card-cta">Read Free &rarr;</a>
+          </div>
+        </article>
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/pioneers/captain-joseph-bates.jpg" loading="lazy"
+              alt="Captain Joseph Bates"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1849</span>
+            <h2 class="card-title">A Seal of the Living God</h2>
+            <p class="card-author">Captain Joseph Bates</p>
+            <p class="card-desc">
+              The Seventh-day Sabbath is the seal of the living God — the mark distinguishing
+              those sealed for eternity from those who receive the mark of the beast.
+              Captain Bates' foundational 1849 tract on Revelation 7 and 14.
+            </p>
+            <a href="/books/joseph-bates-seal" class="card-cta">Read Free →</a>
+          </div>
+        </article>
+
+        <!-- Charles Fitch — Come Out of Her, My People -->
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/pioneers/charles-fitch.jpg" loading="lazy"
+              alt="Charles Fitch"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1843</span>
+            <h2 class="card-title">Come Out of Her, My People</h2>
+            <p class="card-author">Charles Fitch</p>
+            <p class="card-desc">
+              The Second Angel's Message of Revelation 14:8 — Babylon is fallen.
+              Charles Fitch's 1843 call out of Babylon and into the pioneer Advent message,
+              the sealing Sabbath, and the commandments of God.
+            </p>
+            <a href="/books/charles-fitch" class="card-cta">Read Free →</a>
+          </div>
+        </article>
+
+        <!-- J.N. Andrews — History of the Sabbath -->
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/pioneers/john-nevins-andrews.jpg" loading="lazy"
+              alt="John Nevins Andrews"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1862</span>
+            <h2 class="card-title">History of the Sabbath and First Day of the Week</h2>
+            <p class="card-author">J.N. Andrews</p>
+            <p class="card-desc">
+              Who changed the Sabbath from Saturday to Sunday? J.N. Andrews traces the
+              seventh-day Sabbath through every century of history with primary source
+              documentation. The definitive answer. Free PDF.
+            </p>
+            <a href="/books/john-nevins-andrews-history-of-the-sabbath-and-first-day-of-the-week" class="card-cta">Read Free →</a>
+          </div>
+        </article>
+
+        <!-- William Miller's Dream — James White -->
+        <article class="book-card">
+          <div class="card-img-wrap">
+            <img
+              src="/images/pioneers/james-white.jpg" loading="lazy"
+              alt="James White"
+              loading="lazy"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1850</span>
+            <h2 class="card-title">Brother Miller's Dream</h2>
+            <p class="card-author">James White</p>
+            <p class="card-desc">
+              James White's 1850 published account of William Miller's prophetic dream —
+              a primary source document from the founding year of the Sabbatarian Advent
+              movement. Read and judge for yourself.
+            </p>
+            <a href="/books/william-miller-brothers-dream" class="card-cta">Read Free →</a>
+          </div>
+        </article>
+
+        <!-- Advent Review: Thrilling Testimonies (1850) -->
+        <article class="book-card featured">
+          <div class="card-img-wrap">
+            <img
+              src="/books/pdf/voice-of-truth/advent-review-thrilling-testimonies-1850.jpg"
+              alt="The Advent Review: Thrilling Testimonies 1850 book cover"
+              loading="lazy"
+              style="border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1850</span>
+            <h2 class="card-title">The Advent Review: Thrilling Testimonies</h2>
+            <p class="card-author">James White, Hiram Edson, S. W. Rhodes, D. Arnold, G. W. Holt</p>
+            <p class="card-desc">
+              <strong>Part 4 of THE ADVENT REVIEW</strong> — 48-page Special, September, 1850. Captures the very heartbeat of prophecy. Electrifying, first-hand accounts from the front lines of the Second Advent movement. Miracles, midnight cries, and the faith that shook a generation.
+            </p>
+            <a href="/books/advent-review-thrilling-testimonies-1850" class="card-cta">Read Free &rarr;</a>
+          </div>
+        </article>
+
+        <!-- The Great Second Advent Movement — J. N. Loughborough (Now truly last) -->
+        <article class="book-card featured">
+          <div class="card-img-wrap">
+            <img
+              src="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/the-great-second-advent-movement-its-rise-and-progress.jpg"
+              alt="The Great Second Advent Movement — J. N. Loughborough"
+              loading="lazy"
+              style="border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);"
+            >
+          </div>
+          <div class="card-body">
+            <span class="card-year">1905</span>
+            <h2 class="card-title">The Great Second Advent Movement</h2>
+            <p class="card-author">J. N. Loughborough</p>
+            <p class="card-desc">
+              <strong>The Forgotten Record They Tried to Bury</strong><br>
+              “A statement concerning the advent movement… from its birth to 1844… showing its divine origin.”<br>
+              “Many thousands have been brought to believe and still proclaim the near advent of Christ.”<br><br>
+              <strong>What This Book Exposes:</strong><br>
+              • The real rise of the Advent Movement<br>
+              • The Midnight Cry that shook the world<br>
+              • The 1844 disappointment—explained, not denied<br>
+              • The prophetic timeline from Eden to the end<br>
+              • The separation between true believers and scoffers<br>
+              • The hand of God moving through history
+            </p>
+            <a href="/books/the-great-second-advent-movement" class="card-cta">Read Free &rarr;</a>
+          </div>
+        </article>
+
+      </div>
+    </div>
+
+    <div class="browse-all">
+      <p>Looking for more? The full library has hundreds of pioneer books and source documents.</p>
+      <a href="/books">Browse Full Library →</a>
+    </div>
+
+    <SiteFooter />
+  </body>
+</html>

@@ -1,0 +1,14 @@
+pioneers-working-backup-4-1-2026
+
+This backup is the first fully working dynamic Astro pioneer library.
+
+Working pages:
+- /pioneers
+- /pioneers/james-white
+
+Key working files:
+- src/content.config.ts
+- src/content/pioneers/james-white.md
+- src/pages/pioneers/index.astro
+- src/pages/pioneers/[slug].astro
+- src/pages/index.astro

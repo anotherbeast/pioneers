@@ -1,0 +1,70 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile — SundayLaw.com</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+      .form-card { background: linear-gradient(135deg, rgba(26,26,78,0.8), rgba(13,13,53,0.8)); border: 1px solid rgba(180,130,50,0.3); border-radius: 20px; padding: 32px 28px; max-width: 420px; margin: 0 auto; }
+      .form-group label { color: #fcd34d; font-weight: 600; }
+      .form-group input { background: rgba(10,10,46,0.6); color: #fff; border: 1.5px solid #d4a537; border-radius: 8px; padding: 12px 14px; font-size: 1rem; margin-bottom: 8px; }
+      .form-group input:focus { outline: none; border-color: #7c3aed; }
+      .btn-submit { width: 100%; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; background: linear-gradient(to right,#b45309,#d97706); color: #fff; margin-top: 12px; }
+      .btn-submit:hover { background: linear-gradient(to right,#d97706,#f59e0b); }
+      .avatar-preview { display: flex; flex-direction: column; align-items: center; margin-bottom: 18px; }
+      .avatar-preview img { width: 90px; height: 90px; border-radius: 50%; border: 2px solid #d4a537; object-fit: cover; margin-bottom: 8px; }
+      @media (max-width: 600px) { .form-card { padding: 18px 8px; } }
+      .error { color: #f87171; font-size: 0.92rem; margin-bottom: 8px; }
+      .success { color: #10b981; font-size: 1rem; margin-bottom: 8px; }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+    <div class="page-wrap">
+      <div class="page-hero">
+        <h1>Your Profile</h1>
+        <p>Update your account details and avatar.</p>
+      </div>
+      <div class="form-card">
+        <form method="POST" action="/api/profile.php" enctype="multipart/form-data" id="profileForm" autocomplete="on">
+          <div class="avatar-preview">
+            <img id="avatarImg" src="/images/default-avatar.png" alt="Avatar" />
+            <input type="file" id="avatar" name="avatar" accept="image/*" style="margin-top:8px;" />
+          </div>
+          <div class="form-group">
+            <label for="p-name">Name</label>
+            <input type="text" id="p-name" name="name" required placeholder="Your name" autocomplete="name" />
+          </div>
+          <div class="form-group">
+            <label for="p-email">Email</label>
+            <input type="email" id="p-email" name="email" required placeholder="your@email.com" autocomplete="email" />
+          </div>
+          <div class="form-group">
+            <label for="p-password">New Password</label>
+            <input type="password" id="p-password" name="password" placeholder="Leave blank to keep current" autocomplete="new-password" minlength="8" />
+          </div>
+          <button type="submit" class="btn-submit">Update Profile</button>
+        </form>
+      </div>
+    </div>
+    <SiteFooter />
+    <script>
+      // Avatar preview
+      document.getElementById('avatar').addEventListener('change', function(e) {
+        const file = e.target.files[0];
+        if (file) {
+          const reader = new FileReader();
+          reader.onload = function(ev) {
+            document.getElementById('avatarImg').src = ev.target.result;
+          };
+          reader.readAsDataURL(file);
+        }
+      });
+    </script>
+  </body>
+</html>

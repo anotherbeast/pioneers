@@ -1,0 +1,68 @@
+<!--
+Backup of the last working Ellen White bio page template ([slug].astro)
+Date: 2026-04-08
+-->
+
+---
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+export async function getStaticPaths() {
+  const pioneers = await getCollection('pioneers');
+  return pioneers.map((pioneer) => ({
+    params: { slug: pioneer.id },
+    props: { pioneer },
+  }));
+}
+
+---
+export async function get({ props }: { props: PioneerPageProps }) {
+  const pioneer = props.pioneer;
+  // Books by this pioneer
+  const books = await getCollection('books');
+  const pioneerBooks = books.filter((book) => book.data.authorId === pioneer.id);
+  // Works (other writings, tracts, etc.)
+  const works = await getCollection('works');
+  const pioneerWorks = works.filter((work) => work.data.authorId === pioneer.id);
+  // Quotes
+  const quotes = await getCollection('quotes');
+  const pioneerQuotes = quotes.filter((quote) => quote.data.authorId === pioneer.id);
+  // Biography sections
+  const biographySections = pioneer.data.biographySections || [
+    {
+      id: 'main',
+      heading: pioneer.data.name,
+      content: marked.parse(pioneer.body),
+      isLead: true,
+    },
+  ];
+  // Feature quote HTML
+  let featureQuoteHtml = '';
+  if (pioneer.data.railFeature && pioneer.data.railFeature.quote) {
+    featureQuoteHtml = marked.parse(pioneer.data.railFeature.quote);
+  }
+  return {
+    props: {
+      pioneer,
+      pioneerBooks,
+      pioneerWorks,
+      pioneerQuotes,
+      biographySections,
+      featureQuoteHtml,
+      formatDate,
+    },
+  };
+}
+
+function formatDate(value: string | undefined) {
+  if (!value) return '';
+  const match = value.match(/^d{4}-d{2}-d{2}$/);
+  return match ? new Date(Date.UTC(Number(match[1]), Number(match[2]) - 1, Number(match[3]))).getUTCFullYear() : value;
+}
+
+---
+<!-- Template content below (header, hero, etc.) -->
+<!-- ...existing code... -->

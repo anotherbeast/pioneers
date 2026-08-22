@@ -1,0 +1,1002 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteNav from '../../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Captain Joseph Bates — The Autobiography (1868) | Free PDF | SundayLaw.com</title>
+    <meta name="description" content="Read the complete Autobiography of Elder Joseph Bates (1868) — from merchant sea captain and abolitionist to co-founder of the original Seventh-day Adventist platform of truth. The greatest conversion narrative in Adventist history. Free PDF download.">
+    <link rel="canonical" href="https://sundaylaw.com/books/captain-joseph-bates-autobiography-1868">
+    <!-- Open Graph -->
+    <meta property="og:title" content="Captain Joseph Bates — The Autobiography (1868)">
+    <meta property="og:description" content="From sea cabin boy at 15 to reformed sea captain, abolitionist, and the man who converted James and Ellen White to the Seventh-day Sabbath. Captain Bates' extraordinary life story in his own words. Free PDF.">
+    <meta property="og:image" content="https://sundaylaw.com/images/books-written-by-the-144000/joseph-bates-autobiography-1868-adventist-pioneer-book-poster.jpg">
+    <meta property="og:image:type" content="image/png">
+    <meta property="og:image:width" content="1200">
+    <meta property="og:image:height" content="630">
+    <meta property="og:type" content="book">
+    <meta property="og:url" content="https://sundaylaw.com/books/captain-joseph-bates-autobiography-1868">
+    <meta property="og:site_name" content="SundayLaw.com">
+    <!-- Twitter Card -->
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Captain Joseph Bates — The Autobiography (1868) | Free PDF">
+    <meta name="twitter:description" content="From sea cabin boy to Sabbath champion — Captain Bates' life story in his own words. Free PDF.">
+    <meta name="twitter:image" content="https://sundaylaw.com/images/books-written-by-the-144000/joseph-bates-autobiography-1868-adventist-pioneer-book-poster.jpg">
+    <!-- JSON-LD: Book + BreadcrumbList -->
+    <script type="application/ld+json">
+    [
+      {
+        "@context": "https://schema.org",
+        "@type": "Book",
+        "name": "The Autobiography of Elder Joseph Bates",
+        "alternateName": "Autobiography of Elder Joseph Bates (1868)",
+        "author": {
+          "@type": "Person",
+          "name": "Joseph Bates",
+          "givenName": "Joseph",
+          "familyName": "Bates",
+          "birthDate": "1792-07-08",
+          "deathDate": "1872-03-19",
+          "jobTitle": "Sea Captain, Adventist Pioneer, Co-founder",
+          "sameAs": "https://en.wikipedia.org/wiki/Joseph_Bates_(Adventist)"
+        },
+        "datePublished": "1868",
+        "inLanguage": "en",
+        "genre": "Autobiography / Religious History",
+        "description": "Captain Joseph Bates narrates his extraordinary life journey: from cabin boy at sea to master mariner, from War of 1812 captive to abolitionist reformer, from temperance crusader to the man who published the Seventh-day Sabbath tracts that converted James and Ellen White and launched the Adventist Sabbath reformation.",
+        "publisher": {
+          "@type": "Organization",
+          "name": "Steam Press of the Review and Herald"
+        },
+        "url": "https://sundaylaw.com/books/captain-joseph-bates-autobiography-1868",
+        "image": "https://sundaylaw.com/images/books-written-by-the-144000/joseph-bates-autobiography-1868-adventist-pioneer-book-poster.jpg",
+        "sameAs": "https://archive.org/details/theearlyexperien00bate",
+        "isAccessibleForFree": true,
+        "license": "https://creativecommons.org/licenses/publicdomain/"
+      },
+      {
+        "@context": "https://schema.org",
+        "@type": "BreadcrumbList",
+        "itemListElement": [
+          { "@type": "ListItem", "position": 1, "name": "Home", "item": "https://sundaylaw.com/" },
+          { "@type": "ListItem", "position": 2, "name": "Pioneer Library", "item": "https://sundaylaw.com/library" },
+          { "@type": "ListItem", "position": 3, "name": "Captain Joseph Bates", "item": "https://sundaylaw.com/pioneers/captain-joseph-bates" },
+          { "@type": "ListItem", "position": 4, "name": "The Autobiography (1868)", "item": "https://sundaylaw.com/books/captain-joseph-bates-autobiography-1868" }
+        ]
+      }
+    ]
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --teal: #14b8a6;
+        --teal-soft: #5eead4;
+        --red: #ef4444;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: #0a0a2e; overflow-x: hidden; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+
+      /* ===== NAV ===== */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--gold-soft); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .nav-cta:hover { background: var(--gold-soft); color: #111; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* ===== HERO ===== */
+      .hero { padding: 52px 0 40px; }
+      .hero-breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .hero-breadcrumb a { color: var(--ink-muted); }
+      .hero-breadcrumb a:hover { color: var(--gold); }
+      .hero-breadcrumb span { margin: 0 6px; }
+
+      /* 2-col hero: portrait | text */
+      .hero-card {
+        background: linear-gradient(135deg, rgba(7,26,38,0.95), rgba(5,15,30,0.98));
+        border: 1px solid rgba(20,184,166,0.3);
+        border-radius: 24px;
+        padding: 44px 40px;
+        display: grid;
+        grid-template-columns: 220px 1fr;
+        gap: 40px;
+        align-items: start;
+      }
+      @media (max-width: 640px) { .hero-card { grid-template-columns: 1fr; gap: 24px; padding: 28px 22px; } }
+
+      /* Pioneer portrait col */
+      .pioneer-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+      .pioneer-portrait { width: 180px; height: 180px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--teal); box-shadow: 0 0 40px rgba(20,184,166,0.3); }
+      .pioneer-name { font-family: 'Crimson Text', serif; font-size: 1.45rem; font-weight: 600; text-align: center; color: var(--ink); }
+      .pioneer-dates { font-size: 0.82rem; color: var(--ink-muted); text-align: center; }
+      .pioneer-role { font-size: 0.78rem; color: var(--teal-soft); text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 12px; border: 1px solid rgba(20,184,166,0.3); border-radius: 999px; }
+      .pioneer-bio-link { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 10px; background: rgba(20,184,166,0.08); border: 1px solid rgba(20,184,166,0.28); color: var(--teal-soft); font-weight: 600; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+      .pioneer-bio-link:hover { background: rgba(20,184,166,0.18); color: #fff; }
+
+      /* Book text col */
+      .book-col { }
+      .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(20,184,166,0.10); border: 1px solid rgba(20,184,166,0.3); color: var(--teal-soft); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+      .book-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 3.5vw, 2.7rem); font-weight: 600; line-height: 1.12; color: var(--ink); margin-bottom: 8px; }
+      .book-col h1 em { font-style: italic; color: var(--teal-soft); }
+      .book-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+      .book-meta-item { font-size: 0.82rem; color: var(--ink-muted); }
+      .book-meta-item strong { color: var(--gold); margin-right: 4px; }
+      .book-excerpt { font-size: 0.97rem; color: rgba(254,243,199,0.85); line-height: 1.85; margin-bottom: 22px; }
+
+      /* Testimony / pull-scripture */
+      .pull-scripture { background: linear-gradient(135deg, rgba(5,25,35,0.8), rgba(5,15,30,0.9)); border: 1px solid rgba(20,184,166,0.25); border-left: 4px solid var(--teal); border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 22px; }
+      .pull-scripture .ref { font-size: 0.78rem; color: var(--teal-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+      .pull-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.22rem; font-style: italic; color: var(--teal-soft); line-height: 1.65; }
+      .pull-scripture cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(94,234,212,0.6); font-style: normal; }
+
+      /* Buttons */
+      .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn-teal { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 12px; background: linear-gradient(to right, #0d9488, #14b8a6); color: #fff; font-weight: 700; font-size: 0.93rem; text-decoration: none; transition: all 0.2s; }
+      .btn-teal:hover { background: linear-gradient(to right, #14b8a6, #2dd4bf); color: #fff; }
+      .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.93rem; text-decoration: none; transition: all 0.2s; }
+      .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 13px 22px; border-radius: 12px; background: transparent; border: 1px solid var(--line); color: var(--ink-muted); font-weight: 600; font-size: 0.93rem; text-decoration: none; transition: all 0.2s; }
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      /* Poster col */
+      .hero-poster-col { display: flex; flex-direction: column; align-items: center; justify-content: flex-start; }
+      .book-poster { width: 100%; max-width: 240px; border-radius: 14px; box-shadow: 0 12px 48px rgba(0,0,0,0.6), 0 0 40px rgba(20,184,166,0.15); border: 1px solid rgba(20,184,166,0.25); display: block; }
+      .poster-caption { margin-top: 10px; font-size: 0.75rem; color: rgba(94,234,212,0.6); text-align: center; font-style: italic; }
+
+      /* ===== SECTIONS ===== */
+      .section { padding: 48px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { text-align: center; margin-bottom: 32px; }
+      .section-header .sh-eyebrow { display: inline-block; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.73rem; font-weight: 700; margin-bottom: 12px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header p { color: var(--ink-muted); font-size: 0.97rem; line-height: 1.8; max-width: 680px; margin: 0 auto; }
+
+      /* ===== PDF EMBED ===== */
+      .pdf-embed-wrap { background: rgba(10,10,46,0.5); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+      .pdf-embed-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(7,20,38,0.9); border-bottom: 1px solid var(--line); flex-wrap: wrap; gap: 10px; }
+      .pdf-embed-toolbar-title { font-size: 0.875rem; font-weight: 600; color: var(--ink-muted); }
+      .pdf-embed-toolbar-title strong { color: var(--teal-soft); }
+      .pdf-embed-toolbar a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: rgba(20,184,166,0.10); border: 1px solid rgba(20,184,166,0.28); color: var(--teal-soft); font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+      .pdf-embed-toolbar a:hover { background: rgba(20,184,166,0.2); }
+      .pdf-frame { width: 100%; height: 800px; display: block; border: none; background: #fff; }
+      @media (max-width: 600px) { .pdf-frame { height: 500px; } }
+
+      /* ===== BOOKS GRID ===== */
+      .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+      .book-card { background: linear-gradient(135deg, rgba(7,26,38,0.85), rgba(5,15,30,0.9)); border: 1px solid rgba(20,184,166,0.18); border-radius: 16px; padding: 24px 22px; transition: all 0.2s; display: flex; flex-direction: column; }
+      .book-card:hover { border-color: rgba(20,184,166,0.45); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+      .book-card.featured { border-color: rgba(20,184,166,0.5); background: linear-gradient(135deg, rgba(5,30,36,0.95), rgba(5,15,30,0.98)); }
+      .book-card-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; width: fit-content; }
+      .badge-featured { background: rgba(20,184,166,0.12); border: 1px solid rgba(20,184,166,0.4); color: var(--teal-soft); }
+      .badge-sabbath { background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.3); color: var(--gold-soft); }
+      .badge-history { background: rgba(139,92,246,0.10); border: 1px solid rgba(139,92,246,0.3); color: #c4b5fd; }
+      .badge-prophecy { background: rgba(59,130,246,0.10); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+      .book-card h3 { font-family: 'Crimson Text', serif; font-size: 1.22rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+      .book-card .book-year { font-size: 0.8rem; color: var(--teal); font-weight: 600; margin-bottom: 8px; }
+      .book-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; flex: 1; margin-bottom: 16px; }
+      .book-card-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 9px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+      .link-teal { background: linear-gradient(to right, #0d9488, #14b8a6); color: #fff; }
+      .link-teal:hover { background: linear-gradient(to right, #14b8a6, #2dd4bf); color: #fff; }
+      .link-gold { background: linear-gradient(to right, #b45309, #d97706); color: #fff; }
+      .link-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .link-purple { background: rgba(139,92,246,0.12); border: 1px solid rgba(139,92,246,0.3); color: #c4b5fd; }
+      .link-purple:hover { background: rgba(139,92,246,0.2); color: #fff; }
+      .link-blue { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+      .link-blue:hover { background: rgba(59,130,246,0.2); color: #fff; }
+      .link-outline { background: transparent; border: 1px solid var(--line); color: var(--ink-muted); }
+      .link-outline:hover { border-color: var(--teal); color: var(--teal-soft); }
+
+      /* ===== BIO SECTION ===== */
+      .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 36px; align-items: start; }
+      @media (max-width: 768px) { .bio-grid { grid-template-columns: 1fr; } }
+      .bio-portrait { width: 100%; max-width: 340px; border-radius: 16px; object-fit: cover; display: block; border: 1px solid rgba(20,184,166,0.3); }
+      .bio-caption { margin-top: 12px; font-size: 0.8rem; color: var(--ink-muted); text-align: center; font-style: italic; }
+      .bio-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+      .bio-fact { background: rgba(7,20,38,0.7); border: 1px solid rgba(20,184,166,0.15); border-radius: 10px; padding: 12px 14px; }
+      .bio-fact .fact-label { font-size: 0.72rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px; }
+      .bio-fact .fact-value { font-size: 0.88rem; color: var(--teal-soft); font-weight: 600; }
+      .bio-content h3 { font-family: 'Crimson Text', serif; font-size: 1.75rem; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+      .bio-content p { font-size: 0.95rem; color: rgba(254,243,199,0.8); line-height: 1.9; margin-bottom: 14px; }
+
+      /* ===== TIMELINE ===== */
+      .timeline-strip { display: flex; gap: 0; overflow: hidden; border-radius: 16px; border: 1px solid rgba(20,184,166,0.2); margin-top: 28px; }
+      @media (max-width: 700px) { .timeline-strip { flex-direction: column; } }
+      .tl-item { flex: 1; padding: 18px; background: rgba(7,20,38,0.7); border-right: 1px solid rgba(20,184,166,0.15); }
+      .tl-item:last-child { border-right: none; }
+      .tl-year { font-size: 1.3rem; font-weight: 800; color: var(--teal); display: block; margin-bottom: 4px; }
+      .tl-title { font-size: 0.85rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+      .tl-desc { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.6; }
+
+      /* ===== THEOLOGICAL / LIFE SECTION ===== */
+      .life-card { background: linear-gradient(135deg, rgba(5,30,36,0.7), rgba(5,15,30,0.92)); border: 1px solid rgba(20,184,166,0.25); border-radius: 20px; padding: 36px 32px; }
+      @media (max-width: 600px) { .life-card { padding: 24px 18px; } }
+      .life-header { display: flex; align-items: center; gap: 14px; margin-bottom: 22px; }
+      .life-badge { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, #0d9488, #14b8a6); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .life-card h3 { font-family: 'Crimson Text', serif; font-size: 1.65rem; font-weight: 600; color: var(--teal-soft); }
+      .life-card .sub { font-size: 0.85rem; color: rgba(94,234,212,0.65); }
+      .life-verse { background: rgba(20,184,166,0.06); border: 1px solid rgba(20,184,166,0.2); border-radius: 12px; padding: 22px 24px; margin: 18px 0; }
+      .life-verse blockquote { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; color: var(--teal-soft); line-height: 1.65; }
+      .life-verse cite { display: block; margin-top: 8px; font-size: 0.82rem; color: rgba(94,234,212,0.6); font-style: normal; font-weight: 600; }
+      .life-body { font-size: 0.97rem; color: rgba(254,243,199,0.8); line-height: 1.9; margin-top: 16px; }
+      .life-body strong { color: var(--teal-soft); }
+
+      /* Reformation comparison boxes */
+      .reform-row { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin-top: 24px; }
+      @media (max-width: 600px) { .reform-row { grid-template-columns: 1fr; } }
+      .reform-box { border-radius: 14px; padding: 22px 20px; }
+      .reform-box.before { background: rgba(239,68,68,0.07); border: 1px solid rgba(239,68,68,0.2); }
+      .reform-box.after { background: rgba(20,184,166,0.07); border: 1px solid rgba(20,184,166,0.25); }
+      .reform-box h4 { font-size: 0.875rem; font-weight: 700; margin-bottom: 10px; }
+      .reform-box.before h4 { color: #fca5a5; }
+      .reform-box.after h4 { color: var(--teal-soft); }
+      .reform-box ul { list-style: none; }
+      .reform-box li { font-size: 0.875rem; color: var(--ink-muted); padding: 4px 0 4px 18px; position: relative; line-height: 1.6; }
+      .reform-box.before li::before { content: "✦"; position: absolute; left: 0; color: #ef4444; font-size: 0.7rem; top: 6px; }
+      .reform-box.after li::before { content: "✦"; position: absolute; left: 0; color: var(--teal); font-size: 0.7rem; top: 6px; }
+
+      /* ===== OTHER FEATURED BOOKS ===== */
+      .featured-books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 16px; }
+      .feat-book-card { background: rgba(7,20,38,0.75); border: 1px solid rgba(212,165,55,0.18); border-radius: 16px; padding: 22px 20px; transition: all 0.2s; text-decoration: none; display: block; }
+      .feat-book-card:hover { border-color: var(--gold); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+      .feat-book-card .fb-eyebrow { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gold); margin-bottom: 8px; }
+      .feat-book-card h4 { font-family: 'Crimson Text', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+      .feat-book-card .fb-year { font-size: 0.78rem; color: var(--teal); font-weight: 600; margin-bottom: 8px; }
+      .feat-book-card p { font-size: 0.82rem; color: var(--ink-muted); line-height: 1.65; }
+
+      /* ===== RELATED ===== */
+      .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+      .related-card { background: rgba(7,20,38,0.7); border: 1px solid rgba(20,184,166,0.15); border-radius: 14px; padding: 20px 18px; transition: all 0.2s; text-decoration: none; display: block; }
+      .related-card:hover { border-color: var(--teal); transform: translateY(-2px); }
+      .related-card .r-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--teal); margin-bottom: 6px; }
+      .related-card h4 { font-size: 0.95rem; color: var(--ink); font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+      .related-card p { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5; }
+
+      /* ===== FOOTER ===== */
+      .site-footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); }
+      .footer-banner { background: linear-gradient(to right, rgba(180,83,9,0.15), rgba(180,83,9,0.1), rgba(180,83,9,0.15)); padding: 24px; text-align: center; }
+      .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.1rem; font-style: italic; }
+      .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 6px; }
+      .footer-main { max-width: 1280px; margin: 0 auto; padding: 56px 22px; display: grid; gap: 2.5rem; }
+      @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+      .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+      .footer-col p { color: var(--ink-muted); font-size: 0.875rem; line-height: 1.7; }
+      .footer-col ul { list-style: none; }
+      .footer-col li { padding: 4px 0; }
+      .footer-col li a { color: var(--ink-muted); font-size: 0.875rem; transition: color 0.2s; text-decoration: none; }
+      .footer-col li a:hover { color: var(--gold-soft); }
+      .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+      .footer-brand-name em { color: var(--gold); font-style: normal; }
+      .footer-bottom { border-top: 1px solid rgba(180,130,50,0.1); padding: 20px 22px; text-align: center; }
+      .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+      .footer-flags { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 12px 0; }
+      .footer-flags div { width: 32px; height: 4px; border-radius: 2px; }
+      .flag-r { background: #b91c1c; } .flag-w { background: #fff; } .flag-b { background: #1d4ed8; }
+      .footer-stripe { height: 4px; background: linear-gradient(to right, #b91c1c, #fff, #1d4ed8); }
+
+      /* ===== BACK TO TOP ===== */
+      .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(20,184,166,0.12); border: 1px solid rgba(20,184,166,0.28); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(20,184,166,0.28); }
+    </style>
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <div class="page">
+      <div class="hero">
+        <div class="hero-breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/library">Pioneer Library</a><span>›</span>
+          <a href="/pioneers/captain-joseph-bates">Captain Joseph Bates</a><span>›</span>
+          <span style="color:var(--ink);">The Autobiography (1868)</span>
+        </div>
+
+        <div class="hero-card">
+          <!-- Portrait Column -->
+          <div class="pioneer-col">
+            <img
+              src="/images/pioneers/captain-joseph-bates.jpg" loading="lazy"
+              alt="Captain Joseph Bates — Adventist Pioneer, 1792–1872"
+              class="pioneer-portrait"
+            />
+            <div class="pioneer-name">Captain Joseph Bates</div>
+            <div class="pioneer-dates">1792 &ndash; 1872</div>
+            <div class="pioneer-role">Sea Captain &amp; Sabbath Champion</div>
+            <a href="/pioneers/captain-joseph-bates" class="pioneer-bio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Full Biography &rarr;
+            </a>
+          </div>
+
+          <!-- Book Text Column -->
+          <div class="book-col">
+            <div class="eyebrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              Revelation 12:11 &mdash; The Word of Their Testimony
+            </div>
+            <h1>The Autobiography of<br><em>Elder Joseph Bates</em></h1>
+            <div class="book-meta">
+              <span class="book-meta-item"><strong>Year:</strong> 1868</span>
+              <span class="book-meta-item"><strong>Author:</strong> Captain Joseph Bates</span>
+              <span class="book-meta-item"><strong>Format:</strong> Book / Free PDF</span>
+              <span class="book-meta-item"><strong>Pages:</strong> ~256</span>
+            </div>
+
+            <p class="book-excerpt">
+              From cabin boy at sea to master mariner commanding his own vessels &mdash; from prisoner of the British navy
+              to radical abolitionist who refused to eat slave-produced sugar &mdash; from temperance crusader who poured
+              his last rum into the sea to the man who <strong>spent his last dollar printing the Sabbath tract</strong>
+              that converted James and Ellen White. Captain Joseph Bates&rsquo; 1868 autobiography is one of the most
+              extraordinary testimonies of grace in Christian history. In his own words, he tells how God led him from
+              the quarterdeck to the reformation that would shake the world.
+            </p>
+
+            <div class="pull-scripture">
+              <div class="ref">Revelation 12:11 (KJV)</div>
+              <blockquote>&ldquo;And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death.&rdquo;</blockquote>
+              <cite>&mdash; The testimony of the overcomers &mdash; those who stood firm through the great final conflict</cite>
+            </div>
+
+            <div class="btn-row">
+              <a href="/books/joseph-bates/captain-joseph-bates-autobiography-1868.pdf" target="_blank" rel="noopener noreferrer" class="btn-teal">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Read Full PDF
+              </a>
+              <a href="#read-online" class="btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                Read In Browser
+              </a>
+              <a href="/pioneers/captain-joseph-bates" class="btn-outline">
+                Biography &rarr;
+              </a>
+            </div>
+          </div>
+
+
+        </div>
+      </div>
+
+      <!-- ===== PDF EMBED ===== -->
+      <div class="section" id="read-online">
+        <div class="section-header">
+          <div class="sh-eyebrow">Read In Browser</div>
+          <h2>The Autobiography of Elder Joseph Bates (1868)</h2>
+          <p>Read the complete autobiography below. Download for printing, sharing, or offline study. The sea captain tells his own story.</p>
+        </div>
+
+        <div class="pdf-embed-wrap">
+          <div class="pdf-embed-toolbar">
+            <span class="pdf-embed-toolbar-title">
+              <strong>Captain Joseph Bates</strong> &mdash; The Autobiography (1868)
+            </span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/joseph-bates/captain-joseph-bates-autobiography-1868.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="/books/joseph-bates/captain-joseph-bates-autobiography-1868.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open Full Screen
+              </a>
+            </div>
+          </div>
+          <object
+            data="/books/joseph-bates/captain-joseph-bates-autobiography-1868.pdf"
+            type="application/pdf"
+            class="pdf-frame"
+            aria-label="The Autobiography of Elder Joseph Bates — 1868 — Captain Joseph Bates"
+          >
+            <div style="padding:48px;text-align:center;color:var(--ink-muted);background:rgba(7,20,38,0.8);">
+              <p style="margin-bottom:16px;font-size:1rem;">Your browser cannot display PDFs inline.</p>
+              <a href="/books/joseph-bates/captain-joseph-bates-autobiography-1868.pdf" target="_blank" rel="noopener noreferrer" class="btn-teal" style="display:inline-flex;">
+                Download &amp; Read the PDF
+              </a>
+            </div>
+          </object>
+        </div>
+      </div>
+
+      <!-- ===== ALL JOSEPH BATES WRITINGS ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Pioneer Library</div>
+          <h2>All Captain Joseph Bates Writings</h2>
+          <p>The complete collection of Captain Bates&rsquo; treatises, tracts, and autobiography available in this library &mdash; from the first Sabbath tract of 1846 to his life&rsquo;s testimony in 1868.</p>
+        </div>
+
+        <div class="books-grid">
+          <!-- FEATURED THIS PAGE -->
+          <div class="book-card featured">
+            <span class="book-card-badge badge-featured">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Featured on This Page
+            </span>
+            <h3>The Autobiography of Elder Joseph Bates</h3>
+            <div class="book-year">1868</div>
+            <p>The sea captain tells his own story &mdash; from cabin boy to co-founder of the Adventist Sabbath reformation. One of the most compelling conversion narratives in Christian history. His own voice. His own testimony.</p>
+            <a href="/books/joseph-bates/captain-joseph-bates-autobiography-1868.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-teal">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-featured">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Featured Book
+            </span>
+            <h3>A Seal of the Living God</h3>
+            <div class="book-year">1849</div>
+            <p>The foundational treatise identifying the Seventh-day Sabbath as the seal of Revelation 7 and the sealing sign of the 144,000 before the four winds are loosed.</p>
+            <a href="/books/joseph-bates-seal" class="book-card-link link-teal">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+              Featured Page
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-sabbath">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Sabbath
+            </span>
+            <h3>The Seventh-Day Sabbath, A Perpetual Sign</h3>
+            <div class="book-year">1846</div>
+            <p>Bates&rsquo; first major Sabbath tract &mdash; the opening salvo of the Seventh-day Adventist Sabbath reformation. This tract brought James and Ellen White to the Sabbath truth.</p>
+            <a href="/books/joseph-bates/1846_bates_seventhDaySabbath.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-sabbath">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Sabbath
+            </span>
+            <h3>A Vindication of the Seventh-Day Sabbath</h3>
+            <div class="book-year">1848</div>
+            <p>Bates defends the Seventh-day Sabbath against objections, answering the theological arguments used to justify Sunday observance.</p>
+            <a href="/books/joseph-bates/Bates_aVindicationOfTheSeventh-daySabbath1848.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-sabbath">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><polyline points="12 6 12 12 16 14"/></svg>
+              Sabbath
+            </span>
+            <h3>The Seventh-Day Sabbath, A Perpetual Sign <span style="font-size:0.85em;">(63 pp.)</span></h3>
+            <div class="book-year">1847</div>
+            <p>The enlarged 1847 edition &mdash; expanded with additional arguments, fuller Scripture analysis, and responses to objections raised after the first printing.</p>
+            <a href="/books/joseph-bates/Bates_theSeventhDaySabbath_aPerpetualSign_1847Jun63pages.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-prophecy">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-2 7 0 7 0 7 0M1 12s4-2 7 0 7 0 7 0M1 18s4-2 7 0 7 0 7 0"/></svg>
+              Prophecy
+            </span>
+            <h3>The Opening Heavens</h3>
+            <div class="book-year">1846</div>
+            <p>Bates on the open door of Revelation 3 and 4 &mdash; the heavenly sanctuary revealed after October 22, 1844. The ark seen. The Sabbath restored.</p>
+            <a href="/books/joseph-bates/BatesJ_theOpeningHeavens_1846.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-prophecy">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-2 7 0 7 0 7 0M1 12s4-2 7 0 7 0 7 0M1 18s4-2 7 0 7 0 7 0"/></svg>
+              Prophecy
+            </span>
+            <h3>Second Advent Way Marks and High Heaps</h3>
+            <div class="book-year">1847</div>
+            <p>The prophetic signposts of the Advent movement &mdash; the way marks and high heaps that confirmed God was leading through the Great Disappointment of 1844.</p>
+            <a href="/books/joseph-bates/Bates_theSecondAdventWayMarksAndHighHeaps_1847.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-prophecy">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 6s4-2 7 0 7 0 7 0M1 12s4-2 7 0 7 0 7 0M1 18s4-2 7 0 7 0 7 0"/></svg>
+              Prophecy
+            </span>
+            <h3>The Typical &amp; Anti-typical Sanctuary</h3>
+            <div class="book-year">1850</div>
+            <p>Bates explains the typological significance of the sanctuary &mdash; the key that unlocked the meaning of October 22, 1844 after the Great Disappointment.</p>
+            <a href="/books/joseph-bates/Bates_anExplanationOfTheTypicalAndAnti-typicalSanctuary_1850.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BIOGRAPHY ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Adventist Pioneer</div>
+          <h2>Who Was Captain Joseph Bates?</h2>
+          <p>From the quarterdeck of a sailing ship to the founding of the original, unincorporated Seventh-day Adventist platform of truth &mdash; a life utterly surrendered to God, written in his own hand.</p>
+        </div>
+
+        <div class="bio-grid">
+          <div>
+            <img
+              src="/images/pioneers/captain-joseph-bates.jpg" loading="lazy"
+              alt="Captain Joseph Bates — Adventist Pioneer"
+              class="bio-portrait"
+            />
+            <p class="bio-caption">Captain Joseph Bates (1792&ndash;1872) &mdash; Co-founder of the original Seventh-day Adventist platform of truth (1841&ndash;1860) &mdash; <em>not</em> the &ldquo;new organization&rdquo; state church incorporated April 15, 1904</p>
+
+            <div class="bio-facts">
+              <div class="bio-fact">
+                <div class="fact-label">Born</div>
+                <div class="fact-value">July 8, 1792</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Died</div>
+                <div class="fact-value">March 19, 1872</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">From</div>
+                <div class="fact-value">Rochester, MA</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Rank</div>
+                <div class="fact-value">Ship Captain</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">First Sabbath Tract</div>
+                <div class="fact-value">1846</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Autobiography</div>
+                <div class="fact-value">1868</div>
+              </div>
+            </div>
+
+            <div style="margin-top:16px;display:flex;flex-direction:column;gap:10px;">
+              <a href="/pioneers/captain-joseph-bates" class="btn-teal" style="display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:10px;font-size:0.9rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Read Full Biography
+              </a>
+              <a href="/books/joseph-bates-seal" class="btn-outline" style="display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:10px;font-size:0.9rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+                Seal of the Living God &rarr;
+              </a>
+            </div>
+          </div>
+
+          <div class="bio-content">
+            <h3>The Sea Captain Who Spent His Last Dollar on the Sabbath</h3>
+            <p>
+              Joseph Bates commanded ocean voyages before he ever commanded a congregation. Born in Rochester, Massachusetts
+              in 1792, he went to sea at age 15 as a cabin boy. Two decades of seafaring followed &mdash; including
+              imprisonment by the British during the War of 1812 &mdash; before he earned his master&rsquo;s papers
+              and commanded his own vessels, sailing as far as England, the Mediterranean, and South America.
+            </p>
+            <p>
+              His <strong>conversion was total</strong>. He gave up rum, tobacco, tea, coffee, and finally even meat.
+              He refused to eat sugar produced by slave labor. A committed abolitionist, he helped organize anti-slavery
+              societies decades before the Civil War. He gave away his accumulated savings &mdash; nearly his entire
+              fortune &mdash; to tract societies and mission work, until he had almost nothing left.
+            </p>
+            <p>
+              Then, in 1846, he published his first Sabbath tract &mdash; spending the last of his money to print it.
+              He sent a copy to James and Ellen White. The result? <strong>The Whites accepted the Seventh-day
+              Sabbath</strong>, and the three of them became the founding trio who established the original, living
+              platform of Seventh-day Adventist truth. The foundation laid between 1841 and 1860. The one that
+              Bates helped build &mdash; which is <em>not</em> the <strong>&ldquo;new organization&rdquo;</strong> (1SM 204)
+              incorporated as the <em>General Conference Corporation of Seventh-day Adventists</em> on April 15, 1904
+              in the District of Columbia.
+            </p>
+            <p>
+              In 1868, at age 75, Bates sat down and wrote the story of his life. The autobiography covers his
+              seafaring career, his captivity during the War of 1812, his reformation, his discovery of the Sabbath
+              and sanctuary truths, and his role in the founding of the Advent movement. It is a treasure of
+              Adventist history &mdash; and one of the most remarkable testimonies of what God can do with a man
+              who surrenders everything.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline -->
+        <div class="timeline-strip">
+          <div class="tl-item">
+            <span class="tl-year">1792</span>
+            <div class="tl-title">Born, Rochester MA</div>
+            <div class="tl-desc">Son of a seafaring family near Fairhaven. Goes to sea as a cabin boy at age 15.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1812</span>
+            <div class="tl-title">Prisoner of War</div>
+            <div class="tl-desc">Impressed into British naval service during the War of 1812. Held captive nearly a year before release.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1827</span>
+            <div class="tl-title">Retires from the Sea</div>
+            <div class="tl-desc">Converted, gives away most of his fortune to reform societies. Begins life as an abolitionist and temperance crusader.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1844</span>
+            <div class="tl-title">The Great Disappointment</div>
+            <div class="tl-desc">Among the thousands who await Christ&rsquo;s return on October 22. Faith survives the Great Disappointment intact.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1846</span>
+            <div class="tl-title">The Sabbath Tract</div>
+            <div class="tl-desc">Spends his last money printing the Sabbath tract that converts James &amp; Ellen White to the seventh day.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1849</span>
+            <div class="tl-title">Seal of the Living God</div>
+            <div class="tl-desc">Publishes <em>A Seal of the Living God</em> — the Sabbath as the sealing sign of Revelation 7&rsquo;s 144,000.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1868</span>
+            <div class="tl-title">The Autobiography</div>
+            <div class="tl-desc">At 75 years old, tells his whole life story &mdash; from cabin boy to co-founder of the Adventist truth.</div>
+          </div>
+        </div>
+
+        <!-- EGW on Bates -->
+        <div style="margin-top:32px;background:linear-gradient(135deg,rgba(5,30,36,0.8),rgba(5,15,30,0.95));border:1px solid rgba(20,184,166,0.3);border-radius:20px;padding:32px 30px;">
+          <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:var(--teal);margin-bottom:14px;">Ellen G. White on Joseph Bates</div>
+          <blockquote style="font-family:'Crimson Text',serif;font-size:1.2rem;font-style:italic;color:rgba(248,243,210,0.92);line-height:1.75;margin-bottom:14px;">
+            &ldquo;For young people, the Life of Joseph Bates is a treasure.&rdquo;
+          </blockquote>
+          <cite style="font-size:0.82rem;color:rgba(94,234,212,0.75);font-weight:600;font-style:normal;">&mdash; Ellen G. White, <em>Review and Herald</em>, December 11, 1879</cite>
+          <p style="font-size:0.9rem;color:rgba(254,243,199,0.75);line-height:1.8;margin-top:16px;">
+            Ellen White specifically recommended Bates&rsquo; autobiography to young people. His testimony of radical reformation &mdash; giving up every worldly comfort, every habit, every dollar &mdash; in pursuit of a clearer walk with God was the pattern she wanted the next generation to follow. Not the pattern of the 1904 state church.
+          </p>
+        </div>
+      </div>
+
+      <!-- ===== THEOLOGICAL CONTEXT: A LIFE OF TOTAL REFORMATION ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">From the Quarterdeck to the Reformation</div>
+          <h2>A Life Transformed by the Word of God</h2>
+          <p>Captain Bates&rsquo; autobiography is not merely a history &mdash; it is a living argument that the God of heaven meets men exactly as they are, leads them step by step, and requires total consecration before total light.</p>
+        </div>
+
+        <div class="life-card">
+          <div class="life-header">
+            <div class="life-badge">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="width:24px;height:24px;"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+            </div>
+            <div>
+              <h3>The Autobiography as Prophetic Document</h3>
+              <div class="sub">What Bates&rsquo; life proves about how God raises His messengers</div>
+            </div>
+          </div>
+
+          <div class="life-verse">
+            <blockquote>&ldquo;And they overcame him by the blood of the Lamb, and by the word of their testimony; and they loved not their lives unto the death.&rdquo;</blockquote>
+            <cite>&mdash; Revelation 12:11 (KJV) &mdash; The overcomers&rsquo; weapon: their testimony</cite>
+          </div>
+
+          <div class="life-verse">
+            <blockquote>&ldquo;Remember the sabbath day, to keep it holy &hellip; the seventh day is the sabbath of the LORD thy God &hellip; For in six days the LORD made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the LORD blessed the sabbath day, and hallowed it.&rdquo;</blockquote>
+            <cite>&mdash; Exodus 20:8&ndash;11 (KJV) &mdash; The commandment Bates spent his last dollar defending</cite>
+          </div>
+
+          <p class="life-body">
+            Joseph Bates was not a polished theologian. He was a sea captain &mdash; a man accustomed to navigating by
+            fixed stars and obeying fixed laws. When he read the Bible with the same precision he had applied to
+            navigation charts, he could not escape the fourth commandment. He could not find Sunday in Scripture.
+            He found only <strong>Saturday &mdash; the seventh day &mdash; blessed and hallowed by God Himself</strong>
+            at the creation of the world.
+          </p>
+          <p class="life-body">
+            What makes the autobiography so powerful is the <em>sequence</em>. Bates did not arrive at Sabbath
+            truth by accident. He was systematically stripped of every worldly comfort &mdash; alcohol, tobacco, tea,
+            coffee, meat, money, social standing &mdash; before God opened the Sabbath light to him. The autobiography
+            shows that total reformation preceded total revelation. The pattern God used with Bates is the same pattern
+            He uses today.
+          </p>
+
+          <div class="reform-row">
+            <div class="reform-box before">
+              <h4>Captain Bates Before Reformation</h4>
+              <ul>
+                <li>Sea captain accumulating wealth</li>
+                <li>Drank rum and used tobacco like all sailors</li>
+                <li>Observed Sunday like all Protestants</li>
+                <li>Knew nothing of the Seventh-day Sabbath</li>
+                <li>Knew nothing of the heavenly sanctuary</li>
+                <li>Had money, status, and security</li>
+              </ul>
+            </div>
+            <div class="reform-box after">
+              <h4>Captain Bates After Total Surrender</h4>
+              <ul>
+                <li>Gave entire fortune to mission work</li>
+                <li>Total abstainer from all stimulants</li>
+                <li>Kept the Seventh-day Sabbath without compromise</li>
+                <li>Published the sealing truth of Revelation 7</li>
+                <li>Converted James and Ellen White to the Sabbath</li>
+                <li>Co-founder of the living Adventist platform of truth</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+
+        <!-- The Foundation Bates Built vs. the 1904 State Church -->
+        <div style="margin-top:32px;background:linear-gradient(135deg,rgba(127,29,29,0.25),rgba(7,0,15,0.95));border:2px solid rgba(239,68,68,0.35);border-radius:20px;padding:32px 30px;">
+          <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#ef4444;margin-bottom:14px;">&#9888; The Foundation Bates Built vs. The State Church Formed After His Death</div>
+          <p style="font-family:'Crimson Text',serif;font-size:1.1rem;font-style:italic;color:rgba(248,241,221,0.92);line-height:1.75;margin-bottom:16px;">
+            &ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo;
+          </p>
+          <p style="font-size:0.8rem;color:rgba(252,165,165,0.8);font-weight:600;margin-bottom:22px;">&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903) &mdash; Six months before the April 15, 1904 incorporation</p>
+
+          <div style="display:grid;grid-template-columns:repeat(auto-fit,minmax(260px,1fr));gap:14px;margin-bottom:24px;">
+            <div style="background:rgba(13,5,25,0.7);border:1px solid rgba(212,165,55,0.2);border-radius:14px;padding:20px 18px;">
+              <div style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#fcd34d;margin-bottom:8px;">The Foundation Bates Helped Build</div>
+              <p style="font-size:0.88rem;color:rgba(248,241,221,0.82);line-height:1.75;">
+                The <strong style="color:#fcd34d;">original Seventh-day Adventist platform of truth</strong>, established 1841&ndash;1860. Unregistered. Unincorporated. Belonging to all who keep the Commandments of God and the Faith of Jesus (Rev. 14:12). Bates died in 1872 &mdash; <em>eight years before</em> the General Conference was formally organized, and <strong>32 years</strong> before the 1904 state church was incorporated.
+              </p>
+            </div>
+            <div style="background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.3);border-radius:14px;padding:20px 18px;">
+              <div style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#fca5a5;margin-bottom:8px;">The &ldquo;New Organization&rdquo; &mdash; April 15, 1904</div>
+              <p style="font-size:0.88rem;color:rgba(248,241,221,0.82);line-height:1.75;">
+                Incorporated as the <strong style="color:#fca5a5;">General Conference Corporation of Seventh-day Adventists</strong> in the District of Columbia &mdash; New Rome &mdash; now operating as the <strong style="color:#fca5a5;">General Conference of Seventh-day Adventists</strong>. A civil entity under Caesar&rsquo;s law. Built 32 years after Bates died. Not his church.
+              </p>
+            </div>
+          </div>
+
+          <!-- Neal C. Wilson confession -->
+          <div style="background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.35);border-radius:14px;padding:22px 22px;margin-bottom:14px;">
+            <div style="font-size:0.68rem;font-weight:800;text-transform:uppercase;letter-spacing:0.14em;color:#fca5a5;margin-bottom:10px;">The Corporate Body Admits What It Has Become</div>
+            <blockquote style="font-family:'Crimson Text',serif;font-size:1.22rem;font-style:italic;color:#fde8e8;line-height:1.75;margin-bottom:10px;">
+              &ldquo;There is another universal and <strong style="color:#f87171;font-style:normal;">truly Catholic</strong> organization, <strong style="color:#f87171;font-style:normal;">the Seventh-day Adventist Church</strong>.&rdquo;
+            </blockquote>
+            <cite style="font-size:0.8rem;color:rgba(252,165,165,0.75);font-weight:600;">&mdash; Neal C. Wilson, General Conference President &mdash; <em>Adventist Review</em>, March 5, 1981, p. 3</cite>
+            <p style="font-size:0.875rem;color:rgba(252,165,165,0.6);line-height:1.65;margin-top:12px;">
+              The church Joseph Bates co-founded warned against Rome for 40 years. The 1904 state church has now confessed itself &ldquo;truly Catholic.&rdquo; Bates spent his last dollar to print the truth that Rome has always suppressed &mdash; the Seventh-day Sabbath, the seal of God. The contrast could not be starker.
+            </p>
+            <div style="margin-top:14px;">
+              <a href="/books/1904-image-of-papacy/1981.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:8px;background:rgba(239,68,68,0.12);border:1px solid rgba(239,68,68,0.3);color:#fca5a5;font-weight:700;font-size:0.82rem;">
+                <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Primary Source: Adventist Review, March 5, 1981 &mdash; PDF
+              </a>
+              <a href="/april-15-1904-new-organization" style="margin-left:10px;display:inline-flex;align-items:center;gap:7px;padding:9px 16px;border-radius:8px;background:rgba(212,165,55,0.08);border:1px solid rgba(212,165,55,0.28);color:#fcd34d;font-weight:700;font-size:0.82rem;">
+                &rarr; The 1904 Incorporation &mdash; Full Evidence
+              </a>
+            </div>
+          </div>
+
+          <!-- Bates flight warning -->
+          <div style="background:linear-gradient(135deg,rgba(127,29,29,0.35),rgba(7,0,15,0.95));border:2px solid rgba(239,68,68,0.5);border-radius:16px;padding:26px 24px;">
+            <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.18em;color:#ef4444;margin-bottom:14px;">The Final Call &mdash; The Loud Cry &mdash; Revelation 18:1&ndash;5</div>
+            <blockquote style="font-family:'Crimson Text',serif;font-size:1.22rem;font-style:italic;color:#fde8e8;line-height:1.75;border-left:3px solid #ef4444;padding-left:18px;margin-bottom:12px;">
+              &ldquo;Flee from the Laodicean churches like Lot from Sodom! Their teachings lead to destruction &mdash;
+              <strong style="font-style:normal;">DEATH! DEATH!! eternal DEATH!!!</strong> is on their track.&rdquo;
+            </blockquote>
+            <cite style="font-size:0.8rem;color:rgba(252,165,165,0.75);font-weight:600;">&mdash; Joseph Bates, 1850</cite>
+            <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap;">
+              <a href="/loud-cry" style="display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.35);color:#fcd34d;font-weight:700;font-size:0.87rem;">&rarr; The Loud Cry &mdash; Revelation 18:4 &mdash; Come Out of Her</a>
+              <a href="/books/joseph-bates-seal" style="display:inline-flex;align-items:center;gap:8px;padding:11px 20px;border-radius:10px;background:rgba(20,184,166,0.10);border:1px solid rgba(20,184,166,0.3);color:var(--teal-soft);font-weight:700;font-size:0.87rem;">&rarr; The Seal — Where to Go In</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== OTHER FEATURED BOOKS FROM THE LIBRARY ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Pioneer Featured Books</div>
+          <h2>More Featured Books from the Pioneer Library</h2>
+          <p>Every featured book on SundayLaw.com &mdash; each a foundational document of the original Advent truth. Reading Bates&rsquo; autobiography is the beginning, not the end.</p>
+        </div>
+
+        <div class="featured-books-grid">
+          <a href="/books/charles-fitch" class="feat-book-card">
+            <div class="fb-eyebrow">Charles Fitch &mdash; 1843</div>
+            <h4>Come Out of Her, My People</h4>
+            <div class="fb-year">1843</div>
+            <p>The Second Angel&rsquo;s message &mdash; Babylon is fallen. The sermon that launched the great exodus from the Protestant churches.</p>
+          </a>
+          <a href="/books/joseph-bates-seal" class="feat-book-card">
+            <div class="fb-eyebrow">Joseph Bates &mdash; 1849</div>
+            <h4>A Seal of the Living God</h4>
+            <div class="fb-year">1849</div>
+            <p>The Seventh-day Sabbath as the seal of Revelation 7. The foundational document of Adventist seal theology.</p>
+          </a>
+          <a href="/books/john-nevins-andrews-history-of-the-sabbath-and-first-day-of-the-week" class="feat-book-card">
+            <div class="fb-eyebrow">J.N. Andrews &mdash; 1862</div>
+            <h4>History of the Sabbath and First Day of the Week</h4>
+            <div class="fb-year">1862</div>
+            <p>The definitive historical and scriptural defense of the Seventh-day Sabbath. The most thorough Sabbatarian treatise ever published.</p>
+          </a>
+          <a href="/books/william-miller-brothers-dream" class="feat-book-card">
+            <div class="fb-eyebrow">William Miller &mdash; 1842</div>
+            <h4>Brother Miller&rsquo;s Dream</h4>
+            <div class="fb-year">1842</div>
+            <p>Miller&rsquo;s vision of the diamonds and the chest &mdash; the prophetic parable of the Adventist message scattered and gathered.</p>
+          </a>
+          <a href="/books/3angels" class="feat-book-card">
+            <div class="fb-eyebrow">Three Angels &mdash; Revelation 14</div>
+            <h4>The Three Angels&rsquo; Messages</h4>
+            <div class="fb-year">Prophecy</div>
+            <p>The everlasting gospel, the fall of Babylon, and the final warning against the mark of the beast &mdash; the complete three-part message.</p>
+          </a>
+          <a href="/books" class="feat-book-card">
+            <div class="fb-eyebrow">Full Library</div>
+            <h4>All Featured Pioneer Books</h4>
+            <div class="fb-year">All Years</div>
+            <p>Browse every featured book, tract, and document in the Pioneer Library &mdash; the complete collection of original Adventist truth.</p>
+          </a>
+        </div>
+      </div>
+
+      <!-- ===== RELATED RESOURCES ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Further Study</div>
+          <h2>Related Resources</h2>
+        </div>
+
+        <div class="related-grid">
+          <a href="/pioneers/captain-joseph-bates" class="related-card">
+            <div class="r-label">Pioneer Biography</div>
+            <h4>Captain Joseph Bates &mdash; Full Biography</h4>
+            <p>His complete life story &mdash; from sea captain to Sabbath champion and co-founder of the original Seventh-day Adventist platform of truth.</p>
+          </a>
+          <a href="/books/joseph-bates-seal" class="related-card">
+            <div class="r-label">Seal of God</div>
+            <h4>A Seal of the Living God (1849)</h4>
+            <p>The 1849 treatise that defined the sealing of the 144,000 &mdash; the theological crown of Bates&rsquo; life&rsquo;s work.</p>
+          </a>
+          <a href="/books/charles-fitch" class="related-card">
+            <div class="r-label">Come Out of Her</div>
+            <h4>Charles Fitch &mdash; Come Out of Her, My People</h4>
+            <p>The Second Angel&rsquo;s message that set the stage for Bates&rsquo; Sabbath reform. Coming out requires going IN to the truth Bates proclaimed.</p>
+          </a>
+          <a href="/#seal-vs-mark" class="related-card">
+            <div class="r-label">Seal vs. Mark</div>
+            <h4>The Seal of God vs. the Mark of the Beast</h4>
+            <p>The central final conflict &mdash; who is sealed with God&rsquo;s Sabbath seal and who receives the Sunday mark.</p>
+          </a>
+          <a href="/loud-cry" class="related-card">
+            <div class="r-label">Revelation 18:4</div>
+            <h4>The Loud Cry &mdash; Come Out of Her</h4>
+            <p>The final call to those still within corporate Babylon &mdash; the message Bates&rsquo; life and writings helped prepare.</p>
+          </a>
+          <a href="/pioneers" class="related-card">
+            <div class="r-label">All Pioneers</div>
+            <h4>Adventist Pioneer Library</h4>
+            <p>Biographies and writings of every major pioneer of the Advent movement &mdash; the men and women who built the foundation.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#final-choice">The Final Choice</a></li>
+            <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="/#three-angels">Three Angels</a></li>
+            <li><a href="/#second-beast">Second Beast</a></li>
+            <li><a href="/#pioneer-library">Pioneer Library</a></li>
+            <li><a href="/midnight-cry">The Midnight Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/books">All Books &amp; Tracts</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script is:inline>
+
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    </script>
+    <SiteFooter
+      scripture="Here are they that keep the commandments of God, and the faith of Jesus."
+      scriptureRef="Revelation 14:12 (KJV)"
+      pageLinks={[
+        { label: 'Captain Joseph Bates — Autobiography 1868', href: '/books/captain-joseph-bates-autobiography-1868' },
+        { label: 'Joseph Bates — Seal of the Living God', href: '/books/joseph-bates-seal' },
+        { label: 'Charles Fitch — Come Out of Her 1843', href: '/books/charles-fitch' },
+        { label: 'Captain Joseph Bates — Biography', href: '/pioneers/captain-joseph-bates' }
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>

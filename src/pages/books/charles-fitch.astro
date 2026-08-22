@@ -1,0 +1,778 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteNav from '../../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Charles Fitch — Come Out of Her, My People (1843) | SundayLaw.com</title>
+    <meta name="description" content="Read Charles Fitch's landmark 1843 sermon 'Come Out of Her, My People' — the Second Angel's Message of Revelation 14:8 that shook Protestant America. Come out of Babylon and into the pioneer Advent message — books, tracts, charts, and the sealing Sabbath.">
+    <link rel="canonical" href="https://sundaylaw.com/books/charles-fitch">
+    <meta property="og:title" content="Charles Fitch — Come Out of Her, My People (1843)">
+    <meta property="og:description" content="The Second Angel's Message of Revelation 14:8 — Babylon is fallen. Charles Fitch's 1843 call out of Babylon and into the pioneer Advent message, the sealing Sabbath, and the commandments of God.">
+    <meta property="og:image" content="/pioneers/images/charles-fitch.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/books/charles-fitch">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Charles Fitch — Come Out of Her, My People (1843)">
+    <meta name="twitter:description" content="The Second Angel's Message — Babylon is fallen — Revelation 14:8. Charles Fitch's 1843 call out of Babylon and into the pioneer Sabbath truth.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Come Out of Her, My People",
+      "author": {
+        "@type": "Person",
+        "name": "Charles Fitch",
+        "birthDate": "1792",
+        "deathDate": "1844"
+      },
+      "datePublished": "1843",
+      "description": "Charles Fitch's landmark 1843 sermon on Revelation 14:8 — the Second Angel's message, 'Babylon is fallen,' calling God's people out of Babylon and back into the pioneer Advent message, the sealing Sabbath, and the commandments of God.",
+      "publisher": { "@type": "Organization", "name": "SundayLaw.com" },
+      "url": "https://sundaylaw.com/books/charles-fitch",
+      "inLanguage": "en"
+    }
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --red: #ef4444;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: #0a0a2e; overflow-x: hidden; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+
+      /* ===== NAV ===== */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--gold-soft); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .nav-cta:hover { background: var(--gold-soft); color: #111; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* ===== HERO ===== */
+      .hero { padding: 52px 0 40px; }
+      .hero-breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .hero-breadcrumb a { color: var(--ink-muted); }
+      .hero-breadcrumb a:hover { color: var(--gold); }
+      .hero-breadcrumb span { margin: 0 6px; }
+      .hero-card { background: linear-gradient(135deg, rgba(26,26,78,0.9), rgba(13,13,53,0.95)); border: 1px solid rgba(180,130,50,0.35); border-radius: 24px; padding: 44px 40px; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+      @media (max-width: 768px) { .hero-card { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; } }
+
+      /* Pioneer portrait col */
+      .pioneer-col { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+      .pioneer-portrait { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--gold); box-shadow: 0 0 40px rgba(212,165,55,0.25); }
+      .pioneer-name { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-weight: 600; text-align: center; color: var(--ink); }
+      .pioneer-dates { font-size: 0.82rem; color: var(--ink-muted); text-align: center; }
+      .pioneer-role { font-size: 0.8rem; color: var(--gold-soft); text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 12px; border: 1px solid rgba(212,165,55,0.3); border-radius: 999px; }
+      .pioneer-bio-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 10px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.30); color: var(--gold-soft); font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+      .pioneer-bio-link:hover { background: rgba(212,165,55,0.2); color: #fff; }
+
+      /* Featured book col */
+      .book-col { }
+      .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(239,68,68,0.12); border: 1px solid rgba(239,68,68,0.3); color: #fca5a5; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+      .book-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 8px; }
+      .book-col h1 em { font-style: italic; color: var(--gold-soft); }
+      .book-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+      .book-meta-item { font-size: 0.82rem; color: var(--ink-muted); display: flex; align-items: center; gap-5: 5px; }
+      .book-meta-item strong { color: var(--gold); margin-right: 4px; }
+      .book-excerpt { font-size: 1rem; color: rgba(254,243,199,0.85); line-height: 1.85; margin-bottom: 22px; }
+
+      /* Scripture pull */
+      .pull-scripture { background: linear-gradient(135deg, rgba(30,5,5,0.7), rgba(10,5,20,0.8)); border: 1px solid rgba(239,68,68,0.25); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 22px; }
+      .pull-scripture .ref { font-size: 0.78rem; color: #fca5a5; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+      .pull-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; color: #fca5a5; line-height: 1.6; }
+      .pull-scripture cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(252,165,165,0.7); font-style: normal; }
+
+      /* CTA buttons */
+      .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+      .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; background: transparent; border: 1px solid var(--line); color: var(--ink-muted); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      /* ===== PDF EMBED SECTION ===== */
+      .section { padding: 48px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { text-align: center; margin-bottom: 32px; }
+      .section-header .sh-eyebrow { display: inline-block; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.73rem; font-weight: 700; margin-bottom: 12px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header p { color: var(--ink-muted); font-size: 0.97rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+
+      .pdf-embed-wrap { background: rgba(10,10,46,0.5); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; }
+      .pdf-embed-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(13,13,53,0.8); border-bottom: 1px solid var(--line); flex-wrap: wrap; gap: 10px; }
+      .pdf-embed-toolbar-title { font-size: 0.875rem; font-weight: 600; color: var(--ink-muted); }
+      .pdf-embed-toolbar-title strong { color: var(--gold-soft); }
+      .pdf-embed-toolbar a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.3); color: var(--gold-soft); font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+      .pdf-embed-toolbar a:hover { background: rgba(212,165,55,0.2); }
+      .pdf-frame { width: 100%; height: 800px; display: block; border: none; background: #fff; }
+      @media (max-width: 600px) { .pdf-frame { height: 500px; } }
+
+      /* ===== BOOKS GRID ===== */
+      .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+      .book-card { background: linear-gradient(135deg, rgba(22,22,68,0.8), rgba(13,13,45,0.9)); border: 1px solid rgba(180,130,50,0.25); border-radius: 16px; padding: 24px 22px; transition: all 0.2s; display: flex; flex-direction: column; }
+      .book-card:hover { border-color: rgba(212,165,55,0.5); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+      .book-card.featured { border-color: rgba(212,165,55,0.5); background: linear-gradient(135deg, rgba(30,20,5,0.9), rgba(13,13,45,0.95)); }
+      .book-card-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; width: fit-content; }
+      .badge-featured { background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.4); color: var(--gold-soft); }
+      .badge-tract { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+      .badge-reform { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+      .book-card h3 { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+      .book-card .book-year { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+      .book-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; flex: 1; margin-bottom: 16px; }
+      .book-card-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 9px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+      .link-gold { background: linear-gradient(to right, #b45309, #d97706); color: #fff; }
+      .link-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .link-blue { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+      .link-blue:hover { background: rgba(59,130,246,0.2); color: #fff; }
+      .link-green { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+      .link-green:hover { background: rgba(16,185,129,0.2); color: #fff; }
+
+      /* ===== BIO SECTION ===== */
+      .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+      @media (max-width: 768px) { .bio-grid { grid-template-columns: 1fr; } }
+      .bio-portrait-wrap { position: relative; }
+      .bio-portrait { width: 100%; max-width: 340px; border-radius: 16px; object-fit: cover; display: block; border: 1px solid var(--line); }
+      .bio-caption { margin-top: 12px; font-size: 0.8rem; color: var(--ink-muted); text-align: center; font-style: italic; }
+      .bio-content h3 { font-family: 'Crimson Text', serif; font-size: 1.85rem; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+      .bio-content p { font-size: 0.95rem; color: rgba(254,243,199,0.8); line-height: 1.9; margin-bottom: 14px; }
+      .bio-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+      .bio-fact { background: rgba(13,13,53,0.6); border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; }
+      .bio-fact .fact-label { font-size: 0.72rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px; }
+      .bio-fact .fact-value { font-size: 0.9rem; color: var(--gold-soft); font-weight: 600; }
+
+      /* ===== HISTORICAL CONTEXT ===== */
+      .context-card { background: linear-gradient(135deg, rgba(30,5,5,0.6), rgba(10,10,40,0.9)); border: 1px solid rgba(239,68,68,0.2); border-radius: 20px; padding: 36px 32px; }
+      @media (max-width: 600px) { .context-card { padding: 24px 18px; } }
+      .context-card .angel-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+      .angel-badge { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #9f1239, #ef4444); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 1rem; color: #fff; flex-shrink: 0; }
+      .context-card h3 { font-family: 'Crimson Text', serif; font-size: 1.7rem; font-weight: 600; color: #fca5a5; }
+      .context-card .sub { font-size: 0.85rem; color: rgba(252,165,165,0.7); }
+      .babylon-verse { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.2); border-radius: 12px; padding: 22px 24px; margin: 18px 0; }
+      .babylon-verse blockquote { font-family: 'Crimson Text', serif; font-size: 1.35rem; font-style: italic; color: #fca5a5; line-height: 1.65; }
+      .babylon-verse cite { display: block; margin-top: 8px; font-size: 0.82rem; color: rgba(252,165,165,0.6); font-style: normal; font-weight: 600; }
+      .context-body { font-size: 0.97rem; color: rgba(254,243,199,0.8); line-height: 1.9; margin-top: 16px; }
+      .context-body strong { color: var(--gold-soft); }
+
+      /* ===== TIMELINE STRIP ===== */
+      .timeline-strip { display: flex; gap: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); margin-top: 28px; }
+      @media (max-width: 600px) { .timeline-strip { flex-direction: column; } }
+      .tl-item { flex: 1; padding: 18px 18px; background: rgba(13,13,53,0.7); border-right: 1px solid var(--line); }
+      .tl-item:last-child { border-right: none; }
+      .tl-year { font-size: 1.4rem; font-weight: 800; color: var(--gold); display: block; margin-bottom: 4px; }
+      .tl-title { font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+      .tl-desc { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.6; }
+
+      /* ===== RELATED RESOURCES ===== */
+      .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+      .related-card { background: rgba(13,13,53,0.7); border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 18px; transition: all 0.2s; text-decoration: none; display: block; }
+      .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .related-card .r-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+      .related-card h4 { font-size: 0.95rem; color: var(--ink); font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+      .related-card p { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5; }
+
+      /* ===== FOOTER ===== */
+      .site-footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); }
+      .footer-banner { background: linear-gradient(to right, rgba(180,83,9,0.15), rgba(180,83,9,0.1), rgba(180,83,9,0.15)); padding: 24px; text-align: center; }
+      .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.1rem; font-style: italic; }
+      .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 6px; }
+      .footer-main { max-width: 1280px; margin: 0 auto; padding: 56px 22px; display: grid; gap: 2.5rem; }
+      @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+      .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+      .footer-col p { color: var(--ink-muted); font-size: 0.875rem; line-height: 1.7; }
+      .footer-col ul { list-style: none; }
+      .footer-col li { padding: 4px 0; }
+      .footer-col li a { color: var(--ink-muted); font-size: 0.875rem; transition: color 0.2s; text-decoration: none; }
+      .footer-col li a:hover { color: var(--gold-soft); }
+      .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+      .footer-brand-name em { color: var(--gold); font-style: normal; }
+      .footer-bottom { border-top: 1px solid rgba(180,130,50,0.1); padding: 20px 22px; text-align: center; }
+      .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+      .footer-flags { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 12px 0; }
+      .footer-flags div { width: 32px; height: 4px; border-radius: 2px; }
+      .flag-r { background: #b91c1c; } .flag-w { background: #fff; } .flag-b { background: #1d4ed8; }
+      .footer-stripe { height: 4px; background: linear-gradient(to right, #b91c1c, #fff, #1d4ed8); }
+
+      /* ===== BACK TO TOP ===== */
+      .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(212,165,55,0.3); }
+    </style>
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <div class="page">
+      <div class="hero">
+        <div class="hero-breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/library">Pioneer Library</a><span>›</span>
+          <a href="/pioneers/charles-fitch">Charles Fitch</a><span>›</span>
+          <span style="color:var(--ink);">Come Out of Her, My People</span>
+        </div>
+
+        <div class="hero-card">
+          <!-- Portrait Column -->
+          <div class="pioneer-col">
+            <img
+              src="/images/pioneers/charles-fitch.jpg"
+              alt="Charles Fitch — Adventist Pioneer, 1792–1844"
+              class="pioneer-portrait"
+              loading="eager"
+            />
+            <div class="pioneer-name">Charles Fitch</div>
+            <div class="pioneer-dates">1792 &ndash; 1844</div>
+            <div class="pioneer-role">Advent Preacher &amp; Chart Maker</div>
+            <a href="/pioneers/charles-fitch" class="pioneer-bio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Full Biography &rarr;
+            </a>
+          </div>
+
+          <!-- Book Column -->
+          <div class="book-col">
+            <div class="eyebrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7z"/></svg>
+              Revelation 14:8 — The Second Angel's Message
+            </div>
+            <h1>&ldquo;Come Out of Her,<br><em>My People&rdquo;</em></h1>
+            <div class="book-meta">
+              <span class="book-meta-item"><strong>Year:</strong> 1843</span>
+              <span class="book-meta-item"><strong>Author:</strong> Charles Fitch</span>
+              <span class="book-meta-item"><strong>Format:</strong> Sermon Tract / PDF</span>
+            </div>
+
+            <p class="book-excerpt">
+              This landmark 1843 sermon by Charles Fitch was the thundering proclamation of the <strong>Second Angel's Message of Revelation 14:8</strong> &mdash;
+              <em>Come out of her, My people.</em> Rooted in the Second Angel&rsquo;s message of Revelation 14:8
+              (<em>Babylon is fallen</em>), Fitch called God&rsquo;s people to separate from all apostate Protestant churches
+              that had rejected the first angel&rsquo;s judgment-hour message. But the call was not only to come <em>out</em> &mdash;
+              it was to come <em>back in</em> to the pioneer Advent message: the books, tracts, sermons, and prophecy charts
+              of the early Adventists who restored the sealing Sabbath, the Fourth Commandment in the perpetual law of God.
+            </p>
+
+            <div class="pull-scripture">
+              <div class="ref">Revelation 18:4 (KJV)</div>
+              <blockquote>&ldquo;And I heard another voice from heaven, saying, Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues.&rdquo;</blockquote>
+              <cite>&mdash; The cry that Charles Fitch proclaimed to hundreds of thousands in 1843</cite>
+            </div>
+
+            <div class="btn-row">
+              <a href="/books/charles-fitch/1843_fitch_comeOutOfHerMyPeople.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Read Full PDF
+              </a>
+              <a href="#read-online" class="btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                Read In Browser
+              </a>
+              <a href="/pioneers/charles-fitch" class="btn-outline">
+                Biography &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PDF EMBED ===== -->
+      <div class="section" id="read-online">
+        <div class="section-header">
+          <div class="sh-eyebrow">Read In Browser</div>
+          <h2>Come Out of Her, My People (1843)</h2>
+          <p>Read the complete sermonic tract below. Download the PDF for sharing, printing, or offline study.</p>
+        </div>
+
+        <div class="pdf-embed-wrap">
+          <div class="pdf-embed-toolbar">
+            <span class="pdf-embed-toolbar-title">
+              <strong>Charles Fitch</strong> &mdash; Come Out of Her, My People (1843)
+            </span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/charles-fitch/1843_fitch_comeOutOfHerMyPeople.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="/books/charles-fitch/1843_fitch_comeOutOfHerMyPeople.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open Full Screen
+              </a>
+            </div>
+          </div>
+          <object
+            data="/books/charles-fitch/1843_fitch_comeOutOfHerMyPeople.pdf"
+            type="application/pdf"
+            class="pdf-frame"
+            aria-label="Come Out of Her My People — Charles Fitch 1843"
+          >
+            <div style="padding:48px;text-align:center;color:var(--ink-muted);background:rgba(13,13,53,0.8);">
+              <p style="margin-bottom:16px;font-size:1rem;">Your browser cannot display PDFs inline.</p>
+              <a href="/books/charles-fitch/1843_fitch_comeOutOfHerMyPeople.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:inline-flex;">
+                Download &amp; Read the PDF
+              </a>
+            </div>
+          </object>
+        </div>
+      </div>
+
+      <!-- ===== ALL CHARLES FITCH WRITINGS ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Pioneer Library</div>
+          <h2>All Charles Fitch Writings</h2>
+          <p>The complete collection of Charles Fitch&rsquo;s surviving sermonic tracts and addresses available in this library.</p>
+        </div>
+
+        <div class="books-grid">
+          <div class="book-card featured">
+            <span class="book-card-badge badge-featured">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Featured
+            </span>
+            <h3>Come Out of Her, My People</h3>
+            <div class="book-year">1843</div>
+            <p>The landmark Second Angel&rsquo;s message sermon — Babylon is fallen. Calling God&rsquo;s people out of apostate Protestant churches that rejected the first angel&rsquo;s message of the judgment hour.</p>
+            <a href="/books/charles-fitch/1843_fitch_comeOutOfHerMyPeople.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-reform">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Reform
+            </span>
+            <h3>Slaveholding Weighed in the Balance of Truth</h3>
+            <div class="book-year">c. 1843</div>
+            <p>Fitch&rsquo;s powerful moral address weighing the institution of slaveholding against the plain teachings of Scripture. A reform tract from the height of the Advent movement.</p>
+            <a href="/books/charles-fitch/Slaveholding.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-green">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-reform">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Reform
+            </span>
+            <h3>Slaveholding — Part II</h3>
+            <div class="book-year">c. 1843</div>
+            <p>The continuation of Fitch&rsquo;s systematic examination of slaveholding, responding to objections and presenting the biblical case for immediate reform.</p>
+            <a href="/books/charles-fitch/slaveholding2.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-green">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-reform">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Reform
+            </span>
+            <h3>Slaveholding — Part III</h3>
+            <div class="book-year">c. 1843</div>
+            <p>The concluding section of Fitch&rsquo;s moral and scriptural arguments against slaveholding, calling ministers and churches to take a stand on this pressing reform question.</p>
+            <a href="/books/charles-fitch/slaveholding3.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-green">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-tract">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              Tract
+            </span>
+            <h3>Perfection</h3>
+            <div class="book-year">c. 1840s</div>
+            <p>Charles Fitch&rsquo;s theological tract addressing Christian perfection, sanctification, and the call to holiness — reflecting the reforming theological convictions he brought to the Advent movement.</p>
+            <a href="/books/charles-fitch/Perfection.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BIOGRAPHY ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Adventist Pioneer</div>
+          <h2>Who Was Charles Fitch?</h2>
+          <p>From Presbyterian minister to herald of the Second Angel &mdash; Charles Fitch&rsquo;s life was set on fire by the Advent message.</p>
+        </div>
+
+        <div class="bio-grid">
+          <div class="bio-portrait-wrap">
+            <img
+              src="/images/pioneers/charles-fitch.jpg" loading="lazy"
+              alt="Charles Fitch — Adventist Pioneer"
+              class="bio-portrait"
+            />
+            <p class="bio-caption">Charles Fitch (1792&ndash;1844) &mdash; Preacher of the Second Angel&rsquo;s Message</p>
+
+            <div class="bio-facts">
+              <div class="bio-fact">
+                <div class="fact-label">Born</div>
+                <div class="fact-value">1792, Connecticut</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Died</div>
+                <div class="fact-value">1844, New York</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Training</div>
+                <div class="fact-value">Presbyterian Minister</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Movement</div>
+                <div class="fact-value">Millerite / Advent</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Chart</div>
+                <div class="fact-value">1843 Prophecy Chart</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Message</div>
+                <div class="fact-value">Revelation 14:8 &amp; 18:4</div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <a href="/pioneers/charles-fitch" class="btn-gold" style="display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:10px;font-size:0.9rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Read Full Biography
+              </a>
+            </div>
+          </div>
+
+          <div class="bio-content">
+            <h3>Herald of the Second Angel</h3>
+            <p>
+              Charles Fitch was one of the most consequential preachers in the early American Advent movement. Trained as a
+              Presbyterian minister, he was converted to William Miller&rsquo;s prophetic understanding of Daniel 8:14 and became
+              a fearless herald of the judgment hour.
+            </p>
+            <p>
+              His greatest contribution was the 1843 sermon <em>&ldquo;Come Out of Her, My People&rdquo;</em> &mdash; a thundering proclamation
+              that the Protestant churches had become Babylon by rejecting the first angel&rsquo;s message of the imminent second coming.
+              The call of Revelation 18:4 was not merely future, Fitch argued &mdash; it was <strong>present duty</strong>.
+            </p>
+            <p>
+              Fitch also co-designed the celebrated <strong>1843 Prophecy Chart</strong> with Apollos Hale, fulfilling Habakkuk 2:2&rsquo;s
+              command to &ldquo;write the vision, and make it plain upon tables.&rdquo; These massive illustrated charts were carried to
+              campmeetings across America and used to preach Daniel 8:14 to hundreds of thousands.
+            </p>
+            <p>
+              He died on October 14, 1844 &mdash; just eight days before the Great Disappointment &mdash; having given his life
+              as one of the foremost voices of the Midnight Cry.
+            </p>
+          </div>
+        </div>
+
+        <!-- Timeline strip -->
+        <div class="timeline-strip">
+          <div class="tl-item">
+            <span class="tl-year">1792</span>
+            <div class="tl-title">Born, Connecticut</div>
+            <div class="tl-desc">Charles Fitch born and raised in Reformed New England tradition.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">c.1838</span>
+            <div class="tl-title">Joins Advent Movement</div>
+            <div class="tl-desc">Accepts William Miller&rsquo;s 2300-day prophecy; leaves Presbyterian ministry.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1843</span>
+            <div class="tl-title">Come Out of Her</div>
+            <div class="tl-desc">Preaches &amp; publishes the Second Angel&rsquo;s message; co-designs the 1843 Prophecy Chart.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">Oct 14, 1844</span>
+            <div class="tl-title">Falls Asleep</div>
+            <div class="tl-desc">Dies 8 days before the Great Disappointment, having fulfilled his prophetic mission.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== HISTORICAL CONTEXT ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Revelation 14:8 &amp; 18:4&ndash;5</div>
+          <h2>The Second Angel &amp; The Loud Cry</h2>
+          <p>Revelation 14:8 is the Second Angel. Revelation 18:4 is the Loud Cry &mdash; amplified with fresh power, carrying the additional weight of every corruption that has entered the churches since October 22, 1844.</p>
+        </div>
+
+        <div class="context-card">
+          <div class="angel-header">
+            <div class="angel-badge">2nd</div>
+            <div>
+              <h3>Babylon Is Fallen, Is Fallen</h3>
+              <div class="sub">The Second Angel &mdash; Revelation 14:8</div>
+            </div>
+          </div>
+
+          <div class="babylon-verse">
+            <blockquote>
+              &ldquo;And there followed another angel, saying, Babylon is fallen, is fallen, that great city,
+              because she made all nations drink of the wine of the wrath of her fornication.&rdquo;
+            </blockquote>
+            <cite>&mdash; Revelation 14:8 (KJV) &mdash; The Second Angel: Babylon is fallen</cite>
+          </div>
+
+          <div class="babylon-verse" style="margin-top:12px;border-color:rgba(239,68,68,0.4);background:linear-gradient(135deg,rgba(60,5,5,0.7),rgba(10,5,20,0.85));">
+            <blockquote style="color:#fca5a5;">
+              &ldquo;And after these things I saw another angel come down from heaven, having great power;
+              and the earth was lightened with his glory. And he cried mightily with a strong voice, saying,
+              <strong>Babylon the great is fallen, is fallen,</strong> and is become the habitation of devils&hellip;&rdquo;
+            </blockquote>
+            <cite style="color:rgba(252,165,165,0.6);">&mdash; Revelation 18:1&ndash;2 (KJV) &mdash; The Loud Cry angel with great power &mdash; the earth lightened with his glory</cite>
+          </div>
+
+          <div class="babylon-verse" style="margin-top:12px;">
+            <blockquote>
+              &ldquo;And I heard another voice from heaven, saying, <strong>Come out of her, my people,</strong>
+              that ye be not partakers of her sins, and that ye receive not of her plagues.
+              For her sins have reached unto heaven, and God hath remembered her iniquities.&rdquo;
+            </blockquote>
+            <cite>&mdash; Revelation 18:4&ndash;5 (KJV) &mdash; <strong>The Loud Cry</strong> &mdash; not merely the Second Angel repeated, but amplified with new urgency</cite>
+          </div>
+
+          <p class="context-body">
+            <strong>The Second Angel (Revelation 14:8)</strong> proclaimed Babylon&rsquo;s fall in 1844 &mdash; when the Protestant churches
+            collectively rejected the first angel&rsquo;s message of the judgment hour. That was the initial fall.
+            <br><br>
+            <strong>The Loud Cry (Revelation 18:4)</strong> is not merely a repeat. It carries <em>additional</em> force &mdash; the accumulated
+            weight of every corruption that has entered the churches <strong>since October 22, 1844</strong>: Sunday sacredness enforced
+            in place of the Sabbath, spiritualism, ecumenism with Rome, worldliness, and the complete abandonment of the
+            pioneer Advent message. The angel of Revelation 18 comes down with <em>great power</em> &mdash; the earth is
+            <strong>lightened with his glory</strong> &mdash; because the crisis is now final.
+            <br><br>
+            The Loud Cry is not merely a call to <em>leave</em>. It is a call to come <strong>back into</strong> the pioneer Advent message &mdash;
+            to read the books, tracts, sermons, and prophecy charts of the early Adventists who restored the sealing Sabbath,
+            defended the Fourth Commandment, and gave their lives for the present truth. <strong>That pioneer library is this site.</strong>
+          </p>
+
+          <div class="babylon-verse" style="margin-top:18px;border-color:rgba(239,68,68,0.4);background:linear-gradient(135deg,rgba(50,5,5,0.75),rgba(10,5,20,0.9));">
+            <blockquote style="color:#fca5a5;">
+              &ldquo;In amazement they hear the testimony that <strong>Babylon is the church</strong>, fallen because of her errors and sins, because of her rejection of the truth sent to her from heaven.&rdquo;
+            </blockquote>
+            <cite style="color:rgba(252,165,165,0.6);">&mdash; Ellen G. White, <em>The Great Controversy</em>, p. 606 &mdash; This is what the Loud Cry testimony sounds like when the honest in heart finally hear it</cite>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== WHERE TO GO — BATES SABBATH TRACTS ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">You&rsquo;ve Come Out — Now Go In</div>
+          <h2>Discover the Sealing Sabbath</h2>
+          <p>The Loud Cry calls you <em>out</em> of Babylon &mdash; but it also calls you <em>into</em> something: the pioneer Advent message, the sealing Sabbath, and the Fourth Commandment in the perpetual law of God. Captain Joseph Bates laid the foundation.</p>
+        </div>
+
+        <div style="background:linear-gradient(135deg,rgba(5,30,36,0.7),rgba(5,15,30,0.9));border:1px solid rgba(20,184,166,0.3);border-radius:20px;padding:32px 28px;margin-bottom:32px;">
+          <div style="display:flex;align-items:center;gap:14px;margin-bottom:18px;">
+            <div style="width:48px;height:48px;border-radius:50%;background:linear-gradient(135deg,#0d9488,#14b8a6);display:flex;align-items:center;justify-content:center;flex-shrink:0;">
+              <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#fff" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            </div>
+            <div>
+              <div style="font-family:'Crimson Text',serif;font-size:1.5rem;font-weight:600;color:#5eead4;">Captain Joseph Bates &mdash; The Sealing Sabbath</div>
+              <div style="font-size:0.82rem;color:rgba(94,234,212,0.65);">Revelation 7:2&ndash;3 &amp; Exodus 20:8&ndash;11 &mdash; The Seal of the Living God</div>
+            </div>
+          </div>
+          <p style="font-size:0.97rem;color:rgba(254,243,199,0.8);line-height:1.85;margin-bottom:22px;">
+            After Charles Fitch&rsquo;s Loud Cry called people out of Babylon, it was Captain Joseph Bates who showed them
+            <em>where to go</em>. In 1846 Bates spent his last money printing the tract that converted James and Ellen White
+            to the Seventh-day Sabbath. His 1849 masterwork <strong>&ldquo;A Seal of the Living God&rdquo;</strong> identified
+            the Sabbath as the very seal of Revelation 7 &mdash; the sealing sign of the 144,000. The Fourth Commandment
+            is not abolished. It is the seal of the living God, embedded in His perpetual law.
+          </p>
+          <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:14px;">
+            <a href="/books/joseph-bates-seal" style="display:block;background:rgba(20,184,166,0.08);border:1px solid rgba(20,184,166,0.3);border-radius:12px;padding:18px;text-decoration:none;transition:all 0.2s;">
+              <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:#14b8a6;margin-bottom:6px;">1849 &mdash; Featured</div>
+              <div style="font-size:1rem;font-weight:700;color:#fef3c7;margin-bottom:5px;">A Seal of the Living God</div>
+              <div style="font-size:0.82rem;color:#9ca3af;line-height:1.6;">The Sabbath as the seal of Revelation 7 &mdash; the sealing of the 144,000. The foundational document of Adventist seal theology.</div>
+            </a>
+            <a href="/books/joseph-bates/1846_bates_seventhDaySabbath.pdf" target="_blank" rel="noopener noreferrer" style="display:block;background:rgba(212,165,55,0.07);border:1px solid rgba(212,165,55,0.25);border-radius:12px;padding:18px;text-decoration:none;transition:all 0.2s;">
+              <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:#d4a537;margin-bottom:6px;">1846 &mdash; Sabbath Tract</div>
+              <div style="font-size:1rem;font-weight:700;color:#fef3c7;margin-bottom:5px;">Seventh-Day Sabbath: A Perpetual Sign</div>
+              <div style="font-size:0.82rem;color:#9ca3af;line-height:1.6;">The tract that converted James &amp; Ellen White. The Sabbath is a perpetual sign between God and His people.</div>
+            </a>
+            <a href="/books/joseph-bates/Bates_aVindicationOfTheSeventh-daySabbath1848.pdf" target="_blank" rel="noopener noreferrer" style="display:block;background:rgba(212,165,55,0.07);border:1px solid rgba(212,165,55,0.25);border-radius:12px;padding:18px;text-decoration:none;transition:all 0.2s;">
+              <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:#d4a537;margin-bottom:6px;">1848 &mdash; Defense</div>
+              <div style="font-size:1rem;font-weight:700;color:#fef3c7;margin-bottom:5px;">Vindication of the Seventh-Day Sabbath</div>
+              <div style="font-size:0.82rem;color:#9ca3af;line-height:1.6;">Bates answers every Sunday-law argument and defends the perpetual Fourth Commandment against all objectors.</div>
+            </a>
+            <a href="/books/joseph-bates/Bates_theSeventhDaySabbath_aPerpetualSign_1847Jun63pages.pdf" target="_blank" rel="noopener noreferrer" style="display:block;background:rgba(212,165,55,0.07);border:1px solid rgba(212,165,55,0.25);border-radius:12px;padding:18px;text-decoration:none;transition:all 0.2s;">
+              <div style="font-size:0.72rem;text-transform:uppercase;letter-spacing:0.1em;font-weight:700;color:#d4a537;margin-bottom:6px;">1847 &mdash; Expanded Edition</div>
+              <div style="font-size:1rem;font-weight:700;color:#fef3c7;margin-bottom:5px;">Seventh-Day Sabbath &mdash; A Perpetual Sign (63 pp.)</div>
+              <div style="font-size:0.82rem;color:#9ca3af;line-height:1.6;">The enlarged 1847 edition with fuller arguments, more Scripture, and responses to every objection.</div>
+            </a>
+          </div>
+          <div style="margin-top:18px;">
+            <a href="/books/joseph-bates-seal" style="display:inline-flex;align-items:center;gap:8px;padding:12px 24px;border-radius:10px;background:linear-gradient(to right,#0d9488,#14b8a6);color:#fff;font-weight:700;font-size:0.9rem;text-decoration:none;">Explore All Bates Writings &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== RELATED RESOURCES ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Further Study</div>
+          <h2>Related Resources</h2>
+        </div>
+
+        <div class="related-grid">
+          <a href="/pioneers/charles-fitch" class="related-card">
+            <div class="r-label">Pioneer Biography</div>
+            <h4>Charles Fitch — Full Biography</h4>
+            <p>His complete life story, ministry, and legacy in the Advent movement.</p>
+          </a>
+          <a href="/pioneers/1843-prophecy-chart" class="related-card">
+            <div class="r-label">1843 Prophecy Chart</div>
+            <h4>Fitch &amp; Hale — The Prophecy Chart</h4>
+            <p>The chart Fitch co-designed with Apollos Hale to make the 2300-day prophecy plain.</p>
+          </a>
+          <a href="/books/3angels" class="related-card">
+            <div class="r-label">Revelation 14</div>
+            <h4>The Three Angels&rsquo; Messages</h4>
+            <p>The full context of the Three Angels — First, Second, and Third — in Revelation 14.</p>
+          </a>
+          <a href="/midnight-cry" class="related-card">
+            <div class="r-label">Matthew 25:6</div>
+            <h4>The Midnight Cry of 1844</h4>
+            <p>The prophetic movement that Charles Fitch and hundreds of Advent preachers ignited.</p>
+          </a>
+          <a href="/pioneers" class="related-card">
+            <div class="r-label">All Pioneers</div>
+            <h4>Adventist Pioneer Library</h4>
+            <p>Biographies and writings of every major pioneer of the Advent movement.</p>
+          </a>
+          <a href="/library" class="related-card">
+            <div class="r-label">Full Library</div>
+            <h4>Pioneer Book Gateway</h4>
+            <p>Browse all books, tracts, and documents in the SundayLaw.com pioneer library.</p>
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#final-choice">The Final Choice</a></li>
+            <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="/#three-angels">Three Angels</a></li>
+            <li><a href="/#second-beast">Second Beast</a></li>
+            <li><a href="/#pioneer-library">Pioneer Library</a></li>
+            <li><a href="/midnight-cry">The Midnight Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/books">All Books &amp; Tracts</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script is:inline>
+
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    </script>
+    <SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'Charles Fitch — Come Out of Her 1843', href: '/books/charles-fitch' },
+        { label: 'Joseph Bates — Seal of the Living God', href: '/books/joseph-bates-seal' },
+        { label: 'J.N. Andrews — History of the Sabbath', href: '/books/john-nevins-andrews-history-of-the-sabbath-and-first-day-of-the-week' },
+        { label: 'Apostate Shepherds — SDA Apostasy', href: '/apostasy' }
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>

@@ -1,0 +1,710 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contact, Prayer &amp; Share — SundayLaw.com</title>
+    <meta name="description" content="Contact SundayLaw.com — prayer requests, newsletter, share the Sabbath truth with friends and family. We are lifting you up in prayer.">
+    <link rel="canonical" href="https://sundaylaw.com/contact">
+    <meta property="og:title" content="Contact, Prayer &amp; Share — SundayLaw.com">
+    <meta property="og:description" content="Reach out for prayer, subscribe to updates, or share the Sabbath truth. We are lifting you up before the throne of God.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/contact">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e; --bg-soft: #0d0d3a; --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; background: #0a0a2e; color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+      .serif { font-family: 'Crimson Text', serif; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+
+      /* ===== NAV ===== */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--gold-soft); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .nav-cta:hover { background: var(--gold-soft); }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page-wrap { max-width: 860px; margin: 0 auto; padding: 56px 22px 80px; }
+      .page-hero { text-align: center; padding: 0 0 40px; }
+      .page-hero .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 999px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.28); color: var(--gold-soft); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+      .page-hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.4rem, 5vw, 3.5rem); font-weight: 600; color: var(--ink); margin-bottom: 14px; line-height: 1.1; }
+      .page-hero h1 .gold { color: var(--gold); }
+      .page-hero p { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+
+      /* ===== TABS ===== */
+      .tabs { display: flex; gap: 6px; margin-bottom: 28px; background: rgba(26,26,78,0.4); padding: 6px; border-radius: 12px; }
+      .tab { flex: 1; padding: 10px 8px; text-align: center; border-radius: 8px; font-weight: 600; font-size: 0.875rem; cursor: pointer; transition: all 0.2s; border: none; color: var(--ink-muted); background: transparent; }
+      .tab:hover { color: var(--ink); }
+      .tab.active { background: linear-gradient(to right, #b45309, #d97706); color: #fff; }
+      @media (max-width: 600px) { .tabs { flex-wrap: wrap; } .tab { flex: 1 0 calc(50% - 6px); } }
+
+      /* ===== FORM CARD ===== */
+      .form-card { background: linear-gradient(135deg, rgba(26,26,78,0.8), rgba(13,13,53,0.8)); border: 1px solid rgba(180,130,50,0.3); border-radius: 20px; padding: 32px 28px; }
+      .form-card.hidden { display: none; }
+      .form-card h2 { font-family: 'Crimson Text', serif; font-size: 1.65rem; color: var(--ink); margin-bottom: 6px; }
+      .form-card .desc { color: var(--ink-muted); font-size: 0.9rem; margin-bottom: 22px; line-height: 1.7; }
+
+      /* ===== FORM ELEMENTS ===== */
+      .form-group { margin-bottom: 16px; }
+      .form-group label { display: block; font-size: 0.875rem; color: var(--ink-muted); margin-bottom: 6px; font-weight: 500; }
+      .form-group input,
+      .form-group textarea,
+      .form-group select { width: 100%; background: rgba(10,10,46,0.6); border: 1px solid rgba(100,100,150,0.4); border-radius: 8px; padding: 12px 14px; color: var(--ink); font-size: 0.875rem; font-family: inherit; transition: border-color 0.2s; }
+      .form-group input:focus,
+      .form-group textarea:focus,
+      .form-group select:focus { outline: none; border-color: var(--gold); }
+      .form-group select option { background: #0d0d35; }
+      .form-group textarea { min-height: 140px; resize: vertical; }
+      .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+      @media (max-width: 600px) { .form-row { grid-template-columns: 1fr; } }
+      .hint { color: #6b7280; font-size: 0.8rem; margin-top: 5px; }
+      .checkbox-row { display: flex; align-items: center; gap: 8px; margin-bottom: 16px; }
+      .checkbox-row input[type="checkbox"] { width: 16px; height: 16px; accent-color: var(--gold); }
+      .checkbox-row label { color: var(--ink-muted); font-size: 0.875rem; }
+
+      /* Honeypot */
+      .hp-wrap { position: absolute; left: -9999px; top: auto; width: 1px; height: 1px; overflow: hidden; }
+
+      /* ===== DETAILS / ADDRESS ===== */
+      details.addr { margin: 16px 0; }
+      details.addr summary { cursor: pointer; color: var(--gold-soft); font-size: 0.9rem; user-select: none; padding: 8px 0; }
+      details.addr .addr-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 14px; }
+      @media (max-width: 600px) { details.addr .addr-grid { grid-template-columns: 1fr; } }
+
+      /* ===== BENEFITS ===== */
+      .benefits { background: rgba(16,185,129,0.05); border: 1px solid rgba(16,185,129,0.2); border-radius: 10px; padding: 16px; margin-bottom: 20px; }
+      .benefits h4 { color: #6ee7b7; font-size: 0.875rem; margin-bottom: 8px; }
+      .benefits ul { list-style: none; color: var(--ink-muted); font-size: 0.875rem; }
+      .benefits li { padding: 3px 0 3px 18px; position: relative; }
+      .benefits li::before { content: ""; position: absolute; left: 0; top: 10px; width: 6px; height: 6px; background: #10b981; border-radius: 50%; }
+
+      /* ===== SCRIPTURE SELECTOR ===== */
+      .scripture-list { max-height: 320px; overflow-y: auto; margin-bottom: 16px; padding-right: 4px; }
+      .scripture-item { display: flex; align-items: flex-start; gap: 8px; padding: 10px; border: 1px solid rgba(100,100,150,0.3); border-radius: 8px; margin-bottom: 6px; cursor: pointer; transition: all 0.2s; }
+      .scripture-item:hover { border-color: rgba(212,165,55,0.4); }
+      .scripture-item.selected { background: rgba(180,83,9,0.12); border-color: rgba(212,165,55,0.5); }
+      .scripture-item .ref { font-size: 0.875rem; font-weight: 600; color: var(--gold); white-space: nowrap; }
+      .scripture-item .txt { font-size: 0.75rem; color: var(--ink-muted); font-style: italic; margin-top: 2px; line-height: 1.5; }
+
+      /* ===== BUTTONS ===== */
+      .btn-submit { display: block; width: 100%; padding: 14px; border-radius: 10px; font-weight: 700; font-size: 1rem; cursor: pointer; border: none; transition: all 0.2s; text-align: center; font-family: inherit; }
+      .btn-gold { background: linear-gradient(to right, #b45309, #d97706); color: #fff; }
+      .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); }
+      .btn-purple { background: linear-gradient(to right, #7c3aed, #6d28d9); color: #fff; }
+      .btn-green { background: linear-gradient(to right, #059669, #10b981); color: #fff; }
+      .btn-blue { background: linear-gradient(to right, #1d4ed8, #2563eb); color: #fff; }
+
+      /* ===== FOOTER ===== */
+      .site-footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); }
+      .footer-banner { background: linear-gradient(to right, rgba(180,83,9,0.15), rgba(180,83,9,0.1), rgba(180,83,9,0.15)); padding: 24px; text-align: center; }
+      .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.1rem; font-style: italic; }
+      .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 6px; }
+      .footer-main { max-width: 1280px; margin: 0 auto; padding: 56px 22px; display: grid; gap: 2.5rem; }
+      @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+      .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+      .footer-col p { color: var(--ink-muted); font-size: 0.875rem; line-height: 1.7; }
+      .footer-col ul { list-style: none; }
+      .footer-col li { padding: 4px 0; }
+      .footer-col li a { color: var(--ink-muted); font-size: 0.875rem; transition: color 0.2s; text-decoration: none; }
+      .footer-col li a:hover { color: var(--gold-soft); }
+      .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+      .footer-brand-name em { color: var(--gold); font-style: normal; }
+      .footer-bottom { border-top: 1px solid rgba(180,130,50,0.1); padding: 20px 22px; text-align: center; }
+      .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+      .footer-flags { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 12px 0; }
+      .footer-flags div { width: 32px; height: 4px; border-radius: 2px; }
+      .flag-r { background: #b91c1c; } .flag-w { background: #fff; } .flag-b { background: #1d4ed8; }
+      .footer-stripe { height: 4px; background: linear-gradient(to right, #b91c1c, #fff, #1d4ed8); }
+
+      /* ===== BACK TO TOP ===== */
+      .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(212,165,55,0.3); }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ===== PAGE CONTENT ===== -->
+    <div class="page-wrap">
+      <div class="page-hero">
+        <div class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          SundayLaw.com
+        </div>
+        <h1>Prayer, Contact <span class="gold">&amp; Share</span></h1>
+        <p>We are lifting you up in prayer. Reach out to us, subscribe to updates, or share the Sabbath truth with friends and family.</p>
+      </div>
+
+      <!-- Tabs -->
+      <div class="tabs" role="tablist">
+        <button class="tab active" id="tab-contact" role="tab" aria-selected="true" aria-controls="form-contact" onclick="showTab('contact')">Contact Us</button>
+        <button class="tab" id="tab-prayer" role="tab" aria-selected="false" aria-controls="form-prayer" onclick="showTab('prayer')">Prayer Request</button>
+        <button class="tab" id="tab-newsletter" role="tab" aria-selected="false" aria-controls="form-newsletter" onclick="showTab('newsletter')">Newsletter</button>
+        <button class="tab" id="tab-share" role="tab" aria-selected="false" aria-controls="form-share" onclick="showTab('share')">Share Message</button>
+      </div>
+
+      <!-- ===== CONTACT FORM ===== -->
+      <div id="form-contact" class="form-card" role="tabpanel">
+        <h2>Contact Us</h2>
+        <p class="desc">Have a question about the Sabbath truth? Want to study together? Reach out &mdash; we&rsquo;d love to hear from you.</p>
+
+        <form method="POST" action="/api/contact.php" novalidate id="contactForm">
+          <input type="hidden" name="action" value="contact" />
+          <!-- Honeypot -->
+          <div class="hp-wrap" aria-hidden="true">
+            <label>Website</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-name">Name *</label>
+              <input type="text" id="c-name" name="name" required placeholder="Your name" autocomplete="name" inputmode="text" tabindex="1" aria-label="Name" />
+            </div>
+            <div class="form-group">
+              <label for="c-email">Email *</label>
+              <input type="email" id="c-email" name="email" required placeholder="your@email.com" autocomplete="email" inputmode="email" tabindex="2" aria-label="Email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="c-phone">Mobile (optional)</label>
+              <input type="tel" id="c-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel" inputmode="tel" pattern="\(\d{3}\) \d{3}-\d{4}" maxlength="14" tabindex="3" aria-label="Phone" />
+              <div class="hint">Optional. We only use this for ministry contact you request.</div>
+            </div>
+            <div class="form-group">
+              <label for="c-heard">How did you hear about us?</label>
+              <select id="c-heard" name="heard_from">
+                <option value="">Select&hellip;</option>
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="facebook">Facebook</option>
+                <option value="x">X.com</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="news_tv">News / TV</option>
+                <option value="email">Email</option>
+                <option value="text">Text</option>
+                <option value="friend">Friend</option>
+                <option value="church">Church</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="c-searched">What did you search for? (optional)</label>
+            <input type="text" id="c-searched" name="searched_for" placeholder="e.g., Sunday law, Sabbath truth, blue laws&hellip;" autocomplete="off" tabindex="4" aria-label="Search Query" />
+          </div>
+
+          <details class="addr">
+            <summary><strong>Optional Address</strong> (click to expand)</summary>
+            <div class="addr-grid">
+              <div class="form-group"><label>Address Line 1</label><input type="text" name="address1" placeholder="Street address" autocomplete="address-line1" /></div>
+              <div class="form-group"><label>Address Line 2</label><input type="text" name="address2" placeholder="Apt, suite, unit&hellip;" autocomplete="address-line2" /></div>
+              <div class="form-group"><label>City</label><input type="text" name="city" placeholder="City" autocomplete="address-level2" /></div>
+              <div class="form-group"><label>State / Province</label><input type="text" name="region" placeholder="State / Province" autocomplete="address-level1" /></div>
+              <div class="form-group"><label>Postal / ZIP</label><input type="text" name="postal" placeholder="Postal code" autocomplete="postal-code" /></div>
+              <div class="form-group"><label>Country</label><input type="text" name="country" placeholder="Type your country" autocomplete="country-name" /></div>
+            </div>
+          </details>
+
+          <div class="form-group">
+            <label for="c-subject">Subject</label>
+            <input type="text" id="c-subject" name="subject" placeholder="What is this regarding?" autocomplete="off" tabindex="5" aria-label="Subject" />
+          </div>
+
+          <div class="form-group">
+            <label for="c-message">Message *</label>
+            <textarea id="c-message" name="message" required placeholder="Your message&hellip;" tabindex="6" aria-label="Message"></textarea>
+          </div>
+
+          <button type="submit" class="btn-submit btn-gold" tabindex="7">Send Message</button>
+        </form>
+        <script>
+        // Auto-tab/advance between fields
+        document.querySelectorAll('#contactForm input, #contactForm textarea').forEach((el, idx, arr) => {
+          el.addEventListener('keydown', function(e) {
+            if (e.key === 'Enter' && this.type !== 'textarea') {
+              e.preventDefault();
+              if (arr[idx+1]) arr[idx+1].focus();
+            }
+          });
+        });
+        // Auto-format phone
+        const phoneInput = document.getElementById('c-phone');
+        if (phoneInput) {
+          phoneInput.addEventListener('input', function(e) {
+            let x = this.value.replace(/\D/g, '').substring(0,10);
+            let formatted = x;
+            if (x.length > 6) formatted = `(${x.substring(0,3)}) ${x.substring(3,6)}-${x.substring(6,10)}`;
+            else if (x.length > 3) formatted = `(${x.substring(0,3)}) ${x.substring(3,6)}`;
+            else if (x.length > 0) formatted = `(${x}`;
+            this.value = formatted;
+          });
+        }
+        // Inline validation
+        document.getElementById('contactForm').addEventListener('input', function(e) {
+          if (e.target.checkValidity()) {
+            e.target.style.borderColor = '#10b981';
+          } else {
+            e.target.style.borderColor = '#b91c1c';
+          }
+        });
+        // Predictive suggestions for email
+        document.getElementById('c-email').addEventListener('input', function(e) {
+          const val = this.value;
+          if (val && !val.includes('@')) {
+            this.setCustomValidity('Please enter a valid email address.');
+          } else {
+            this.setCustomValidity('');
+          }
+        });
+        // Mobile-first: fields are large, labels are high contrast, minimal fields
+        </script>
+      </div>
+
+      <!-- ===== PRAYER FORM ===== -->
+      <div id="form-prayer" class="form-card hidden" role="tabpanel">
+        <h2>Submit a Prayer Request</h2>
+        <p class="desc">&ldquo;The effectual fervent prayer of a righteous man availeth much.&rdquo; &mdash; James 5:16. Share your request and we will lift you up before the throne of God.</p>
+
+        <form method="POST" action="/api/contact.php" novalidate>
+          <input type="hidden" name="action" value="prayer" />
+          <div class="hp-wrap" aria-hidden="true">
+            <label>Website</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-name">Your Name *</label>
+              <input type="text" id="p-name" name="name" required placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="p-email">Email (optional)</label>
+              <input type="email" id="p-email" name="email" placeholder="your@email.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="p-phone">Mobile (optional)</label>
+              <input type="tel" id="p-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="p-heard">How did you hear about us?</label>
+              <select id="p-heard" name="heard_from">
+                <option value="">Select&hellip;</option>
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="facebook">Facebook</option>
+                <option value="x">X.com</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="news_tv">News / TV</option>
+                <option value="email">Email</option>
+                <option value="text">Text</option>
+                <option value="friend">Friend</option>
+                <option value="church">Church</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <details class="addr">
+            <summary><strong>Optional Address</strong> (click to expand)</summary>
+            <div class="addr-grid">
+              <div class="form-group"><label>Address Line 1</label><input type="text" name="address1" placeholder="Street address" autocomplete="address-line1" /></div>
+              <div class="form-group"><label>Address Line 2</label><input type="text" name="address2" placeholder="Apt, suite, unit&hellip;" autocomplete="address-line2" /></div>
+              <div class="form-group"><label>City</label><input type="text" name="city" placeholder="City" autocomplete="address-level2" /></div>
+              <div class="form-group"><label>State / Province</label><input type="text" name="region" placeholder="State / Province" autocomplete="address-level1" /></div>
+              <div class="form-group"><label>Postal / ZIP</label><input type="text" name="postal" placeholder="Postal code" autocomplete="postal-code" /></div>
+              <div class="form-group"><label>Country</label><input type="text" name="country" placeholder="Type your country" autocomplete="country-name" /></div>
+            </div>
+          </details>
+
+          <div class="form-group">
+            <label for="p-message">Prayer Request *</label>
+            <textarea id="p-message" name="message" required placeholder="Share your prayer request here&hellip;"></textarea>
+          </div>
+
+          <div class="checkbox-row">
+            <input type="checkbox" name="is_public" id="is_public" />
+            <label for="is_public">Allow this prayer request to be shared publicly for others to pray</label>
+          </div>
+
+          <button type="submit" class="btn-submit btn-purple">Submit Prayer Request</button>
+        </form>
+      </div>
+
+      <!-- ===== NEWSLETTER FORM ===== -->
+      <div id="form-newsletter" class="form-card hidden" role="tabpanel">
+        <h2>Subscribe to Our Newsletter</h2>
+        <p class="desc">Stay connected with the present truth. Receive updates on prophetic developments, new resources, and Bible study materials.</p>
+
+        <form method="POST" action="/api/contact.php" novalidate>
+          <input type="hidden" name="action" value="newsletter" />
+          <div class="hp-wrap" aria-hidden="true">
+            <label>Website</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="n-name">Name (optional)</label>
+              <input type="text" id="n-name" name="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="n-email">Email *</label>
+              <input type="email" id="n-email" name="email" required placeholder="your@email.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="n-phone">Mobile (optional)</label>
+              <input type="tel" id="n-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="n-heard">How did you hear about us?</label>
+              <select id="n-heard" name="heard_from">
+                <option value="">Select&hellip;</option>
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="facebook">Facebook</option>
+                <option value="x">X.com</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="news_tv">News / TV</option>
+                <option value="email">Email</option>
+                <option value="text">Text</option>
+                <option value="friend">Friend</option>
+                <option value="church">Church</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <details class="addr">
+            <summary><strong>Optional Address</strong> (click to expand)</summary>
+            <div class="addr-grid">
+              <div class="form-group"><label>Address Line 1</label><input type="text" name="address1" placeholder="Street address" autocomplete="address-line1" /></div>
+              <div class="form-group"><label>Address Line 2</label><input type="text" name="address2" placeholder="Apt, suite, unit&hellip;" autocomplete="address-line2" /></div>
+              <div class="form-group"><label>City</label><input type="text" name="city" placeholder="City" autocomplete="address-level2" /></div>
+              <div class="form-group"><label>State / Province</label><input type="text" name="region" placeholder="State / Province" autocomplete="address-level1" /></div>
+              <div class="form-group"><label>Postal / ZIP</label><input type="text" name="postal" placeholder="Postal code" autocomplete="postal-code" /></div>
+              <div class="form-group"><label>Country</label><input type="text" name="country" placeholder="Type your country" autocomplete="country-name" /></div>
+            </div>
+          </details>
+
+          <div class="benefits">
+            <h4>What you&rsquo;ll receive:</h4>
+            <ul>
+              <li>Weekly Bible study materials on the Sabbath truth</li>
+              <li>Prophetic news and current event analysis</li>
+              <li>New pioneer resource uploads and book recommendations</li>
+              <li>Prayer updates and encouragement for the journey</li>
+            </ul>
+          </div>
+
+          <button type="submit" class="btn-submit btn-green">Subscribe to Newsletter</button>
+        </form>
+      </div>
+
+      <!-- ===== SHARE MESSAGE FORM ===== -->
+      <div id="form-share" class="form-card hidden" role="tabpanel">
+        <h2>Share the Sabbath Truth</h2>
+        <p class="desc">Send a curated invitation to study the Sabbath truth to friends and family.</p>
+
+        <form method="POST" action="/api/contact.php" novalidate>
+          <input type="hidden" name="action" value="share" />
+          <div class="hp-wrap" aria-hidden="true">
+            <label>Website</label>
+            <input type="text" name="website" tabindex="-1" autocomplete="off" />
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="s-name">Your Name</label>
+              <input type="text" id="s-name" name="name" placeholder="Your name" autocomplete="name" />
+            </div>
+            <div class="form-group">
+              <label for="s-email">Your Email</label>
+              <input type="email" id="s-email" name="email" placeholder="your@email.com" autocomplete="email" />
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label for="s-phone">Your Mobile (optional)</label>
+              <input type="tel" id="s-phone" name="phone" placeholder="(555) 555-5555" autocomplete="tel" />
+            </div>
+            <div class="form-group">
+              <label for="s-heard">How did you hear about us?</label>
+              <select id="s-heard" name="heard_from">
+                <option value="">Select&hellip;</option>
+                <option value="google">Google</option>
+                <option value="bing">Bing</option>
+                <option value="facebook">Facebook</option>
+                <option value="x">X.com</option>
+                <option value="chatgpt">ChatGPT</option>
+                <option value="news_tv">News / TV</option>
+                <option value="email">Email</option>
+                <option value="text">Text</option>
+                <option value="friend">Friend</option>
+                <option value="church">Church</option>
+                <option value="other">Other</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label for="s-recipient">Recipient&rsquo;s Email *</label>
+            <input type="email" id="s-recipient" name="recipient_email" required placeholder="friend@email.com" />
+          </div>
+
+          <div class="form-group">
+            <label for="s-message">Your Message</label>
+            <textarea id="s-message" name="message" rows="8">Dear Friend,
+
+I've been studying something in the Bible that I believe is of eternal importance, and I want to share it with you.
+
+The Bible reveals that the seventh-day Sabbath (Friday sundown to Saturday sundown) is God's holy day — established at Creation (Genesis 2:2-3) and enshrined in the Fourth Commandment (Exodus 20:8-11).
+
+"Choose you this day whom ye will serve... as for me and my house, we will serve the LORD." — Joshua 24:15
+
+I invite you to visit SundayLaw.com to study these truths for yourself.
+
+With love and urgency,</textarea>
+          </div>
+
+          <div class="form-group">
+            <label>Key Scriptures to Include</label>
+            <div class="scripture-list">
+              <div class="scripture-item selected" onclick="this.classList.toggle('selected')">
+                <div><div class="ref">Exodus 20:8&ndash;11</div><div class="txt">Remember the sabbath day, to keep it holy&hellip; the seventh day is the sabbath of the LORD thy God.</div></div>
+              </div>
+              <div class="scripture-item selected" onclick="this.classList.toggle('selected')">
+                <div><div class="ref">Revelation 14:12</div><div class="txt">Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.</div></div>
+              </div>
+              <div class="scripture-item selected" onclick="this.classList.toggle('selected')">
+                <div><div class="ref">Revelation 14:9&ndash;11</div><div class="txt">If any man worship the beast and his image, and receive his mark&hellip; the same shall drink of the wine of the wrath of God.</div></div>
+              </div>
+              <div class="scripture-item" onclick="this.classList.toggle('selected')">
+                <div><div class="ref">Isaiah 58:13</div><div class="txt">If thou turn away thy foot from the sabbath, from doing thy pleasure on my holy day&hellip; then shalt thou delight thyself in the LORD.</div></div>
+              </div>
+              <div class="scripture-item" onclick="this.classList.toggle('selected')">
+                <div><div class="ref">Matthew 24:20</div><div class="txt">But pray ye that your flight be not in the winter, neither on the sabbath day.</div></div>
+              </div>
+              <div class="scripture-item" onclick="this.classList.toggle('selected')">
+                <div><div class="ref">Genesis 2:2&ndash;3</div><div class="txt">And God blessed the seventh day, and sanctified it: because that in it he had rested from all his work.</div></div>
+              </div>
+            </div>
+          </div>
+
+          <button type="submit" class="btn-submit btn-blue">Send the Sabbath Truth</button>
+        </form>
+      </div>
+    </div>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#final-choice">The Final Choice</a></li>
+            <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="/#three-angels">Three Angels</a></li>
+            <li><a href="/#second-beast">Second Beast</a></li>
+            <li><a href="/#pioneer-library">Pioneer Library</a></li>
+            <li><a href="/midnight-cry">The Midnight Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/books">All Books &amp; Tracts</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script is:inline>
+      // Tab switching
+      function showTab(name) {
+        ['contact','prayer','newsletter','share'].forEach(id => {
+          const card = document.getElementById('form-' + id);
+          const tab = document.getElementById('tab-' + id);
+          if (card) card.classList.toggle('hidden', id !== name);
+          if (tab) {
+            tab.classList.toggle('active', id === name);
+            tab.setAttribute('aria-selected', id === name ? 'true' : 'false');
+          }
+        });
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+      }
+
+
+      // Back to top
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    </script>
+  </body>
+</html>
+    <style>
+      :root {
+        --bg: #0a0a2e; --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d; --line: rgba(212,165,55,0.22);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      body { font-family: 'Inter', sans-serif; background: #0a0a2e; color: var(--ink); min-height: 100vh; }
+      .serif { font-family: 'Crimson Text', serif; }
+
+      .nav { background: rgba(5,5,30,0.96); border-bottom: 1px solid var(--line); padding: 0 22px; height: 64px; display: flex; align-items: center; justify-content: space-between; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1rem; }
+      .nav-brand span { color: var(--gold); }
+
+      .hero { padding: 80px 22px; text-align: center; border-bottom: 1px solid var(--line); }
+      .hero .eyebrow { display: inline-block; padding: 6px 16px; border-radius: 999px; background: rgba(212,165,55,0.1); border: 1px solid rgba(212,165,55,0.28); color: var(--gold-soft); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 20px; }
+      .hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.5rem, 6vw, 4rem); font-weight: 600; color: var(--ink); margin-bottom: 16px; }
+      .hero h1 span { color: var(--gold); }
+      .hero p { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+
+      .content { max-width: 720px; margin: 64px auto; padding: 0 22px 80px; }
+      .card { background: linear-gradient(135deg, rgba(20,20,68,0.8), rgba(10,10,48,0.8)); border: 1px solid var(--line); border-radius: 16px; padding: 32px 28px; margin-bottom: 22px; }
+      .card h3 { font-family: 'Crimson Text', serif; font-size: 1.4rem; color: var(--ink); margin-bottom: 12px; }
+      .card p { color: var(--ink-muted); line-height: 1.8; font-size: 0.95rem; }
+
+      .cta { margin-top: 32px; text-align: center; }
+      .btn { display: inline-flex; align-items: center; height: 50px; padding: 0 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; }
+      .btn-gold { background: var(--gold); color: #111; }
+      .btn-gold:hover { background: var(--gold-soft); }
+      .btn-outline { border: 1px solid var(--line); color: var(--ink-muted); margin-left: 12px; background: rgba(255,255,255,0.03); }
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      .footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); padding: 28px 22px; text-align: center; }
+      .footer p { color: #6b7280; font-size: 0.85rem; margin-bottom: 8px; }
+      .footer a { color: var(--gold-soft); text-decoration: none; }
+    </style>
+  </head>
+  <body>
+    <nav class="nav">
+      <a class="nav-brand" href="/">Sunday<span>Law</span>.com</a>
+      <a class="nav-brand" href="/library" style="font-size:0.85rem;color:var(--ink-muted);">Pioneer Library</a>
+    </nav>
+
+    <div class="hero">
+      <div class="eyebrow">Get in Touch</div>
+      <h1>Contact <span>Us</span></h1>
+      <p>Prayer requests, newsletter signup, sharing the message, and connecting with others who keep the commandments of God and the faith of Jesus.</p>
+    </div>
+
+    <div class="content">
+      <div class="card">
+        <h3>Prayer Request</h3>
+        <p>We believe in the power of prayer. Send us your prayer request and we will lift it up before the throne of grace.</p>
+      </div>
+      <div class="card">
+        <h3>Newsletter</h3>
+        <p>Stay informed about Sunday law developments, new pioneer writings added to the library, and prophetic news updates.</p>
+      </div>
+      <div class="card">
+        <h3>Share the Message</h3>
+        <p>Help us proclaim the Three Angels&rsquo; Messages &mdash; Revelation 14:6&ndash;12 &mdash; to every nation, kindred, tongue, and people.</p>
+      </div>
+      <div class="card">
+        <h3>Contact Us</h3>
+        <p>This contact page is under development. In the meantime, explore the Pioneer Library and let the writings of the historic Adventist pioneers speak.</p>
+        <p style="margin-top:12px;"><em>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo; &mdash; Revelation 14:12</em></p>
+      </div>
+      <div class="cta">
+        <a href="/" class="btn btn-gold">Back to Homepage</a>
+        <a href="/library" class="btn btn-outline">Pioneer Library</a>
+      </div>
+    </div>
+
+    <SiteFooter
+      pageLinks={[
+        { label: 'Contact SundayLaw.com', href: '/contact' },
+        { label: 'Support the Work', href: '/donate' },
+        { label: 'All Pioneer Books', href: '/library' },
+        { label: 'All Pioneer Biographies', href: '/pioneers' }
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>

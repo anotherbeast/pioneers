@@ -1,0 +1,609 @@
+﻿---
+import { getCollection } from 'astro:content';
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+
+const books = await getCollection('books');
+
+// Group books by author, sorted alphabetically
+const byAuthor = books.reduce((acc, b) => {
+  const author = b.data.author || 'Other';
+  if (!acc[author]) acc[author] = [];
+  acc[author].push(b);
+  return acc;
+}, {} as Record<string, typeof books>);
+
+const authorGroups = Object.entries(byAuthor)
+  .sort(([a], [b]) => a.localeCompare(b))
+  .map(([author, titles]) => ({
+    author,
+    titles: titles.sort((a, b) => a.data.title.localeCompare(b.data.title))
+  }));
+---
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>Book Library | Advent Pioneer Library</title>
+    <meta name="description" content="Browse key historical books and source texts connected to the Advent pioneers.">
+    <meta property="og:title" content="Book Library | Advent Pioneer Library">
+    <meta property="og:description" content="Browse key historical books and source texts written by the original Advent pioneers — free to read.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/books">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #070a16;
+        --ink: #f4f0de;
+        --ink-muted: #c6bc97;
+        --line: rgba(212, 165, 55, 0.26);
+        --gold: #d4a537;
+        --gold-soft: #f0cf7b;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 12% 8%, rgba(212, 165, 55, 0.14), transparent 40%),
+          radial-gradient(circle at 86% 78%, rgba(63, 93, 138, 0.2), transparent 48%),
+          linear-gradient(160deg, #04060f 0%, #090d1d 55%, #070810 100%);
+      }
+
+      .serif { font-family: 'Cormorant Garamond', serif; }
+
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 40;
+        border-bottom: 1px solid var(--line);
+        background: rgba(7, 10, 22, 0.78);
+        backdrop-filter: blur(10px);
+      }
+
+      .nav-inner {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 14px 22px;
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        gap: 16px;
+      }
+
+      .brand {
+        color: var(--ink);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+        font-size: 0.86rem;
+      }
+
+      .brand strong { color: var(--gold-soft); }
+
+      .nav-links {
+        display: flex;
+        gap: 14px;
+        margin-left: auto;
+      }
+
+      .nav-links a,
+      .nav-link {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .nav-links a:hover,
+      .nav-link:hover { color: var(--gold-soft); }
+
+      .nav-tools {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+      }
+
+      #google_translate_element {
+        min-width: 155px;
+      }
+
+      #google_translate_element .goog-te-gadget {
+        color: transparent;
+        font-size: 0;
+      }
+
+      #google_translate_element .goog-te-combo {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.86rem;
+      }
+
+      .lang-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        height: 36px;
+        padding: 0 10px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .lang-badge::before {
+        content: '◎';
+        font-size: 0.78rem;
+        margin-right: 6px;
+        opacity: 0.9;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 12px 22px 14px;
+        background: rgba(7, 10, 22, 0.92);
+      }
+
+      .mobile-nav.open { display: grid; gap: 8px; }
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+      }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      .hero {
+        max-width: 1320px;
+        margin: 26px auto 0;
+        padding: 0 22px;
+      }
+
+      .hero-card {
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        background: linear-gradient(150deg, rgba(15, 20, 36, 0.94), rgba(8, 11, 21, 0.88));
+        padding: 44px;
+        box-shadow: 0 24px 74px rgba(0, 0, 0, 0.45);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        margin-bottom: 14px;
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 7px 13px;
+        color: var(--gold-soft);
+        font-size: 0.74rem;
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-weight: 700;
+      }
+
+      .hero h1 {
+        margin: 0;
+        font-size: clamp(2.2rem, 5.5vw, 4rem);
+        color: var(--ink);
+        line-height: 0.95;
+      }
+
+      .hero h1 span { color: var(--gold-soft); }
+
+      .hero p {
+        margin: 16px 0 0;
+        max-width: 70ch;
+        color: var(--ink-muted);
+        line-height: 1.8;
+        font-size: 1.06rem;
+      }
+
+      .stats {
+        margin-top: 24px;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+      }
+
+      .stat {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.03);
+        padding: 10px 14px;
+      }
+
+      .stat strong { color: var(--gold-soft); margin-right: 6px; }
+
+      .container {
+        max-width: 1320px;
+        margin: 20px auto 0;
+        padding: 0 22px 72px;
+      }
+
+      .grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+        gap: 18px;
+      }
+
+      .book-card {
+        display: block;
+        text-decoration: none;
+        color: inherit;
+        border-radius: 18px;
+        border: 1px solid var(--line);
+        background: linear-gradient(155deg, rgba(18, 22, 38, 0.95), rgba(10, 12, 24, 0.9));
+        padding: 24px;
+        transition: transform 0.24s ease, border-color 0.24s ease, box-shadow 0.24s ease;
+      }
+
+      .book-card:hover {
+        transform: translateY(-5px);
+        border-color: rgba(212, 165, 55, 0.52);
+        box-shadow: 0 16px 36px rgba(0, 0, 0, 0.42);
+      }
+
+      .book-title {
+        margin: 0;
+        color: var(--gold-soft);
+        font-size: 1.7rem;
+        line-height: 1.04;
+      }
+
+      .book-meta {
+        margin: 10px 0 0;
+        color: #9aa1b9;
+        font-size: 0.92rem;
+        font-weight: 600;
+      }
+
+      .book-description {
+        margin: 14px 0 0;
+        color: #d2d6e6;
+        line-height: 1.72;
+      }
+
+      .book-link {
+        margin-top: 18px;
+        color: var(--gold-soft);
+        font-weight: 700;
+        letter-spacing: 0.02em;
+      }
+
+      .empty-state {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        background: rgba(255, 255, 255, 0.03);
+        text-align: center;
+        padding: 48px 20px;
+        color: var(--ink-muted);
+      }
+
+      .author-section {
+        margin-bottom: 52px;
+      }
+
+      .author-heading {
+        display: flex;
+        align-items: center;
+        gap: 14px;
+        margin: 0 0 20px;
+        padding-bottom: 12px;
+        border-bottom: 1px solid var(--line);
+      }
+
+      .author-heading h2 {
+        margin: 0;
+        font-size: 1.65rem;
+        color: var(--gold-soft);
+        line-height: 1;
+      }
+
+      .author-count {
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--ink-muted);
+        border: 1px solid var(--line);
+        border-radius: 999px;
+        padding: 3px 10px;
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        background: rgba(8, 10, 20, 0.68);
+        margin-top: 36px;
+      }
+
+      .footer-main {
+        max-width: 1320px;
+        margin: 0 auto;
+        padding: 28px 22px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr;
+        gap: 18px;
+      }
+
+      .footer h4 {
+        margin: 0 0 8px;
+        color: var(--gold-soft);
+        font-size: 1.05rem;
+      }
+
+      .footer p {
+        margin: 0;
+        color: #a6acc3;
+        line-height: 1.7;
+      }
+
+      .footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .footer-links a {
+        color: #c5bb95;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover { color: var(--gold-soft); }
+
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding: 16px 22px;
+        text-align: center;
+        color: #8c8f9f;
+        font-size: 0.88rem;
+      }
+
+      .goog-te-banner-frame.skiptranslate { display: none !important; }
+      body { top: 0 !important; }
+      .goog-logo-link, .goog-te-gadget span { display: none !important; }
+
+      @media (max-width: 860px) {
+        .hero-card { padding: 30px 22px; }
+        .footer-main { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 700px) {
+        .grid { grid-template-columns: 1fr; }
+        .nav-inner { flex-wrap: nowrap; }
+        .nav-links { display: none; }
+        .nav-link { display: none; }
+        .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .nav-tools { margin-left: auto; }
+      }
+    </style>
+  </head>
+  <body>
+    <header class="nav">
+      <div class="nav-inner">
+        <a class="brand" href="/">Advent <strong>Pioneer Library</strong></a>
+        <nav class="nav-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/pioneers">Pioneers</a>
+          <a href="/books">Books</a>
+          <a href="/prophecy-charts">Prophecy Charts</a>
+          <a href="/midnight-cry">Midnight Cry Movie</a>
+          <a href="/books/captain-joseph-bates-autobiography-1868">Bates Autobiography</a>
+        </nav>
+        <div class="nav-tools">
+          <span class="lang-badge" id="lang-badge">EN</span>
+          <div id="google_translate_element"></div>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/pioneers">Pioneers</a>
+        <a href="/books">Books</a>
+        <a href="/prophecy-charts">Prophecy Charts</a>
+        <a href="/midnight-cry">1844 Midnight Cry Movie</a>
+      </nav>
+    </header>
+
+    <section class="hero">
+      <div class="hero-card">
+        <span class="eyebrow">Source Text Library</span>
+        <h1 class="serif">Pioneer <span>Books</span></h1>
+        <p>
+          Read the key works, theological statements, and historical source texts that help explain the thought-world of the Advent pioneers.
+        </p>
+        <div class="stats">
+          <div class="stat"><strong>{books.length}</strong> Titles</div>
+          <div class="stat"><strong>{authorGroups.length}</strong> Authors / Collections</div>
+          <div class="stat"><strong>Primary Sources</strong> Reading Focus</div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== EGW QUOTE — GREAT CONTROVERSY 1858, P. 75 ===== -->
+    <div style="max-width:1320px;margin:32px auto 0;padding:0 22px;">
+      <div style="border-left:5px solid rgba(212,165,55,0.75);border-radius:0 18px 18px 0;background:linear-gradient(135deg,rgba(20,15,5,0.85),rgba(8,10,22,0.92));padding:32px 32px 32px 34px;">
+        <p style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.35);color:#fcd34d;font-size:0.73rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 18px;">Ellen G. White &mdash; The Great Controversy, 1858, p. 75</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.1vw,1.45rem);font-style:italic;color:rgba(254,243,199,0.93);line-height:1.85;margin:0 0 16px;">&ldquo;As Jesus was crucified, so I saw that these messages have been crucified. And as the disciples declared that there was salvation in no other name under heaven, given among men; so, also, should the servants of God faithfully and fearlessly declare that those who embrace but a part of the truths connected with the third message must gladly embrace the first, second and third messages as God has given them or have no lot in the matter.&rdquo;</p>
+        <cite style="color:#fcd34d;font-size:0.87rem;font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.07em;display:block;">&mdash; Ellen G. White &bull; The Great Controversy, 1858, p. 75</cite>
+        <div style="margin-top:20px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:9px;background:linear-gradient(to right,#b45309,#d97706);color:#fff;font-weight:700;font-size:0.85rem;text-decoration:none;">&#128218; Loughborough &mdash; Rise &amp; Progress of S.D. Adventists (1892)</a>
+          <a href="/books/joseph-bates/Bates_theSecondAdventWayMarksAndHighHeaps_1847.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:9px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.4);color:#fcd34d;font-weight:700;font-size:0.85rem;text-decoration:none;">&#128218; Bates &mdash; Waymarks &amp; High Heaps (1847)</a>
+          <a href="/books/pioneer-pillar-beliefs/1872.pdf" target="_blank" rel="noopener noreferrer" style="display:inline-flex;align-items:center;gap:7px;padding:10px 18px;border-radius:9px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.4);color:#fcd34d;font-weight:700;font-size:0.85rem;text-decoration:none;">&#128218; Fundamental Principles of 1872</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="container">
+      {books.length === 0 ? (
+        <div class="empty-state">
+          <p>No books found yet.</p>
+        </div>
+      ) : (
+        authorGroups.map(({ author, titles }) => (
+          <div class="author-section">
+            <div class="author-heading">
+              <h2 class="serif">{author}</h2>
+              <span class="author-count">{titles.length} {titles.length === 1 ? 'title' : 'titles'}</span>
+            </div>
+            <div class="grid">
+              {titles.map((b) => (
+                <a href={b.data.link ?? `/books/${b.id}`} class="book-card" target={b.data.link?.endsWith('.pdf') ? '_blank' : undefined} rel={b.data.link?.endsWith('.pdf') ? 'noopener' : undefined}>
+                  <h2 class="book-title serif">{b.data.title}</h2>
+                  <p class="book-meta">{b.data.author} · {b.data.published}</p>
+                  <p class="book-description">{b.data.description}</p>
+                  <div class="book-link">{b.data.link?.endsWith('.pdf') ? 'Download PDF →' : 'Open Book →'}</div>
+                </a>
+              ))}
+            </div>
+          </div>
+        ))
+      )}
+    </div>
+
+    <footer class="footer">
+      <div class="footer-main">
+        <div>
+          <h4 class="serif">Advent Pioneer Library</h4>
+          <p>Historical books and life sketches presented together so readers can move easily between biography and source text.</p>
+        </div>
+        <div>
+          <h4 class="serif">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pioneers">Pioneer Library</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/midnight-cry">1844 Midnight Cry Movie</a></li>
+            <li><a href="/pioneers/1843-prophecy-chart">1843 Prophetic Chart</a></li>
+            <li><a href="/pioneers/1850-prophecy-chart">1850 Prophetic Chart</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="serif">Study Paths</h4>
+          <ul class="footer-links">
+            <li><a href="/books">Browse Historical Works</a></li>
+            <li><a href="/pioneers">Return to Biographies</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Advent Pioneer Library</div>
+    </footer>
+
+    <script is:inline>
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const langBadge = document.getElementById('lang-badge');
+
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      function updateLanguageBadge(lang) {
+        if (!langBadge) return;
+        const normalized = (lang || 'en').replace('/en/', '').replace('/', '');
+        langBadge.textContent = normalized || 'en';
+      }
+
+      function getCurrentGoogTrans() {
+        const match = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : '/en/en';
+      }
+
+      function applyAutoTranslation() {
+        const rawLang = (navigator.language || 'en').toLowerCase();
+        let browserLang = rawLang.split('-')[0];
+
+        if (rawLang.startsWith('zh-tw') || rawLang.startsWith('zh-hk')) {
+          browserLang = 'zh-TW';
+        } else if (rawLang.startsWith('zh')) {
+          browserLang = 'zh-CN';
+        }
+
+        if (!browserLang || browserLang === 'en') return;
+
+        const target = '/en/' + browserLang;
+        updateLanguageBadge(browserLang);
+        if (document.cookie.includes('googtrans=' + target)) return;
+
+        document.cookie = 'googtrans=' + target + ';path=/';
+        document.cookie = 'googtrans=' + target + ';domain=' + location.hostname + ';path=/';
+
+        if (!sessionStorage.getItem('gt_auto_applied')) {
+          sessionStorage.setItem('gt_auto_applied', '1');
+          location.reload();
+        }
+      }
+
+      function initGoogleTranslate() {
+        if (!window.google || !window.google.translate) return;
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            autoDisplay: false,
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+          },
+          'google_translate_element'
+        );
+        updateLanguageBadge(getCurrentGoogTrans());
+        applyAutoTranslation();
+
+        setTimeout(() => {
+          const select = document.querySelector('#google_translate_element select');
+          if (!select) return;
+          select.addEventListener('change', (event) => {
+            updateLanguageBadge(event.target.value);
+          });
+        }, 800);
+      }
+
+      window.initGoogleTranslate = initGoogleTranslate;
+    </script>
+    <script is:inline src="//translate.google.com/translate_a/element.js?cb=initGoogleTranslate"></script>
+    <SiteFooter
+      pageLinks={[
+        { label: 'All Pioneer Biographies', href: '/pioneers' },
+        { label: 'Pioneer Books Library', href: '/library' },
+        { label: 'Charles Fitch — Come Out of Her 1843', href: '/books/charles-fitch' },
+        { label: 'Joseph Bates — Seal of the Living God', href: '/books/joseph-bates-seal' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+  </body>
+</html>

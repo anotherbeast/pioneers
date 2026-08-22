@@ -1,0 +1,1438 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Midnight Cry — Matthew 25:6 &amp; Revelation 14:8 | SundayLaw.com</title>
+    <meta name="description" content="And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him. — Matthew 25:6 KJV. The Midnight Cry of 1844, Habakkuk's tables, the 1843 & 1850 prophecy charts, and the sealing of the 144,000.">
+    <link rel="canonical" href="https://sundaylaw.com/midnight-cry">
+    <meta property="og:title" content="The Midnight Cry — Matthew 25:6 | SundayLaw.com">
+    <meta property="og:description" content="At midnight there was a cry made — Behold, the bridegroom cometh. The Advent movement of 1844, the 1843 & 1850 prophecy charts, and the sealing of the 144,000 who keep the commandments of God.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/midnight-cry">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Midnight Cry — Matthew 25:6 | SundayLaw.com">
+    <meta name="twitter:description" content="Behold, the bridegroom cometh — the Advent cry of 1844 and the prophecy charts that made it plain.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Article",
+      "headline": "The Midnight Cry — Matthew 25:6 & Revelation 14:8",
+      "description": "The Midnight Cry of 1844 — hundreds of thousands of Americans awaited the second coming of Christ on October 22, 1844. The 1843 and 1850 prophecy charts, written on tables as commanded in Habakkuk 2:2, proclaimed the hour of God's judgment.",
+      "author": { "@type": "Organization", "name": "SundayLaw.com" },
+      "publisher": { "@type": "Organization", "name": "SundayLaw.com", "url": "https://sundaylaw.com" },
+      "url": "https://sundaylaw.com/midnight-cry",
+      "image": "https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg"
+    }
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--ink);
+        background: #0a0a2e;
+        overflow-x: hidden;
+      }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(5,5,30,0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+
+      .nav-row {
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+      }
+
+      .nav-row-top {
+        gap: 28px;
+        height: 62px;
+        border-bottom: 1px solid rgba(212,165,55,0.10);
+      }
+
+      .nav-row-bottom {
+        gap: 22px;
+        height: 42px;
+        font-size: 0.82rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-brand {
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+      }
+
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+
+      .nav-link {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        transition: color 0.18s;
+      }
+
+      .nav-link:hover { color: var(--gold-soft); }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        height: 38px;
+        padding: 0 18px;
+        border-radius: 8px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.88rem;
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: background 0.18s;
+      }
+
+      .nav-cta:hover { background: var(--gold-soft); }
+
+      .nav-bottom-link {
+        color: rgba(156,163,175,0.8);
+        text-decoration: none;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.18s;
+        flex-shrink: 0;
+      }
+
+      .nav-bottom-link:hover { color: var(--gold-soft); }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+        cursor: pointer;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 14px 22px 18px;
+        background: rgba(5,5,30,0.97);
+      }
+
+      .mobile-nav.open { display: grid; gap: 6px; }
+
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        min-height: 92vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #04041a;
+      }
+
+      .hero-stars {
+        position: absolute;
+        inset: 0;
+        background:
+          radial-gradient(ellipse at 20% 30%, rgba(212,165,55,0.06) 0%, transparent 55%),
+          radial-gradient(ellipse at 80% 70%, rgba(80,60,200,0.07) 0%, transparent 50%),
+          radial-gradient(ellipse at 50% 10%, rgba(255,255,255,0.03) 0%, transparent 40%);
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom,
+          rgba(4,4,26,0.30) 0%,
+          rgba(4,4,26,0.10) 35%,
+          rgba(4,4,26,0.55) 75%,
+          rgba(4,4,26,0.98) 100%
+        );
+        z-index: 1;
+      }
+
+      .hero-stripe {
+        position: absolute;
+        bottom: 0;
+        left: 0; right: 0;
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--gold), transparent);
+        z-index: 3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 960px;
+        padding: 100px 28px 120px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 20px;
+        border-radius: 999px;
+        border: 1px solid rgba(212,165,55,0.45);
+        background: rgba(212,165,55,0.09);
+        color: var(--gold-soft);
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        margin-bottom: 32px;
+      }
+
+      .hero h1 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(3.8rem, 10vw, 7.5rem);
+        font-weight: 600;
+        line-height: 0.95;
+        letter-spacing: -0.01em;
+        color: #fef3c7;
+        text-shadow: 0 4px 40px rgba(0,0,0,0.7);
+        margin-bottom: 22px;
+      }
+
+      .hero h1 .gold { color: var(--gold); }
+
+      .hero-verse {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.25rem, 3vw, 1.7rem);
+        color: rgba(254,243,199,0.88);
+        font-style: italic;
+        line-height: 1.65;
+        max-width: 720px;
+        margin: 0 auto 14px;
+      }
+
+      .hero-cite {
+        display: block;
+        font-family: 'Inter', sans-serif;
+        font-size: 0.88rem;
+        font-style: normal;
+        font-weight: 700;
+        color: var(--gold-soft);
+        letter-spacing: 0.06em;
+        text-transform: uppercase;
+        margin-bottom: 38px;
+      }
+
+      .hero-desc-wrap {
+        display: inline-block;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(5,5,30,0.55);
+        border-radius: 14px;
+        padding: 18px 26px;
+        margin: 0 auto 36px;
+        max-width: 700px;
+        border: 1px solid rgba(212,165,55,0.15);
+      }
+
+      .hero-desc {
+        color: rgba(156,163,175,0.95);
+        font-size: 1.02rem;
+        line-height: 1.8;
+        margin: 0;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .btn-primary:hover { background: var(--gold-soft); transform: translateY(-2px); }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        border: 1px solid rgba(254,243,199,0.3);
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        background: rgba(255,255,255,0.04);
+        transition: all 0.2s;
+      }
+
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      /* ===== SECTIONS ===== */
+      .section { padding: 84px 22px; position: relative; }
+
+      .section-dark {
+        background: linear-gradient(to bottom, #0a0a2e, #080828, #0a0a2e);
+      }
+
+      .section-warm {
+        background: linear-gradient(to bottom, #0a0a2e, #100820, #0a0a2e);
+      }
+
+      .section-midnight {
+        background: linear-gradient(to bottom, #04041c, #06062a, #04041c);
+      }
+
+      .section-inner { max-width: 1200px; margin: 0 auto; }
+      .section-narrow { max-width: 920px; margin: 0 auto; }
+
+      .section-stripe-top {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(to right, transparent, rgba(212,165,55,0.35), transparent);
+      }
+
+      /* ===== SECTION HEADINGS ===== */
+      .sh { text-align: center; margin-bottom: 52px; }
+
+      .sh-eyebrow {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(212,165,55,0.10);
+        border: 1px solid rgba(212,165,55,0.28);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+
+      .sh h2 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.15;
+      }
+
+      .sh p {
+        margin-top: 14px;
+        color: var(--ink-muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sh-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .sh-line { height: 1px; width: 52px; background: rgba(212,165,55,0.4); }
+
+      /* ===== SCRIPTURE SHOWCASES ===== */
+      .scripture-showcase {
+        border: 1px solid rgba(212,165,55,0.35);
+        border-radius: 20px;
+        padding: 44px 40px;
+        background: linear-gradient(135deg, rgba(18,12,0,0.85), rgba(6,6,28,0.92));
+        text-align: center;
+        margin-bottom: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .scripture-showcase::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center top, rgba(212,165,55,0.05), transparent 65%);
+        pointer-events: none;
+      }
+
+      .scripture-showcase .sc-ref {
+        display: inline-block;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--gold-soft);
+        padding: 5px 14px;
+        border: 1px solid rgba(212,165,55,0.3);
+        border-radius: 999px;
+        background: rgba(212,165,55,0.08);
+        margin-bottom: 22px;
+      }
+
+      .scripture-showcase blockquote {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.4rem, 3.2vw, 2rem);
+        font-weight: 400;
+        font-style: italic;
+        color: #fef3c7;
+        line-height: 1.65;
+        margin: 0 auto 20px;
+        max-width: 820px;
+        text-shadow: 0 2px 16px rgba(0,0,0,0.4);
+      }
+
+      .scripture-showcase blockquote .highlight {
+        color: var(--gold);
+        font-style: italic;
+      }
+
+      .scripture-showcase cite {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.88rem;
+        font-style: normal;
+        font-weight: 700;
+        color: var(--gold-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+      }
+
+      /* ===== QUOTE BLOCKS ===== */
+      .qb {
+        border-left: 4px solid rgba(212,165,55,0.5);
+        padding: 20px 20px 20px 24px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 22px;
+        background: rgba(212,165,55,0.06);
+      }
+
+      .qb p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.15rem;
+        line-height: 1.75;
+        color: rgba(254,243,199,0.92);
+        font-style: italic;
+        margin: 0;
+      }
+
+      .qb cite {
+        display: block;
+        margin-top: 10px;
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      /* ===== HABAKKUK TABLES ===== */
+      .hab-section {
+        background: linear-gradient(135deg, rgba(10,8,26,0.95), rgba(6,4,20,0.98));
+        border: 1px solid rgba(100,80,200,0.3);
+        border-radius: 20px;
+        padding: 44px 40px;
+        margin-bottom: 32px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .hab-section::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at top right, rgba(100,80,200,0.06), transparent 60%);
+        pointer-events: none;
+      }
+
+      .hab-section .hab-ref {
+        display: inline-block;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: #a78bfa;
+        padding: 5px 14px;
+        border: 1px solid rgba(167,139,250,0.3);
+        border-radius: 999px;
+        background: rgba(167,139,250,0.08);
+        margin-bottom: 22px;
+      }
+
+      .hab-verse {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.25rem, 2.8vw, 1.65rem);
+        font-style: italic;
+        color: rgba(254,243,199,0.90);
+        line-height: 1.7;
+        margin-bottom: 10px;
+      }
+
+      .hab-verse .tables-word {
+        color: var(--gold);
+        font-style: italic;
+        font-weight: 600;
+        text-decoration: underline;
+        text-decoration-color: rgba(212,165,55,0.45);
+        text-underline-offset: 4px;
+      }
+
+      .hab-verse-num {
+        font-family: 'Inter', sans-serif;
+        font-size: 0.78rem;
+        font-style: normal;
+        font-weight: 700;
+        color: #a78bfa;
+        margin-right: 8px;
+      }
+
+      .tables-fulfillment {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        margin-top: 32px;
+      }
+
+      .tf-card {
+        background: linear-gradient(135deg, rgba(22,14,2,0.9), rgba(8,8,32,0.9));
+        border: 1px solid rgba(212,165,55,0.35);
+        border-radius: 14px;
+        padding: 24px 20px;
+        text-align: center;
+        transition: all 0.25s;
+      }
+
+      .tf-card:hover { border-color: rgba(212,165,55,0.7); transform: translateY(-3px); }
+
+      .tf-year {
+        font-family: 'Crimson Text', serif;
+        font-size: 2.6rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+        display: block;
+        margin-bottom: 6px;
+      }
+
+      .tf-card h4 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        color: #fef3c7;
+        margin-bottom: 8px;
+      }
+
+      .tf-card p {
+        font-size: 0.9rem;
+        color: var(--ink-muted);
+        line-height: 1.65;
+        margin-bottom: 14px;
+      }
+
+      .tf-card a {
+        display: inline-flex;
+        align-items: center;
+        height: 36px;
+        padding: 0 16px;
+        border-radius: 8px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.82rem;
+        text-decoration: none;
+        transition: background 0.18s;
+      }
+
+      .tf-card a:hover { background: var(--gold-soft); }
+
+      /* ===== TARRYING TIME TIMELINE ===== */
+      .timeline {
+        position: relative;
+        padding-left: 32px;
+        margin-bottom: 32px;
+      }
+
+      .timeline::before {
+        content: '';
+        position: absolute;
+        left: 10px;
+        top: 8px;
+        bottom: 8px;
+        width: 2px;
+        background: linear-gradient(to bottom, var(--gold), rgba(212,165,55,0.2));
+      }
+
+      .tl-item {
+        position: relative;
+        margin-bottom: 32px;
+      }
+
+      .tl-item::before {
+        content: '';
+        position: absolute;
+        left: -26px;
+        top: 6px;
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        background: var(--gold);
+        border: 2px solid #0a0a2e;
+        box-shadow: 0 0 10px rgba(212,165,55,0.5);
+      }
+
+      .tl-date {
+        font-size: 0.78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        color: var(--gold-soft);
+        margin-bottom: 6px;
+      }
+
+      .tl-item h4 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #fef3c7;
+        margin-bottom: 8px;
+      }
+
+      .tl-item p {
+        color: var(--ink-muted);
+        font-size: 0.95rem;
+        line-height: 1.75;
+      }
+
+      /* ===== SABBATH TRUTH BOX ===== */
+      .sabbath-box {
+        border: 2px solid rgba(212,165,55,0.5);
+        border-radius: 20px;
+        padding: 40px 36px;
+        background: linear-gradient(135deg, rgba(28,20,0,0.88), rgba(8,8,30,0.92));
+        position: relative;
+        overflow: hidden;
+        margin-top: 32px;
+      }
+
+      .sabbath-box::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center, rgba(212,165,55,0.05), transparent 70%);
+        pointer-events: none;
+      }
+
+      .sab-label {
+        display: inline-block;
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        color: var(--gold-soft);
+        padding: 5px 14px;
+        border: 1px solid rgba(212,165,55,0.4);
+        border-radius: 999px;
+        background: rgba(212,165,55,0.1);
+        margin-bottom: 18px;
+      }
+
+      .sabbath-box h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.2;
+        margin-bottom: 16px;
+      }
+
+      .sab-times {
+        display: grid;
+        grid-template-columns: 1fr 1fr 1fr;
+        gap: 16px;
+        margin: 24px 0;
+      }
+
+      .sab-time {
+        background: rgba(0,0,0,0.3);
+        border-radius: 12px;
+        border: 1px solid rgba(212,165,55,0.2);
+        padding: 18px 14px;
+        text-align: center;
+      }
+
+      .sab-time .sab-day {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        color: var(--gold);
+        display: block;
+        margin-bottom: 5px;
+      }
+
+      .sab-time .sab-desc {
+        font-size: 0.82rem;
+        color: var(--ink-muted);
+        line-height: 1.5;
+      }
+
+      .sab-proof-list {
+        list-style: none;
+        padding: 0;
+        margin: 20px 0 0;
+        display: grid;
+        gap: 10px;
+      }
+
+      .sab-proof-list li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: var(--ink-muted);
+        font-size: 0.95rem;
+        line-height: 1.65;
+      }
+
+      .sab-proof-list li::before {
+        content: '›';
+        color: var(--gold);
+        flex-shrink: 0;
+        font-weight: 700;
+        font-size: 1.1rem;
+      }
+
+      /* ===== 144,000 SECTION ===== */
+      .sealed-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 20px;
+        margin: 32px 0;
+      }
+
+      .sealed-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 26px 20px;
+        background: linear-gradient(135deg, rgba(20,20,60,0.8), rgba(10,10,40,0.8));
+        transition: all 0.25s;
+      }
+
+      .sealed-card:hover {
+        border-color: rgba(212,165,55,0.45);
+        transform: translateY(-3px);
+      }
+
+      .sealed-card .sc-num {
+        font-family: 'Crimson Text', serif;
+        font-size: 2.2rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+        margin-bottom: 8px;
+        display: block;
+      }
+
+      .sealed-card h4 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        color: #fef3c7;
+        margin-bottom: 8px;
+      }
+
+      .sealed-card p {
+        color: var(--ink-muted);
+        font-size: 0.93rem;
+        line-height: 1.7;
+      }
+
+      /* ===== VIDEO SECTION ===== */
+      .video-wrap {
+        position: relative;
+        width: 100%;
+        padding-top: 56.25%; /* 16:9 */
+        border-radius: 16px;
+        overflow: hidden;
+        border: 1px solid rgba(212,165,55,0.3);
+        box-shadow: 0 20px 60px rgba(0,0,0,0.5), 0 0 40px rgba(212,165,55,0.06);
+      }
+
+      .video-wrap iframe {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        border: none;
+      }
+
+      .video-meta {
+        margin-top: 20px;
+        padding: 18px 22px;
+        background: rgba(212,165,55,0.06);
+        border: 1px solid rgba(212,165,55,0.18);
+        border-radius: 12px;
+        display: flex;
+        gap: 18px;
+        align-items: flex-start;
+        flex-wrap: wrap;
+      }
+
+      .vm-icon {
+        font-size: 2rem;
+        flex-shrink: 0;
+        line-height: 1;
+        margin-top: 2px;
+      }
+
+      .vm-text h4 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        color: #fef3c7;
+        margin-bottom: 5px;
+      }
+
+      .vm-text p {
+        color: var(--ink-muted);
+        font-size: 0.92rem;
+        line-height: 1.7;
+      }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        background: #050518;
+        border-top: 1px solid rgba(180,130,50,0.2);
+      }
+
+      .footer-banner {
+        text-align: center;
+        padding: 32px 22px 28px;
+        border-bottom: 1px solid rgba(212,165,55,0.12);
+      }
+
+      .footer-banner p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: rgba(254,243,199,0.8);
+        max-width: 700px;
+        margin: 0 auto 8px;
+      }
+
+      .footer-banner cite {
+        font-size: 0.85rem;
+        color: var(--gold-soft);
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .footer-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 22px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-col h4 {
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      .footer-col p {
+        color: #6b7280;
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 9px;
+      }
+
+      .footer-col ul a {
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.18s;
+      }
+
+      .footer-col ul a:hover { color: var(--gold-soft); }
+
+      .footer-brand-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .footer-brand-name span {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .footer-brand-name span em { color: var(--gold); font-style: normal; }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(212,165,55,0.1);
+        padding: 20px 22px;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .footer-bottom p { color: #6b7280; font-size: 0.85rem; }
+
+      .footer-flags { display: flex; gap: 4px; }
+      .flag-r { width: 24px; height: 12px; background: #b91c1c; border-radius: 2px 0 0 2px; }
+      .flag-w { width: 24px; height: 12px; background: #e5e7eb; }
+      .flag-b { width: 24px; height: 12px; background: #1d4ed8; border-radius: 0 2px 2px 0; }
+
+      .footer-stripe {
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--gold), transparent);
+      }
+
+      /* ===== BACK TO TOP ===== */
+      .btt {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(212,165,55,0.18);
+        border: 1px solid rgba(212,165,55,0.4);
+        color: var(--gold-soft);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+        transition: all 0.2s;
+      }
+
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(212,165,55,0.3); }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
+        .footer-main { grid-template-columns: 1fr 1fr; }
+        .tables-fulfillment { grid-template-columns: 1fr 1fr; }
+        .sealed-grid { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 768px) {
+        .nav-link { display: none; }
+        .menu-btn { display: inline-flex; }
+        .sab-times { grid-template-columns: 1fr; }
+        .tables-fulfillment { grid-template-columns: 1fr; }
+        .sealed-grid { grid-template-columns: 1fr; }
+        .scripture-showcase { padding: 28px 22px; }
+        .hab-section { padding: 28px 22px; }
+        .sabbath-box { padding: 28px 22px; }
+      }
+
+      @media (max-width: 580px) {
+        .footer-main { grid-template-columns: 1fr; }
+        .hero h1 { letter-spacing: -0.02em; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-stars"></div>
+      <div class="hero-overlay"></div>
+      <div class="hero-stripe"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          Matthew 25:6 &mdash; October 22, 1844
+        </div>
+
+        <h1>The <span class="gold">Midnight</span> Cry</h1>
+
+        <p class="hero-verse">
+          &ldquo;And at midnight there was a cry made, Behold,<br>
+          the bridegroom cometh; go ye out to meet him.&rdquo;
+        </p>
+        <span class="hero-cite">&mdash; Matthew 25:6 (KJV)</span>
+
+        <div class="hero-desc-wrap">
+          <p class="hero-desc">
+            In the fall of 1844, hundreds of thousands of Americans awaited the second coming of Christ
+            on October 22 &mdash; inspired by the prophecies of Daniel 8:14 and the prophetic charts
+            that made the vision plain. The charts are the <em>tables</em> of Habakkuk 2:2.
+            The cry still sounds. The Bridegroom is still coming.
+          </p>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#midnight-cry-message" class="btn-primary">Study the Midnight Cry</a>
+          <a href="#documentary" class="btn-outline">Watch the Documentary</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MATTHEW 25:6 — THE CRY ===== -->
+    <section id="midnight-cry-message" class="section section-midnight">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+
+        <div class="sh">
+          <div class="sh-eyebrow">The First Angel's Message</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>Behold, the Bridegroom Cometh</h2>
+          <p>The parable of the ten virgins foretold the Advent movement precisely. The midnight cry was the proclamation that Christ was coming &mdash; October 22, 1844. Not all were ready.</p>
+        </div>
+
+        <div class="scripture-showcase">
+          <span class="sc-ref">Matthew 25:1&ndash;6 (KJV)</span>
+          <blockquote>
+            &ldquo;Then shall the kingdom of heaven be likened unto ten virgins, which took their lamps,
+            and went forth to meet the bridegroom. And five of them were wise, and five were foolish&hellip;
+            <span class="highlight">And at midnight there was a cry made, Behold, the bridegroom cometh;
+            go ye out to meet him.</span>&rdquo;
+          </blockquote>
+          <cite>&mdash; Matthew 25:1&ndash;2, 6 &mdash; The Parable of the Ten Virgins</cite>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;Fear God, and give glory to him; for the hour of his judgment is come: and worship him
+          that made heaven, and earth, and the sea, and the fountains of waters.&rdquo;</p>
+          <cite>&mdash; Revelation 14:7 (KJV) &mdash; First Angel: The Hour of Judgment is Come</cite>
+        </div>
+
+        <div class="scripture-showcase" style="border-color:rgba(220,50,50,0.35);background:linear-gradient(135deg,rgba(30,5,5,0.88),rgba(6,6,28,0.92));">
+          <span class="sc-ref" style="color:#fca5a5;border-color:rgba(220,50,50,0.3);background:rgba(220,50,50,0.08);">Revelation 14:8 (KJV)</span>
+          <blockquote>
+            &ldquo;And there followed another angel, saying,
+            <span class="highlight" style="color:#fca5a5;">Babylon is fallen, is fallen,</span>
+            that great city, because she made all nations drink of the wine
+            of the wrath of her fornication.&rdquo;
+          </blockquote>
+          <cite style="color:#fca5a5;">&mdash; Revelation 14:8 &mdash; Second Angel: Babylon is Fallen</cite>
+        </div>
+
+        <p style="color:var(--ink-muted);font-size:1rem;line-height:1.85;margin-top:8px;">
+          The Second Angel&rsquo;s message of Babylon&rsquo;s fall was inseparably joined to the midnight cry of 1844.
+          Charles Fitch preached &ldquo;Come Out of Her, My People&rdquo; in 1843. Babylon had fallen &mdash; all the
+          Protestant churches that rejected the first angel&rsquo;s message of the judgment hour were swept into
+          spiritual darkness. The cry of Revelation 18:4 echoes still.
+        </p>
+
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="/books/charles-fitch" class="btn-primary">Read Charles Fitch: Come Out of Her (1843)</a>
+          <a href="/books/3angels" class="btn-outline">The Three Angels' Messages</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== HABAKKUK 2:2–3 — WRITE ON TABLES ===== -->
+    <section id="tables" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+
+        <div class="sh">
+          <div class="sh-eyebrow">Habakkuk 2:2&ndash;3 (KJV)</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>Write the Vision — Make It Plain Upon Tables</h2>
+          <p>The Lord commanded Habakkuk to write the vision on <em>tables</em> &mdash; so he that runneth may read it.
+          The 1843 and 1850 prophetic charts are the divine fulfillment of that command.</p>
+        </div>
+
+        <div class="hab-section">
+          <span class="hab-ref">Habakkuk 2:2&ndash;3 (KJV)</span>
+          <p class="hab-verse">
+            <span class="hab-verse-num">v.2</span>
+            &ldquo;And the LORD answered me, and said, Write the vision, and make it plain upon
+            <span class="tables-word">tables</span>,
+            that he may run that readeth it.
+          </p>
+          <p class="hab-verse" style="margin-top:14px;">
+            <span class="hab-verse-num">v.3</span>
+            For the vision is yet for an appointed time, but at the end it shall speak, and not lie:
+            though it tarry, wait for it; because it will surely come, it will not tarry.&rdquo;
+          </p>
+          <div style="margin-top:28px;padding:18px 20px;background:rgba(212,165,55,0.07);border:1px solid rgba(212,165,55,0.2);border-radius:12px;">
+            <p style="color:rgba(254,243,199,0.85);font-size:0.97rem;line-height:1.8;margin:0;">
+              <strong style="color:var(--gold-soft);">The Tables = The Prophecy Charts.</strong>
+              The word &ldquo;tables&rdquo; in Habakkuk 2:2 refers to large writing tablets &mdash; exactly what the 1843 and 1850
+              prophetic charts were. These massive illustrated charts were carried to every campmeeting, hung on canvas,
+              and used to preach Daniel 8:14 to hundreds of thousands across America. They fulfilled Habakkuk&rsquo;s command:
+              the vision was written plain, so that &ldquo;he that runneth may read it.&rdquo;
+            </p>
+          </div>
+        </div>
+
+        <div class="tables-fulfillment">
+          <div class="tf-card">
+            <span class="tf-year">1843</span>
+            <h4>The 1843 Prophetic Chart</h4>
+            <p>Designed by Charles Fitch and Apollos Hale. Used by William Miller and the Advent preachers
+            to proclaim the 2300-day prophecy of Daniel 8:14 and the hour of judgment.</p>
+            <a href="/pioneers/1843-prophecy-chart">Study the 1843 Chart &rarr;</a>
+          </div>
+          <div class="tf-card">
+            <span class="tf-year">1850</span>
+            <h4>The 1850 Prophetic Chart</h4>
+            <p>Revised after October 22, 1844 to include the sanctuary truth, the third angel&rsquo;s message,
+            and the Sabbath &mdash; carried by the pioneers as the standard of the remnant.</p>
+            <a href="/pioneers/1850-prophecy-chart">Study the 1850 Chart &rarr;</a>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:28px;">
+          <a href="/prophecy-charts" class="btn-primary" style="font-size:0.98rem;">View All Prophecy Charts &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE TARRYING TIME & 144,000 ===== -->
+    <section id="tarrying-time" class="section section-warm">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+
+        <div class="sh">
+          <div class="sh-eyebrow">October 22, 1844 &mdash; Present Day</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Tarrying Time &mdash; Waiting for the 144,000</h2>
+          <p>Though it tarry, wait for it &mdash; Habakkuk 2:3. Since the great disappointment of 1844,
+          God&rsquo;s remnant people have kept the commandments and waited. The sealing is not yet complete.</p>
+        </div>
+
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:32px;align-items:start;">
+          <div>
+            <div class="timeline">
+              <div class="tl-item">
+                <div class="tl-date">October 22, 1844</div>
+                <h4>The Great Disappointment</h4>
+                <p>Christ did not appear visibly. But the prophecy was not in error &mdash; the sanctuary to be cleansed
+                was in heaven, not on earth. The investigative judgment began in the Most Holy Place.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">1844 &mdash; 1848</div>
+                <h4>The Sabbath Truth Restored</h4>
+                <p>Captain Joseph Bates published <em>The Seventh-Day Sabbath: A Perpetual Sign</em> (1846).
+                The fourth commandment &mdash; the seal of the living God &mdash; was restored to the remnant church.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">1849</div>
+                <h4>A Seal of the Living God</h4>
+                <p>Bates published his landmark tract showing that the 144,000 of Revelation 7 are those sealed
+                with the Sabbath truth &mdash; the seal of God in their foreheads before the four winds are released.</p>
+              </div>
+              <div class="tl-item">
+                <div class="tl-date">Now &mdash; The End</div>
+                <h4>The Sealing Is In Progress</h4>
+                <p>The four angels hold the four winds. The sealing of the 144,000 continues. The third angel&rsquo;s
+                message calls God&rsquo;s people out of Babylon. &ldquo;Here is the patience of the saints.&rdquo; &mdash; Rev. 14:12</p>
+              </div>
+            </div>
+          </div>
+
+          <div>
+            <div class="sealed-grid" style="grid-template-columns:1fr;gap:16px;">
+              <div class="sealed-card">
+                <span class="sc-num">144,000</span>
+                <h4>Sealed from the Twelve Tribes</h4>
+                <p>Revelation 7:4 &mdash; &ldquo;And I heard the number of them which were sealed: and there were sealed
+                an hundred and forty and four thousand of all the tribes of the children of Israel.&rdquo;</p>
+              </div>
+              <div class="sealed-card">
+                <span class="sc-num">Rev. 14:1</span>
+                <h4>Standing on Mount Zion</h4>
+                <p>&ldquo;And I looked, and, lo, a Lamb stood on the mount Sion, and with him an hundred
+                forty and four thousand, having his Father&rsquo;s name written in their foreheads.&rdquo;</p>
+              </div>
+              <div class="sealed-card">
+                <span class="sc-num">Rev. 14:12</span>
+                <h4>Keeping the Commandments</h4>
+                <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God,
+                and the faith of Jesus.&rdquo; The 144,000 are Sabbath keepers.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- SABBATH TRUTH -->
+        <div class="sabbath-box">
+          <span class="sab-label">The Fourth Commandment &mdash; Exodus 20:8&ndash;11</span>
+          <h3>The Seventh-Day Sabbath &mdash; From Creation Throughout Eternity</h3>
+          <p style="color:var(--ink-muted);font-size:0.97rem;line-height:1.8;margin-bottom:4px;">
+            God blessed the seventh day and sanctified it at creation. He wrote it in stone with His
+            own finger as the fourth commandment. Isaiah 66:22&ndash;23 reveals the Sabbath will be kept in the new earth
+            &mdash; from one Sabbath to another, throughout eternity.
+          </p>
+
+          <div class="sab-times">
+            <div class="sab-time">
+              <span class="sab-day">Friday</span>
+              <div class="sab-desc">Preparation Day<br>&ldquo;the sixth day&rdquo; &mdash; Luke 23:54</div>
+            </div>
+            <div class="sab-time">
+              <span class="sab-day" style="color:var(--gold-soft);">Sundown to Sundown</span>
+              <div class="sab-desc">The Sabbath begins at sundown Friday and ends at sundown Saturday<br>&mdash; Leviticus 23:32</div>
+            </div>
+            <div class="sab-time">
+              <span class="sab-day">Saturday</span>
+              <div class="sab-desc">The Seventh Day<br>&ldquo;the sabbath of the LORD thy God&rdquo;</div>
+            </div>
+          </div>
+
+          <ul class="sab-proof-list">
+            <li>God rested on the seventh day and sanctified it &mdash; Genesis 2:2&ndash;3</li>
+            <li>Written in stone by God&rsquo;s own finger: &ldquo;Remember the sabbath day, to keep it holy&rdquo; &mdash; Exodus 20:8</li>
+            <li>The sign between God and His people forever &mdash; Ezekiel 20:12, 20</li>
+            <li>Jesus kept the Sabbath as His custom &mdash; Luke 4:16</li>
+            <li>The disciples rested on the Sabbath after the crucifixion &mdash; Luke 23:56</li>
+            <li>Paul preached on the Sabbath &mdash; Acts 17:2; Acts 18:4</li>
+            <li>The new earth: &ldquo;from one sabbath to another, shall all flesh come to worship before me&rdquo; &mdash; Isaiah 66:23</li>
+          </ul>
+
+          <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+            <a href="/pioneers/1850-law-of-god" class="btn-primary" style="height:44px;font-size:0.9rem;">The Law of God Chart (1850) &rarr;</a>
+            <a href="/books/joseph-bates-seal" class="btn-outline" style="height:44px;font-size:0.9rem;">A Seal of the Living God (Bates, 1849)</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== DOCUMENTARY ===== -->
+    <section id="documentary" class="section section-midnight">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+
+        <div class="sh">
+          <div class="sh-eyebrow">Historical Documentary</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Midnight Cry &mdash; Full Documentary</h2>
+          <p>A historical documentary on one of the most fascinating episodes in American religious history.
+          Narrated by Cliff Robertson. Original documents, stunning location footage, and expert commentary.</p>
+        </div>
+
+        <div class="video-wrap">
+          <iframe
+            src="https://www.youtube.com/embed/6ae_iCOGxyo?si=eJV2m-kayaPaDxd1"
+            title="The Midnight Cry — Full Historical Documentary | Narrated by Cliff Robertson"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            allowfullscreen
+            loading="lazy"
+          ></iframe>
+        </div>
+
+        <div class="video-meta">
+          <div class="vm-icon">&#127909;</div>
+          <div class="vm-text">
+            <h4>The Midnight Cry &mdash; Full Movie</h4>
+            <p>
+              In the fall of 1844, hundreds of thousands of Americans were inspired by the teachings and
+              predictions of Baptist preacher William Miller and feared that the world would be destroyed
+              by fire as he predicted at the second coming of Christ on October 22, 1844. Narrated by
+              Cliff Robertson, this program uses original documents, stunning location footage, rich
+              contemporary drawings and paintings, expert commentary, and moving readings from writers
+              of the time. A documentary on one of the most fascinating episodes in American religious history.
+            </p>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:32px;">
+          <a href="/pioneers/william-miller" class="btn-outline" style="margin-right:14px;">William Miller&rsquo;s Writings &rarr;</a>
+          <a href="/pioneers/1843-prophecy-chart" class="btn-primary">The 1843 Prophecy Chart &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== CTA ===== -->
+    <section class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+        <div style="text-align:center;max-width:760px;margin:0 auto;">
+          <div class="sh-eyebrow" style="margin-bottom:18px;">Revelation 18:4</div>
+          <h2 style="font-family:'Crimson Text',serif;font-size:clamp(2rem,4.5vw,3rem);font-weight:600;color:#fef3c7;margin-bottom:18px;line-height:1.2;">
+            Come Out of Her, My People
+          </h2>
+          <div class="qb" style="text-align:left;margin-bottom:28px;">
+            <p>&ldquo;And I heard another voice from heaven, saying, Come out of her, my people, that ye be not
+            partakers of her sins, and that ye receive not of her plagues.&rdquo;</p>
+            <cite>&mdash; Revelation 18:4 (KJV)</cite>
+          </div>
+          <p style="color:var(--ink-muted);font-size:1.05rem;line-height:1.8;margin-bottom:32px;">
+            The midnight cry still sounds. The bridegroom is coming. Study the writings of the Advent pioneers,
+            examine the 1843 and 1850 prophecy charts, and keep the commandments of God and the faith of Jesus.
+          </p>
+          <div style="display:flex;gap:14px;justify-content:center;flex-wrap:wrap;">
+            <a href="/library" class="btn-primary">Enter the Pioneer Library</a>
+            <a href="/prophecy-charts" class="btn-outline">Prophecy Charts</a>
+            <a href="/contact" class="btn-outline">Contact Us</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#final-choice">The Final Choice</a></li>
+            <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="/#three-angels">Three Angels</a></li>
+            <li><a href="/#second-beast">Second Beast</a></li>
+            <li><a href="/#pioneer-library">Pioneer Library</a></li>
+            <li><a href="/midnight-cry">The Midnight Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/books">All Books &amp; Tracts</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script is:inline>
+
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    </script>
+    <SiteFooter
+      scripture="And at midnight there was a cry made, Behold, the bridegroom cometh; go ye out to meet him."
+      scriptureRef="Matthew 25:6 (KJV)"
+      pageLinks={[
+        { label: 'The Midnight Cry', href: '/midnight-cry' },
+        { label: 'The Loud Cry — Revelation 18', href: '/loud-cry' },
+        { label: '1843 Prophecy Chart', href: '/pioneers/1843-prophecy-chart' },
+        { label: 'Prophecy Explained', href: '/prophecy-explained' }
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>

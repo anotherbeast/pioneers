@@ -1,0 +1,137 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 400 500" width="400" height="500">
+  <defs>
+    <radialGradient id="bgGrad" cx="50%" cy="45%" r="60%">
+      <stop offset="0%" stop-color="#1e1a2e"/>
+      <stop offset="100%" stop-color="#0a0818"/>
+    </radialGradient>
+    <radialGradient id="faceGrad" cx="50%" cy="40%" r="55%">
+      <stop offset="0%" stop-color="#3a2e1e"/>
+      <stop offset="100%" stop-color="#1c1408"/>
+    </radialGradient>
+    <linearGradient id="goldRim" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#d4a537"/>
+      <stop offset="50%" stop-color="#f0c84a"/>
+      <stop offset="100%" stop-color="#b8862a"/>
+    </linearGradient>
+    <filter id="soft" x="-10%" y="-10%" width="120%" height="120%">
+      <feGaussianBlur stdDeviation="1.5"/>
+    </filter>
+    <clipPath id="oval-clip">
+      <ellipse cx="200" cy="195" rx="145" ry="165"/>
+    </clipPath>
+  </defs>
+
+  <!-- Background -->
+  <rect width="400" height="500" fill="url(#bgGrad)"/>
+
+  <!-- Aged parchment texture stripes -->
+  <rect x="0" y="0" width="400" height="500" fill="none" stroke="rgba(212,165,55,0.03)" stroke-width="1"
+    style="background: repeating-linear-gradient(0deg, transparent, transparent 2px, rgba(0,0,0,0.15) 2px, rgba(0,0,0,0.15) 3px)"/>
+
+  <!-- Decorative corner ornaments -->
+  <g fill="none" stroke="rgba(212,165,55,0.25)" stroke-width="1">
+    <path d="M 20 20 L 50 20 L 50 22 M 20 20 L 20 50 L 22 50"/>
+    <path d="M 380 20 L 350 20 L 350 22 M 380 20 L 380 50 L 378 50"/>
+    <path d="M 20 480 L 50 480 L 50 478 M 20 480 L 20 450 L 22 450"/>
+    <path d="M 380 480 L 350 480 L 350 478 M 380 480 L 380 450 L 378 450"/>
+  </g>
+
+  <!-- Oval portrait frame — outer glow -->
+  <ellipse cx="200" cy="195" rx="155" ry="175" fill="rgba(212,165,55,0.06)" filter="url(#soft)"/>
+
+  <!-- Oval portrait frame — gold border -->
+  <ellipse cx="200" cy="195" rx="150" ry="170" fill="none" stroke="url(#goldRim)" stroke-width="3"/>
+  <ellipse cx="200" cy="195" rx="146" ry="166" fill="none" stroke="rgba(212,165,55,0.3)" stroke-width="1"/>
+
+  <!-- Portrait area fill -->
+  <ellipse cx="200" cy="195" rx="144" ry="164" fill="url(#faceGrad)" clip-path="url(#oval-clip)"/>
+
+  <!-- Silhouette — period merchant coat/cravat -->
+  <g clip-path="url(#oval-clip)" opacity="0.85">
+    <!-- Torso/coat base -->
+    <path d="M 75 370 Q 100 320 130 300 Q 160 285 200 282 Q 240 285 270 300 Q 300 320 325 370 L 345 370 L 345 380 L 55 380 L 55 370 Z"
+          fill="#1a1208" stroke="rgba(212,165,55,0.12)" stroke-width="0.5"/>
+    <!-- Coat lapels -->
+    <path d="M 160 280 L 180 300 L 195 310 L 200 315 L 205 310 L 220 300 L 240 280"
+          fill="none" stroke="rgba(212,165,55,0.25)" stroke-width="1.5"/>
+    <!-- Cravat / necktie suggestion -->
+    <path d="M 195 285 L 197 305 L 200 315 L 203 305 L 205 285"
+          fill="rgba(212,165,55,0.18)" stroke="rgba(212,165,55,0.3)" stroke-width="0.8"/>
+
+    <!-- Neck -->
+    <path d="M 182 235 Q 185 255 185 272 Q 190 280 200 280 Q 210 280 215 272 Q 215 255 218 235"
+          fill="#2d1f0e" stroke="none"/>
+
+    <!-- Head silhouette — period gentleman with side-parted hair suggestion -->
+    <ellipse cx="200" cy="190" rx="62" ry="70" fill="#2a1c0c"/>
+
+    <!-- Hair — dark, period side-parted style -->
+    <path d="M 138 175 Q 145 130 160 118 Q 175 108 200 106 Q 225 108 240 118 Q 255 130 262 175"
+          fill="#1a0f05" stroke="none"/>
+    <!-- Side hair wisps -->
+    <path d="M 140 170 Q 143 155 148 148 Q 152 143 155 148" fill="#1a0f05" stroke="none"/>
+    <path d="M 260 170 Q 257 155 252 148 Q 248 143 245 148" fill="#1a0f05" stroke="none"/>
+
+    <!-- Face tone -->
+    <ellipse cx="200" cy="188" rx="52" ry="60" fill="#3d2a14"/>
+
+    <!-- Forehead highlight -->
+    <ellipse cx="196" cy="162" rx="22" ry="14" fill="rgba(255,210,140,0.07)"/>
+
+    <!-- Brow line -->
+    <path d="M 168 172 Q 180 168 192 170" fill="none" stroke="#1a0f05" stroke-width="2.2" stroke-linecap="round"/>
+    <path d="M 208 170 Q 220 168 232 172" fill="none" stroke="#1a0f05" stroke-width="2.2" stroke-linecap="round"/>
+
+    <!-- Eyes — deep-set, serious, period gaze -->
+    <ellipse cx="183" cy="183" rx="11" ry="7.5" fill="#1a0f05"/>
+    <ellipse cx="217" cy="183" rx="11" ry="7.5" fill="#1a0f05"/>
+    <ellipse cx="183" cy="183" rx="5.5" ry="5" fill="#2a1400"/>
+    <ellipse cx="217" cy="183" rx="5.5" ry="5" fill="#2a1400"/>
+    <circle cx="185" cy="181" r="1.5" fill="rgba(255,255,200,0.18)"/>
+    <circle cx="219" cy="181" r="1.5" fill="rgba(255,255,200,0.18)"/>
+
+    <!-- Nose bridge -->
+    <path d="M 200 182 Q 197 196 196 205 Q 198 209 200 209 Q 202 209 204 205 Q 203 196 200 182"
+          fill="#2a1a08" stroke="none"/>
+
+    <!-- Cheekbones subtle shading -->
+    <ellipse cx="172" cy="200" rx="14" ry="9" fill="rgba(80,40,10,0.25)"/>
+    <ellipse cx="228" cy="200" rx="14" ry="9" fill="rgba(80,40,10,0.25)"/>
+
+    <!-- Mouth — set, firm, honest expression -->
+    <path d="M 186 218 Q 193 222 200 222 Q 207 222 214 218" fill="none" stroke="#1a0f05" stroke-width="2" stroke-linecap="round"/>
+    <path d="M 188 215 Q 200 213 212 215" fill="rgba(40,20,5,0.5)" stroke="none"/>
+
+    <!-- Jaw / chin definition -->
+    <path d="M 148 200 Q 150 230 165 248 Q 180 262 200 264 Q 220 262 235 248 Q 250 230 252 200"
+          fill="none" stroke="rgba(30,15,5,0.4)" stroke-width="0.5"/>
+
+    <!-- Sideburns suggest age/era -->
+    <path d="M 148 178 Q 149 195 152 210 Q 154 220 158 228" fill="#1a0f05" stroke="none" opacity="0.7"/>
+    <path d="M 252 178 Q 251 195 248 210 Q 246 220 242 228" fill="#1a0f05" stroke="none" opacity="0.7"/>
+  </g>
+
+  <!-- Frame decorative inner line -->
+  <ellipse cx="200" cy="195" rx="150" ry="170" fill="none" stroke="rgba(212,165,55,0.15)" stroke-width="6"/>
+
+  <!-- Small flourish top of oval -->
+  <g fill="none" stroke="rgba(212,165,55,0.45)" stroke-width="1.2">
+    <path d="M 188 22 Q 200 18 212 22"/>
+    <path d="M 192 25 Q 200 21 208 25"/>
+    <circle cx="200" cy="27" r="2.5" fill="rgba(212,165,55,0.4)" stroke="none"/>
+  </g>
+
+  <!-- Name plate — gold on dark -->
+  <rect x="40" y="388" width="320" height="56" rx="6" fill="rgba(10,8,20,0.9)" stroke="rgba(212,165,55,0.35)" stroke-width="1"/>
+  <text x="200" y="413" font-family="Georgia, 'Times New Roman', serif" font-size="22" font-weight="bold"
+        fill="#d4a537" text-anchor="middle" letter-spacing="1">David Hewitt</text>
+  <text x="200" y="433" font-family="Georgia, 'Times New Roman', serif" font-size="12" font-weight="normal"
+        fill="rgba(240,200,74,0.7)" text-anchor="middle" letter-spacing="2">BATTLE CREEK · 1805 – 1884</text>
+
+  <!-- Title plate beneath -->
+  <rect x="60" y="452" width="280" height="32" rx="5" fill="rgba(212,165,55,0.08)" stroke="rgba(212,165,55,0.2)" stroke-width="1"/>
+  <text x="200" y="468" font-family="Georgia, 'Times New Roman', serif" font-size="10.5" font-weight="normal"
+        fill="rgba(240,218,160,0.8)" text-anchor="middle" letter-spacing="1.5">NAMED THE SEVENTH-DAY ADVENTISTS</text>
+  <text x="200" y="481" font-family="Georgia, 'Times New Roman', serif" font-size="10" font-weight="normal"
+        fill="rgba(212,165,55,0.55)" text-anchor="middle" letter-spacing="1">October 1, 1860  ·  Voted 24 – 1</text>
+</svg>

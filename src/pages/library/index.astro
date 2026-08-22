@@ -1,0 +1,1102 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>Advent Pioneer Library | Pioneer Gateway</title>
+    <meta name="description" content="Explore the lives and legacies of the Advent pioneers through rich historical biographies. Two groups: the historic Adventist pioneers and the new organization of April 15, 1904. The contest of contests since October 22, 1844.">
+    <meta property="og:title" content="Advent Pioneer Library | Pioneer Gateway">
+    <meta property="og:description" content="Explore the lives and legacies of the Advent pioneers. The historic Adventist pioneers vs. the new organization of April 15, 1904.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/library">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #060814;
+        --bg-soft: #111425;
+        --ink: #f4f0df;
+        --ink-muted: #c5bb95;
+        --gold: #d4a537;
+        --gold-soft: #f0cf7b;
+        --line: rgba(212, 165, 55, 0.26);
+      }
+
+      /* ============ SundayLaw Premium Style ============ */
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        min-height: 100vh;
+        font-family: 'Source Sans 3', sans-serif;
+        color: var(--ink);
+        background:
+          radial-gradient(circle at 78% 18%, rgba(212, 165, 55, 0.18), transparent 38%),
+          radial-gradient(circle at 18% 74%, rgba(75, 105, 150, 0.18), transparent 45%),
+          linear-gradient(160deg, #05060f 0%, #0a0d1b 50%, #080911 100%);
+        overflow-x: hidden;
+      }
+
+      .serif { font-family: 'Cormorant Garamond', serif; }
+
+      /* ============ SECTIONS ============ */
+      .section { padding: 72px 22px; position: relative; }
+      .section-dark { background: linear-gradient(to bottom, rgba(5,7,18,0.0), rgba(10,13,28,0.85), rgba(5,7,18,0.0)); }
+      .section-warm { background: linear-gradient(to bottom, rgba(5,7,18,0.0), rgba(26,15,0,0.7), rgba(5,7,18,0.0)); }
+      .section-inner { max-width: 1200px; margin: 0 auto; }
+      .section-narrow { max-width: 900px; margin: 0 auto; }
+
+      /* ============ SECTION HEADINGS ============ */
+      .sh { text-align: center; margin-bottom: 48px; }
+      .sh-deco { display: flex; align-items: center; justify-content: center; gap: 16px; margin-bottom: 14px; }
+      .sh-line { height: 1px; width: 60px; background: rgba(212, 165, 55, 0.5); }
+      .sh h2 { font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 700; letter-spacing: -0.02em; color: var(--ink); }
+      .sh p { margin-top: 12px; font-size: 1.1rem; color: var(--ink-muted); max-width: 800px; margin-left: auto; margin-right: auto; line-height: 1.8; }
+
+      /* ============ QUOTE BLOCKS ============ */
+      .sq { position: relative; border-left: 4px solid rgba(212,165,55,0.5); padding: 20px 18px 20px 22px; border-radius: 0 8px 8px 0; margin-bottom: 20px; }
+      .sq-gold { background: rgba(180,83,9,0.14); border-color: rgba(212,165,55,0.5); color: var(--ink); }
+      .sq-dark { background: rgba(0,0,0,0.35); border-color: rgba(100,100,180,0.4); color: var(--ink-muted); }
+      .sq p { font-size: 1.05rem; line-height: 1.75; margin: 0; }
+      .sq h3, .sq h4 { margin: 0 0 12px; }
+      .sq cite { display: block; margin-top: 10px; color: var(--gold-soft); font-size: 0.88rem; font-weight: 700; font-style: normal; }
+      .sq .mt-3 { margin-top: 12px; }
+      .sq ul { margin: 10px 0 0 18px; list-style: disc; line-height: 1.8; }
+
+      /* ============ EGW QUOTE ============ */
+      .egw { position: relative; background: linear-gradient(135deg, #1a0f0a, #0d0a06); border: 1px solid rgba(212,165,55,0.35); border-radius: 12px; padding: 22px 28px 22px 46px; margin-bottom: 20px; box-shadow: 0 10px 30px rgba(0,0,0,0.3); }
+      .egw::before { content: ''; position: absolute; left: 22px; top: 20px; bottom: 20px; width: 3px; background: linear-gradient(to bottom, #d97706, #92400e); border-radius: 2px; }
+      .egw p { color: rgba(254,243,199,0.9); font-size: 1.05rem; line-height: 1.75; font-style: italic; margin: 0; }
+      .egw cite { display: block; margin-top: 12px; color: #d97706; font-size: 0.88rem; font-weight: 700; font-style: normal; }
+
+      /* ============ GRIDS ============ */
+      .grid-2 { display: grid; gap: 24px; }
+      .grid-3 { display: grid; gap: 20px; }
+      @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3, 1fr); } }
+
+      /* ============ BOOK CARDS ============ */
+      .book-card { background: linear-gradient(135deg, rgba(26,26,78,0.8), rgba(13,13,53,0.8)); border: 1px solid rgba(212,165,55,0.22); border-radius: 14px; overflow: hidden; transition: all 0.3s; padding: 22px; }
+      .book-card:hover { border-color: rgba(212,165,55,0.5); transform: translateY(-3px); }
+      .book-card h4 { font-size: 1.15rem; margin: 0 0 6px; color: var(--ink); }
+      .book-card .author { color: var(--gold-soft); font-size: 0.88rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+      .book-card .year { color: var(--ink-muted); font-size: 0.82rem; margin-bottom: 10px; }
+      .book-card p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.7; margin: 10px 0; }
+      .book-link { display: inline-block; margin-top: 10px; padding: 7px 14px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.35); border-radius: 8px; color: var(--gold-soft); font-size: 0.88rem; font-weight: 700; text-decoration: none; transition: all 0.2s; }
+      .book-link:hover { background: rgba(212,165,55,0.22); color: var(--ink); }
+
+      /* ============ TWO GROUPS COMPARE ============ */
+      .group-card { border: 2px solid; border-radius: 18px; padding: 30px 26px; }
+      .group-historic { border-color: rgba(212,165,55,0.45); background: linear-gradient(135deg, rgba(30,24,5,0.7), rgba(10,13,28,0.85)); }
+      .group-new-org { border-color: rgba(220,60,60,0.38); background: linear-gradient(135deg, rgba(40,5,5,0.7), rgba(10,13,28,0.85)); }
+      .group-card h3 { margin: 0 0 14px; font-size: 1.5rem; }
+      .group-card .group-label { display: inline-block; padding: 5px 12px; border-radius: 999px; font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+      .label-gold { background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.4); color: var(--gold-soft); }
+      .label-red { background: rgba(220,60,60,0.14); border: 1px solid rgba(220,60,60,0.38); color: #f87171; }
+      .group-card p { color: var(--ink-muted); line-height: 1.8; margin: 0 0 12px; }
+      .group-card ul { margin: 0 0 14px 18px; color: var(--ink-muted); line-height: 1.85; list-style: disc; }
+      .group-card a.group-btn { display: inline-block; padding: 10px 20px; border-radius: 10px; font-weight: 700; text-decoration: none; font-size: 0.95rem; transition: all 0.2s; }
+      .group-btn-gold { background: var(--gold); color: #111; }
+      .group-btn-gold:hover { background: var(--gold-soft); }
+      .group-btn-outline { border: 1px solid rgba(220,60,60,0.45); color: #f87171; }
+      .group-btn-outline:hover { background: rgba(220,60,60,0.1); }
+
+      /* ============ MT HELPERS ============ */
+      .mt-4 { margin-top: 16px; }
+      .mt-6 { margin-top: 24px; }
+      .mt-8 { margin-top: 32px; }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 20;
+        backdrop-filter: blur(10px);
+        background: rgba(6, 8, 20, 0.72);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .topbar-inner {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 14px 22px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 16px;
+      }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        background: rgba(255, 255, 255, 0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+      }
+
+      .brand {
+        color: var(--ink);
+        text-decoration: none;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        font-size: 0.9rem;
+      }
+
+      .brand strong {
+        color: var(--gold-soft);
+        font-weight: 700;
+      }
+
+      .toplink {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .topnav {
+        display: flex;
+        gap: 14px;
+        margin-left: auto;
+      }
+
+      .nav-tools {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+      }
+
+      .topnav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.95rem;
+      }
+
+      .topnav a:hover { color: var(--gold-soft); }
+
+      .toplink:hover { color: var(--gold-soft); }
+
+      #google_translate_element {
+        min-width: 155px;
+      }
+
+      #google_translate_element .goog-te-gadget {
+        color: transparent;
+        font-size: 0;
+      }
+
+      #google_translate_element .goog-te-combo {
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--ink);
+        border: 1px solid var(--line);
+        border-radius: 10px;
+        padding: 8px 10px;
+        font-size: 0.86rem;
+      }
+
+      .lang-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-width: 48px;
+        height: 36px;
+        padding: 0 10px;
+        border-radius: 10px;
+        border: 1px solid var(--line);
+        background: rgba(255, 255, 255, 0.04);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 800;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+      }
+
+      .lang-badge::before {
+        content: '◎';
+        font-size: 0.78rem;
+        margin-right: 6px;
+        opacity: 0.9;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 12px 22px 14px;
+        background: rgba(6, 8, 20, 0.92);
+      }
+
+      .mobile-nav.open { display: grid; gap: 8px; }
+
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+      }
+
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      .hero {
+        padding: 100px 22px 72px;
+      }
+
+      .hero-wrap {
+        max-width: 1200px;
+        margin: 0 auto;
+        border: 1px solid var(--line);
+        border-radius: 26px;
+        background: linear-gradient(140deg, rgba(15, 18, 34, 0.95), rgba(8, 10, 20, 0.86));
+        box-shadow: 0 24px 70px rgba(0, 0, 0, 0.5);
+        overflow: hidden;
+      }
+
+      .hero-grid {
+        display: grid;
+        grid-template-columns: 1.1fr 0.9fr;
+      }
+
+      .hero-copy {
+        padding: 56px 52px;
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 7px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--gold-soft);
+        text-transform: uppercase;
+        letter-spacing: 0.12em;
+        font-size: 0.74rem;
+        font-weight: 700;
+        margin-bottom: 22px;
+      }
+
+      h1 {
+        margin: 0;
+        font-size: clamp(2.5rem, 7vw, 4.8rem);
+        line-height: 0.95;
+        letter-spacing: 0.02em;
+      }
+
+      h1 span { color: var(--gold-soft); }
+
+      .lead {
+        margin: 22px 0 0;
+        color: var(--ink-muted);
+        font-size: 1.18rem;
+        line-height: 1.75;
+        max-width: 56ch;
+      }
+
+      .hero-actions {
+        margin-top: 32px;
+        display: flex;
+        gap: 12px;
+        flex-wrap: wrap;
+      }
+
+      .btn {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 50px;
+        padding: 0 22px;
+        border-radius: 12px;
+        text-decoration: none;
+        font-weight: 700;
+        letter-spacing: 0.02em;
+        transition: all 0.25s ease;
+      }
+
+      .btn-gold {
+        background: var(--gold);
+        color: #151515;
+      }
+
+      .btn-gold:hover {
+        transform: translateY(-2px);
+        background: #e2b95b;
+      }
+
+      .btn-outline {
+        border: 1px solid var(--line);
+        color: var(--ink);
+        background: rgba(255, 255, 255, 0.03);
+      }
+
+      .btn-outline:hover {
+        border-color: rgba(212, 165, 55, 0.55);
+        color: var(--gold-soft);
+      }
+
+      .hero-panel {
+        border-left: 1px solid var(--line);
+        background:
+          linear-gradient(200deg, rgba(212, 165, 55, 0.09), rgba(17, 21, 36, 0.5)),
+          repeating-linear-gradient(
+            -45deg,
+            rgba(255, 255, 255, 0.02) 0,
+            rgba(255, 255, 255, 0.02) 8px,
+            transparent 8px,
+            transparent 16px
+          );
+        display: grid;
+        place-items: center;
+        padding: 36px;
+      }
+
+      .hero-panel-card {
+        width: 100%;
+        max-width: 360px;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        padding: 26px;
+        background: rgba(6, 8, 20, 0.64);
+      }
+
+      .hero-panel-card h2 {
+        margin: 0 0 8px;
+        color: var(--gold-soft);
+        font-size: 1.8rem;
+      }
+
+      .hero-panel-card p {
+        margin: 0;
+        color: var(--ink-muted);
+        line-height: 1.8;
+      }
+
+      /* ============ FEATURE QUOTE (top of content) ============ */
+      .feature-quote-wrap {
+        background: linear-gradient(135deg, #1a0f00 0%, #0d0a06 40%, #0a0d1b 100%);
+        border-top: 3px solid rgba(212,165,55,0.6);
+        border-bottom: 3px solid rgba(212,165,55,0.6);
+        padding: 52px 28px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .feature-quote-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 50%, rgba(212,165,55,0.08) 0%, transparent 65%);
+        pointer-events: none;
+      }
+
+      .feature-quote-inner {
+        position: relative;
+        z-index: 1;
+        max-width: 860px;
+        margin: 0 auto;
+      }
+
+      .feature-quote-star {
+        color: var(--gold);
+        margin-bottom: 20px;
+        display: flex;
+        justify-content: center;
+      }
+
+      .feature-quote-text {
+        font-size: clamp(1.45rem, 3.5vw, 2.15rem);
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.55;
+        font-style: italic;
+        letter-spacing: -0.01em;
+        margin: 0 0 18px;
+      }
+
+      .feature-quote-cite {
+        display: block;
+        color: var(--gold-soft);
+        font-size: 1rem;
+        font-weight: 700;
+        font-style: normal;
+        letter-spacing: 0.04em;
+        text-transform: uppercase;
+      }
+
+      .features {
+        max-width: 1200px;
+        margin: 26px auto 0;
+        padding: 0 22px 78px;
+        display: grid;
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+        gap: 16px;
+      }
+
+      .card {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: linear-gradient(160deg, rgba(16, 20, 34, 0.9), rgba(10, 12, 24, 0.88));
+        padding: 24px;
+        transition: transform 0.25s ease, border-color 0.25s ease;
+      }
+
+      .card:hover {
+        transform: translateY(-4px);
+        border-color: rgba(212, 165, 55, 0.52);
+      }
+
+      .card h3 {
+        margin: 0;
+        font-size: 1.5rem;
+        color: var(--gold-soft);
+      }
+
+      .card p {
+        margin: 10px 0 0;
+        color: var(--ink-muted);
+        line-height: 1.75;
+      }
+
+      .footer {
+        border-top: 1px solid var(--line);
+        background: rgba(8, 10, 20, 0.68);
+      }
+
+      .footer-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 28px 22px;
+        display: grid;
+        grid-template-columns: 1.3fr 1fr 1fr 1fr;
+        gap: 18px;
+      }
+
+      .footer h4 {
+        margin: 0 0 8px;
+        color: var(--gold-soft);
+        font-size: 1.05rem;
+      }
+
+      .footer p {
+        margin: 0;
+        color: #a6acc3;
+        line-height: 1.7;
+      }
+
+      .footer-links {
+        list-style: none;
+        margin: 0;
+        padding: 0;
+        display: grid;
+        gap: 6px;
+      }
+
+      .footer-links a {
+        color: #c5bb95;
+        text-decoration: none;
+      }
+
+      .footer-links a:hover { color: var(--gold-soft); }
+
+      .footer-bottom {
+        border-top: 1px solid var(--line);
+        padding: 16px 22px;
+        text-align: center;
+        color: #8c8f9f;
+        font-size: 0.88rem;
+      }
+
+      .goog-te-banner-frame.skiptranslate { display: none !important; }
+      body { top: 0 !important; }
+      .goog-logo-link, .goog-te-gadget span { display: none !important; }
+
+      @media (max-width: 940px) {
+        .hero-grid { grid-template-columns: 1fr; }
+        .hero-panel { border-left: 0; border-top: 1px solid var(--line); }
+        .features { grid-template-columns: 1fr; }
+        .footer-main { grid-template-columns: 1fr 1fr; }
+      }
+      @media (max-width: 580px) {
+        .footer-main { grid-template-columns: 1fr; }
+      }
+
+      @media (max-width: 700px) {
+        .hero-copy { padding: 38px 24px; }
+        .hero-panel { padding: 24px; }
+        .topbar-inner { flex-wrap: nowrap; }
+        .topnav { display: none; }
+        .toplink { display: none; }
+        .menu-btn { display: inline-flex; align-items: center; justify-content: center; }
+        .nav-tools { margin-left: auto; }
+      }
+    </style>
+  </head>
+
+  <body>
+    <header class="topbar">
+      <div class="topbar-inner">
+        <a class="brand" href="/">Advent <strong>Pioneer Library</strong></a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/pioneers">Pioneers</a>
+          <a href="/books">Books</a>
+          <a href="/prophecy-charts">Prophecy Charts</a>
+          <a href="/prophecy-explained">Prophecy Study</a>
+          <a href="/1860-name-selection">1860 Name</a>
+          <a href="/april-15-1904-new-organization">1904 Record</a>
+          <a href="/midnight-cry">Midnight Cry Movie</a>
+          <a href="/books/captain-joseph-bates-autobiography-1868">Bates Autobiography</a>
+        </nav>
+        <div class="nav-tools">
+          <span class="lang-badge" id="lang-badge">EN</span>
+          <div id="google_translate_element"></div>
+          <a class="toplink" href="/pioneers">Browse Biographies</a>
+          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/pioneers">Pioneers</a>
+        <a href="/books">Books</a>
+        <a href="/prophecy-charts">Prophecy Charts</a>
+        <a href="/prophecy-explained">Prophecy Study</a>
+        <a href="/1860-name-selection">1860 Name Selection</a>
+        <a href="/april-15-1904-new-organization">1904 Incorporation</a>
+        <a href="/midnight-cry">1844 Midnight Cry Movie</a>
+      </nav>
+    </header>
+
+    <!-- ========== HERO ========== -->
+    <section class="hero">
+      <div class="hero-wrap">
+        <div class="hero-grid">
+          <div class="hero-copy">
+            <span class="eyebrow">The Contest of Contests — Since October 22, 1844</span>
+            <h1 class="serif">Advent <span>Pioneers</span></h1>
+            <p class="lead">
+              The men and women who kept the commandments of God and the faith of Jesus after the Great Disappointment.
+              Two groups. One foundation. One final conflict. The 144,000 sealing is now in progress.
+            </p>
+            <div class="hero-actions">
+              <a href="/pioneers" class="btn btn-gold">Explore Pioneer Library</a>
+              <a href="#two-groups" class="btn btn-outline">Historic vs. 1904 New Org</a>
+            </div>
+          </div>
+
+          <aside class="hero-panel">
+            <div class="hero-panel-card">
+              <h2 class="serif">October 22, 1844</h2>
+              <p>
+                The investigative judgment began. Christ entered the Most Holy Place.
+                Those who keep the commandments of God and the faith of Jesus go by faith
+                into the Heavenly Sanctuary — the bride-selection work of the ages.
+              </p>
+            </div>
+          </aside>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURE QUOTE ========== -->
+    <div class="feature-quote-wrap">
+      <div class="feature-quote-inner">
+        <div class="feature-quote-star" aria-hidden="true">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <blockquote class="feature-quote-text serif">
+          &ldquo;The history of the early experiences in the message will be a power to withstand the masterly ingenuity of Satan&rsquo;s deceptions.&rdquo;
+        </blockquote>
+        <cite class="feature-quote-cite">&mdash; Ellen G. White, Letter 99, 1905</cite>
+      </div>
+    </div>
+
+    <!-- ========== THREE ANGELS' MESSAGES ========== -->
+    <section id="three-angels" class="section section-warm">
+      <div class="section-inner section-narrow">
+        <div class="sh">
+          <div class="sh-deco"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2 class="serif">The Three Angels' Messages — Revelation 14:6–12</h2>
+          <p>The foundational proclamation of the Advent movement, written on the 1843 and 1850 prophetic charts.</p>
+        </div>
+
+        <div class="egw">
+          <p>"And I saw another angel fly in the midst of heaven, having the everlasting gospel to preach unto them that dwell on the earth…
+          Fear God, and give glory to him; for the hour of his judgment is come: and worship him that made heaven, and earth, and the sea, and the fountains of waters."</p>
+          <cite>— Revelation 14:6–7 (KJV) — First Angel's Message</cite>
+        </div>
+
+        <div class="egw">
+          <p>"And there followed another angel, saying, Babylon is fallen, is fallen, that great city, because she made all nations drink of the wine of the wrath of her fornication."</p>
+          <cite>— Revelation 14:8 (KJV) — Second Angel's Message</cite>
+        </div>
+
+        <div class="egw">
+          <p>"Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus."</p>
+          <cite>— Revelation 14:12 (KJV) — Third Angel's Message</cite>
+        </div>
+
+        <div class="sq sq-gold mt-6">
+          <p>"When the messages of the three angels come prominently before the world again just before the second advent of Christ,
+          the angel of Revelation 18:1 joins in the proclamation… 'Babylon is fallen.' 'Come out of her, my people.'"</p>
+          <cite>— Ellen G. White, Early Writings, Appendix, 304.1</cite>
+        </div>
+
+        <div style="margin-top:24px;display:flex;gap:12px;flex-wrap:wrap;">
+          <a href="/prophecy-explained" class="btn btn-gold">Study the Prophecy Charts</a>
+              <a href="/books/james-white/ThePresentTruth.pdf" target="_blank" rel="noopener" class="btn btn-outline">Three Angels' Writings</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== TWO GROUPS ========== -->
+    <section id="two-groups" class="section section-dark">
+      <div class="section-inner">
+        <div class="sh">
+          <div class="sh-deco"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2 class="serif">Two Groups — One Foundation</h2>
+          <p>
+            The Advent movement produced two distinct streams: the historic Adventist pioneers who built on
+            the foundation of 1844, and the new organization incorporated April 15, 1904 — joining church and state,
+            mirroring the Vatican model the Mayflower pilgrims' ancestors fled in 1620.
+          </p>
+        </div>
+
+        <div class="grid-2">
+          <article class="group-card group-historic">
+            <span class="group-label label-gold">Historic Adventist Pioneers</span>
+            <h3 class="serif" style="color:var(--gold-soft);">The Foundation — 1840s to 1863</h3>
+            <p>
+              These men and women came out of the fallen churches after 1844. They accepted the Three
+              Angels' Messages, the seventh-day Sabbath, the heavenly sanctuary, the commandments of God,
+              and the faith of Jesus. They built on the prophetic waymarks of 1840, 1843, 1844.
+            </p>
+            <blockquote style="border-left:3px solid var(--gold);margin:14px 0 18px;padding:10px 16px;background:rgba(212,165,55,0.06);border-radius:0 8px 8px 0;">
+              <p style="margin:0 0 6px;color:var(--ink);font-style:italic;line-height:1.75;">
+                "To the <strong>END OF TIME</strong>, the <strong>PRESENCE of the Spirit</strong> is to abide with the <strong>TRUE church</strong>."
+              </p>
+              <cite style="font-size:0.82rem;color:var(--muted);">— Acts of the Apostles, p. 55</cite>
+            </blockquote>
+            <ul>
+              <li>William Miller — Student of Daniel 8:14</li>
+              <li>Captain Joseph Bates — Sabbath Advocate and Sealing</li>
+              <li>James &amp; Ellen White — Co-founders</li>
+              <li>Charles Fitch — "Come Out of Her My People" (1843)</li>
+              <li>Hiram Edson — Heavenly Sanctuary revelation</li>
+              <li>John N. Andrews — History of the Sabbath</li>
+              <li>Otis Nichols — 1850 Prophetic Chart</li>
+            </ul>
+            <a href="/pioneers" class="group-btn group-btn-gold">Explore Pioneer Biographies →</a>
+          </article>
+
+          <article class="group-card group-new-org">
+            <span class="group-label label-red">New Organization — April 15, 1904</span>
+            <h3 class="serif" style="color:#f87171;">The Corporate Turn — Church &amp; State Joined</h3>
+            <p>
+              On April 15, 1904, five men signed the articles of incorporation creating the
+              <em>General Conference Corporation of Seventh-day Adventists</em> — registered as a
+              corporation under civil law, with EIN 52-0643036, assets over $10 million.
+            </p>
+            <p>
+              Ellen White warned: <em>"We cannot now enter into any new organization; for this would mean
+              apostasy from the truth."</em> — 1 Selected Messages, p. 204.2
+            </p>
+            <ul>
+              <li>Incorporated April 15, 1904 in Washington, D.C.</li>
+              <li>Signers: Daniells, Scott, Rogers, Nicola, Needham</li>
+              <li>Joins church &amp; state — Vatican / Church of England model</li>
+              <li>The same system the Mayflower pilgrims fled in 1620</li>
+              <li>Profits from Sabbath labor through corporate filing</li>
+            </ul>
+            <a href="/april-15-1904-new-organization" class="group-btn group-btn-outline">View the 1904 Documentary Record →</a>
+          </article>
+        </div>
+
+        <div class="sq sq-dark mt-8" style="max-width:860px;margin-left:auto;margin-right:auto;">
+          <p style="color:var(--muted);font-size:0.82rem;text-transform:uppercase;letter-spacing:0.1em;text-align:center;margin-bottom:14px;">Ellen G. White — 1 Selected Messages, p. 204.2</p>
+          <p style="color:var(--ink);line-height:1.9;margin-bottom:14px;">
+            "The enemy of souls has sought to bring in the supposition that a great reformation was to take place
+            among Seventh-day Adventists, and that this reformation would consist in giving up the doctrines which
+            stand as the <strong>pillars of our faith</strong>, and engaging in a process of
+            <strong>reorganization</strong>. Were this reformation to take place, what would result?
+          </p>
+          <p style="color:var(--ink);line-height:1.9;margin-bottom:14px;">
+            The principles of truth that God in His wisdom has given to the remnant church, would be discarded.
+            Our religion would be changed. The fundamental principles that have sustained the work for the last
+            fifty years would be accounted as error. <strong>A new organization would be established.</strong>
+            Books of a new order would be written. A system of intellectual philosophy would be introduced."
+          </p>
+          <cite style="display:block;text-align:right;color:var(--muted);font-size:0.88rem;">— Selected Messages Book 1, p. 204.2</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== 144,000 / SEALING / BRIDE OF CHRIST ========== -->
+    <section id="sealing" class="section section-warm">
+      <div class="section-inner section-narrow">
+        <div class="sh">
+          <div class="sh-deco"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2 class="serif">The 144,000 — The Sealing — The Bride of Christ</h2>
+          <p>
+            Since October 22, 1844 the investigative judgment has been in progress — the bride-selection work.
+            When the number of the 144,000 is made up, probation will close and Michael will stand up. Daniel 12:1.
+          </p>
+        </div>
+
+        <div class="egw">
+          <p>"Christ is waiting with longing desire for the manifestation of Himself in His church.
+          When the character of Christ shall be perfectly reproduced in His people, then He will come to claim them as His own."</p>
+          <cite>— Christ's Object Lessons, p. 69</cite>
+        </div>
+
+        <div class="egw">
+          <p>"And at that time shall Michael stand up, the great prince which standeth for the children of thy people:
+          and there shall be a time of trouble, such as never was since there was a nation even to that same time:
+          and at that time thy people shall be delivered, every one that shall be found written in the book."</p>
+          <cite>— Daniel 12:1 (KJV)</cite>
+        </div>
+
+        <div class="sq sq-gold mt-6">
+          <h4 class="serif">Captain Joseph Bates — A Seal of the Living God (1849)</h4>
+          <p>
+            Captain Joseph Bates connected the Sabbath to the sealing of the 144,000 in Revelation 7.
+            His 1849 tract <em>A Seal of the Living God</em> showed that the seventh-day Sabbath is the seal
+            of the living God — the identifying mark of those who keep the commandments of God and the faith of Jesus.
+          </p>
+          <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+            <a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener" class="book-link">Read: A Seal of the Living God (PDF)</a>
+            <a href="/books/joseph-bates/three-angels-messages-seal-of-god-revelation-14-full-summary-warning-pdf-144000.pdf" target="_blank" rel="noopener" class="book-link">Three Angels / Seal Summary (PDF)</a>
+          </div>
+        </div>
+
+        <div class="egw mt-6">
+          <p>"And the Spirit and the bride say, Come. And let him that heareth say, Come.
+          And whosoever will, let him take the water of life freely."</p>
+          <cite>— Revelation 22:17 (KJV)</cite>
+        </div>
+
+        <div class="sq sq-dark mt-4">
+          <p>
+            The contest of contests has been underway since October 22, 1844. Those who keep the seventh-day Sabbath
+            and the Ten Commandments and the faith of Jesus go by faith into the Most Holy Heavenly Sanctuary —
+            married to the Lamb of God, His Bride. Come out of her, my people — into home churches,
+            studying the articles, sermons, tracts, charts, and books of the historic Adventist pioneers.
+          </p>
+          <cite>— Revelation 18:4; Revelation 14:12</cite>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== WHY WE REPUBLISH ========== -->
+    <section id="why-we-republish" class="section section-warm">
+      <div class="section-inner">
+        <div class="sh">
+          <div class="sh-deco"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2 class="serif">Why We Republish — The Dead Still Speak</h2>
+          <p>Faithful men like William Miller, John Andrews, James White, Charles Fitch, and Otis Nichols — whose writings, charts, and sermons laid the Advent foundation — have been systematically buried. Apostate SDA pastors and leaders say, <strong style="color:#fca5a5;">&ldquo;Oh, but they were not inspired.&rdquo;</strong> This single lie stops people from investigating their writings. Ellen White did the exact opposite. She commanded the church to repeat their words.</p>
+          <p style="margin-top:12px;font-size:0.93rem;color:var(--muted);font-style:italic;">William Ward Simpson &mdash; whose personal effects are in the basement of the James White Library at Andrews University &mdash; is one of dozens of pioneers whose voice has been suppressed by the very institution that bears the pioneer name.</p>
+        </div>
+
+        <div style="background:rgba(212,165,55,0.06);border:1px solid rgba(212,165,55,0.25);border-left:4px solid var(--gold);border-radius:0 14px 14px 0;padding:20px 26px;margin:0 0 32px;">
+          <div style="font-size:0.72rem;color:var(--gold-soft);font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">John 17:20 (KJV) &mdash; Jesus Himself Guarantees the Chain</div>
+          <p style="font-family:'Crimson Text',serif;font-size:1.25rem;font-style:italic;color:#fde68a;line-height:1.65;">&ldquo;Neither pray I for these alone, but for them also which shall believe on me <strong>through their word.</strong>&rdquo;</p>
+          <cite style="font-size:0.8rem;color:rgba(253,230,138,0.55);font-style:normal;display:block;margin-top:8px;">&mdash; The Lord Jesus Christ, John 17:20 &mdash; Faith comes through the word of the pioneers. Suppressing that word cuts God&rsquo;s people off from the chain of faith.</cite>
+        </div>
+
+        <div style="display:grid;grid-template-columns:repeat(auto-fill,minmax(320px,1fr));gap:18px;margin-bottom:32px;">
+
+          <div class="egw">
+            <p>&ldquo;The record of the experience through which the people of God passed in the early history of our work must be <strong>republished.</strong>&rdquo;</p>
+            <cite>&mdash; Ellen G. White, Letter 105, 1903</cite>
+          </div>
+
+          <div class="egw">
+            <p>&ldquo;The standard-bearers who have fallen in death, are to speak through the <strong>reprinting of their writings</strong> to bear their testimony as to what constitutes truth for this time.&rdquo;</p>
+            <cite>&mdash; Ellen G. White, CWE 32</cite>
+          </div>
+
+          <div class="egw">
+            <p>&ldquo;Let those who are dead speak by <strong>reprinting their articles.</strong>&rdquo;</p>
+            <cite>&mdash; Ellen G. White, MS 62, 1905</cite>
+          </div>
+
+          <div class="egw">
+            <p>&ldquo;<strong>Rehearse the experience of the men</strong> who acted a part in the establishment of our work in the beginning.&rdquo;</p>
+            <cite>&mdash; Ellen G. White, MS 129, 1905</cite>
+          </div>
+
+          <div class="egw">
+            <p>&ldquo;The history of the early experiences in the message will be <strong>a power to withstand the masterly ingenuity of Satan&rsquo;s deceptions.</strong>&rdquo;</p>
+            <cite>&mdash; Ellen G. White, Letter 99, 1905</cite>
+          </div>
+
+          <div class="egw">
+            <p>&ldquo;<strong>Repeat the words of the pioneers</strong> in our work, who knew what it cost to search for the truth as for hidden treasure, and who labored to lay the foundation of our work.&rdquo;</p>
+            <cite>&mdash; Ellen G. White, <em>Review &amp; Herald</em>, May 25, 1905</cite>
+          </div>
+
+        </div>
+
+        <div style="background:rgba(220,38,38,0.07);border:1px solid rgba(220,38,38,0.3);border-radius:14px;padding:22px 26px;max-width:860px;margin:0 auto 12px;">
+          <div style="font-size:0.72rem;color:#f87171;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:10px;">The Boundary That Cannot Move</div>
+          <p style="font-family:'Crimson Text',serif;font-size:1.25rem;font-style:italic;color:#fca5a5;line-height:1.65;">&ldquo;<strong>Never deviate from the truth under any circumstances.</strong>&rdquo;</p>
+          <cite style="font-size:0.8rem;color:rgba(252,165,165,0.55);font-style:normal;display:block;margin-top:8px;">&mdash; Ellen G. White, <em>Selected Messages</em>, Book 1, p. 32.3</cite>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========== PIONEER LIBRARY SECTION ========== -->
+    <section id="pioneer-library" class="section section-dark">
+      <div class="section-inner">
+        <div class="sh">
+          <div class="sh-deco"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2 class="serif">The Pioneer Library — Books, Tracts, Sermons, Charts</h2>
+          <p>The writings that laid the foundation — from 1836 to 1863 and beyond.</p>
+        </div>
+
+        <div class="grid-3">
+
+          <div class="book-card">
+            <h4 class="serif">Come Out of Her My People</h4>
+            <div class="author">Charles Fitch</div>
+            <div class="year">1843</div>
+            <p>The powerful sermon calling God's people to separate from fallen Babylon — preached just before the Great Disappointment.</p>
+            <a href="/books/charles-fitch" class="book-link">Read in Library →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">The 1843 Prophetic Chart</h4>
+            <div class="author">Charles Fitch &amp; Apollos Hale</div>
+            <div class="year">1843</div>
+            <p>The prophetic chart illustrating the timeline of Daniel and Revelation — Habakkuk 2:2–3.</p>
+            <a href="/books/1843-prophecy-chart" class="book-link">View Chart →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">The 1850 Prophetic Chart</h4>
+            <div class="author">Otis Nichols</div>
+            <div class="year">1850</div>
+            <p>The updated chart after 1844, showing the sanctuary, the Third Angel's Message, and the commandments of God.</p>
+            <a href="/books/1850-prophecy-chart" class="book-link">View Chart →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">A Seal of the Living God</h4>
+            <div class="author">Captain Joseph Bates</div>
+            <div class="year">1849</div>
+            <p>The key tract connecting the seventh-day Sabbath to the sealing of the 144,000 in Revelation 7.</p>
+            <a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener" class="book-link">Read PDF →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">Waymarks and High Heaps</h4>
+            <div class="author">Captain Joseph Bates</div>
+            <div class="year">1847</div>
+            <p>Prophetic waymarks from 1840 through October 22, 1844 — written by a widow's sacrifice who sold her farm to print it.</p>
+            <a href="/books/joseph-bates-waymarks" class="book-link">Read in Library →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">The Seventh-Day Sabbath — A Perpetual Sign</h4>
+            <div class="author">Captain Joseph Bates</div>
+            <div class="year">1846</div>
+            <p>The tract that convinced James and Ellen White of the seventh-day Sabbath during the Sabbath Conferences of 1848.</p>
+            <a href="/books/joseph-bates-bates-theseventhdaysabbath-aperpetualsign-1847jun" class="book-link">Read in Library →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">Evidence from Scripture &amp; History</h4>
+            <div class="author">William Miller</div>
+            <div class="year">1836</div>
+            <p>The foundational work launching the Advent movement — Brother Miller's study of Daniel 8:14 and the 2300 days.</p>
+            <a href="/books/william-miller-miller-evidencefromscriptureandhistory-secondcomingofchristaboutyear1843-1836" class="book-link">Read in Library →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">History of the Sabbath</h4>
+            <div class="author">John Nevins Andrews</div>
+            <div class="year">1862</div>
+            <p>The most comprehensive historical work tracing the seventh-day Sabbath through every century to the present.</p>
+            <a href="/books/john-nevins-andrews-history-of-the-sabbath-and-first-day-of-the-week" class="book-link">Read in Library →</a>
+          </div>
+
+          <div class="book-card">
+            <h4 class="serif">Rise &amp; Progress of Seventh-Day Adventists</h4>
+            <div class="author">John Norton Loughborough</div>
+            <div class="year">1892</div>
+            <p>The authoritative history of the movement from its founding era, written by one who was there.</p>
+            <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892" class="book-link">Read in Library →</a>
+          </div>
+
+        </div>
+
+        <div style="margin-top:32px;text-align:center;">
+          <a href="/books" class="btn btn-gold" style="display:inline-flex;min-height:48px;padding:0 28px;align-items:center;border-radius:12px;font-weight:700;text-decoration:none;background:var(--gold);color:#111;">Browse All Pioneer Books →</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========== FEATURES ========== -->
+    <section class="features">
+      <article class="card">
+        <h3 class="serif">Historical Precision</h3>
+        <p>Dates, places, relationships, and published works are presented in a clear structure for deep study and narrative reading.</p>
+      </article>
+      <article class="card">
+        <h3 class="serif">Two Distinct Groups</h3>
+        <p>Historic Adventist pioneers (1840s–1863) and the new organization (April 15, 1904) — clearly distinguished so the record stands plain.</p>
+      </article>
+      <article class="card">
+        <h3 class="serif">Primary Source Access</h3>
+        <p>Books, tracts, sermons, prophecy charts, and the sealing documents of Captain Joseph Bates — linked directly from each biography.</p>
+      </article>
+    </section>
+
+    <footer class="footer">
+      <div class="footer-main">
+        <div>
+          <h4 class="serif">Advent Pioneer Library</h4>
+          <p>The writings and biographies of the historic Adventist pioneers — those who kept the commandments of God and the faith of Jesus after October 22, 1844.</p>
+        </div>
+        <div>
+          <h4 class="serif">Navigate</h4>
+          <ul class="footer-links">
+            <li><a href="/">Home</a></li>
+            <li><a href="/pioneers">Pioneer Library</a></li>
+            <li><a href="/books">Books</a></li>
+            <li><a href="/prophecy-explained">Prophecy Study</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+            <li><a href="/midnight-cry">1844 Midnight Cry Movie</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="serif">Key Documents</h4>
+          <ul class="footer-links">
+            <li><a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener">A Seal of the Living God — Bates (1849)</a></li>
+            <li><a href="/books/1843-prophecy-chart">1843 Prophetic Chart</a></li>
+            <li><a href="/books/1850-prophecy-chart">1850 Prophetic Chart</a></li>
+            <li><a href="/pioneers">Browse Biographies</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Incorporation Record</a></li>
+          </ul>
+        </div>
+        <div>
+          <h4 class="serif">Connect</h4>
+          <ul class="footer-links">
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">&copy; 2026 Advent Pioneer Library — Revelation 14:12</div>
+    </footer>
+
+    <script>
+      const btn = document.getElementById('menu-btn');
+      const nav = document.getElementById('mobile-nav');
+      if (btn && nav) {
+        btn.addEventListener('click', () => {
+          const open = nav.classList.toggle('open');
+          btn.setAttribute('aria-expanded', String(open));
+        });
+      }
+    </script>
+  </body>
+</html>
+
+    <script is:inline>
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      const langBadge = document.getElementById('lang-badge');
+
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+
+      function updateLanguageBadge(lang) {
+        if (!langBadge) return;
+        const normalized = (lang || 'en').replace('/en/', '').replace('/', '');
+        langBadge.textContent = normalized || 'en';
+      }
+
+      function getCurrentGoogTrans() {
+        const match = document.cookie.match(/(?:^|; )googtrans=([^;]+)/);
+        return match ? decodeURIComponent(match[1]) : '/en/en';
+      }
+
+      function applyAutoTranslation() {
+        const rawLang = (navigator.language || 'en').toLowerCase();
+        let browserLang = rawLang.split('-')[0];
+
+        if (rawLang.startsWith('zh-tw') || rawLang.startsWith('zh-hk')) {
+          browserLang = 'zh-TW';
+        } else if (rawLang.startsWith('zh')) {
+          browserLang = 'zh-CN';
+        }
+
+        if (!browserLang || browserLang === 'en') return;
+
+        const target = '/en/' + browserLang;
+        updateLanguageBadge(browserLang);
+        if (document.cookie.includes('googtrans=' + target)) return;
+
+        document.cookie = 'googtrans=' + target + ';path=/';
+        document.cookie = 'googtrans=' + target + ';domain=' + location.hostname + ';path=/';
+
+        if (!sessionStorage.getItem('gt_auto_applied')) {
+          sessionStorage.setItem('gt_auto_applied', '1');
+          location.reload();
+        }
+      }
+
+      function initGoogleTranslate() {
+        if (!window.google || !window.google.translate) return;
+        new window.google.translate.TranslateElement(
+          {
+            pageLanguage: 'en',
+            autoDisplay: false,
+            layout: window.google.translate.TranslateElement.InlineLayout.SIMPLE
+          },
+          'google_translate_element'
+        );
+        updateLanguageBadge(getCurrentGoogTrans());
+        applyAutoTranslation();
+
+        setTimeout(() => {
+          const select = document.querySelector('#google_translate_element select');
+          if (!select) return;
+          select.addEventListener('change', (event) => {
+            updateLanguageBadge(event.target.value);
+          });
+        }, 800);
+      }
+
+      window.initGoogleTranslate = initGoogleTranslate;
+    </script>
+    <script is:inline src="//translate.google.com/translate_a/element.js?cb=initGoogleTranslate"></script>
+    <SiteFooter
+      pageLinks={[
+        { label: 'Pioneer Books — All Titles', href: '/library' },
+        { label: 'All Pioneer Biographies', href: '/pioneers' },
+        { label: 'SDA Apostasy Documented', href: '/apostasy' },
+        { label: 'Prophecy Charts — 1843 & 1850', href: '/prophecy-charts' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+  </body>
+</html>

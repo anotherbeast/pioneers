@@ -1,0 +1,469 @@
+---
+// ============================================================
+// TEMPLATE: PIONEER BIOGRAPHY PAGE
+// Use for: individual pioneer profile pages under /pioneers/
+//
+// BEFORE USING:
+//  1. Copy to src/pages/pioneers/PIONEER-SLUG.astro
+//  2. Replace every ALL_CAPS placeholder
+//  3. Add the portrait image to public/images/pioneers/PIONEER-SLUG.jpg
+//  4. Fill in bio paragraphs, key facts, timeline, and related books
+// ============================================================
+import Analytics from '../../components/Analytics.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <!-- ══ SEO ════════════════════════════════════════════════ -->
+  <title>PIONEER_NAME (BIRTH_YEAR–DEATH_YEAR) — Adventist Pioneer | SundayLaw.com</title>
+  <meta name="description" content="PAGE_META_DESCRIPTION">
+  <link rel="canonical" href="https://sundaylaw.com/pioneers/PIONEER-SLUG">
+
+  <!-- ══ OPEN GRAPH ════════════════════════════════════════ -->
+  <meta property="og:title" content="PIONEER_NAME — PIONEER_ROLE | SundayLaw.com">
+  <meta property="og:description" content="PAGE_OG_DESCRIPTION">
+  <meta property="og:image" content="/images/pioneers/PIONEER-SLUG.jpg">
+  <meta property="og:type" content="profile">
+  <meta property="og:url" content="https://sundaylaw.com/pioneers/PIONEER-SLUG">
+  <meta property="og:site_name" content="SundayLaw.com">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="PIONEER_NAME — PIONEER_ROLE | SundayLaw.com">
+  <meta name="twitter:description" content="PAGE_OG_DESCRIPTION">
+  <meta name="twitter:image" content="/images/pioneers/PIONEER-SLUG.jpg">
+
+  <!-- ══ SCHEMA.ORG Person (voice AI + authority search) ══ -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "PIONEER_NAME",
+    "birthDate": "BIRTH_YEAR",
+    "deathDate": "DEATH_YEAR",
+    "birthPlace": { "@type": "Place", "name": "BIRTH_PLACE" },
+    "deathPlace": { "@type": "Place", "name": "DEATH_PLACE" },
+    "description": "PAGE_META_DESCRIPTION",
+    "url": "https://sundaylaw.com/pioneers/PIONEER-SLUG",
+    "image": "/images/pioneers/PIONEER-SLUG.jpg",
+    "jobTitle": "PIONEER_ROLE",
+    "knowsAbout": ["Adventist pioneer", "Seventh-day Sabbath", "Three Angels Messages", "Bible prophecy"],
+    "isPartOf": { "@type": "WebSite", "name": "SundayLaw.com", "url": "https://sundaylaw.com" }
+  }
+  </script>
+
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+
+  <style>
+    /* ══ COLOR TOKENS (navy — matches index.astro) ══════════ */
+    :root {
+      --bg: #0a0a2e; --bg-soft: #0d0d3a; --bg-card: rgba(13,13,58,0.85);
+      --ink: #fef3c7; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12); --line-accent: rgba(212,165,55,0.35);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+
+    /* ══ NAV ═════════════════════════════════════════════════ */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+    .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+    .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover, .nav-link.active { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+    .nav-cta:hover { background: var(--gold-soft); }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mobile-nav a:hover { color: var(--gold-soft); }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+    /* ══ PAGE ════════════════════════════════════════════════ */
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); }
+    .breadcrumb a:hover { color: var(--gold); }
+    .breadcrumb span { margin: 0 6px; }
+
+    /* ══ PIONEER HERO ════════════════════════════════════════ */
+    .pioneer-hero { padding: 44px 0 36px; }
+    .pioneer-hero-card { background: linear-gradient(135deg, rgba(26,26,78,0.9), rgba(13,13,53,0.95)); border: 1px solid var(--line-accent); border-radius: 24px; padding: 44px 40px; display: grid; grid-template-columns: 280px 1fr; gap: 52px; align-items: start; }
+    @media (max-width: 768px) { .pioneer-hero-card { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; } }
+
+    /* Portrait column */
+    .portrait-col { display: flex; flex-direction: column; align-items: center; gap: 16px; }
+    .pioneer-portrait { width: 220px; height: 220px; border-radius: 50%; object-fit: cover; object-position: center 45%; border: 3px solid var(--gold); box-shadow: 0 0 48px rgba(212,165,55,0.22); }
+    .pioneer-name-lg { font-family: 'Crimson Text', serif; font-size: 1.75rem; font-weight: 600; text-align: center; color: var(--ink); line-height: 1.2; }
+    .pioneer-dates { font-size: 0.85rem; color: var(--muted); text-align: center; }
+    .pioneer-role-badge { font-size: 0.78rem; color: var(--gold-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; padding: 5px 14px; border: 1px solid var(--line-accent); border-radius: 999px; text-align: center; }
+    .portrait-links { display: flex; flex-direction: column; gap: 8px; width: 100%; }
+    .portrait-link { display: inline-flex; align-items: center; justify-content: center; gap: 6px; padding: 10px 18px; border-radius: 10px; font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; border: 1px solid var(--line-accent); background: rgba(212,165,55,0.08); color: var(--gold-soft); }
+    .portrait-link:hover { background: rgba(212,165,55,0.18); color: #fff; }
+
+    /* Bio column */
+    .bio-col { }
+    .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.28); color: var(--gold-soft); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .bio-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 3.5vw, 2.8rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 10px; }
+    .bio-col h1 em { font-style: italic; color: var(--gold-soft); }
+    .bio-tagline { font-size: 1.05rem; color: rgba(254,243,199,0.8); line-height: 1.85; margin-bottom: 22px; }
+
+    /* Key facts strip */
+    .key-facts { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; margin-bottom: 22px; }
+    .key-fact { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; }
+    .key-fact .kf-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; font-weight: 600; margin-bottom: 4px; }
+    .key-fact .kf-value { font-size: 0.88rem; color: var(--gold-soft); font-weight: 600; }
+
+    .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 13px 24px; border-radius: 12px; background: transparent; border: 1px solid var(--line); color: var(--muted); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+    /* ══ SECTIONS ════════════════════════════════════════════ */
+    .section { padding: 52px 0; border-top: 1px solid var(--line-soft); }
+    .section-header { text-align: center; margin-bottom: 36px; }
+    .section-header .sh-eyebrow { display: inline-block; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.73rem; font-weight: 700; margin-bottom: 12px; }
+    .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.5vw, 2.6rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+    .section-header p { color: var(--muted); font-size: 0.97rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+
+    /* ══ FULL BIO ════════════════════════════════════════════ */
+    .bio-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: start; }
+    @media (max-width: 768px) { .bio-layout { grid-template-columns: 1fr; } }
+    .bio-portrait-lg { width: 100%; max-width: 360px; border-radius: 18px; object-fit: cover; display: block; border: 1px solid var(--line); }
+    .bio-caption { margin-top: 12px; font-size: 0.8rem; color: var(--muted); font-style: italic; text-align: center; }
+    .full-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; margin-top: 18px; }
+    .bio-fact { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; }
+    .bio-fact .fact-label { font-size: 0.7rem; color: var(--muted); text-transform: uppercase; letter-spacing: 0.09em; font-weight: 600; margin-bottom: 4px; }
+    .bio-fact .fact-value { font-size: 0.88rem; color: var(--gold-soft); font-weight: 600; line-height: 1.4; }
+    .bio-text h3 { font-family: 'Crimson Text', serif; font-size: 1.85rem; color: var(--ink); margin-bottom: 14px; }
+    .bio-text p { font-size: 0.97rem; color: rgba(254,243,199,0.82); line-height: 1.92; margin-bottom: 16px; }
+    .bio-text strong { color: var(--gold-soft); }
+
+    /* ══ SCRIPTURE PULL QUOTE ════════════════════════════════ */
+    .pull-scripture { background: rgba(212,165,55,0.06); border: 1px solid rgba(212,165,55,0.18); border-left: 4px solid var(--gold); border-radius: 0 14px 14px 0; padding: 20px 24px; margin: 24px 0; }
+    .pull-scripture .ref { font-size: 0.75rem; color: var(--gold-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 8px; }
+    .pull-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: #fde68a; line-height: 1.65; }
+    .pull-scripture cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(253,230,138,0.6); font-style: normal; }
+
+    /* ══ TIMELINE ════════════════════════════════════════════ */
+    .timeline { margin-top: 28px; position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 8px; top: 4px; bottom: 4px; width: 2px; background: var(--line); border-radius: 2px; }
+    .tl-event { position: relative; margin-bottom: 28px; }
+    .tl-event::before { content: ''; position: absolute; left: -24px; top: 6px; width: 10px; height: 10px; border-radius: 50%; background: var(--gold); border: 2px solid var(--bg); box-shadow: 0 0 0 2px var(--gold); }
+    .tl-event .tl-year { font-size: 0.8rem; font-weight: 800; color: var(--gold); text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 3px; }
+    .tl-event h4 { font-size: 1rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+    .tl-event p { font-size: 0.875rem; color: var(--muted); line-height: 1.65; }
+
+    /* ══ BOOKS BY THIS PIONEER ═══════════════════════════════ */
+    .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+    .book-card { background: linear-gradient(135deg, rgba(22,22,68,0.8), rgba(13,13,45,0.9)); border: 1px solid rgba(180,130,50,0.25); border-radius: 16px; padding: 24px 22px; transition: all 0.2s; display: flex; flex-direction: column; }
+    .book-card:hover { border-color: rgba(212,165,55,0.5); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+    .book-card h3 { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+    .book-card .book-year { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+    .book-card p { font-size: 0.875rem; color: var(--muted); line-height: 1.7; flex: 1; margin-bottom: 16px; }
+    .book-card-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 9px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; margin-top: auto; }
+    .book-card-link:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+
+    /* ══ RELATED PIONEERS ════════════════════════════════════ */
+    .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+    .related-card { background: rgba(13,13,53,0.7); border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 18px; transition: all 0.2s; text-decoration: none; display: block; }
+    .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+    .related-card .r-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+    .related-card h4 { font-size: 0.95rem; color: var(--ink); font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+    .related-card p { font-size: 0.8rem; color: var(--muted); line-height: 1.5; }
+
+    /* ══ BACK TO TOP ══════════════════════════════════════════ */
+    .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+    .btt.visible { display: flex; }
+    .btt:hover { background: rgba(212,165,55,0.28); }
+  </style>
+</head>
+<body>
+
+  <!-- ══ NAV ═════════════════════════════════════════════════ -->
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a class="nav-brand" href="/">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com — The Final Warning" />
+        </a>
+        <a class="nav-link" href="/#final-choice">The Final Choice</a>
+        <a class="nav-link" href="/#seal-vs-mark">Seal vs. Mark</a>
+        <a class="nav-link active" href="/pioneers">Pioneer Profiles</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Full Library</a>
+        <a class="nav-cta" href="/#take-stand">Take Your Stand</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link" href="/#three-angels">Three Angels</a>
+        <a class="nav-bottom-link" href="/#second-beast">Second Beast</a>
+        <a class="nav-bottom-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-bottom-link" href="/loud-cry">The Loud Cry</a>
+        <a class="nav-bottom-link" href="/prophecy-charts">Prophecy Charts</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+        <a class="nav-bottom-link" href="/contact">Contact</a>
+        <a class="nav-bottom-link" href="/donate">Donate</a>
+        <a class="nav-bottom-link" href="/midnight-cry">Midnight Cry Movie</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/#final-choice">The Final Choice</a>
+      <a href="/#seal-vs-mark">Seal vs. Mark</a>
+      <a href="/#three-angels">Three Angels' Messages</a>
+      <a href="/pioneers">Pioneer Profiles</a>
+      <a href="/library">Full Pioneer Gateway</a>
+      <a href="/religious-liberty">Religious Liberty</a>
+      <a href="/loud-cry">The Loud Cry</a>
+      <a href="/midnight-cry">The Midnight Cry</a>
+      <a href="/contact">Contact</a>
+      <a href="/donate">Donate</a>
+    </div>
+  </nav>
+
+  <!-- ══ MAIN ═══════════════════════════════════════════════ -->
+  <div class="page">
+
+    <!-- breadcrumb -->
+    <nav class="breadcrumb" aria-label="Breadcrumb">
+      <a href="/">Home</a><span>›</span>
+      <a href="/pioneers">Pioneer Profiles</a><span>›</span>
+      <span>PIONEER_NAME</span>
+    </nav>
+
+    <!-- ══ HERO: PORTRAIT + QUICK BIO ═══════════════════════ -->
+    <div class="pioneer-hero">
+      <div class="pioneer-hero-card">
+
+        <!-- Portrait column -->
+        <div class="portrait-col">
+          <img
+            src="/images/pioneers/PIONEER-SLUG.jpg"
+            alt="PIONEER_NAME — Adventist Pioneer, BIRTH_YEAR–DEATH_YEAR"
+            class="pioneer-portrait"
+            width="220" height="220"
+          />
+          <div class="pioneer-name-lg">PIONEER_NAME</div>
+          <div class="pioneer-dates">BIRTH_YEAR &ndash; DEATH_YEAR</div>
+          <div class="pioneer-role-badge">PIONEER_ROLE</div>
+          <div class="portrait-links">
+            <!-- Link to their books page if one exists -->
+            <a href="/books/PIONEER-SLUG" class="portrait-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M2 3h6a4 4 0 0 1 4 4v14a3 3 0 0 0-3-3H2z"/><path d="M22 3h-6a4 4 0 0 0-4 4v14a3 3 0 0 1 3-3h7z"/></svg>
+              View Books &rarr;
+            </a>
+            <!-- Link to an external source (optional) -->
+            <!-- <a href="https://encyclopedia.adventist.org/article?id=XXXXX" target="_blank" rel="noopener noreferrer" class="portrait-link">Encyclopedia Entry &rarr;</a> -->
+          </div>
+        </div>
+
+        <!-- Bio intro column -->
+        <div class="bio-col">
+          <div class="eyebrow">MOVEMENT_LABEL &mdash; BIRTH_YEAR&ndash;DEATH_YEAR</div>
+          <h1>PIONEER_NAME</h1>
+          <p class="bio-tagline">BIO_ONE_PARAGRAPH_OPENING — two or three compelling sentences that immediately establish who this person was and why they matter to the Advent message.</p>
+
+          <!-- Key facts strip -->
+          <div class="key-facts">
+            <div class="key-fact">
+              <div class="kf-label">Born</div>
+              <div class="kf-value">BIRTH_YEAR, BIRTH_PLACE</div>
+            </div>
+            <div class="key-fact">
+              <div class="kf-label">Died</div>
+              <div class="kf-value">DEATH_YEAR, DEATH_PLACE</div>
+            </div>
+            <div class="key-fact">
+              <div class="kf-label">Known For</div>
+              <div class="kf-value">KNOWN_FOR_SHORT</div>
+            </div>
+            <div class="key-fact">
+              <div class="kf-label">Key Scripture</div>
+              <div class="kf-value">SCRIPTURE_REF</div>
+            </div>
+          </div>
+
+          <div class="btn-row">
+            <a href="#full-biography" class="btn-gold">Read Full Biography &darr;</a>
+            <a href="#writings" class="btn-outline">Their Writings &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ══ FULL BIOGRAPHY ═════════════════════════════════ -->
+    <div class="section" id="full-biography">
+      <div class="section-header">
+        <div class="sh-eyebrow">Adventist Pioneer</div>
+        <h2>The Life of PIONEER_NAME</h2>
+        <p>BIO_SECTION_SUBHEAD</p>
+      </div>
+
+      <div class="bio-layout">
+        <!-- Portrait + facts -->
+        <div>
+          <img
+            src="/images/pioneers/PIONEER-SLUG.jpg"
+            alt="PIONEER_NAME — Adventist Pioneer"
+            class="bio-portrait-lg"
+            width="360"
+          />
+          <p class="bio-caption">PIONEER_NAME (BIRTH_YEAR&ndash;DEATH_YEAR)</p>
+          <div class="full-facts">
+            <div class="bio-fact"><div class="fact-label">Born</div><div class="fact-value">BIRTH_DATE, BIRTH_PLACE</div></div>
+            <div class="bio-fact"><div class="fact-label">Died</div><div class="fact-value">DEATH_DATE, DEATH_PLACE</div></div>
+            <div class="bio-fact"><div class="fact-label">Spouse</div><div class="fact-value">SPOUSE_NAME</div></div>
+            <div class="bio-fact"><div class="fact-label">Denomination</div><div class="fact-value">Seventh-day Adventist</div></div>
+            <div class="bio-fact"><div class="fact-label">Ministry</div><div class="fact-value">MINISTRY_DESCRIPTION</div></div>
+            <div class="bio-fact"><div class="fact-label">Key Work</div><div class="fact-value">KEY_WORK</div></div>
+          </div>
+        </div>
+
+        <!-- Full bio text -->
+        <div class="bio-text">
+          <h3>BIO_H3_TAGLINE</h3>
+          <p>BIO_PARAGRAPH_ONE — early life, conversion, family background.</p>
+          <p>BIO_PARAGRAPH_TWO — entry into the Advent movement, key turning point.</p>
+
+          <div class="pull-scripture">
+            <div class="ref">SCRIPTURE_REF (KJV)</div>
+            <blockquote>&ldquo;SCRIPTURE_TEXT&rdquo;</blockquote>
+            <cite>&mdash; SCRIPTURE_REF &mdash; CONTEXT_NOTE</cite>
+          </div>
+
+          <p>BIO_PARAGRAPH_THREE — major contributions, writings, ministry highlights.</p>
+          <p>BIO_PARAGRAPH_FOUR — later life, legacy, death.</p>
+          <p>BIO_PARAGRAPH_FIVE — why their writings matter today.</p>
+        </div>
+      </div>
+
+      <!-- Vertical timeline -->
+      <div class="section-header" style="margin-top:52px;">
+        <div class="sh-eyebrow">Life &amp; Ministry Timeline</div>
+        <h2>Key Dates in PIONEER_NAME&rsquo;s Life</h2>
+      </div>
+      <div class="timeline">
+        <div class="tl-event">
+          <div class="tl-year">YEAR</div>
+          <h4>TL_EVENT_TITLE_1</h4>
+          <p>TL_EVENT_DESC_1</p>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">YEAR</div>
+          <h4>TL_EVENT_TITLE_2</h4>
+          <p>TL_EVENT_DESC_2</p>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">YEAR</div>
+          <h4>TL_EVENT_TITLE_3</h4>
+          <p>TL_EVENT_DESC_3</p>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">YEAR</div>
+          <h4>TL_EVENT_TITLE_4</h4>
+          <p>TL_EVENT_DESC_4</p>
+        </div>
+        <div class="tl-event">
+          <div class="tl-year">YEAR</div>
+          <h4>TL_EVENT_TITLE_5</h4>
+          <p>TL_EVENT_DESC_5</p>
+        </div>
+        <!-- Add more events as needed -->
+      </div>
+    </div>
+
+    <!-- ══ WRITINGS ════════════════════════════════════════ -->
+    <div class="section" id="writings">
+      <div class="section-header">
+        <div class="sh-eyebrow">Pioneer Library</div>
+        <h2>Writings by PIONEER_NAME</h2>
+        <p>Books, tracts, sermons, and addresses by PIONEER_NAME available in this library.</p>
+      </div>
+      <div class="books-grid">
+        <div class="book-card">
+          <h3>BOOK_TITLE_1</h3>
+          <div class="book-year">YEAR_1</div>
+          <p>BOOK_SHORT_DESC_1</p>
+          <a href="/books/PIONEER-SLUG/FILENAME.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link">
+            <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" aria-hidden="true"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Read PDF
+          </a>
+        </div>
+        <!-- ADD MORE BOOK CARDS HERE -->
+      </div>
+    </div>
+
+    <!-- ══ RELATED PIONEERS ═══════════════════════════════ -->
+    <div class="section">
+      <div class="section-header">
+        <div class="sh-eyebrow">Further Study</div>
+        <h2>Related Pioneers &amp; Resources</h2>
+      </div>
+      <div class="related-grid">
+        <a href="/pioneers" class="related-card">
+          <div class="r-label">All Pioneers</div>
+          <h4>Adventist Pioneer Profiles</h4>
+          <p>Full biographies of every major pioneer of the Advent movement.</p>
+        </a>
+        <a href="/library" class="related-card">
+          <div class="r-label">Pioneer Library</div>
+          <h4>All Books &amp; Tracts</h4>
+          <p>The complete SundayLaw.com pioneer book gateway.</p>
+        </a>
+        <a href="/prophecy-charts" class="related-card">
+          <div class="r-label">Prophecy Charts</div>
+          <h4>1843 &amp; 1850 Charts</h4>
+          <p>The prophetic charts that launched the Advent awakening.</p>
+        </a>
+        <!-- ADD MORE RELATED CARDS — other pioneer pages, related book pages, etc. -->
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+  <!-- ══ FOOTER ════════════════════════════════════════════ -->
+  <SiteFooter />
+
+  <!-- ══ FLOATING COMPONENTS ══════════════════════════════ -->
+  <ShareBar />
+  <SiteSearch />
+
+  <!-- ══ BACK TO TOP ════════════════════════════════════════ -->
+  <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script is:inline>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    if (menuBtn && mobileNav) {
+      menuBtn.addEventListener('click', () => {
+        const open = mobileNav.classList.toggle('open');
+        menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+      });
+    }
+    const btt = document.getElementById('btt');
+    if (btt) {
+      window.addEventListener('scroll', () => btt.classList.toggle('visible', window.scrollY > 400), { passive: true });
+    }
+  </script>
+
+</body>
+</html>

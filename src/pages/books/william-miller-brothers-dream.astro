@@ -1,0 +1,842 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteNav from '../../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Brother Miller&rsquo;s Dream — James White (1850) | SundayLaw.com</title>
+    <meta name="description" content="Read James White's 1850 account of William Miller's remarkable prophetic dream — a divine confirmation of the Advent message recorded at the birth of the Sabbatarian Adventist movement.">
+    <link rel="canonical" href="https://sundaylaw.com/books/william-miller-brothers-dream">
+    <meta property="og:title" content="Brother Miller&rsquo;s Dream — James White (1850)">
+    <meta property="og:description" content="James White's 1850 record of William Miller's prophetic dream — a primary source from the founding year of the Sabbatarian Advent movement.">
+    <meta property="og:image" content="/images/pioneers/james-white.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/books/william-miller-brothers-dream">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Brother Miller&rsquo;s Dream — James White (1850)">
+    <meta name="twitter:description" content="James White's 1850 record of William Miller's prophetic dream — the divine confirmation of the Advent movement.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "Brother Miller's Dream",
+      "author": {
+        "@type": "Person",
+        "name": "James White",
+        "birthDate": "1821",
+        "deathDate": "1881"
+      },
+      "datePublished": "1850",
+      "description": "James White's 1850 account of William Miller's prophetic dream — a divine confirmation of the Advent message and a primary source document from the founding year of the Sabbatarian Adventist movement.",
+      "publisher": { "@type": "Organization", "name": "SundayLaw.com" },
+      "url": "https://sundaylaw.com/books/william-miller-brothers-dream",
+      "inLanguage": "en"
+    }
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --red: #ef4444;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: #0a0a2e; overflow-x: hidden; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+
+      /* ===== NAV ===== */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--gold-soft); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .nav-cta:hover { background: var(--gold-soft); color: #111; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ===== PAGE LAYOUT ===== */
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* ===== HERO ===== */
+      .hero { padding: 52px 0 40px; }
+      .hero-breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .hero-breadcrumb a { color: var(--ink-muted); }
+      .hero-breadcrumb a:hover { color: var(--gold); }
+      .hero-breadcrumb span { margin: 0 6px; }
+      .hero-card { background: linear-gradient(135deg, rgba(26,26,78,0.9), rgba(13,13,53,0.95)); border: 1px solid rgba(180,130,50,0.35); border-radius: 24px; padding: 44px 40px; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+      @media (max-width: 768px) { .hero-card { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; } }
+
+      /* Pioneer portrait col */
+      .pioneer-col { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+      .pioneer-portrait { width: 200px; height: 200px; border-radius: 50%; object-fit: cover; object-position: top center; border: 3px solid var(--gold); box-shadow: 0 0 40px rgba(212,165,55,0.25); }
+      .pioneer-portrait-secondary { width: 130px; height: 130px; border-radius: 50%; object-fit: cover; object-position: top center; border: 2px solid rgba(212,165,55,0.5); box-shadow: 0 0 20px rgba(212,165,55,0.15); }
+      .pioneer-name { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-weight: 600; text-align: center; color: var(--ink); }
+      .pioneer-name-secondary { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; text-align: center; color: var(--ink-muted); }
+      .pioneer-dates { font-size: 0.82rem; color: var(--ink-muted); text-align: center; }
+      .pioneer-role { font-size: 0.8rem; color: var(--gold-soft); text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 12px; border: 1px solid rgba(212,165,55,0.3); border-radius: 999px; }
+      .pioneer-divider { width: 48px; height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); }
+      .pioneer-bio-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 10px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.30); color: var(--gold-soft); font-weight: 600; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; white-space: nowrap; }
+      .pioneer-bio-link:hover { background: rgba(212,165,55,0.2); color: #fff; }
+
+      /* Featured book col */
+      .book-col { }
+      .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.3); color: var(--gold-soft); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+      .book-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 8px; }
+      .book-col h1 em { font-style: italic; color: var(--gold-soft); }
+      .book-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+      .book-meta-item { font-size: 0.82rem; color: var(--ink-muted); display: flex; align-items: center; }
+      .book-meta-item strong { color: var(--gold); margin-right: 4px; }
+      .book-excerpt { font-size: 1rem; color: rgba(254,243,199,0.85); line-height: 1.85; margin-bottom: 22px; }
+
+      /* Scripture pull */
+      .pull-scripture { background: linear-gradient(135deg, rgba(15,10,40,0.8), rgba(10,8,30,0.9)); border: 1px solid rgba(212,165,55,0.25); border-left: 4px solid var(--gold); border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 22px; }
+      .pull-scripture .ref { font-size: 0.78rem; color: var(--gold-soft); font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+      .pull-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.18rem; font-style: italic; color: #fde68a; line-height: 1.6; }
+      .pull-scripture cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(253,230,138,0.7); font-style: normal; }
+
+      /* CTA buttons */
+      .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+      .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; background: transparent; border: 1px solid var(--line); color: var(--ink-muted); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      /* ===== SECTION ===== */
+      .section { padding: 48px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { text-align: center; margin-bottom: 32px; }
+      .section-header .sh-eyebrow { display: inline-block; padding: 5px 16px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.73rem; font-weight: 700; margin-bottom: 12px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.5vw, 2.5rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header p { color: var(--ink-muted); font-size: 0.97rem; line-height: 1.8; max-width: 640px; margin: 0 auto; }
+
+      /* ===== PDF EMBED ===== */
+      .pdf-embed-wrap { background: rgba(10,10,46,0.5); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-bottom: 24px; }
+      .pdf-embed-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(13,13,53,0.8); border-bottom: 1px solid var(--line); flex-wrap: wrap; gap: 10px; }
+      .pdf-embed-toolbar-title { font-size: 0.875rem; font-weight: 600; color: var(--ink-muted); }
+      .pdf-embed-toolbar-title strong { color: var(--gold-soft); }
+      .pdf-embed-toolbar a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.3); color: var(--gold-soft); font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+      .pdf-embed-toolbar a:hover { background: rgba(212,165,55,0.2); }
+      .pdf-frame { width: 100%; height: 800px; display: block; border: none; background: #fff; }
+      @media (max-width: 600px) { .pdf-frame { height: 500px; } }
+
+      /* ===== BOOKS GRID ===== */
+      .books-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 18px; }
+      .book-card { background: linear-gradient(135deg, rgba(22,22,68,0.8), rgba(13,13,45,0.9)); border: 1px solid rgba(180,130,50,0.25); border-radius: 16px; padding: 24px 22px; transition: all 0.2s; display: flex; flex-direction: column; }
+      .book-card:hover { border-color: rgba(212,165,55,0.5); transform: translateY(-2px); box-shadow: 0 8px 32px rgba(0,0,0,0.4); }
+      .book-card.featured { border-color: rgba(212,165,55,0.5); background: linear-gradient(135deg, rgba(30,20,5,0.9), rgba(13,13,45,0.95)); }
+      .book-card-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 10px; border-radius: 999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 12px; width: fit-content; }
+      .badge-featured { background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.4); color: var(--gold-soft); }
+      .badge-tract { background: rgba(59,130,246,0.1); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+      .badge-history { background: rgba(16,185,129,0.1); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+      .badge-doctrinal { background: rgba(168,85,247,0.1); border: 1px solid rgba(168,85,247,0.3); color: #d8b4fe; }
+      .book-card h3 { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+      .book-card .book-year { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+      .book-card p { font-size: 0.875rem; color: var(--ink-muted); line-height: 1.7; flex: 1; margin-bottom: 16px; }
+      .book-card-link { display: inline-flex; align-items: center; gap: 6px; padding: 10px 18px; border-radius: 9px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+      .link-gold { background: linear-gradient(to right, #b45309, #d97706); color: #fff; }
+      .link-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .link-blue { background: rgba(59,130,246,0.12); border: 1px solid rgba(59,130,246,0.3); color: #93c5fd; }
+      .link-blue:hover { background: rgba(59,130,246,0.2); color: #fff; }
+      .link-green { background: rgba(16,185,129,0.12); border: 1px solid rgba(16,185,129,0.3); color: #6ee7b7; }
+      .link-green:hover { background: rgba(16,185,129,0.2); color: #fff; }
+
+      /* ===== BIO SECTION ===== */
+      .bio-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 32px; align-items: start; }
+      @media (max-width: 768px) { .bio-grid { grid-template-columns: 1fr; } }
+      .bio-portrait-wrap { position: relative; }
+      .bio-portrait { width: 100%; max-width: 340px; border-radius: 16px; object-fit: cover; display: block; border: 1px solid var(--line); }
+      .bio-caption { margin-top: 12px; font-size: 0.8rem; color: var(--ink-muted); text-align: center; font-style: italic; }
+      .bio-content h3 { font-family: 'Crimson Text', serif; font-size: 1.85rem; font-weight: 600; color: var(--ink); margin-bottom: 14px; }
+      .bio-content p { font-size: 0.95rem; color: rgba(254,243,199,0.8); line-height: 1.9; margin-bottom: 14px; }
+      .bio-content p:last-child { margin-bottom: 0; }
+      .bio-facts { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; margin: 18px 0; }
+      .bio-fact { background: rgba(13,13,53,0.6); border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; }
+      .bio-fact .fact-label { font-size: 0.72rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; margin-bottom: 4px; }
+      .bio-fact .fact-value { font-size: 0.9rem; color: var(--gold-soft); font-weight: 600; }
+
+      /* ===== EGW QUOTE CARD ===== */
+      .egw-card { background: linear-gradient(135deg, rgba(20,10,5,0.75), rgba(10,10,40,0.9)); border: 1px solid rgba(212,165,55,0.3); border-left: 4px solid var(--gold); border-radius: 0 16px 16px 0; padding: 28px 30px; margin: 32px 0; }
+      .egw-kicker { font-size: 0.72rem; color: var(--gold-soft); text-transform: uppercase; letter-spacing: 0.12em; font-weight: 700; margin-bottom: 12px; }
+      .egw-card blockquote { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; color: #fde68a; line-height: 1.7; margin-bottom: 10px; }
+      .egw-card cite { font-size: 0.84rem; color: rgba(212,165,55,0.75); font-style: normal; font-weight: 600; }
+
+      /* ===== CONTEXT CARD ===== */
+      .context-card { background: linear-gradient(135deg, rgba(10,20,5,0.7), rgba(10,10,40,0.9)); border: 1px solid rgba(212,165,55,0.2); border-radius: 20px; padding: 36px 32px; }
+      @media (max-width: 600px) { .context-card { padding: 24px 18px; } }
+      .context-card .context-header { display: flex; align-items: center; gap: 14px; margin-bottom: 20px; }
+      .context-badge { width: 48px; height: 48px; border-radius: 50%; background: linear-gradient(135deg, #92400e, #d97706); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.9rem; color: #fff; flex-shrink: 0; }
+      .context-card h3 { font-family: 'Crimson Text', serif; font-size: 1.7rem; font-weight: 600; color: var(--gold-soft); }
+      .context-card .sub { font-size: 0.85rem; color: rgba(212,165,55,0.65); }
+      .context-verse { background: rgba(212,165,55,0.06); border: 1px solid rgba(212,165,55,0.18); border-radius: 12px; padding: 22px 24px; margin: 18px 0; }
+      .context-verse blockquote { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: #fde68a; line-height: 1.65; }
+      .context-verse cite { display: block; margin-top: 8px; font-size: 0.82rem; color: rgba(212,165,55,0.6); font-style: normal; font-weight: 600; }
+      .context-body { font-size: 0.97rem; color: rgba(254,243,199,0.8); line-height: 1.9; margin-top: 16px; }
+      .context-body strong { color: var(--gold-soft); }
+
+      /* ===== TIMELINE STRIP ===== */
+      .timeline-strip { display: flex; gap: 0; overflow: hidden; border-radius: 16px; border: 1px solid var(--line); margin-top: 28px; }
+      @media (max-width: 600px) { .timeline-strip { flex-direction: column; } }
+      .tl-item { flex: 1; padding: 18px; background: rgba(13,13,53,0.7); border-right: 1px solid var(--line); }
+      .tl-item:last-child { border-right: none; }
+      .tl-year { font-size: 1.4rem; font-weight: 800; color: var(--gold); display: block; margin-bottom: 4px; }
+      .tl-title { font-size: 0.875rem; font-weight: 700; color: var(--ink); margin-bottom: 4px; }
+      .tl-desc { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.6; }
+
+      /* ===== RELATED RESOURCES ===== */
+      .related-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; }
+      .related-card { background: rgba(13,13,53,0.7); border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 18px; transition: all 0.2s; text-decoration: none; display: block; }
+      .related-card:hover { border-color: var(--gold); transform: translateY(-2px); }
+      .related-card .r-label { font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.1em; font-weight: 700; color: var(--gold); margin-bottom: 6px; }
+      .related-card h4 { font-size: 0.95rem; color: var(--ink); font-weight: 600; margin-bottom: 4px; line-height: 1.3; }
+      .related-card p { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.5; }
+
+      /* ===== FOOTER ===== */
+      .site-footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); }
+      .footer-banner { background: linear-gradient(to right, rgba(180,83,9,0.15), rgba(180,83,9,0.1), rgba(180,83,9,0.15)); padding: 24px; text-align: center; }
+      .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.1rem; font-style: italic; }
+      .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 6px; }
+      .footer-main { max-width: 1280px; margin: 0 auto; padding: 56px 22px; display: grid; gap: 2.5rem; }
+      @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+      .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+      .footer-col p { color: var(--ink-muted); font-size: 0.875rem; line-height: 1.7; }
+      .footer-col ul { list-style: none; }
+      .footer-col li { padding: 4px 0; }
+      .footer-col li a { color: var(--ink-muted); font-size: 0.875rem; transition: color 0.2s; text-decoration: none; }
+      .footer-col li a:hover { color: var(--gold-soft); }
+      .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+      .footer-brand-name em { color: var(--gold); font-style: normal; }
+      .footer-bottom { border-top: 1px solid rgba(180,130,50,0.1); padding: 20px 22px; text-align: center; }
+      .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+      .footer-flags { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 12px 0; }
+      .footer-flags div { width: 32px; height: 4px; border-radius: 2px; }
+      .flag-r { background: #b91c1c; } .flag-w { background: #fff; } .flag-b { background: #1d4ed8; }
+      .footer-stripe { height: 4px; background: linear-gradient(to right, #b91c1c, #fff, #1d4ed8); }
+
+      /* ===== BACK TO TOP ===== */
+      .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(212,165,55,0.3); }
+    </style>
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <div class="page">
+      <div class="hero">
+        <div class="hero-breadcrumb">
+          <a href="/">Home</a><span>&rsaquo;</span>
+          <a href="/library">Pioneer Library</a><span>&rsaquo;</span>
+          <a href="/pioneers/james-white">James White</a><span>&rsaquo;</span>
+          <span style="color:var(--ink);">Brother Miller&rsquo;s Dream</span>
+        </div>
+
+        <div class="hero-card">
+          <!-- Portrait Column -->
+          <div class="pioneer-col">
+            <img
+              src="/images/pioneers/james-white.jpg" loading="lazy"
+              alt="James White — Adventist Pioneer, 1821–1881"
+              class="pioneer-portrait"
+            />
+            <div class="pioneer-name">James White</div>
+            <div class="pioneer-dates">1821 &ndash; 1881</div>
+            <div class="pioneer-role">Publisher &amp; Organizer</div>
+            <a href="/pioneers/james-white" class="pioneer-bio-link">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              James White Biography &rarr;
+            </a>
+            <div class="pioneer-divider"></div>
+            <img
+              src="/images/pioneers/william-miller.jpg" loading="lazy"
+              alt="William Miller — Millerite Founder, 1782–1849"
+              class="pioneer-portrait-secondary"
+            />
+            <div class="pioneer-name-secondary">William Miller</div>
+            <div class="pioneer-dates">1782 &ndash; 1849</div>
+            <a href="/pioneers/william-miller" class="pioneer-bio-link" style="font-size:0.8rem;padding:8px 14px;">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+              Miller Biography &rarr;
+            </a>
+          </div>
+
+          <!-- Book Column -->
+          <div class="book-col">
+            <div class="eyebrow">
+              <svg width="12" height="12" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Pioneer Primary Source &mdash; 1850
+            </div>
+            <h1>Brother Miller&rsquo;s<br><em>Dream</em></h1>
+            <div class="book-meta">
+              <span class="book-meta-item"><strong>Year:</strong> 1850</span>
+              <span class="book-meta-item"><strong>Author:</strong> James White</span>
+              <span class="book-meta-item"><strong>Subject:</strong> William Miller</span>
+              <span class="book-meta-item"><strong>Format:</strong> Booklet / PDF</span>
+            </div>
+
+            <p class="book-excerpt">
+              In 1850 &mdash; the founding year of the Sabbatarian Adventist movement &mdash; James White recorded
+              one of the most striking accounts from the pioneer era: <strong>William Miller&rsquo;s prophetic dream</strong>.
+              This brief but arresting document preserves Miller&rsquo;s own account of a dream in which he saw
+              the precious gems of present truth scattered by the adversary and then faithfully gathered and
+              restored by the faithful. The dream became a powerful confirmation that the truths given through
+              the Advent movement were heaven-sent and would not be permanently lost.
+            </p>
+
+            <div class="pull-scripture">
+              <div class="ref">The Dream &mdash; A Key Image</div>
+              <blockquote>&ldquo;Your old men shall dream dreams, your young men shall see visions.&rdquo;</blockquote>
+              <cite>&mdash; Joel 2:28 (KJV) &mdash; The prophetic gift at the founding of the Advent movement</cite>
+            </div>
+
+            <div class="btn-row">
+              <a href="/books/william-miller/dream.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Read the Dream (PDF)
+              </a>
+              <a href="#read-online" class="btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                Read In Browser
+              </a>
+              <a href="/pioneers/james-white" class="btn-outline">
+                James White &rarr;
+              </a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PDF EMBED ===== -->
+      <div class="section" id="read-online">
+        <div class="section-header">
+          <div class="sh-eyebrow">Read In Browser</div>
+          <h2>Brother Miller&rsquo;s Dream (1850)</h2>
+          <p>James White&rsquo;s firsthand account of William Miller&rsquo;s prophetic dream. Both versions are provided below.</p>
+        </div>
+
+        <div class="pdf-embed-wrap">
+          <div class="pdf-embed-toolbar">
+            <span class="pdf-embed-toolbar-title">
+              <strong>James White</strong> &mdash; Brother Miller&rsquo;s Dream (1850)
+            </span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/william-miller/dream.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="/books/william-miller/dream.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open Full Screen
+              </a>
+            </div>
+          </div>
+          <object
+            data="/books/william-miller/dream.pdf"
+            type="application/pdf"
+            class="pdf-frame"
+            aria-label="Brother Miller's Dream — James White 1850"
+          >
+            <div style="padding:48px;text-align:center;color:var(--ink-muted);background:rgba(13,13,53,0.8);">
+              <p style="margin-bottom:16px;font-size:1rem;">Your browser cannot display PDFs inline.</p>
+              <a href="/books/william-miller/dream.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:inline-flex;">
+                Download &amp; Read the PDF
+              </a>
+            </div>
+          </object>
+        </div>
+
+        <!-- Second version -->
+        <div class="pdf-embed-wrap">
+          <div class="pdf-embed-toolbar">
+            <span class="pdf-embed-toolbar-title">
+              <strong>Dated Version</strong> &mdash; 1850_white-j_brothersMillerDream.pdf
+            </span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/william-miller/1850_white-j_brothersMillerDream.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="/books/william-miller/1850_white-j_brothersMillerDream.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open Full Screen
+              </a>
+            </div>
+          </div>
+          <object
+            data="/books/william-miller/1850_white-j_brothersMillerDream.pdf"
+            type="application/pdf"
+            class="pdf-frame"
+            aria-label="Brother Miller's Dream — James White 1850 (dated version)"
+          >
+            <div style="padding:48px;text-align:center;color:var(--ink-muted);background:rgba(13,13,53,0.8);">
+              <p style="margin-bottom:16px;font-size:1rem;">Your browser cannot display PDFs inline.</p>
+              <a href="/books/william-miller/1850_white-j_brothersMillerDream.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:inline-flex;">
+                Download &amp; Read the PDF
+              </a>
+            </div>
+          </object>
+        </div>
+      </div>
+
+      <!-- ===== EGW QUOTE ===== -->
+      <div class="section">
+        <div class="egw-card">
+          <div class="egw-kicker">Ellen G. White &mdash; 1888 Materials, p. 765</div>
+          <blockquote>
+            &ldquo;IF through the grace of Christ His people will become new bottles, He will fill them with the new wine.
+            God will give <strong style="color:var(--gold-soft);">ADDITIONAL light</strong>, and
+            <strong style="color:var(--gold-soft);">OLD TRUTHS will be recovered</strong>, and replaced in the framework of truth;
+            and wherever the laborers go, they will triumph. As Christ&rsquo;s ambassadors, they are to search the Scriptures,
+            to seek for the truths that have been hidden beneath the rubbish of error. And every ray of light received is to
+            be communicated to others. One interest will prevail, one subject will swallow up every other &mdash;
+            <strong style="color:var(--gold-soft);">Christ our righteousness.</strong>&rdquo;
+          </blockquote>
+          <cite>&mdash; Ellen G. White, 1888 Materials, p. 765</cite>
+        </div>
+      </div>
+
+      <!-- ===== RELATED PIONEER BOOKS ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Pioneer Library</div>
+          <h2>Companion Pioneer Writings</h2>
+          <p>The books and tracts that stand alongside Brother Miller&rsquo;s Dream in the foundation of the Advent movement.</p>
+        </div>
+
+        <div class="books-grid">
+          <div class="book-card featured">
+            <span class="book-card-badge badge-featured">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2l3.09 6.26L22 9.27l-5 4.87 1.18 6.88L12 17.77l-6.18 3.25L7 14.14 2 9.27l6.91-1.01L12 2z"/></svg>
+              Featured
+            </span>
+            <h3>Rise and Progress of Seventh-day Adventists</h3>
+            <div class="book-year">1892 &mdash; John N. Loughborough</div>
+            <p>Loughborough&rsquo;s landmark history of the early Advent movement — from the Millerite foundation through the organization of the Seventh-day Adventist Church. A primary source from an eyewitness pioneer.</p>
+            <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-gold">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-tract">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+              Pioneer Tract
+            </span>
+            <h3>The Second Advent Way Marks and High Heaps</h3>
+            <div class="book-year">1847 &mdash; Captain Joseph Bates</div>
+            <p>Bates&rsquo;s 1847 survey of the prophetic waymarks — the significant mile-markers of providential fulfillment that confirmed the divine origin of the Advent movement. A foundational pioneer document.</p>
+            <a href="/books/joseph-bates/Bates_theSecondAdventWayMarksAndHighHeaps_1847.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-doctrinal">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              Doctrinal
+            </span>
+            <h3>Fundamental Principles (1872)</h3>
+            <div class="book-year">1872 &mdash; Pioneer SDA Platform</div>
+            <p>The 1872 statement of twenty-five fundamental principles — the doctrinal platform of the early Seventh-day Adventist pioneers before the later corporate restructuring. A primary source for the original Adventist faith.</p>
+            <a href="/books/pioneer-pillar-beliefs/1872.pdf" target="_blank" rel="noopener noreferrer" class="book-card-link link-blue">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+              Read PDF
+            </a>
+          </div>
+
+          <div class="book-card">
+            <span class="book-card-badge badge-history">
+              <svg width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
+              Pioneer History
+            </span>
+            <h3>Views of the Prophecies and Prophetic Chronology</h3>
+            <div class="book-year">1841 &mdash; William Miller</div>
+            <p>Miller&rsquo;s systematic exposition of prophetic Scripture — the published form of the prophetic understanding that set the Advent movement in motion. A primary source from the founder of the Advent awakening.</p>
+            <a href="https://www.earlysda.com/miller/views1.html" target="_blank" rel="noopener noreferrer" class="book-card-link link-green">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+              Read Online
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BIOGRAPHY — JAMES WHITE ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Publisher of Present Truth</div>
+          <h2>James White — Who Preserved the Record</h2>
+          <p>The man who turned scattered Advent conviction into a durable publishing movement — and who preserved Miller&rsquo;s dream for posterity.</p>
+        </div>
+
+        <div class="bio-grid">
+          <div class="bio-portrait-wrap">
+            <img
+              src="/images/pioneers/james-white.jpg" loading="lazy"
+              alt="James White — Publisher of the Advent Movement"
+              class="bio-portrait"
+            />
+            <p class="bio-caption">James White (1821&ndash;1881) &mdash; Publisher and Organizer of the Sabbatarian Adventist movement</p>
+
+            <div class="bio-facts">
+              <div class="bio-fact">
+                <div class="fact-label">Born</div>
+                <div class="fact-value">1821, Maine</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Died</div>
+                <div class="fact-value">1881, Michigan</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Calling</div>
+                <div class="fact-value">Preacher &amp; Publisher</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Paper</div>
+                <div class="fact-value">The Present Truth</div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <a href="/pioneers/james-white" class="btn-gold" style="display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:10px;font-size:0.9rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Read Full Biography
+              </a>
+            </div>
+          </div>
+
+          <div class="bio-content">
+            <h3>The Man Who Made Truth Mobile</h3>
+            <p>
+              James White was born in Palmyra, Maine, in 1821. Converted through Millerite preaching in 1843,
+              he immediately became a fearless Advent preacher himself — drawing hundreds to the message in the
+              winter months of that year alone.
+            </p>
+            <p>
+              After the Great Disappointment, when others scattered, James White stayed. He saw with unusual
+              clarity that the truths given through Miller&rsquo;s movement &mdash; the judgment-hour message,
+              the sanctuary, the Sabbath &mdash; needed to be preserved in print and circulated to scattered
+              believers across the continent.
+            </p>
+            <p>
+              In 1849 he launched <em>The Present Truth</em>—but not by his own ambition. In the home of Otis and Mary Nichols, his wife Ellen White was given a vision: she saw that James should begin to write a little paper, and that it would start small but grow and grow until its streams of light and glory would fill the whole earth. Encouraged by this divine message, James began publishing <em>The Present Truth</em>, the first periodical of the Sabbatarian Adventists. That vision was fulfilled as the paper became the foundation of a worldwide publishing work.
+
+              <div style="margin:18px 0 10px 0;text-align:center;">
+                <a href="/books/james-white/ThePresentTruth.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold" style="font-size:1.1rem;padding:16px 32px;border-radius:14px;display:inline-block;box-shadow:0 2px 16px rgba(212,165,55,0.12);margin-top:8px;">
+                  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" style="vertical-align:middle;margin-right:8px;"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                  Read The Present Truth (PDF)
+                </a>
+                <div style="font-size:0.93rem;color:var(--gold-soft);margin-top:6px;">The little paper that was prophesied to fill the whole earth</div>
+              </div>
+
+              <div style="text-align:center;margin:28px 0 18px 0;">
+                <img src="/images/new-organization-1904-corporate-structure-foundation-of-sand.jpg" alt="1904 New Organization: Foundation of Sand" style="max-width:350px;width:100%;height:auto;border-radius:12px;box-shadow:0 4px 24px rgba(0,0,0,0.18);margin-bottom:12px;" />
+                <div style="font-size:0.98rem;color:var(--gold);margin-bottom:10px;">April 15, 1904: The "new organization" (1SM 204) — foundation of sand</div>
+                <a href="/apostasy/index.html" class="btn-outline" style="font-size:1.05rem;padding:14px 30px;border-radius:12px;display:inline-block;font-weight:700;">
+                  Why Most Adventists Have Never Read The Present Truth
+                </a>
+              </div>
+
+              <div style="background:rgba(212,165,55,0.08);border-left:4px solid var(--gold);padding:18px 22px 14px 22px;border-radius:10px;margin-bottom:12px;">
+                <strong>Fact:</strong> Almost no Adventist today in the April 15, 1904 "new organization" (1SM 204) has even heard of <em>The Present Truth</em>—let alone read it. The apostate shepherds of the 501(c)(3) General Conference of Seventh-day Adventists have hidden these original articles. But prophecy is being fulfilled: the little paper that began in 1849 by God’s direct command to Ellen White is now going like wildfire. Share it worldwide—this is the message for the final hour!
+              </div>
+
+              <div style="font-size:0.97rem;color:var(--ink-muted);margin-bottom:8px;">
+                <strong>The Story:</strong> In the spring of 1849, in the home of Otis and Mary Nichols, Ellen White was given a vision. She saw that her husband James should begin to write a little paper, and that it would start small but grow and grow until its streams of light and glory would fill the whole earth. James obeyed, and <em>The Present Truth</em> was born. Today, most Adventists have never seen these original issues—suppressed by the modern organization. But now, as prophecy fulfills, you can read and share what God commanded for the last days. <a href="/books/james-white/ThePresentTruth.pdf" target="_blank" rel="noopener noreferrer" style="color:var(--gold);font-weight:600;">Read it. Share it. The time is now.</a>
+              </div>
+
+              In 1850 he published a second periodical, and recorded for history the account of William Miller&rsquo;s remarkable dream. By preserving this document, he ensured that the prophetic confirmation of the Advent movement would not be lost to time.
+            </p>
+            <p>
+              James White continued as the editorial and organizational engine of the movement for decades,
+              working beside his wife Ellen White and Captain Joseph Bates to build churches, schools,
+              publishing houses, and the institutional structure of the Seventh-day Adventist Church.
+                                        <div style="background:rgba(212,165,55,0.08);border-left:4px solid var(--gold);padding:16px 20px 12px 20px;border-radius:10px;margin:18px 0 0 0;">
+                                          <strong>Historical Fact:</strong> James White and the majority of early Adventist pioneers were firmly against the union of church and state in a corporate structure. They had just come out of the Protestant churches in 1843–1844, because those churches rejected the truth of Christ’s soon coming. As documented in <em>The Present Truth</em> articles, these pioneers were expelled for holding to the “testing, perfecting message.” By rejecting this message, the Protestant churches became, in the words of the pioneers, antichrist Babylon.
+                                        </div>
+                          <div style="margin:18px 0 0 0;text-align:center;">
+                            <a href="/apostasy/index.html" class="btn-gold" style="font-size:1.08rem;padding:15px 34px;border-radius:14px;display:inline-block;box-shadow:0 2px 16px rgba(212,165,55,0.13);margin-top:10px;font-weight:700;">
+                              See Why the 1904 'New Organization' Is Not a True Continuation (Apostasy Exposed)
+                            </a>
+                            <div style="font-size:0.97rem;color:var(--ink-muted);margin-top:10px;max-width:540px;display:inline-block;">
+                              The 1904 movement was not a faithful continuation of the pioneers—it was a rejection of their message and a return to the errors the pioneers had cast off. Only a few today cling to the unpopular, narrow truths established 1841–1850. The "new organization" did its best to appear as a growing movement, but in reality, it went back to Rome’s discarded doctrines while the true remnant holds fast to the original faith.
+                            </div>
+                          </div>
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== BIOGRAPHY — WILLIAM MILLER ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Dreaming Prophet</div>
+          <h2>William Miller &mdash; The Dream and its Meaning</h2>
+          <p>The farmer-preacher whose prophetic study ignited the great Advent awakening &mdash; and whose remarkable dream confirmed the divine origin of the message.</p>
+        </div>
+
+        <div class="bio-grid">
+          <div class="bio-portrait-wrap">
+            <img
+              src="/images/pioneers/william-miller.jpg" loading="lazy"
+              alt="William Miller — Founder of the Millerite Movement"
+              class="bio-portrait"
+            />
+            <p class="bio-caption">William Miller (1782&ndash;1849) &mdash; Founder of the Millerite Advent movement</p>
+
+            <div class="bio-facts">
+              <div class="bio-fact">
+                <div class="fact-label">Born</div>
+                <div class="fact-value">1782, Massachusetts</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Died</div>
+                <div class="fact-value">1849, New York</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Calling</div>
+                <div class="fact-value">Farmer-Preacher</div>
+              </div>
+              <div class="bio-fact">
+                <div class="fact-label">Prophecy</div>
+                <div class="fact-value">Daniel 8:14</div>
+              </div>
+            </div>
+
+            <div style="margin-top:14px;">
+              <a href="/pioneers/william-miller" class="btn-gold" style="display:inline-flex;gap:8px;align-items:center;padding:12px 22px;border-radius:10px;font-size:0.9rem;">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/><circle cx="12" cy="7" r="4"/></svg>
+                Read Full Biography
+              </a>
+            </div>
+          </div>
+
+          <div class="bio-content">
+            <h3>The Man Who Saw the Gems Restored</h3>
+            <p>
+              William Miller was a farmer and Baptist lay preacher from Low Hampton, New York, born in 1782.
+              His intensive study of Daniel 8:14 and related prophetic passages led him to conclude, after
+              years of careful calculation, that Christ&rsquo;s return was near.
+            </p>
+            <p>
+              Beginning in 1831 he traveled and preached across New England and beyond, drawing tens of
+              thousands to the message that the Judgment Hour had arrived. His movement became the spiritual
+              seedbed from which the Seventh-day Adventist Church eventually grew.
+            </p>
+            <p>
+              The dream recorded by James White in 1850 carries vivid imagery: precious jewels and gems
+              scattered across the floor, swept away and hidden by careless figures, yet gathered up again
+              &mdash; gem by gem &mdash; by faithful hands. The jewels represent the truths of the Advent message:
+              the sanctuary, the Sabbath, the Three Angels, the state of the dead. The dream was a prophetic
+              assurance that, though scattered and attacked, those truths would be fully recovered.
+            </p>
+            <p>
+              Miller died in December 1849 &mdash; just as James White was beginning to publish. The dream
+              he had reported was one of his last great testimonies to the divine origin of the Advent movement.
+            </p>
+            <!-- ===== COMPARISON: JEWELS RESTORED & EDEN RESTORED ===== -->
+            <div class="context-card" style="margin-top:36px;">
+              <div class="context-header">
+                <div class="context-badge">✦</div>
+                <h3>Jewels Restored &mdash; Eden Restored</h3>
+              </div>
+              <div class="context-body">
+                <p><strong>William Miller’s Dream (1843–1844):</strong> In his dream, Miller saw the precious jewels of truth scattered and trampled, but then gathered and restored to a casket—now shining more beautifully than before. This symbolized the Advent truths, once lost and obscured, being recovered and made even more glorious in the final movement.</p>
+                <p><strong>Eden Restored (Ellen White, <em>Spiritual Gifts</em> vol. 4, ch. 35):</strong> “Before the ransomed throng is the holy city. Jesus opens wide the pearly gates, and the nations that have kept the truth enter in. There they behold the Paradise of God, the home of Adam in his innocency... There he beholds the trees that were once his delight, the very trees from which he plucked fruit when he rejoiced in the perfection of innocence and holiness... His mind grasps the reality of the scene; he comprehends that this is indeed Eden restored, far more beautiful now than when he was banished from it.”</p>
+                <p><strong>Heaven’s Pattern:</strong> Just as the jewels were restored to the casket “more beautifully arranged than before,” so Eden—taken to heaven at the time of the Flood—is restored to the redeemed, “far more beautiful now.” Adam, transported with joy, recognizes the very trees and flowers he once tended, and the family of Adam joins in worship, casting their crowns at Jesus’ feet.</p>
+                <p><strong>Today’s Lesson:</strong> The truths of the Advent movement, once scattered and obscured, are being restored and will shine with greater luster in the final restoration. The Paradise of God, Eden itself, will be given back to the faithful, more glorious than ever. The story of the jewels and the story of Eden are one: <em>God’s truth and God’s home are both restored, more beautiful than before.</em></p>
+                <blockquote style="margin-top:18px;">
+                  “Worthy, worthy, worthy is the Lamb that was slain, and lives again! The family of Adam take up the strain, and cast their crowns at the Saviour’s feet as they bow before him in adoration.”<br/>
+                  <cite>— Ellen G. White, <em>Spiritual Gifts</em>, vol. 4, ch. 35</cite>
+                </blockquote>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Timeline strip -->
+        <div class="timeline-strip">
+          <div class="tl-item">
+            <span class="tl-year">1818</span>
+            <div class="tl-title">Miller&rsquo;s Conviction</div>
+            <div class="tl-desc">After years of Bible study, Miller concludes Christ&rsquo;s return is near &mdash; within 25 years.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1831</span>
+            <div class="tl-title">Public Preaching Begins</div>
+            <div class="tl-desc">Miller begins preaching publicly; his lectures spread rapidly across the Northeast.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1843</span>
+            <div class="tl-title">James White Preaches</div>
+            <div class="tl-desc">James White joins the Advent movement, leading hundreds to the message in winter Maine.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">Oct 22, 1844</span>
+            <div class="tl-title">The Great Disappointment</div>
+            <div class="tl-desc">The movement faces its defining trial; but the truths given through it are not abandoned.</div>
+          </div>
+          <div class="tl-item">
+            <span class="tl-year">1849&ndash;1850</span>
+            <div class="tl-title">Miller Dies; Dream Preserved</div>
+            <div class="tl-desc">Miller dies in December 1849. James White records the dream in 1850 for the emerging church.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== HISTORICAL CONTEXT ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Founding Year</div>
+          <h2>The Gems Scattered and Restored</h2>
+          <p>The dream&rsquo;s imagery — truths scattered and then gathered by faithful hands — is the story of the Advent movement itself.</p>
+        </div>
+
+        <div class="context-card">
+          <div class="context-header">
+            <div class="context-badge">1850</div>
+            <div>
+              <h3>A Dream at the Birth of the Movement</h3>
+              <div class="sub">James White&rsquo;s 1850 Record of William Miller&rsquo;s Dream</div>
+            </div>
+          </div>
+
+          <div class="context-verse">
+            <blockquote>
+              &ldquo;And it shall come to pass afterward, that I will pour out my spirit upon all flesh;
+              and your sons and your daughters shall prophesy, your old men shall dream dreams,
+              your young men shall see visions.&rdquo;
+            </blockquote>
+            <cite>&mdash; Joel 2:28 (KJV) &mdash; The promise of prophetic gifts in the last days</cite>
+          </div>
+
+          <div class="context-body">
+            <p>
+              The year 1850 was not simply the year after William Miller&rsquo;s death. It was the year
+              James White launched the <em>Second Advent Review and Sabbath Herald</em>. It was the founding
+              moment of the Sabbatarian Adventist movement that would become the Seventh-day Adventist Church.
+            </p>
+            <p>
+              Into that founding moment, James White inserted the record of Brother Miller&rsquo;s dream &mdash;
+              a document that carried extraordinary significance. Miller himself had reported a dream in which
+              he saw <strong>precious gems and jewels</strong> displayed and then scattered and hidden by a
+              careless figures, only to be gathered up again by faithful hands who returned every last gem to
+              its proper place.
+            </p>
+            <p>
+              The pioneer interpreters understood the imagery immediately: the gems were the truths of present
+              truth &mdash; the sanctuary doctrine, the Sabbath, the state of the dead, the Three Angels&rsquo;
+              Messages. The adversary had worked to scatter and bury those truths. But the faithful were called
+              to <strong>recover them entirely</strong> and place them back in the structure of truth that
+              God had given.
+            </p>
+            <p>
+              This is the meaning of Ellen White&rsquo;s words in the 1888 Materials: God would give
+              <em>additional light</em>, and <em>old truths would be recovered</em>. Miller&rsquo;s dream
+              was the prophetic preview of that recovery.
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== RELATED RESOURCES ===== -->
+      <div class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Explore Further</div>
+          <h2>Related Resources</h2>
+          <p>Biographies, books and historical documents connected to this period of the Advent movement.</p>
+        </div>
+
+        <div class="related-grid">
+          <a href="/pioneers/james-white" class="related-card">
+            <div class="r-label">Pioneer Biography</div>
+            <h4>James White</h4>
+            <p>Full biography of the publisher and organizer of the Sabbatarian Adventist movement.</p>
+          </a>
+          <a href="/pioneers/william-miller" class="related-card">
+            <div class="r-label">Pioneer Biography</div>
+            <h4>William Miller</h4>
+            <p>Full biography of the founder of the Millerite Advent movement and prophet of 1844.</p>
+          </a>
+          <a href="/pioneers/captain-joseph-bates" class="related-card">
+            <div class="r-label">Pioneer Biography</div>
+            <h4>Captain Joseph Bates</h4>
+            <p>The retired sea captain who brought the Sabbath truth into the Advent movement.</p>
+          </a>
+          <a href="/library" class="related-card">
+            <div class="r-label">Pioneer Library</div>
+            <h4>Full Pioneer Library</h4>
+            <p>Browse the complete collection of Advent pioneer books, tracts, and primary sources.</p>
+          </a>
+          <a href="/prophecy-charts" class="related-card">
+            <div class="r-label">Prophecy Charts</div>
+            <h4>1843 &amp; 1850 Prophecy Charts</h4>
+            <p>The great visual summaries of the Advent prophetic understanding — as taught by the pioneers.</p>
+          </a>
+          <a href="/pioneers/ellen-white" class="related-card">
+            <div class="r-label">Pioneer Biography</div>
+            <h4>Ellen G. White</h4>
+            <p>The prophetic voice of the Advent movement — and the author of the 1888 Materials quoted on this page.</p>
+          </a>
+        </div>
+      </div>
+
+    </div><!-- end .page -->
+
+    <SiteFooter pageLinks={[
+      { label: 'Books / Library', href: '/library' },
+      { label: 'William Miller Biography', href: '/pioneers/william-miller' },
+      { label: 'James White Biography', href: '/pioneers/james-white' },
+      { label: 'Pioneer Books Index', href: '/books' },
+      { label: 'Prophecy Charts', href: '/prophecy-charts' },
+    ]} />
+
+    <ShareBar />
+
+    <!-- Back to Top -->
+    <button class="btt" id="btt" aria-label="Back to top">&#8593;</button>
+
+    <script is:inline>
+      // Menu toggle
+
+      // Back to top
+      const btt = document.getElementById('btt');
+      if (btt) {
+        window.addEventListener('scroll', () => {
+          btt.classList.toggle('visible', window.scrollY > 400);
+        });
+        btt.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+      }
+    </script>
+
+  </body>
+</html>

@@ -1,0 +1,312 @@
+﻿---
+
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+import SiteNav from '../../components/SiteNav.astro';
+import { getCollection } from 'astro:content';
+import { marked } from 'marked';
+import '../../styles/pioneer-premium.css';
+
+export async function getStaticPaths() {
+  const pioneers = await getCollection('pioneers');
+  return pioneers.map((pioneer) => ({
+    params: { slug: pioneer.id },
+    props: { pioneer },
+  }));
+}
+
+const { pioneer } = Astro.props;
+const name = pioneer?.data?.name || '';
+const title = pioneer?.data?.title || '';
+const birth = pioneer?.data?.birth || '';
+const death = pioneer?.data?.death || '';
+let imageSrc = pioneer?.data?.image || '';
+if (imageSrc && !imageSrc.startsWith('/')) imageSrc = '/' + imageSrc;
+const pageTitle = name ? `${name} | Advent Pioneer Library` : 'Pioneer | Advent Pioneer Library';
+const pageDescription = `Biography of ${name}`;
+---
+
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>{pageTitle}</title>
+    <meta name="description" content={pageDescription} />
+    <meta property="og:title" content={pageTitle} />
+    <meta property="og:description" content={pageDescription} />
+    <meta property="og:type" content="article" />
+    {imageSrc && <meta property="og:image" content={imageSrc} />}
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&family=Source+Serif+4:wght@400;500;600;700&display=swap" rel="stylesheet" />
+  </head>
+  <body>
+    <div class="header">
+      <div class="header-inner">
+        <a href="/pioneers" class="header-title">Advent <strong>Pioneer Library</strong></a>
+        <nav class="header-links" aria-label="Primary">
+          <a href="/">Home</a>
+          <a href="/pioneers">Pioneers</a>
+          <a href="/books">Books</a>
+          <a href="/prophecy-charts">Prophecy Charts</a>
+          <a href="/midnight-cry">Midnight Cry Movie</a>
+          <a href="/books/captain-joseph-bates-autobiography-1868">Bates Autobiography</a>
+        </nav>
+        <div class="header-tools">
+          <span class="lang-badge" id="lang-badge">EN</span>
+          <div id="google_translate_element"></div>
+          <button class="menu-btn" id="menu-btn" aria-label="Open menu" aria-expanded="false">☰</button>
+        </div>
+        <div class="breadcrumb">
+          <a href="/pioneers">Pioneer Library</a> / {name}
+        </div>
+      </div>
+      <nav class="mobile-nav" id="mobile-nav" aria-label="Mobile">
+        <a href="/">Home</a>
+        <a href="/pioneers">Pioneers</a>
+        <a href="/books">Books</a>
+        <a href="/prophecy-charts">Prophecy Charts</a>
+        <a href="/midnight-cry">1844 Midnight Cry Movie</a>
+      </nav>
+    </div>
+
+    <main class="container">
+
+      <section class="hero-section">
+        <div class="hero-image">
+          {imageSrc ? (
+            <img src={imageSrc} alt={name} loading="lazy" style="width:220px;height:220px;border-radius:50%;object-fit:cover;object-position:center 10%;border:3px solid var(--gold);box-shadow:0 0 48px rgba(212,165,55,0.22);background:#222" />
+          ) : (
+            <div style="width:220px;height:220px;border-radius:50%;background:#222;display:flex;align-items:center;justify-content:center;color:var(--muted);">{name}</div>
+          )}
+        </div>
+        <div class="hero-content">
+          <span class="pill">Biographical Profile</span>
+          <h1>{name}</h1>
+          {title && <div class="subtitle">{title}</div>}
+          <div class="dates">{birth} {death && <>— {death}</>}</div>
+          <div class="location-list">
+            {pioneer.data.birthPlace && <div class="location"><strong>Born:</strong> {pioneer.data.birthPlace}</div>}
+            {pioneer.data.deathPlace && <div class="location"><strong>Died:</strong> {pioneer.data.deathPlace}</div>}
+          </div>
+          {/* Special CTA buttons for Ellen White */}
+          {name === "Ellen Gould Harmon White" && (
+            <div style="margin-top:1.3em;display:flex;flex-direction:column;gap:0.7em;max-width:520px;">
+              <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener" style="display:block;background:#1e293b;color:#ffe18a;font-weight:600;padding:1em 1.2em;border-radius:10px;border:2px solid #ffe18a;text-align:left;box-shadow:0 2px 12px rgba(0,0,0,0.10);transition:background 0.2s;">
+                Doubter Turned Believer: John Loughborough’s Testimony<br/>
+                <span style="font-weight:400;font-size:0.98em;color:#ffe18a;">Read why a former skeptic became convinced of Ellen White’s prophetic gift.</span>
+              </a>
+              <a href="/books/captain-joseph-bates-autobiography-1868" style="display:block;background:#1e293b;color:#ffe18a;font-weight:600;padding:1em 1.2em;border-radius:10px;border:2px solid #ffe18a;text-align:left;box-shadow:0 2px 12px rgba(0,0,0,0.10);transition:background 0.2s;">
+                Another Eyewitness: Captain Joseph Bates<br/>
+                <span style="font-weight:400;font-size:0.98em;color:#ffe18a;">See how another early leader was convinced by the evidence.</span>
+              </a>
+              <a href="/books/joseph-bates/BatesJ_theOpeningHeavens_1846.pdf" target="_blank" rel="noopener" style="display:block;background:#0f172a;color:#ffe18a;font-weight:600;padding:1em 1.2em;border-radius:10px;border:2px solid #ffe18a;text-align:left;box-shadow:0 2px 12px rgba(0,0,0,0.13);transition:background 0.2s;">
+                Ship Captain’s Testimony: Bates Saw the Stars<br/>
+                <span style="font-weight:400;font-size:0.98em;color:#ffe18a;">Skeptical at first, Captain Bates saw Ellen White’s vision of the stars—something only a navigator would know. Read why he became a believer.</span>
+              </a>
+            </div>
+          )}
+          {/* Universal pioneer summary and suppression/controversy blocks */}
+          {pioneer.data.introBlock && (
+            <div style="margin-top:1.5em;background:#18183a;border-radius:14px;padding:1.2em 1.2em 1em 1.2em;box-shadow:0 2px 12px rgba(0,0,0,0.10);border:1.5px solid var(--line-accent);">
+              <div style="font-size:1.08em;font-style:italic;color:#ffe18a;" set:html={marked.parse(pioneer.data.introBlock)} />
+            </div>
+          )}
+          {pioneer.data.suppressionBlock && (
+            <div style="margin-top:1.2em;background:#18183a;border-radius:14px;padding:1.2em 1.2em 1em 1.2em;box-shadow:0 2px 12px rgba(0,0,0,0.10);border:1.5px solid #b91c1c;">
+              <div style="font-size:0.98em;font-weight:700;color:#f87171;margin-bottom:0.5em;text-transform:uppercase;letter-spacing:0.04em;">Controversy & Suppression</div>
+              <div style="font-size:1.04em;color:#ffe18a;line-height:1.7;" set:html={marked.parse(pioneer.data.suppressionBlock)} />
+            </div>
+          )}
+        </div>
+      </section>
+
+      <div class="divider"></div>
+
+
+      <section class="story-layout">
+        <aside class="story-rail">
+          <h2 class="story-rail-title serif">Life Sketches</h2>
+          <div class="story-rail-rule"></div>
+          {/* Sidebar jump links generated from h2 headings */}
+          {pioneer.body && (() => {
+            const md = pioneer.body;
+            const sections = md.split(/\n## /g);
+            let headings = [];
+            for (let i = 1; i < sections.length; i++) {
+              const lines = sections[i].split('\n');
+              const heading = lines[0].trim();
+              const id = `section-${i}`;
+              headings.push({ id, text: heading });
+            }
+            return (
+              <nav class="story-links" aria-label="Biography sections">
+                {headings.map((h, i) => (
+                  <a href={`#${h.id}`} class="story-link-btn">
+                    <span class="story-number">{String(i + 1).padStart(2, '0')}</span>
+                    <span class="story-link-text">{h.text}</span>
+                  </a>
+                ))}
+              </nav>
+            );
+          })()}
+          {/* Rail Feature (highlighted quote) block under jump links, always shown if present */}
+          {pioneer.data.railFeature && pioneer.data.railFeature.quote && (
+            <div style="margin-top:2em;background:rgba(253,224,71,0.13);border-radius:10px;padding:1.2em 1.2em 1em 1.2em;box-shadow:0 2px 12px rgba(0,0,0,0.04);">
+              <div style="font-size:1.1em;font-weight:700;color:#b45309;margin-bottom:0.5em;">{pioneer.data.railFeature.kicker || 'Highlighted Emphasis'}</div>
+              <div style="font-size:1.08em;font-style:italic;">{pioneer.data.railFeature.quote}</div>
+              {pioneer.data.railFeature.source && <div style="font-size:0.98em;color:#ffe18a;margin-top:0.5em;">— {pioneer.data.railFeature.source}</div>}
+              {pioneer.data.railFeature.scriptures && pioneer.data.railFeature.scriptures.length > 0 && (
+                <div style="margin-top:0.7em;">
+                  {pioneer.data.railFeature.scriptures.map((s, i) => (
+                    <div key={i} style="font-size:0.97em;color:#ffe18a;">{s}</div>
+                  ))}
+                </div>
+              )}
+              {pioneer.data.railFeature.statements && pioneer.data.railFeature.statements.length > 0 && (
+                <div style="margin-top:0.7em;">
+                  {pioneer.data.railFeature.statements.map((s, i) => (
+                    <div key={i} style="font-size:0.97em;color:#ffe18a;">{s}</div>
+                  ))}
+                </div>
+              )}
+            </div>
+          )}
+        </aside>
+        <div class="story-body">
+          {pioneer.body ? (
+            <div class="biography">
+              {
+                (() => {
+                  const md = pioneer.body;
+                  const sections = md.split(/\n## /g);
+                  let rendered = [];
+                  // First section is intro (before any h2)
+                  if (sections[0].trim()) {
+                    rendered.push(
+                      <div class="biography-card section-card">
+                        <div set:html={marked.parse(sections[0].trim())} />
+                      </div>
+                    );
+                  }
+                  for (let i = 1; i < sections.length; i++) {
+                    const lines = sections[i].split('\n');
+                    const heading = lines[0].trim();
+                    const content = lines.slice(1).join('\n');
+                    const id = `section-${i}`;
+                    rendered.push(
+                      <div class="biography-card section-card">
+                        <h2 id={id}>{heading}</h2>
+                        <div set:html={marked.parse(content)} />
+                      </div>
+                    );
+                  }
+                  return rendered;
+                })()
+              }
+            </div>
+          ) : (
+            <div class="bio-excerpt">No biography content available for this pioneer.</div>
+          )}
+        </div>
+      </section>
+
+
+
+      {/* Related books and charts removed: not present in schema */}
+
+
+
+    </main>
+
+    <div class="footer-actions">
+      <a href="/pioneers" class="footer-action-btn">Read Another Pioneer</a>
+      <a href="/books" class="footer-action-btn">Explore Source Texts</a>
+    </div>
+      <div class="featured-books-cta">
+        <a href="/pioneer-books" class="featured-books-btn">📚 See Featured Pioneer Books</a>
+      </div>
+
+    <SiteFooter />
+
+<style>
+  .footer-actions {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 2rem;
+    margin: 2.5rem 0 1.5rem 0;
+  }
+  .footer-action-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #fcd34d, #fbbf24);
+    color: #222;
+    font-size: 1.25rem;
+    font-weight: 700;
+    padding: 1.1rem 2.5rem;
+    border-radius: 12px;
+    text-decoration: none;
+    box-shadow: 0 2px 12px rgba(0,0,0,0.08);
+    transition: background 0.2s, transform 0.1s;
+    margin-bottom: 0.5rem;
+  }
+  .footer-action-btn:hover {
+    background: linear-gradient(90deg, #fbbf24, #fcd34d);
+    transform: translateY(-2px) scale(1.04);
+    color: #111;
+  }
+  .featured-books-cta {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2.2rem;
+  }
+  .featured-books-btn {
+    display: inline-block;
+    background: linear-gradient(90deg, #ff9800, #ffd700);
+    color: #222;
+    font-size: 1.45rem;
+    font-weight: 800;
+    padding: 1.25rem 2.8rem;
+    border-radius: 16px;
+    text-decoration: none;
+    box-shadow: 0 4px 24px rgba(255,152,0,0.18);
+    transition: background 0.18s, transform 0.09s;
+    margin-bottom: 0.7rem;
+    letter-spacing: 0.01em;
+    border: 2.5px solid #ff9800;
+    outline: 0;
+    position: relative;
+    z-index: 2;
+  }
+  .featured-books-btn:hover {
+    background: linear-gradient(90deg, #ffd700, #ff9800);
+    color: #b45309;
+    transform: translateY(-2px) scale(1.045);
+    box-shadow: 0 6px 32px rgba(255,152,0,0.22);
+    border-color: #ffd700;
+  }
+</style>
+
+    {/* Floating Share Rail, Search, and Back to Top Button (optional, can be componentized) */}
+    <ShareBar />
+    <SiteSearch />
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+    <script is:inline>{`
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+      // Mobile nav toggle
+      const menuBtn = document.getElementById('menu-btn');
+      const mobileNav = document.getElementById('mobile-nav');
+      if (menuBtn && mobileNav) {
+        menuBtn.addEventListener('click', () => {
+          const open = mobileNav.classList.toggle('open');
+          menuBtn.setAttribute('aria-expanded', open ? 'true' : 'false');
+        });
+      }
+    `}</script>
+    <script src="//translate.google.com/translate_a/element.js?cb=initGoogleTranslate" is:inline></script>

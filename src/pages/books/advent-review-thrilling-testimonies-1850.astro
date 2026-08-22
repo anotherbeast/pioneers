@@ -1,0 +1,195 @@
+---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteNav from '../../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The Advent Review: Thrilling Testimonies (1850) | SundayLaw.com</title>
+    <meta name="description" content="A spiritual time capsule of the Second Advent movement—miracles, midnight cries, and the faith that shook a generation. Read the electrifying testimonies that launched a movement.">
+    <link rel="canonical" href="https://sundaylaw.com/books/advent-review-thrilling-testimonies-1850">
+    <meta property="og:title" content="The Advent Review: Thrilling Testimonies (1850)">
+    <meta property="og:description" content="A spiritual time capsule of the Second Advent movement—miracles, midnight cries, and the faith that shook a generation. Read the electrifying testimonies that launched a movement.">
+    <meta property="og:image" content="/books/pdf/voice-of-truth/advent-review-thrilling-testimonies-1850.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/books/advent-review-thrilling-testimonies-1850">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="The Advent Review: Thrilling Testimonies (1850)">
+    <meta name="twitter:description" content="A spiritual time capsule of the Second Advent movement—miracles, midnight cries, and the faith that shook a generation.">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Book",
+      "name": "The Advent Review: Thrilling Testimonies",
+      "author": [
+        {"@type": "Person", "name": "James White"},
+        {"@type": "Person", "name": "Hiram Edson"},
+        {"@type": "Person", "name": "Samuel W. Rhodes"},
+        {"@type": "Person", "name": "David Arnold"},
+        {"@type": "Person", "name": "Geo. W. Holt"}
+      ],
+      "datePublished": "1850",
+      "description": "A spiritual time capsule of the Second Advent movement—miracles, midnight cries, and the faith that shook a generation. Read the electrifying testimonies that launched a movement.",
+      "publisher": { "@type": "Organization", "name": "SundayLaw.com" },
+      "url": "https://sundaylaw.com/books/advent-review-thrilling-testimonies-1850",
+      "inLanguage": "en"
+    }
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      body { margin: 0; font-family: 'Inter', sans-serif; color: #fef3c7; background: #0a0a2e; overflow-x: hidden; }
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+      .hero { padding: 52px 0 40px; }
+      .hero-breadcrumb { font-size: 0.8rem; color: #9ca3af; margin-bottom: 18px; }
+      .hero-breadcrumb a { color: #9ca3af; }
+      .hero-breadcrumb a:hover { color: #fcd34d; }
+      .hero-breadcrumb span { margin: 0 6px; }
+      .hero-card { background: linear-gradient(135deg, rgba(180,83,9,0.18), rgba(13,13,53,0.95)); border: 1px solid rgba(252,211,77,0.35); border-radius: 24px; padding: 44px 40px; display: grid; grid-template-columns: 260px 1fr; gap: 48px; align-items: start; }
+      @media (max-width: 768px) { .hero-card { grid-template-columns: 1fr; gap: 28px; padding: 28px 22px; } }
+      .pioneer-col { display: flex; flex-direction: column; align-items: center; gap: 18px; }
+      .pioneer-portrait { width: 200px; height: 200px; border-radius: 16px; object-fit: cover; border: 3px solid #fcd34d; box-shadow: 0 0 40px rgba(252,211,77,0.18); }
+      .pioneer-name { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-weight: 600; text-align: center; color: #fef3c7; }
+      .pioneer-dates { font-size: 0.82rem; color: #fcd34d; text-align: center; }
+      .pioneer-role { font-size: 0.8rem; color: #fcd34d; text-align: center; font-weight: 600; text-transform: uppercase; letter-spacing: 0.08em; padding: 4px 12px; border: 1px solid rgba(252,211,77,0.3); border-radius: 999px; }
+      .book-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 4vw, 3rem); font-weight: 600; line-height: 1.1; color: #fef3c7; margin-bottom: 8px; }
+      .book-col h1 em { font-style: italic; color: #fcd34d; }
+      .book-meta { display: flex; align-items: center; gap: 14px; margin-bottom: 18px; flex-wrap: wrap; }
+      .book-meta-item { font-size: 0.82rem; color: #fcd34d; display: flex; align-items: center; gap-5: 5px; }
+      .book-meta-item strong { color: #fcd34d; margin-right: 4px; }
+      .book-excerpt { font-size: 1.08rem; color: #fcd34d; line-height: 1.85; margin-bottom: 22px; font-weight: 600; }
+      .pull-scripture { background: linear-gradient(135deg, rgba(30,5,5,0.7), rgba(10,5,20,0.8)); border: 1px solid rgba(239,68,68,0.25); border-left: 4px solid #ef4444; border-radius: 0 12px 12px 0; padding: 18px 20px; margin-bottom: 22px; }
+      .pull-scripture .ref { font-size: 0.78rem; color: #fca5a5; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 8px; }
+      .pull-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; color: #fca5a5; line-height: 1.6; }
+      .pull-scripture cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(252,165,165,0.7); font-style: normal; }
+      .btn-row { display: flex; gap: 12px; flex-wrap: wrap; }
+      .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+      .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+      .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 14px 24px; border-radius: 12px; background: transparent; border: 1px solid #fcd34d; color: #fcd34d; font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+      .btn-outline:hover { border-color: #fff; color: #fff; }
+      .pdf-embed-wrap { background: rgba(10,10,46,0.5); border: 1px solid #fcd34d; border-radius: 16px; overflow: hidden; }
+      .pdf-embed-toolbar { display: flex; align-items: center; justify-content: space-between; padding: 12px 18px; background: rgba(13,13,53,0.8); border-bottom: 1px solid #fcd34d; flex-wrap: wrap; gap: 10px; }
+      .pdf-embed-toolbar-title { font-size: 0.875rem; font-weight: 600; color: #fcd34d; }
+      .pdf-embed-toolbar-title strong { color: #fff; }
+      .pdf-embed-toolbar a { display: inline-flex; align-items: center; gap: 6px; padding: 8px 16px; border-radius: 8px; background: rgba(252,211,77,0.12); border: 1px solid rgba(252,211,77,0.3); color: #fcd34d; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.2s; }
+      .pdf-embed-toolbar a:hover { background: rgba(252,211,77,0.2); color: #fff; }
+      .pdf-frame { width: 100%; height: 800px; display: block; border: none; background: #fff; }
+      @media (max-width: 600px) { .pdf-frame { height: 500px; } }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+    <div class="page">
+      <div class="hero">
+        <div class="hero-breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/library">Pioneer Library</a><span>›</span>
+          <span style="color:#fef3c7;">The Advent Review: Thrilling Testimonies</span>
+        </div>
+        <div class="hero-card">
+          <!-- Book Cover Column -->
+          <div class="pioneer-col">
+            <img
+              src="/books/pdf/voice-of-truth/advent-review-thrilling-testimonies-1850.jpg"
+              alt="The Advent Review: Thrilling Testimonies 1850 book cover"
+              class="pioneer-portrait"
+              loading="lazy"
+            />
+            <div class="pioneer-name">James White &amp; Advent Pioneers</div>
+            <div class="pioneer-dates">1850</div>
+            <div class="pioneer-role">Thrilling Testimonies</div>
+          </div>
+          <!-- Book Details Column -->
+          <div class="book-col">
+            <div class="book-meta">
+              <span class="book-meta-item"><strong>Year:</strong> 1850</span>
+              <span class="book-meta-item"><strong>Authors:</strong> James White, Hiram Edson, S. W. Rhodes, D. Arnold, G. W. Holt</span>
+              <span class="book-meta-item"><strong>Format:</strong> Testimonies / PDF</span>
+            </div>
+            <h1>The Advent Review: <em>Thrilling Testimonies</em></h1>
+            <p class="book-excerpt">
+              <strong>Electrifying, first-hand accounts</strong> from the front lines of the Second Advent movement. Miracles, midnight cries, and the faith that shook a generation. This is not just history—it is a living witness. <span style="color:#fff;">Read the testimonies that launched a movement.</span>
+            </p>
+            <div class="pull-scripture">
+              <div class="ref">Hebrews 10:32</div>
+              <blockquote>&ldquo;Call to remembrance the former days, in which, after ye were illuminated, ye endured a great fight of afflictions.&rdquo;</blockquote>
+              <cite>&mdash; The Advent Review, 1850</cite>
+            </div>
+            <div class="btn-row">
+              <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                Read Full PDF
+              </a>
+              <a href="#read-online" class="btn-outline">
+                <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M9 9h6M9 12h6M9 15h4"/></svg>
+                Read In Browser
+              </a>
+              <a href="/library" class="btn-outline">Back to Pioneer Library</a>
+            </div>
+                      {/* ShareBar moved below PDF embed */}
+          </div>
+        </div>
+      </div>
+      <!-- ===== PDF EMBED ===== -->
+      <div class="section" id="read-online">
+        <div class="pdf-embed-wrap">
+          <div class="pdf-embed-toolbar">
+            <span class="pdf-embed-toolbar-title">
+              <strong>The Advent Review: Thrilling Testimonies</strong> (1850)
+            </span>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+                Download PDF
+              </a>
+              <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener noreferrer">
+                <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" y1="14" x2="21" y2="3"/></svg>
+                Open Full Screen
+              </a>
+            </div>
+          </div>
+          <object
+            data="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf"
+            type="application/pdf"
+            class="pdf-frame"
+            aria-label="The Advent Review: Thrilling Testimonies 1850 PDF"
+          >
+            <div style="padding:48px;text-align:center;color:#fcd34d;background:rgba(13,13,53,0.8);">
+              <p style="margin-bottom:16px;font-size:1rem;">Your browser cannot display PDFs inline.</p>
+              <a href="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" target="_blank" rel="noopener noreferrer" class="btn-gold" style="display:inline-flex;">
+                  Download &amp; Read the PDF
+                </a>
+            </div>
+          </object>
+        </div>
+      </div>
+      <!-- ===== HIGHLIGHTS ===== -->
+      <div class="section">
+        <div class="book-meta" style="margin-bottom:18px;">
+          <span class="book-meta-item"><strong>Inside you'll find:</strong></span>
+        </div>
+        <ul style="margin-bottom:18px;font-size:1.05rem;color:#fcd34d;">
+          <li>First-hand accounts of the <strong>midnight cry</strong> and the 1844 movement</li>
+          <li>Miraculous answers to prayer and divine interventions</li>
+          <li>Personal testimonies of faith, sacrifice, and hope</li>
+          <li>Prophetic insights and warnings for the last days</li>
+          <li>Unfiltered voices of the pioneers, written in the Holy Spirit</li>
+        </ul>
+        <div style="font-size:1.05rem;color:#fcd34d;font-weight:600;margin-bottom:18px;">This is not just history — it is a living witness. Read and be inspired by the faith that launched a movement.</div>
+        <div style="margin-top:32px;font-size:0.92rem;color:#fef3c7;opacity:0.85;">Auburn: Printed 1850. Publishing Committee.</div>
+      </div>
+
+      <!-- ===== SHARE BUTTONS BELOW PDF ===== -->
+      <div style="margin: 36px 0 0 0; text-align: center;">
+        <ShareBar pdfUrl="/books/john-loughborough-rise-and-progress-of-seventh-day-adventists-1892/john_loughborough_rise_and_progress-of-seventh-day-adventists-1892.pdf" />
+      </div>
+    </div>
+    <SiteFooter />
+  </body>
+</html>

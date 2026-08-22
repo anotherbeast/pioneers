@@ -1,0 +1,419 @@
+---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventist Hospital Empire — 173 Hospitals Under the 501(c)(3) Corporate Umbrella | SundayLaw.com</title>
+    <meta name="description" content="The General Conference of Seventh-day Adventists operates 173 hospitals and sanitariums worldwide under various 501(c)(3) corporate entities — Adventist HealthCare ($910M revenue), AdventHealth (formerly Florida Hospital), Loma Linda University Health, and more. All operating under the Protestant/Catholic identity fraud exposed by GC President Neal Wilson in 1981.">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/hospitals">
+    <meta property="og:title" content="Adventist Hospital Empire — 173 Hospitals Under the 501(c)(3) Corporate Umbrella">
+    <meta property="og:type" content="article">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239; --green: #059669; --green-soft: #10b981;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1200px; margin: 0 auto; padding: 0 22px 80px; }
+
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .alert-banner { background: linear-gradient(135deg, rgba(2,70,40,0.3), rgba(5,30,15,0.5)); border: 1px solid rgba(5,150,105,0.4); border-radius: 14px; padding: 20px 24px; margin-bottom: 36px; display: flex; align-items: flex-start; gap: 14px; }
+      .alert-icon { font-size: 1.5rem; flex-shrink: 0; margin-top: 2px; }
+      .alert-body h2 { font-family: 'Crimson Text', serif; font-size: 1.3rem; font-weight: 600; color: #6ee7b7; margin-bottom: 6px; }
+      .alert-body p { font-size: 0.88rem; color: rgba(254,243,199,0.8); line-height: 1.75; }
+      .alert-body strong { color: #6ee7b7; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(5,150,105,0.12); border: 1px solid rgba(5,150,105,0.35); color: #6ee7b7; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: #6ee7b7; }
+      .page-header .subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      .stats-bar { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 14px; background: rgba(5,30,15,0.6); border: 1px solid rgba(5,150,105,0.25); border-radius: 16px; padding: 22px 26px; margin-bottom: 40px; }
+      .stat-item { text-align: center; }
+      .stat-num { font-family: 'Crimson Text', serif; font-size: 2rem; font-weight: 600; color: #6ee7b7; line-height: 1; margin-bottom: 4px; }
+      .stat-label { font-size: 0.72rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 600; }
+
+      .section { padding: 44px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 26px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: #6ee7b7; font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* HOSPITAL CARDS */
+      .hosp-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(340px, 1fr)); gap: 18px; }
+      .hosp-card { background: var(--bg-card); border: 1px solid rgba(5,150,105,0.2); border-radius: 16px; padding: 22px 20px; display: flex; flex-direction: column; gap: 10px; transition: all 0.2s; }
+      .hosp-card:hover { border-color: rgba(5,150,105,0.4); transform: translateY(-2px); box-shadow: 0 8px 28px rgba(0,80,40,0.3); }
+      .hosp-cat { display: inline-flex; align-items: center; gap: 5px; padding: 3px 10px; border-radius: 999px; font-size: 0.68rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; width: fit-content; background: rgba(5,150,105,0.12); border: 1px solid rgba(5,150,105,0.3); color: #6ee7b7; }
+      .hosp-name { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); line-height: 1.3; }
+      .hosp-ein { font-size: 0.75rem; color: var(--gold); font-weight: 700; font-family: 'Courier New', monospace; display: flex; align-items: center; gap: 5px; }
+      .hosp-ein::before { content: 'EIN'; font-size: 0.62rem; padding: 1px 5px; border-radius: 4px; background: rgba(212,165,55,0.12); border: 1px solid rgba(212,165,55,0.3); font-family: 'Inter', sans-serif; letter-spacing: 0.06em; }
+      .hosp-desc { font-size: 0.83rem; color: var(--ink-muted); line-height: 1.65; flex: 1; }
+      .hosp-meta { display: flex; flex-wrap: wrap; gap: 6px; padding-top: 8px; border-top: 1px solid rgba(255,255,255,0.06); }
+      .hosp-tag { font-size: 0.68rem; padding: 2px 8px; border-radius: 4px; background: rgba(255,255,255,0.05); color: rgba(156,163,175,0.8); border: 1px solid rgba(255,255,255,0.07); }
+      .hosp-revenue { font-size: 0.75rem; color: #6ee7b7; font-weight: 700; }
+      .hosp-link { display: inline-flex; align-items: center; gap: 4px; font-size: 0.76rem; color: rgba(156,163,175,0.6); transition: color 0.15s; margin-top: 2px; }
+      .hosp-link:hover { color: var(--gold); }
+
+      /* QUOTE */
+      .quote-block { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 20px 22px; margin-bottom: 20px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: rgba(254,243,199,0.92); line-height: 1.85; margin-bottom: 6px; }
+      .quote-block cite { font-size: 0.78rem; color: var(--gold); font-style: italic; }
+
+      /* EGW WARNING */
+      .egw-box { background: linear-gradient(135deg, rgba(40,20,0,0.6), rgba(12,10,5,0.95)); border: 1px solid rgba(212,165,55,0.3); border-radius: 16px; padding: 26px 28px; }
+      .egw-box h3 { font-family: 'Crimson Text', serif; font-size: 1.4rem; color: var(--gold); margin-bottom: 14px; }
+      .egw-box p { font-size: 0.9rem; color: rgba(254,243,199,0.8); line-height: 1.85; margin-bottom: 12px; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: var(--gold-soft); }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .hosp-grid { grid-template-columns: 1fr; } .stats-bar { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link active" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3) Trap</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/schools">Schools Fraud</a>
+        <a href="/apostasy/hospitals">Hospitals</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+        <a href="/501c3">501(c)(3) Trap</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/apostasy/corporations">Corporate Empire</a><span>›</span>
+          Hospitals &amp; Medical
+        </div>
+
+        <div class="alert-banner">
+          <div class="alert-icon">🏥</div>
+          <div class="alert-body">
+            <h2>173 Hospitals. Multi-Billion Dollar Health Empire. All Under the 1904 Corporate Umbrella.</h2>
+            <p>The Seventh-day Adventist Church operates <strong>173 hospitals and sanitariums worldwide</strong> — one of the largest faith-based healthcare networks on earth. These institutions generate billions in annual revenue, employ tens of thousands, and operate under the <strong>501(c)(3) corporate umbrella (EIN 52-0643036, GEN 1071)</strong> of the General Conference that <strong>filed as Protestant</strong> while its own president declared it <strong>"truly Catholic"</strong> in 1981.</p>
+          </div>
+        </div>
+
+        <div class="page-eyebrow">Medical Empire Exposed</div>
+        <div class="page-header">
+          <h1>The <em>Adventist Hospital Empire</em> — 173 Institutions</h1>
+          <p class="subtitle">From Loma Linda University Health in California to Adventist HealthCare in Maryland, from AdventHealth's multi-state Florida network to international facilities in over 100 countries — the Adventist medical empire is one of the most powerful healthcare networks in the world, all financed partly by tithes and operating under the false Protestant identity of the 1904 corporation.</p>
+        </div>
+
+        <div class="stats-bar">
+          <div class="stat-item">
+            <div class="stat-num">173</div>
+            <div class="stat-label">Hospitals &amp; Sanitariums</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">$1B+</div>
+            <div class="stat-label">HealthCare Inc. Revenue</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">$700K+</div>
+            <div class="stat-label">CEO Compensation (HealthCare)</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">100+</div>
+            <div class="stat-label">Countries with SDA Hospitals</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1866</div>
+            <div class="stat-label">First SDA Health Institution</div>
+          </div>
+          <div class="stat-item">
+            <div class="stat-num">1904</div>
+            <div class="stat-label">Corporatized Under New Organization</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- MAJOR HEALTH SYSTEMS -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Major Health Systems</div>
+          <h2>The Flagship <em>Adventist Hospital Systems</em></h2>
+          <p>These are the largest Adventist health systems with confirmed EIN numbers. Each operates under the GC-SDA corporate brand — publicly claiming Protestant heritage while the GC parent body was called "truly Catholic" by its own president.</p>
+        </div>
+        <div class="hosp-grid">
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Hospital System — Mid-Atlantic</div>
+            <div class="hosp-name">Adventist HealthCare, Inc.</div>
+            <div class="hosp-ein">52-1532556</div>
+            <div class="hosp-desc">Headquartered in Gaithersburg, MD. Operates in the Washington D.C. / Maryland region. Major facilities include Shady Grove Medical Center, Washington Adventist Hospital, Fort Washington Medical Center, and Adventist Home Health. One of the largest employers in the Maryland-D.C. metro area.</div>
+            <div class="hosp-meta">
+              <span class="hosp-revenue">~$910M Revenue (2022)</span>
+              <span class="hosp-tag">Maryland / D.C.</span>
+              <span class="hosp-tag">adventisthealthcare.com</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/52-1532556" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Hospital System — Southeast / National</div>
+            <div class="hosp-name">AdventHealth (Adventist Health System Sunbelt)</div>
+            <div class="hosp-ein">59-2170012</div>
+            <div class="hosp-desc">Formerly known as Florida Hospital and Adventist Health System/Sunbelt. Now rebranded as AdventHealth with facilities across Florida, Georgia, Kansas, Kentucky, North Carolina, Colorado, Wisconsin, and Texas. One of the largest non-profit hospital systems in the United States.</div>
+            <div class="hosp-meta">
+              <span class="hosp-revenue">Multi-billion annual revenue</span>
+              <span class="hosp-tag">adventhealth.com</span>
+              <span class="hosp-tag">Multi-state network</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/59-2170012" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Academic Medical Center</div>
+            <div class="hosp-name">Loma Linda University Health</div>
+            <div class="hosp-ein">95-3804495</div>
+            <div class="hosp-desc">World-renowned academic medical center in Loma Linda, CA. Includes Loma Linda University Medical Center, Children's Hospital, East Campus Hospital, and Behavioral Medicine Center. Known globally for heart transplant surgery and medical missionary work. Affiliated with Loma Linda University (medical, dental, pharmacy, public health schools).</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">lluh.org</span>
+              <span class="hosp-tag">Academic medicine</span>
+              <span class="hosp-tag">Heart transplants</span>
+              <span class="hosp-tag">Loma Linda, CA</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/95-3804495" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Hospital System — West Coast / Pacific</div>
+            <div class="hosp-name">Adventist Health (California / Pacific)</div>
+            <div class="hosp-ein">95-2294234</div>
+            <div class="hosp-desc">Network of hospitals and clinics throughout California, Oregon, Washington, and Hawaii. Includes Adventist Health Bakersfield, Adventist Health White Memorial (Los Angeles), Adventist Health Tillamook (Oregon), Castle Medical Center (Hawaii), and Adventist Health Howard Memorial (Willits, CA).</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">adventisthealth.org</span>
+              <span class="hosp-tag">California / Oregon / Hawaii</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/95-2294234" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Hospital System — Colorado</div>
+            <div class="hosp-name">Portercare Adventist Health System</div>
+            <div class="hosp-ein">84-0438224</div>
+            <div class="hosp-desc">Colorado-based Adventist healthcare network including Porter Adventist Hospital in Denver and other regional facilities. Part of the national Adventist Health network serving the Rocky Mountain region.</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">Denver, Colorado</span>
+              <span class="hosp-tag">Rocky Mountain region</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/84-0438224" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">International Health</div>
+            <div class="hosp-name">Adventist Health International</div>
+            <div class="hosp-ein">33-0940020</div>
+            <div class="hosp-desc">Manages Adventist hospitals and health institutions in developing countries on behalf of the General Conference. Oversees facilities in Asia, Africa, and other regions as part of the GC's global health mission.</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">Global operations</span>
+              <span class="hosp-tag">GC partner</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/33-0940020" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Healthcare Network</div>
+            <div class="hosp-name">Adventist Health Partners, Inc.</div>
+            <div class="hosp-ein">36-4138353</div>
+            <div class="hosp-desc">Partner and network coordination organization for the Adventist Health system, facilitating strategic partnerships and network management across affiliated health institutions.</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">Network coordination</span>
+              <span class="hosp-tag">Health partnerships</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/36-4138353" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+          <div class="hosp-card">
+            <div class="hosp-cat">Hospital System — California</div>
+            <div class="hosp-name">Adventist Health Medical Center Tehachapi</div>
+            <div class="hosp-ein">81-2240617</div>
+            <div class="hosp-desc">Adventist Health hospital in Tehachapi, California serving the surrounding mountain communities. Part of the Pacific Coast Adventist Health network.</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">Tehachapi, CA</span>
+              <span class="hosp-tag">Community hospital</span>
+            </div>
+            <a class="hosp-link" href="https://www.guidestar.org/profile/81-2240617" target="_blank" rel="noopener">GuideStar →</a>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- NURSING HOMES & ELDER CARE -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Elder Care &amp; Nursing Homes</div>
+          <h2>Adventist <em>Senior Living</em> &amp; Nursing Facilities</h2>
+          <p>The Adventist health system extends beyond acute care hospitals into skilled nursing facilities, assisted living communities, and elder care centers — all generating revenue under the corporate umbrella of the 1904 organization.</p>
+        </div>
+
+        <div class="hosp-grid">
+          <div class="hosp-card">
+            <div class="hosp-cat">Senior Care</div>
+            <div class="hosp-name">Adventist Living Centers</div>
+            <div class="hosp-ein">Under GEN 1071 / state conference</div>
+            <div class="hosp-desc">Network of senior living communities, skilled nursing facilities, and memory care units affiliated with the Adventist Health system. Located primarily in the Midwest and Mid-Atlantic. Operated under state conference licenses tied back to GC umbrella.</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">Skilled nursing</span>
+              <span class="hosp-tag">Assisted living</span>
+              <span class="hosp-tag">Memory care</span>
+            </div>
+          </div>
+          <div class="hosp-card">
+            <div class="hosp-cat">Senior Housing</div>
+            <div class="hosp-name">Adventist Retirement Villages</div>
+            <div class="hosp-ein">Under conference / GEN 1071</div>
+            <div class="hosp-desc">Retirement communities affiliated with Adventist Health systems across the U.S., often attached to major hospital campuses. Residents are frequently connected to local SDA churches and conferences — keeping the funding pipeline tight to the 1904 corporation.</div>
+            <div class="hosp-meta">
+              <span class="hosp-tag">Retirement communities</span>
+              <span class="hosp-tag">SDA-affiliated</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- EGW'S HEALTH VISION VS. CORPORATE REALITY -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Pioneer Vision vs. Corporate Reality</div>
+          <h2>What EGW Founded vs. <em>What Daniells Built</em></h2>
+        </div>
+
+        <div class="egw-box">
+          <h3>The Right Arm of the Third Angel's Message — Corrupted</h3>
+          <p>Ellen White called Adventist health work <strong>"the right arm"</strong> of the Three Angels' Messages. She envisioned sanitariums and health institutions as *evangelistic centers* — places where patients would encounter the third angel's message, the Sabbath truth, and the health reform principles of the pioneers, not as profit-generating hospitals in a multi-billion-dollar corporate network.</p>
+          <p>By 1904, when Daniells incorporated the GC as a federal corporation, the health institutions were brought under this corporate umbrella. What was designed to be the right arm of soul-saving truth became a major revenue engine — complete with CEO salaries exceeding $700,000, accreditation by Catholic-influenced bodies, and partnership with government insurance systems.</p>
+          <p>The hospital that inspired James and Ellen White's health reform vision — the <strong>Battle Creek Sanitarium</strong> — was run by <strong>John Harvey Kellogg</strong>, whose pantheistic theology triggered the very crisis that led to the 1904 apostasy. The right arm turned against the body.</p>
+        </div>
+      </section>
+
+      <!-- QUOTE -->
+      <section class="section">
+        <div class="quote-block">
+          <blockquote>"Ye cannot serve God and mammon."</blockquote>
+          <cite>— Matthew 6:24, KJV</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"The Lord has never given His approval to the investment of means in large sanitariums that entail financial burdens and rob the treasury of the funds needed to carry forward the evangelical work."</blockquote>
+          <cite>— Ellen G. White, Medical Ministry, p. 322</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"A new organization would be established… Nothing would be allowed to stand in the way of the new movement. Their foundation would be built on the sand, and storm and tempest would sweep away the structure."</blockquote>
+          <cite>— Ellen G. White, Selected Messages, Book 1, p. 204.2 — describing the 1904 corporation that now controls the hospital empire</cite>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>The Right Arm Has Become Babylon's Fist</h2>
+        <p>173 hospitals. Multi-billion revenues. CEO salaries. Government contracts. All built on a Protestant fraud — while the corporate body confesses Catholicism.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">Full Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/apostasy/schools">Schools Fraud →</a>
+          <a class="cta-btn cta-btn-secondary" href="/501c3">501(c)(3) Trap →</a>
+          <a class="cta-btn cta-btn-secondary" href="/babylon-antichrist-library">Babylon Library →</a>
+        </div>
+      </div>
+    </main>
+
+<SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'SDA Hospital Apostasy', href: '/apostasy/hospitals' },
+        { label: 'SDA Schools Directory', href: '/apostasy/schools' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'Apostate Shepherds', href: '/apostasy' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

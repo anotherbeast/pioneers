@@ -1,0 +1,76 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard — SundayLaw.com</title>
+    <link rel="stylesheet" href="/css/styles.css">
+    <style>
+      .admin-table { width: 100%; border-collapse: collapse; margin: 24px 0; background: rgba(26,26,78,0.7); border-radius: 12px; overflow: hidden; }
+      .admin-table th, .admin-table td { padding: 12px 10px; text-align: left; }
+      .admin-table th { background: linear-gradient(to right,#b45309,#d97706); color: #fff; }
+      .admin-table tr:nth-child(even) { background: rgba(26,26,78,0.4); }
+      .admin-table tr:hover { background: rgba(180,83,9,0.12); }
+      .admin-actions button { margin-right: 6px; }
+      .admin-actions { display: flex; gap: 6px; }
+      .btn-admin { padding: 6px 14px; border-radius: 7px; border: none; font-weight: 600; cursor: pointer; background: linear-gradient(to right,#1d4ed8,#2563eb); color: #fff; }
+      .btn-admin.ban { background: linear-gradient(to right,#be123c,#f87171); }
+      .btn-admin.reset { background: linear-gradient(to right,#7c3aed,#6d28d9); }
+      .btn-admin.delete { background: linear-gradient(to right,#b91c1c,#ef4444); }
+      .btn-admin:disabled { opacity: 0.6; cursor: not-allowed; }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+    <div class="page-wrap">
+      <div class="page-hero">
+        <h1>Admin Dashboard</h1>
+        <p>Manage members, reset passwords, ban users, and more.</p>
+      </div>
+      <div id="admin-table-wrap">
+        <!-- Table will be loaded by JS -->
+      </div>
+    </div>
+    <SiteFooter />
+    <script>
+      async function loadMembers() {
+        const res = await fetch('/api/admin_members.php');
+        const data = await res.json();
+        if (!data.ok) {
+          document.getElementById('admin-table-wrap').innerHTML = '<div class="error">Failed to load members.</div>';
+          return;
+        }
+        let html = '<table class="admin-table"><thead><tr><th>ID</th><th>Name</th><th>Email</th><th>Joined</th><th>Role</th><th>Status</th><th>Actions</th></tr></thead><tbody>';
+        for (const m of data.members) {
+          html += `<tr><td>${m.id}</td><td>${m.name}</td><td>${m.email}</td><td>${m.joined_at}</td><td>${m.role||'member'}</td><td>${m.status||'active'}</td><td class="admin-actions">`;
+          html += `<button class="btn-admin reset" onclick="resetPassword(${m.id})">Reset PW</button>`;
+          html += `<button class="btn-admin ban" onclick="banUser(${m.id})">${m.status==='banned'?'Unban':'Ban'}</button>`;
+          html += `<button class="btn-admin delete" onclick="deleteUser(${m.id})">Delete</button>`;
+          html += '</td></tr>';
+        }
+        html += '</tbody></table>';
+        document.getElementById('admin-table-wrap').innerHTML = html;
+      }
+      async function resetPassword(id) {
+        if (!confirm('Reset password for this user?')) return;
+        await fetch('/api/admin_action.php', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'reset',id})});
+        loadMembers();
+      }
+      async function banUser(id) {
+        if (!confirm('Toggle ban for this user?')) return;
+        await fetch('/api/admin_action.php', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'ban',id})});
+        loadMembers();
+      }
+      async function deleteUser(id) {
+        if (!confirm('Delete this user? This cannot be undone.')) return;
+        await fetch('/api/admin_action.php', {method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({action:'delete',id})});
+        loadMembers();
+      }
+      loadMembers();
+    </script>
+  </body>
+</html>

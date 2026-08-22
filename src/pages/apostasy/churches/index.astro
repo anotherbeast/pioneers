@@ -1,0 +1,540 @@
+---
+import Analytics from '../../../components/Analytics.astro';
+import ShareBar from '../../../components/ShareBar.astro';
+import SiteSearch from '../../../components/SiteSearch.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import churchData from '../../../data/churches.json';
+
+// Sort alphabetically by state then city
+const churches = [...churchData].sort((a, b) => {
+  const s = (a.stateCode || a.state || 'ZZ').localeCompare(b.stateCode || b.state || 'ZZ');
+  if (s !== 0) return s;
+  return (a.city || '').localeCompare(b.city || '');
+});
+
+// Unique states for filter dropdown
+const states = [...new Set(churches.map(c => c.stateCode || c.state).filter(Boolean))].sort();
+
+const totalCount = churches.length;
+const verifiedCount = churches.filter(c => c.verified).length;
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SDA Church Directory — 501(c)(3) Franchises Exposed | SundayLaw.com</title>
+    <meta name="description" content="Searchable directory of Seventh-day Adventist churches operating as corporate franchises under IRS Group Exemption GEN 1071 (EIN 52-0643036). Find any SDA church by state, city, or name — with EIN, address, phone, and apostasy context.">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/churches">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="SDA Church Directory — 501(c)(3) Corporate Franchises | SundayLaw.com">
+    <meta property="og:description" content="Every SDA church operates under GC Group Exemption GEN 1071. Browse the directory. Understand the corporate structure. Heed Revelation 18:4.">
+    <meta property="og:url" content="https://sundaylaw.com/apostasy/churches">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="robots" content="index, follow">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <!-- Leaflet.js for map support (no API key needed) -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239; --indigo: #4f46e5; --green: #16a34a;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      /* ── NAV ── */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; margin-right: 80px; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; margin-right: 80px; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.98); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ── PAGE LAYOUT ── */
+      .page { max-width: 1200px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* ── HERO ── */
+      .hero { padding: 48px 0 36px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(79,70,229,0.12); border: 1px solid rgba(79,70,229,0.35); color: #a5b4fc; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; margin-bottom: 14px; }
+      .hero h1 em { color: #a5b4fc; font-style: italic; }
+      .hero-subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 820px; margin-bottom: 28px; }
+      .hero-stats { display: flex; flex-wrap: wrap; gap: 14px; margin-bottom: 32px; }
+      .stat-pill { display: inline-flex; align-items: center; gap: 7px; padding: 8px 16px; border-radius: 999px; border: 1px solid var(--line); background: rgba(220,38,38,0.06); font-size: 0.8rem; color: var(--ink); }
+      .stat-pill strong { color: var(--red-muted); }
+
+      /* ── APOSTASY ALERT BANNER ── */
+      .apostasy-banner { background: linear-gradient(135deg, rgba(50,0,0,0.65), rgba(12,5,5,0.92)); border: 1px solid rgba(220,38,38,0.4); border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 22px 26px; margin-bottom: 40px; }
+      .apostasy-banner h2 { font-family: 'Crimson Text', serif; font-size: 1.35rem; color: var(--red-muted); margin-bottom: 10px; }
+      .apostasy-banner p { font-size: 0.87rem; color: rgba(254,243,199,0.82); line-height: 1.8; margin-bottom: 8px; }
+      .apostasy-banner p:last-child { margin-bottom: 0; }
+      .apostasy-banner strong { color: var(--gold-soft); }
+      .apostasy-banner a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+      .apostasy-banner a:hover { color: #fcd34d; }
+
+      /* ── SEARCH + FILTER BAR ── */
+      .search-bar { display: flex; flex-wrap: wrap; gap: 12px; padding: 20px 22px; background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 16px; margin-bottom: 32px; }
+      .search-input-wrap { flex: 1; min-width: 220px; position: relative; }
+      .search-input-wrap svg { position: absolute; left: 12px; top: 50%; transform: translateY(-50%); width: 16px; height: 16px; color: var(--ink-muted); pointer-events: none; }
+      .search-input { width: 100%; height: 44px; padding: 0 12px 0 38px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--ink); font-size: 0.9rem; font-family: 'Inter', sans-serif; outline: none; }
+      .search-input::placeholder { color: var(--ink-muted); }
+      .search-input:focus { border-color: rgba(220,38,38,0.5); background: rgba(220,38,38,0.04); }
+      .filter-select { height: 44px; padding: 0 14px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; color: var(--ink); font-size: 0.88rem; font-family: 'Inter', sans-serif; cursor: pointer; outline: none; min-width: 160px; }
+      .filter-select option { background: #1a0808; color: var(--ink); }
+      .filter-select:focus { border-color: rgba(220,38,38,0.5); }
+      .view-toggle { display: flex; gap: 4px; }
+      .view-btn { width: 44px; height: 44px; border: 1px solid rgba(255,255,255,0.1); border-radius: 10px; background: rgba(255,255,255,0.04); color: var(--ink-muted); cursor: pointer; display: flex; align-items: center; justify-content: center; transition: all 0.18s; }
+      .view-btn.active { background: rgba(220,38,38,0.12); border-color: rgba(220,38,38,0.4); color: var(--red-muted); }
+      .results-count { align-self: center; font-size: 0.82rem; color: var(--ink-muted); white-space: nowrap; }
+
+      /* ── MAP ── */
+      .map-section { margin-bottom: 36px; }
+      .map-section h2 { font-family: 'Crimson Text', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 14px; }
+      #church-map { width: 100%; height: 440px; border-radius: 14px; border: 1px solid var(--line-soft); background: #1a0808; }
+
+      /* ── CHURCH GRID ── */
+      .church-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+      .church-grid.list-view { grid-template-columns: 1fr; }
+
+      .church-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px 22px; transition: border-color 0.18s, transform 0.18s; display: flex; flex-direction: column; gap: 10px; }
+      .church-card:hover { border-color: rgba(220,38,38,0.4); transform: translateY(-2px); }
+      .church-card.hidden { display: none; }
+
+      .church-card-top { display: flex; align-items: flex-start; gap: 12px; }
+      .church-icon { width: 42px; height: 42px; border-radius: 10px; background: rgba(159,18,57,0.15); border: 1px solid rgba(159,18,57,0.3); display: flex; align-items: center; justify-content: center; flex-shrink: 0; }
+      .church-icon svg { width: 20px; height: 20px; color: var(--red-muted); }
+      .church-name-wrap { flex: 1; }
+      .church-name { font-size: 0.96rem; font-weight: 700; color: var(--ink); line-height: 1.3; margin-bottom: 3px; }
+      .church-location { font-size: 0.78rem; color: var(--ink-muted); }
+
+      .ein-badge { display: inline-flex; align-items: center; gap: 5px; padding: 3px 9px; border-radius: 6px; background: rgba(212,165,55,0.1); border: 1px solid rgba(212,165,55,0.25); font-size: 0.72rem; color: var(--gold); font-family: 'Courier New', monospace; font-weight: 700; }
+      .verified-badge { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 6px; background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.25); font-size: 0.68rem; color: #4ade80; font-weight: 700; }
+
+      .church-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+      .state-badge { display: inline-block; padding: 2px 8px; border-radius: 4px; background: rgba(79,70,229,0.1); border: 1px solid rgba(79,70,229,0.22); color: #a5b4fc; font-size: 0.68rem; font-weight: 700; }
+      .conference-tag { font-size: 0.73rem; color: var(--ink-muted); }
+
+      .church-phone { font-size: 0.8rem; color: var(--gold-soft); font-family: 'Courier New', monospace; }
+      .church-desc { font-size: 0.78rem; color: var(--ink-muted); line-height: 1.6; }
+
+      .church-card-foot { display: flex; justify-content: space-between; align-items: center; margin-top: auto; padding-top: 10px; border-top: 1px solid rgba(255,255,255,0.05); }
+      .church-links { display: flex; gap: 8px; }
+      .church-link { display: inline-flex; align-items: center; justify-content: center; width: 30px; height: 30px; border-radius: 6px; background: rgba(255,255,255,0.05); border: 1px solid rgba(255,255,255,0.08); color: var(--ink-muted); transition: all 0.18s; }
+      .church-link:hover { background: rgba(220,38,38,0.1); border-color: rgba(220,38,38,0.3); color: var(--red-muted); }
+      .church-link svg { width: 14px; height: 14px; }
+      .church-cta { display: inline-flex; align-items: center; gap: 5px; padding: 6px 14px; border-radius: 8px; background: rgba(159,18,57,0.18); border: 1px solid rgba(159,18,57,0.35); color: var(--red-muted); font-size: 0.78rem; font-weight: 700; text-decoration: none; transition: all 0.18s; }
+      .church-cta:hover { background: rgba(159,18,57,0.3); color: #fff; }
+
+      /* ── LIST VIEW OVERRIDES ── */
+      .list-view .church-card { flex-direction: row; align-items: center; gap: 18px; padding: 14px 20px; }
+      .list-view .church-card-top { flex: 1; }
+      .list-view .church-desc { display: none; }
+      .list-view .church-card-foot { margin-top: 0; padding-top: 0; border-top: none; }
+
+      /* ── EMPTY STATE ── */
+      .no-results { display: none; text-align: center; padding: 60px 20px; color: var(--ink-muted); }
+      .no-results svg { width: 48px; height: 48px; margin: 0 auto 16px; color: rgba(220,38,38,0.3); display: block; }
+      .no-results h3 { font-family: 'Crimson Text', serif; font-size: 1.5rem; color: var(--ink); margin-bottom: 8px; }
+
+      /* ── STATE SECTIONS ── */
+      .state-section { margin-bottom: 50px; }
+      .state-header { display: flex; align-items: baseline; gap: 14px; padding-bottom: 12px; border-bottom: 1px solid var(--line-soft); margin-bottom: 20px; }
+      .state-header h2 { font-family: 'Crimson Text', serif; font-size: 1.6rem; color: var(--ink); }
+      .state-church-count { font-size: 0.8rem; color: var(--ink-muted); }
+
+      /* ── CTA ── */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.55), rgba(12,5,5,0.95)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 32px 28px; text-align: center; margin-top: 60px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.9rem; color: var(--ink); margin-bottom: 10px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 580px; margin: 0 auto 22px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 22px; border-radius: 10px; font-weight: 700; font-size: 0.88rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+
+      @media (max-width: 640px) {
+        .view-toggle { display: none; }
+        .church-grid { grid-template-columns: 1fr; }
+        .search-bar { flex-direction: column; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/apostasy">Apostasy</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn" id="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/lawyers">Lawyers</a>
+          <a class="nav-bottom-link active" href="/apostasy/churches">Churches</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3)</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+          <a href="/">Home</a>
+          <a href="/apostasy/corporations">Corporate Empire</a>
+          <a href="/apostasy/schools">Schools</a>
+          <a href="/apostasy/hospitals">Hospitals</a>
+          <a href="/apostasy/lawyers">Lawyers</a>
+          <a href="/apostasy/churches">Churches</a>
+          <a href="/apostasy/videos">Videos</a>
+          <a href="/501c3">501(c)(3)</a>
+          <a href="/apostasy">Apostate Shepherds</a>
+          <a href="/library">Pioneer Library</a>
+        </div>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/apostasy">Apostasy</a><span>›</span>
+          Churches
+        </div>
+        <div class="page-eyebrow">IRS Group Exemption GEN 1071 · EIN 52-0643036</div>
+        <h1>SDA Church Directory — <em>Corporate Franchises</em></h1>
+        <p class="hero-subtitle">Every local Seventh-day Adventist church in America operates as a corporate franchise under the General Conference corporation (EIN 52-0643036, GEN 1071). These are not independent congregations — they are subsidiaries of a multinational 501(c)(3) that files as Protestant with the IRS while its president declared it "truly a Catholic organization." Search by name, state, or city. Click any church for its corporate profile and apostasy context.</p>
+        <div class="hero-stats">
+          <div class="stat-pill"><strong>{totalCount}</strong> churches indexed</div>
+          <div class="stat-pill"><strong>{verifiedCount}</strong> EINs verified</div>
+          <div class="stat-pill">Parent EIN: <strong>52-0643036</strong></div>
+          <div class="stat-pill">Group Exemption: <strong>GEN 1071</strong></div>
+          <div class="stat-pill">NTEE Code: <strong>X21 (Protestant)</strong></div>
+          <div class="stat-pill"><strong>GC declared "truly Catholic"</strong> — 1981</div>
+        </div>
+      </div>
+
+      <!-- APOSTASY ALERT BANNER -->
+      <div class="apostasy-banner">
+        <h2>What Every Visitor Must Know Before Attending an SDA Church</h2>
+        <p>
+          The General Conference Corporation of Seventh-day Adventists (EIN <strong>52-0643036</strong>) operates under
+          IRS <strong>Group Exemption Number GEN 1071</strong> — meaning every local SDA church's tax exemption flows from
+          this single parent corporation. Each local church is not an independent religious body; it is a corporate
+          <strong>franchise</strong> subject to GC working policy, Conference licensing, and federal 501(c)(3) speech restrictions.
+        </p>
+        <p>
+          The IRS lists the parent GC corporation's primary business activity as <strong>underwriting municipal insurance</strong> —
+          not gospel ministry. The GC files its NTEE classification as <strong>X21 (Protestant)</strong> while GC President
+          Neal C. Wilson stated in the <em>Adventist Review</em> (March 5, 1981): <strong>"I want to say this carefully — there is
+          something very Catholic about the Seventh-day Adventist Church."</strong> In 1974, Wilson called the pioneer church
+          a "trash heap" (trial transcript, Merikay McLeod case). The local church sitting on this page is a subsidiary of
+          that corporate structure. <a href="/apostasy/corporations">See full corporate empire →</a>
+        </p>
+        <p>
+          <strong>Revelation 18:4:</strong> "Come out of her, my people, that ye be not partakers of her sins,
+          and that ye receive not of her plagues." — This is not a suggestion. It is a commandment.
+        </p>
+      </div>
+
+      <!-- SEARCH AND FILTER BAR -->
+      <div class="search-bar" id="search-bar">
+        <div class="search-input-wrap">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          <input class="search-input" id="church-search" type="search" placeholder="Search church name, city, state, or EIN…" autocomplete="off" aria-label="Search churches">
+        </div>
+        <select class="filter-select" id="state-filter" aria-label="Filter by state">
+          <option value="">All States / Countries</option>
+          {states.map(s => (
+            <option value={s}>{s}</option>
+          ))}
+        </select>
+        <select class="filter-select" id="ein-filter" aria-label="Filter by EIN status">
+          <option value="">All EIN Status</option>
+          <option value="verified">EIN Verified</option>
+          <option value="unverified">EIN Not Yet Documented</option>
+        </select>
+        <div class="view-toggle">
+          <button class="view-btn active" id="grid-btn" title="Grid view" aria-label="Grid view">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="3" width="7" height="7"/><rect x="14" y="3" width="7" height="7"/><rect x="3" y="14" width="7" height="7"/><rect x="14" y="14" width="7" height="7"/></svg>
+          </button>
+          <button class="view-btn" id="list-btn" title="List view" aria-label="List view">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><line x1="8" y1="6" x2="21" y2="6"/><line x1="8" y1="12" x2="21" y2="12"/><line x1="8" y1="18" x2="21" y2="18"/><line x1="3" y1="6" x2="3.01" y2="6"/><line x1="3" y1="12" x2="3.01" y2="12"/><line x1="3" y1="18" x2="3.01" y2="18"/></svg>
+          </button>
+        </div>
+        <span class="results-count" id="results-count">{totalCount} churches</span>
+      </div>
+
+      <!-- MAP -->
+      <div class="map-section">
+        <h2>Church Map — GPS-Ready</h2>
+        <div id="church-map" role="img" aria-label="Map of SDA churches"></div>
+      </div>
+
+      <!-- CHURCH GRID -->
+      <div class="church-grid" id="church-grid">
+        {churches.map(church => (
+          <div
+            class="church-card"
+            data-name={(church.name || '').toLowerCase()}
+            data-city={(church.city || '').toLowerCase()}
+            data-state={(church.stateCode || church.state || '').toLowerCase()}
+            data-country={(church.country || '').toLowerCase()}
+            data-ein={(church.ein || '').toLowerCase()}
+            data-verified={church.verified ? 'verified' : 'unverified'}
+            data-lat={church.latitude ?? ''}
+            data-lng={church.longitude ?? ''}
+          >
+            <div class="church-card-top">
+              <div class="church-icon">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              </div>
+              <div class="church-name-wrap">
+                <div class="church-name">{church.name}</div>
+                <div class="church-location">
+                  {[church.city, church.stateCode || church.state, church.country !== 'USA' ? church.country : ''].filter(Boolean).join(', ')}
+                </div>
+              </div>
+            </div>
+
+            <div class="church-meta">
+              {(church.stateCode || church.state) && (
+                <span class="state-badge">{church.stateCode || church.state}</span>
+              )}
+              {church.ein && (
+                <span class="ein-badge">EIN {church.ein}</span>
+              )}
+              {church.verified && (
+                <span class="verified-badge">✓ IRS Verified</span>
+              )}
+            </div>
+
+            {church.conference && (
+              <div class="conference-tag">{church.conference}</div>
+            )}
+
+            {church.phone && (
+              <div class="church-phone">📞 {church.phone}</div>
+            )}
+
+            {church.description && (
+              <div class="church-desc">{church.description}</div>
+            )}
+
+            <div class="church-card-foot">
+              <div class="church-links">
+                {church.website && (
+                  <a class="church-link" href={church.website} target="_blank" rel="noopener noreferrer" title="Website" aria-label={`${church.name} website`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                  </a>
+                )}
+                {church.facebook && (
+                  <a class="church-link" href={church.facebook} target="_blank" rel="noopener noreferrer" title="Facebook" aria-label={`${church.name} on Facebook`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                  </a>
+                )}
+                {church.latitude && church.longitude && (
+                  <a class="church-link" href={`https://www.google.com/maps/search/?api=1&query=${church.latitude},${church.longitude}`} target="_blank" rel="noopener noreferrer" title="Google Maps" aria-label={`${church.name} on Google Maps`}>
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                  </a>
+                )}
+              </div>
+              <a class="church-cta" href={`/apostasy/churches/${church.slug}`}>
+                View Profile <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </div>
+        ))}
+      </div>
+
+      <div class="no-results" id="no-results">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+        <h3>No Churches Found</h3>
+        <p>Try a different search term, or broaden your state filter.</p>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>Come Out of Her — Revelation 18:4</h2>
+        <p>The local SDA church is not an independent congregation. It is a corporate franchise of a multinational 501(c)(3) that calls itself Catholic, restricts its pastors from preaching truth, and lists its primary business as underwriting municipal insurance. The pioneers would not recognize it.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">Full Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/501c3">The 501(c)(3) Trap →</a>
+          <a class="cta-btn cta-btn-secondary" href="/apostasy">Apostate Shepherds →</a>
+          <a class="cta-btn cta-btn-secondary" href="/library">Pioneer Library →</a>
+        </div>
+      </div>
+    </main>
+
+    <SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: "Corporate Empire", href: "/apostasy/corporations" },
+        { label: "Schools (7,500+)", href: "/apostasy/schools" },
+        { label: "Hospitals (173)", href: "/apostasy/hospitals" },
+        { label: "Lawyers", href: "/apostasy/lawyers" },
+        { label: "501(c)(3) Trap", href: "/501c3" },
+        { label: "Apostate Shepherds", href: "/apostasy" },
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+
+    <!-- Embed church data for JS search -->
+    <script id="church-data" type="application/json" set:html={JSON.stringify(churches.map(c => ({
+      slug: c.slug,
+      name: c.name,
+      city: c.city,
+      stateCode: c.stateCode || c.state,
+      country: c.country,
+      ein: c.ein,
+      verified: c.verified,
+      lat: c.latitude,
+      lng: c.longitude,
+    })))} />
+
+    <!-- Leaflet map -->
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs=" crossorigin=""></script>
+
+    <script>
+      // Leaflet loaded via CDN — access through window to avoid TS errors
+      declare const L: any; // eslint-disable-line no-var
+
+      // ── Mobile nav ────────────────────────────────────────────────────────
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+
+      // ── Map init ──────────────────────────────────────────────────────────
+      let _leafletMap: any = null;
+      let _markers: any = null;
+
+      function initMap(): void {
+        const mapEl = document.getElementById('church-map');
+        if (!mapEl) return;
+        if (typeof L === 'undefined') return;
+        _leafletMap = L.map('church-map', { center: [38.5, -96], zoom: 4, scrollWheelZoom: false });
+        L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+          attribution: '\u00a9 <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+          maxZoom: 18,
+        }).addTo(_leafletMap);
+        _markers = L.layerGroup().addTo(_leafletMap);
+        renderMapMarkers(document.querySelectorAll<HTMLElement>('.church-card:not(.hidden)'));
+      }
+
+      function renderMapMarkers(cards: NodeListOf<HTMLElement>): void {
+        if (!_markers) return;
+        _markers.clearLayers();
+        cards.forEach(el => {
+          const lat = parseFloat(el.dataset.lat || '');
+          const lng = parseFloat(el.dataset.lng || '');
+          if (isNaN(lat) || isNaN(lng)) return;
+          const name = el.querySelector('.church-name')?.textContent || '';
+          const href = el.querySelector('.church-cta')?.getAttribute('href') || '';
+          L.circleMarker([lat, lng], {
+            radius: 7, fillColor: '#dc2626', color: '#9f1239',
+            weight: 1.5, opacity: 1, fillOpacity: 0.75,
+          })
+            .bindPopup(`<strong>${name}</strong><br><a href="${href}" style="color:#dc2626">View Profile &rarr;</a>`)
+            .addTo(_markers);
+        });
+      }
+
+      if (document.readyState === 'complete') { initMap(); }
+      else { window.addEventListener('load', initMap); }
+
+      // ── Search / filter ───────────────────────────────────────────────────
+      const searchInput = document.getElementById('church-search') as HTMLInputElement | null;
+      const stateFilter = document.getElementById('state-filter') as HTMLSelectElement | null;
+      const einFilter   = document.getElementById('ein-filter') as HTMLSelectElement | null;
+      const grid        = document.getElementById('church-grid');
+      const noResults   = document.getElementById('no-results') as HTMLElement | null;
+      const resultsCount = document.getElementById('results-count');
+      const gridBtn     = document.getElementById('grid-btn');
+      const listBtn     = document.getElementById('list-btn');
+
+      function filterChurches(): void {
+        const query    = (searchInput?.value ?? '').toLowerCase().trim();
+        const stateVal = (stateFilter?.value ?? '').toLowerCase();
+        const einVal   = einFilter?.value ?? '';
+        const cards    = document.querySelectorAll<HTMLElement>('.church-card');
+        let visible    = 0;
+
+        cards.forEach(el => {
+          const name     = el.dataset.name    ?? '';
+          const city     = el.dataset.city    ?? '';
+          const state    = el.dataset.state   ?? '';
+          const country  = el.dataset.country ?? '';
+          const ein      = el.dataset.ein     ?? '';
+          const verified = el.dataset.verified ?? '';
+
+          const matchQuery = !query ||
+            name.includes(query) || city.includes(query) ||
+            state.includes(query) || country.includes(query) || ein.includes(query);
+          const matchState = !stateVal || state.startsWith(stateVal);
+          const matchEin   = !einVal   || verified === einVal;
+
+          if (matchQuery && matchState && matchEin) {
+            el.classList.remove('hidden'); visible++;
+          } else {
+            el.classList.add('hidden');
+          }
+        });
+
+        if (resultsCount) resultsCount.textContent = `${visible} church${visible !== 1 ? 'es' : ''}`;
+        if (noResults) noResults.style.display = visible === 0 ? 'block' : 'none';
+        if (_markers) renderMapMarkers(document.querySelectorAll<HTMLElement>('.church-card:not(.hidden)'));
+      }
+
+      searchInput?.addEventListener('input', filterChurches);
+      stateFilter?.addEventListener('change', filterChurches);
+      einFilter?.addEventListener('change', filterChurches);
+
+      // ── View toggle ───────────────────────────────────────────────────────
+      gridBtn?.addEventListener('click', () => {
+        grid?.classList.remove('list-view');
+        gridBtn.classList.add('active');
+        listBtn?.classList.remove('active');
+      });
+      listBtn?.addEventListener('click', () => {
+        grid?.classList.add('list-view');
+        listBtn.classList.add('active');
+        gridBtn?.classList.remove('active');
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,506 @@
+---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostasy Exposed — Video Archive | SundayLaw.com</title>
+    <meta name="description" content="Video archive documenting the Great Apostasy within the Seventh-day Adventist corporate structure — sermons, lectures, documentary evidence, and prophetic exposés connecting the 1904 organization to Babylon.">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/videos">
+    <meta property="og:title" content="Apostasy Exposed — Video Archive | SundayLaw.com">
+    <meta property="og:type" content="article">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239; --violet: #7c3aed;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1200px; margin: 0 auto; padding: 0 22px 80px; }
+
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.35); color: #c4b5fd; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: #c4b5fd; }
+      .page-header .subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      .section { padding: 44px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 26px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: #c4b5fd; font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* VIDEO GRID */
+      .video-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 20px; }
+      .video-card { background: var(--bg-card); border: 1px solid rgba(124,58,237,0.2); border-radius: 16px; overflow: hidden; transition: all 0.25s; }
+      .video-card:hover { border-color: rgba(124,58,237,0.45); transform: translateY(-3px); box-shadow: 0 12px 32px rgba(60,0,80,0.35); }
+      .video-thumb { position: relative; aspect-ratio: 16/9; background: var(--bg-soft); overflow: hidden; cursor: pointer; }
+      .video-thumb img { width: 100%; height: 100%; object-fit: cover; display: block; }
+      .video-thumb-placeholder { width: 100%; height: 100%; display: flex; align-items: center; justify-content: center; background: linear-gradient(135deg, #1a0a1a, #0d0505); font-size: 2.5rem; }
+      .play-btn { position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; background: rgba(0,0,0,0.4); transition: background 0.2s; }
+      .play-btn:hover { background: rgba(124,58,237,0.35); }
+      .play-icon { width: 56px; height: 56px; background: rgba(255,255,255,0.9); border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 1.4rem; padding-left: 4px; }
+      .video-duration { position: absolute; bottom: 8px; right: 8px; background: rgba(0,0,0,0.82); color: #fff; font-size: 0.7rem; font-weight: 700; padding: 2px 7px; border-radius: 5px; font-family: 'Courier New', monospace; }
+      .video-body { padding: 16px 16px 18px; }
+      .video-cat { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 4px; font-size: 0.66rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; background: rgba(124,58,237,0.12); border: 1px solid rgba(124,58,237,0.25); color: #c4b5fd; margin-bottom: 8px; }
+      .video-title { font-family: 'Crimson Text', serif; font-size: 1.1rem; font-weight: 600; color: var(--ink); line-height: 1.35; margin-bottom: 6px; }
+      .video-title a { color: var(--ink); }
+      .video-title a:hover { color: #c4b5fd; }
+      .video-desc { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.65; margin-bottom: 10px; }
+      .video-meta { display: flex; flex-wrap: wrap; gap: 6px; align-items: center; }
+      .video-source { font-size: 0.7rem; color: var(--gold); font-weight: 700; }
+      .video-tag { font-size: 0.67rem; padding: 2px 7px; border-radius: 4px; background: rgba(255,255,255,0.05); color: rgba(156,163,175,0.7); border: 1px solid rgba(255,255,255,0.07); }
+
+      /* FEATURED VIDEO */
+      .featured-video { background: var(--bg-card); border: 1px solid rgba(124,58,237,0.35); border-radius: 18px; overflow: hidden; margin-bottom: 36px; }
+      .featured-video .video-embed-wrap { position: relative; aspect-ratio: 16/9; background: #000; }
+      .featured-video iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: none; }
+      .featured-video-body { padding: 24px 26px; }
+      .featured-video-body .video-label { display: inline-flex; align-items: center; gap: 4px; padding: 3px 10px; border-radius: 999px; background: rgba(124,58,237,0.15); border: 1px solid rgba(124,58,237,0.4); color: #c4b5fd; font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 10px; }
+      .featured-video-body h2 { font-family: 'Crimson Text', serif; font-size: 1.7rem; color: var(--ink); margin-bottom: 8px; line-height: 1.25; }
+      .featured-video-body h2 em { color: #c4b5fd; }
+      .featured-video-body p { font-size: 0.88rem; color: var(--ink-muted); line-height: 1.8; }
+
+      /* PROPAGANDA SECTION */
+      .propaganda-box { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 16px; padding: 26px 28px; }
+      .propaganda-box h3 { font-family: 'Crimson Text', serif; font-size: 1.4rem; color: var(--red-muted); margin-bottom: 14px; }
+      .propaganda-box p { font-size: 0.87rem; color: rgba(254,243,199,0.8); line-height: 1.8; margin-bottom: 12px; }
+      .propaganda-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 14px; margin-top: 16px; }
+      .prop-card { background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.2); border-radius: 12px; padding: 14px 14px; }
+      .prop-card h4 { font-size: 0.85rem; color: var(--red-muted); font-weight: 700; margin-bottom: 6px; }
+      .prop-card p { font-size: 0.77rem; color: var(--ink-muted); line-height: 1.65; }
+      .prop-card .ein-badge { display: inline-block; font-size: 0.68rem; color: var(--gold); font-family: 'Courier New', monospace; font-weight: 700; margin-top: 4px; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+      .cta-btn-violet { background: transparent; color: #c4b5fd; border: 1px solid rgba(124,58,237,0.4); }
+      .cta-btn-violet:hover { background: rgba(124,58,237,0.12); }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .video-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link active" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3) Trap</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/schools">Schools Fraud</a>
+        <a href="/apostasy/hospitals">Hospitals</a>
+        <a href="/apostasy/videos">Videos</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/apostasy/corporations">Corporate Empire</a><span>›</span>
+          Video Archive
+        </div>
+        <div class="page-eyebrow">Video Evidence</div>
+        <div class="page-header">
+          <h1>Apostasy <em>Exposed</em> — Video Archive</h1>
+          <p class="subtitle">Sermons, lectures, documentary evidence, and prophetic exposés connecting the 1904 corporate organization to the Babylon described in Revelation 18. These videos preserve the testimonies of pioneers and reformers that the corporate church has sought to silence.</p>
+        </div>
+      </div>
+
+      <!-- DOCTRINAL APOSTASY -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Doctrinal Apostasy</div>
+          <h2>1SM 204 — The <em>New Organization</em> Prophecy</h2>
+          <p>Ellen White's vision of the satanic new movement that would arise from within Adventism — and the evidence that the April 15, 1904 federal corporation is its fulfillment.</p>
+        </div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">📜</div>
+              <a class="play-btn" href="https://www.youtube.com/results?search_query=1SM+204+Ellen+White+new+organization" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Prophecy Fulfilled</span>
+              <div class="video-title">Selected Messages Book 1 — p. 204 Explained</div>
+              <p class="video-desc">"I have been shown that… there will be a new organization… established… They will reach a point that the Lord will not permit them to pass." The 1904 federal corporation as the fulfillment of this vision.</p>
+              <div class="video-meta">
+                <span class="video-source">YouTube Search</span>
+                <span class="video-tag">1SM 204</span>
+                <span class="video-tag">1904</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">⛪</div>
+              <a class="play-btn" href="https://www.youtube.com/results?search_query=Neal+Wilson+truly+Catholic+Adventist+Review+1981" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Admission of Record</span>
+              <div class="video-title">Neal Wilson: "Truly a Catholic Organization" — March 5, 1981</div>
+              <p class="video-desc">GC President Neal C. Wilson's stunning admission in the Adventist Review that the SDA Church is "truly a Catholic organization" — from a 1981 article discussing the church's ecumenical identity.</p>
+              <div class="video-meta">
+                <span class="video-source">Adventist Review Archive</span>
+                <span class="video-tag">Neal Wilson</span>
+                <span class="video-tag">1981</span>
+                <span class="video-tag">Catholic</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">⚖️</div>
+              <a class="play-btn" href="https://www.youtube.com/results?search_query=Neal+Wilson+EEOC+Pacific+Press+1974+trash+heap" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Court Testimony</span>
+              <div class="video-title">The 1974 "Trash Heap" Testimony — EEOC vs. Pacific Press</div>
+              <p class="video-desc">From Civil Case #74-2025 CBR — Wilson's sworn court testimony declaring intention to put the women's ordination opposition on "the trash heap." Uses "we" as GC President, implicating the entire corporate body.</p>
+              <div class="video-meta">
+                <span class="video-source">Federal Court Record</span>
+                <span class="video-tag">EEOC Case</span>
+                <span class="video-tag">1974</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">📋</div>
+              <a class="play-btn" href="https://www.youtube.com/results?search_query=Questions+on+Doctrine+1957+Adventist+Trinity+compromise" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Books of a New Order</span>
+              <div class="video-title">Questions on Doctrine 1957 — The Compromise That Changed Everything</div>
+              <p class="video-desc">LeRoy Froom and Roy Anderson's secret 1955–56 meetings with Walter Martin — culminating in the 1957 book that introduced Evangelical/Protestant positions on the Atonement and Trinity into the Adventist theological mainstream.</p>
+              <div class="video-meta">
+                <span class="video-source">Research documentary</span>
+                <span class="video-tag">LeRoy Froom</span>
+                <span class="video-tag">Walter Martin</span>
+                <span class="video-tag">1957</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- CORPORATE FRAUD -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Corporate Fraud</div>
+          <h2>IRS Records, EINs, and the <em>501(c)(3) Protestant Fraud</em></h2>
+          <p>Documentary evidence of how the GC-SDA filed as a Protestant organization with the IRS while operating as a Catholic-affiliated multinational corporation.</p>
+        </div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">🏛️</div>
+              <a class="play-btn" href="https://projects.propublica.org/nonprofits/organizations/520643036" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">IRS Records</span>
+              <div class="video-title">EIN 52-0643036 — ProPublica Nonprofit Explorer</div>
+              <p class="video-desc">The GC-SDA's primary IRS filing, showing the organization filed as Protestant (X21), lists its primary activity as "underwriting municipal insurance," and controls Group Exemption Number 1071 — covering thousands of subsidiary entities.</p>
+              <div class="video-meta">
+                <span class="video-source">ProPublica.org</span>
+                <span class="video-tag">EIN 52-0643036</span>
+                <span class="video-tag">GEN 1071</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">🏫</div>
+              <a class="play-btn" href="https://144000.com/schoolfraud/" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">School Fraud</span>
+              <div class="video-title">144000.com — School Fraud Documentation</div>
+              <p class="video-desc">Comprehensive documentation of the Adventist school fraud — EIN database, Sunnydale Academy case study, donation fraud, Protestant filing vs. Catholic curriculum, all with primary source references.</p>
+              <div class="video-meta">
+                <span class="video-source">144000.com/schoolfraud</span>
+                <span class="video-tag">School fraud</span>
+                <span class="video-tag">EINs</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">📺</div>
+              <a class="play-btn" href="https://www.youtube.com/results?search_query=Amazing+Facts+Doug+Batchelor+501c3+government" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Media Propaganda</span>
+              <div class="video-title">Amazing Facts — 501(c)(3) Government-Controlled Ministry</div>
+              <p class="video-desc">Amazing Facts International (EIN 68-0389022) — the flagship media ministry that presents itself as independent while operating under the GC-SDA Group Exemption and maintaining 501(c)(3) restrictions on its content.</p>
+              <div class="video-meta">
+                <span class="video-source">Research</span>
+                <span class="video-tag">EIN 68-0389022</span>
+                <span class="video-tag">Amazing Facts</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">📡</div>
+              <a class="play-btn" href="https://www.youtube.com/results?search_query=3ABN+Three+Angels+Broadcasting+501c3+Adventist" target="_blank" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Broadcasting Arm</span>
+              <div class="video-title">3ABN — Three Angels Broadcasting Network</div>
+              <p class="video-desc">3ABN (EIN 37-1261871) — the 24-hour satellite network presenting itself as prophetic broadcasting while advocating for ecumenical and Catholic-aligned positions on last-day events.</p>
+              <div class="video-meta">
+                <span class="video-source">Research</span>
+                <span class="video-tag">EIN 37-1261871</span>
+                <span class="video-tag">3ABN</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PIONEER CONTRAST -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Pioneer Truth</div>
+          <h2>What the <em>Pioneers Taught</em> — The Contrast</h2>
+          <p>The voices that the 1904 corporate body sought to bury — pioneer sermons, writings, and proclamations that contradict the modern apostate message.</p>
+        </div>
+        <div class="video-grid">
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">📖</div>
+              <a class="play-btn" href="/library" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Pioneer Library</span>
+              <div class="video-title">Access the Full Pioneer Document Library</div>
+              <p class="video-desc">Over 400 pioneer books, tracts, and sermons from 1841–1915 — the era before the 1904 corporation. James White, Joseph Bates, J.N. Andrews, Uriah Smith, John Loughborough, and more.</p>
+              <div class="video-meta">
+                <span class="video-source">SundayLaw.com Library</span>
+                <span class="video-tag">Pre-1904</span>
+                <span class="video-tag">Pioneer writings</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">🎺</div>
+              <a class="play-btn" href="/babylon-antichrist-library" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Babylon Library</span>
+              <div class="video-title">Books of a New Order — The Apostasy Reading List</div>
+              <p class="video-desc">1SM 204 fulfilled — the "new organization" books list, from LeRoy Froom's 1928 "Coming of the Comforter" through "Questions on Doctrine" (1957) and "Movement of Destiny" (1971) — the progression of apostasy in print.</p>
+              <div class="video-meta">
+                <span class="video-source">SundayLaw.com</span>
+                <span class="video-tag">LeRoy Froom</span>
+                <span class="video-tag">Books of new order</span>
+              </div>
+            </div>
+          </div>
+
+          <div class="video-card">
+            <div class="video-thumb">
+              <div class="video-thumb-placeholder">🗞️</div>
+              <a class="play-btn" href="/apostasy/corporations" rel="noopener">
+                <div class="play-icon">▶</div>
+              </a>
+            </div>
+            <div class="video-body">
+              <span class="video-cat">Corporate Empire</span>
+              <div class="video-title">The Full Corporate Empire — All EINs Documented</div>
+              <p class="video-desc">Complete breakdown of the GC-SDA corporate empire — 7,500+ schools, 173 hospitals, 133 universities, media networks, publishing houses, and international relief organizations — all under GEN 1071.</p>
+              <div class="video-meta">
+                <span class="video-source">SundayLaw.com</span>
+                <span class="video-tag">EIN 52-0643036</span>
+                <span class="video-tag">GEN 1071</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+      </section>
+
+      <!-- PROPAGANDA ARM (3ABN, Hope Channel) -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Propaganda Arm</div>
+          <h2>3ABN, Hope Channel, &amp; the <em>Broadcasting Machine</em></h2>
+        </div>
+        <div class="propaganda-box">
+          <h3>501(c)(3) Broadcasting — What They Cannot Say</h3>
+          <p>The GC-SDA operates multiple satellite and internet broadcasting networks. Under 501(c)(3) government regulations, these networks are legally prohibited from endorsing political positions, criticizing government, or broadcasting content that could be construed as "anti-government." This is not a theoretical restraint — it is an active muzzle on prophetic truth-telling.</p>
+          <p>The early Adventist pioneers wrote prolifically about the United States government, Roman Catholicism, and the dangers of Sunday law legislation. None of that content could be broadcast today on a 501(c)(3) platform without risking federal tax-exempt status — which is why you do not hear it on these channels.</p>
+          <div class="propaganda-grid">
+            <div class="prop-card">
+              <h4>3ABN — Three Angels Broadcasting</h4>
+              <p>24-hour satellite TV. Based in West Frankfort, IL. Broadcasts to 75+ million homes worldwide.</p>
+              <span class="ein-badge">EIN: 37-1261871</span>
+            </div>
+            <div class="prop-card">
+              <h4>Hope Channel / HHBN</h4>
+              <p>GC-operated global media network. Over 60 language channels. Headquartered at GC campus in Silver Spring, MD.</p>
+              <span class="ein-badge">Under EIN 52-0643036</span>
+            </div>
+            <div class="prop-card">
+              <h4>Amazing Facts International</h4>
+              <p>Doug Batchelor's global evangelism media ministry. Sacramento, CA. One of the most-watched Adventist ministries worldwide.</p>
+              <span class="ein-badge">EIN: 68-0389022</span>
+            </div>
+            <div class="prop-card">
+              <h4>It Is Written</h4>
+              <p>Long-running Adventist broadcast ministry. Currently hosted by John Bradshaw. Television, YouTube, and website outreach.</p>
+              <span class="ein-badge">EIN: 68-0022498</span>
+            </div>
+            <div class="prop-card">
+              <h4>Adventist World Radio</h4>
+              <p>Shortwave, AM, FM, and internet radio reaching remote areas of the world.</p>
+              <span class="ein-badge">EIN: 38-3242404</span>
+            </div>
+            <div class="prop-card">
+              <h4>Secrets Unsealed</h4>
+              <p>Stephen Bohr's prophecy ministry. Presents as independent but operates under 501(c)(3) with GC-friendly theological positions.</p>
+              <span class="ein-badge">EIN: 20-2149191</span>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>Submit a Video Resource</h2>
+        <p>Do you have video documentation of apostasy we should archive here? Or a testimony of your departure from the 1904 corporation back to the pioneer faith? These archives will grow.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/apostasy/schools">Schools Fraud →</a>
+          <a class="cta-btn cta-btn-secondary" href="/library">Pioneer Library →</a>
+          <a class="cta-btn cta-btn-violet" href="/babylon-antichrist-library">Babylon Library →</a>
+        </div>
+      </div>
+    </main>
+
+<SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'SDA Apostasy Videos', href: '/apostasy/videos' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'SDA Schools Directory', href: '/apostasy/schools' },
+        { label: 'Apostate Shepherds', href: '/apostasy' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

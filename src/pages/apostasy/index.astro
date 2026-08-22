@@ -1,0 +1,325 @@
+---
+import { getCollection } from 'astro:content';
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+
+const apostasyLeaders = await getCollection('apostasy');
+apostasyLeaders.sort((a, b) => (a.data.apostasyDate || '') > (b.data.apostasyDate || '') ? 1 : -1);
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Apostate Shepherds — Resume of Apostasy | SundayLaw.com</title>
+    <meta name="description" content="Resume-type biographical records of the apostate shepherds — Arthur Daniells, LeRoy Froom, Neal Wilson, John Harvey Kellogg — who transformed the Adventist pioneer faith into the Catholic-affiliated 1904 corporation. Their records speak for themselves.">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy">
+    <meta property="og:title" content="Apostate Shepherds — Resume of Apostasy | SundayLaw.com">
+    <meta property="og:description" content="Resume-type biographical records of the apostate shepherds who transformed the Adventist pioneer faith into the Catholic-affiliated 1904 corporation.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1200px; margin: 0 auto; padding: 0 22px 80px; }
+
+      /* HERO */
+      .hero { padding: 60px 0 48px; text-align: center; border-bottom: 1px solid var(--line-soft); margin-bottom: 52px; position: relative; }
+      .hero::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at top, rgba(159,18,57,0.12), transparent 70%); pointer-events: none; }
+      .hero-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.3); color: var(--red-muted); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 18px; }
+      .hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.4rem, 5.5vw, 4rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 14px; }
+      .hero h1 em { color: var(--red-muted); font-style: italic; }
+      .hero h1 strong { color: var(--gold); font-style: normal; }
+      .hero-subtitle { font-size: 1.05rem; color: rgba(254,243,199,0.72); line-height: 1.85; max-width: 700px; margin: 0 auto 28px; }
+      .hero-scripture { background: linear-gradient(135deg, rgba(40,0,0,0.5), rgba(12,5,5,0.8)); border: 1px solid rgba(220,38,38,0.25); border-left: 3px solid var(--red); border-radius: 0 12px 12px 0; padding: 14px 20px; max-width: 620px; margin: 0 auto; text-align: left; }
+      .hero-scripture blockquote { font-family: 'Crimson Text', serif; font-size: 1.05rem; color: var(--red-muted); line-height: 1.8; margin-bottom: 4px; }
+      .hero-scripture cite { font-size: 0.75rem; color: var(--gold); font-style: italic; }
+
+      /* EXPOSE GRID */
+      .expose-nav { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 14px; margin-bottom: 52px; }
+      .expose-card { background: var(--bg-card); border: 1px solid rgba(220,38,38,0.18); border-radius: 14px; padding: 18px 16px; display: flex; flex-direction: column; align-items: flex-start; gap: 6px; transition: all 0.2s; text-decoration: none; }
+      .expose-card:hover { border-color: rgba(220,38,38,0.4); transform: translateY(-2px); background: rgba(35,5,5,0.9); }
+      .expose-card .expose-icon { font-size: 1.4rem; }
+      .expose-card .expose-label { font-family: 'Crimson Text', serif; font-size: 1rem; color: var(--ink); font-weight: 600; line-height: 1.25; }
+      .expose-card .expose-sub { font-size: 0.73rem; color: var(--ink-muted); line-height: 1.5; }
+      .expose-card .expose-link { font-size: 0.72rem; color: var(--red-muted); margin-top: auto; display: flex; align-items: center; gap: 3px; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; }
+
+      /* BIO SECTION */
+      .bio-section { margin-bottom: 52px; }
+      .bio-section-header { margin-bottom: 28px; display: flex; align-items: baseline; gap: 16px; }
+      .bio-section-header h2 { font-family: 'Crimson Text', serif; font-size: 1.9rem; font-weight: 600; color: var(--ink); }
+      .bio-section-header h2 em { color: var(--red-muted); font-style: italic; }
+      .bio-section-header .count { font-size: 0.8rem; color: var(--ink-muted); padding: 2px 10px; background: rgba(220,38,38,0.08); border: 1px solid var(--line); border-radius: 999px; white-space: nowrap; }
+
+      .bio-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 20px; }
+      .bio-card { background: var(--bg-card); border: 1px solid rgba(220,38,38,0.15); border-radius: 16px; overflow: hidden; transition: all 0.25s; display: flex; flex-direction: column; }
+      .bio-card:hover { border-color: rgba(220,38,38,0.4); transform: translateY(-3px); box-shadow: 0 10px 30px rgba(80,0,0,0.3); }
+      .bio-card-header { padding: 20px 18px 14px; background: linear-gradient(135deg, rgba(25,5,5,0.9), rgba(15,5,5,0.95)); border-bottom: 1px solid var(--line-soft); }
+      .bio-initials { width: 52px; height: 52px; border-radius: 50%; background: linear-gradient(135deg, var(--crimson), #4a0020); display: flex; align-items: center; justify-content: center; font-family: 'Crimson Text', serif; font-size: 1.3rem; color: #fff; font-weight: 600; margin-bottom: 12px; border: 2px solid rgba(220,38,38,0.3); }
+      .bio-card-name { font-family: 'Crimson Text', serif; font-size: 1.2rem; color: var(--ink); font-weight: 600; line-height: 1.25; margin-bottom: 4px; }
+      .bio-card-title { font-size: 0.8rem; color: var(--gold); font-weight: 600; margin-bottom: 8px; }
+      .bio-card-dates { font-size: 0.73rem; color: var(--ink-muted); margin-bottom: 8px; }
+      .bio-apostasy-date { display: inline-flex; align-items: center; gap: 4px; padding: 2px 8px; border-radius: 4px; background: rgba(159,18,57,0.15); border: 1px solid rgba(159,18,57,0.35); color: #fca5a5; font-size: 0.68rem; font-weight: 700; }
+      .bio-card-body { padding: 14px 18px 18px; flex: 1; display: flex; flex-direction: column; gap: 10px; }
+      .bio-excerpt { font-size: 0.82rem; color: rgba(254,243,199,0.75); line-height: 1.7; flex: 1; }
+      .bio-cats { display: flex; flex-wrap: wrap; gap: 5px; }
+      .bio-cat { font-size: 0.66rem; padding: 2px 7px; border-radius: 4px; background: rgba(220,38,38,0.08); border: 1px solid rgba(220,38,38,0.15); color: rgba(252,165,165,0.8); }
+      .bio-read-btn { display: inline-flex; align-items: center; gap: 5px; padding: 8px 14px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.77rem; text-decoration: none; transition: all 0.2s; width: fit-content; margin-top: 4px; }
+      .bio-read-btn:hover { background: var(--red); color: #fff; }
+
+      /* EMPTY STATE */
+      .bio-empty { background: var(--bg-card); border: 1px dashed rgba(220,38,38,0.25); border-radius: 16px; padding: 40px 30px; text-align: center; color: var(--ink-muted); }
+      .bio-empty p { font-size: 0.88rem; line-height: 1.7; }
+
+      /* WILSON QUOTE */
+      .quote-feature { background: linear-gradient(135deg, rgba(50,0,0,0.55), rgba(12,5,5,0.95)); border: 1px solid rgba(220,38,38,0.35); border-left: 4px solid var(--red); border-radius: 0 18px 18px 0; padding: 28px 30px; margin-bottom: 50px; }
+      .quote-feature .q-eyebrow { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 12px; }
+      .quote-feature blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.15rem, 2.5vw, 1.55rem); color: var(--ink); line-height: 1.75; margin-bottom: 10px; }
+      .quote-feature blockquote em { color: var(--red-muted); font-style: italic; }
+      .quote-feature cite { font-size: 0.78rem; color: var(--gold); font-style: italic; }
+
+      /* 5T 81 SECTION */
+      .unmasked-section { background: linear-gradient(135deg, rgba(20,5,0,0.6), rgba(12,5,5,0.98)); border: 1px solid rgba(212,165,55,0.25); border-radius: 18px; padding: 34px 30px; margin-bottom: 50px; text-align: center; }
+      .unmasked-section .u-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 14px; }
+      .unmasked-section blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.3rem, 2.8vw, 2rem); color: var(--ink); line-height: 1.6; max-width: 700px; margin: 0 auto 12px; }
+      .unmasked-section blockquote strong { color: var(--gold); }
+      .unmasked-section cite { font-size: 0.8rem; color: var(--gold-soft); font-style: italic; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .bio-grid { grid-template-columns: 1fr; } .expose-nav { grid-template-columns: repeat(2, 1fr); } }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link active" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3) Trap</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/schools">Schools Fraud</a>
+        <a href="/apostasy/hospitals">Hospitals</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+        <a href="/501c3">501(c)(3) Trap</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <!-- HERO -->
+      <div class="hero">
+        <div class="hero-eyebrow">Resume of Apostasy</div>
+        <h1>The <em>Great Apostasy</em> — <strong>Unmasked</strong></h1>
+        <p class="hero-subtitle">The shepherd who abandons the flock does not always leave noisily. Sometimes he stays — and quietly remodels the sheepfold into a Babylonian temple. These are their records.</p>
+        <div class="hero-scripture">
+          <blockquote>"Those who have betrayed sacred trusts will be UNMASKED before the world — whatever may be their position, height, or reputation."</blockquote>
+          <cite>— Ellen G. White, Testimonies for the Church, Vol. 5, p. 81</cite>
+        </div>
+      </div>
+
+      <!-- EXPOSE NAV -->
+      <div class="expose-nav">
+        <a class="expose-card" href="/apostasy/corporations">
+          <span class="expose-icon">🏛️</span>
+          <span class="expose-label">Corporate Empire</span>
+          <span class="expose-sub">All EINs under GEN 1071 — the 1904 multinational</span>
+          <span class="expose-link">View Empire →</span>
+        </a>
+        <a class="expose-card" href="/apostasy/schools">
+          <span class="expose-icon">🏫</span>
+          <span class="expose-label">7,500+ Schools</span>
+          <span class="expose-sub">Donation fraud. Catholic accreditation. Protestant lie.</span>
+          <span class="expose-link">View Schools →</span>
+        </a>
+        <a class="expose-card" href="/apostasy/hospitals">
+          <span class="expose-icon">🏥</span>
+          <span class="expose-label">173 Hospitals</span>
+          <span class="expose-sub">Adventist health empire. $1B+ revenue. EINs documented.</span>
+          <span class="expose-link">View Hospitals →</span>
+        </a>
+        <a class="expose-card" href="/apostasy/videos">
+          <span class="expose-icon">🎥</span>
+          <span class="expose-label">Video Archive</span>
+          <span class="expose-sub">Documentary evidence of the apostasy on record.</span>
+          <span class="expose-link">View Videos →</span>
+        </a>
+        <a class="expose-card" href="/501c3">
+          <span class="expose-icon">⚖️</span>
+          <span class="expose-label">501(c)(3) Trap</span>
+          <span class="expose-sub">How government tax status silences prophetic truth.</span>
+          <span class="expose-link">View 501c3 →</span>
+        </a>
+        <a class="expose-card" href="/babylon-antichrist-library">
+          <span class="expose-icon">📚</span>
+          <span class="expose-label">Babylon Library</span>
+          <span class="expose-sub">Books of a new order — the reading list of apostasy.</span>
+          <span class="expose-link">View Books →</span>
+        </a>
+      </div>
+
+      <!-- WILSON QUOTE FEATURE -->
+      <div class="quote-feature">
+        <div class="q-eyebrow">Admission of Record — GC President, 1981</div>
+        <blockquote>"There is another universal and truly <em>Catholic organization</em> — the Seventh-day Adventist Church."</blockquote>
+        <cite>— Neal C. Wilson, <a href="/books/1904-image-of-papacy/1981.pdf" target="_blank" rel="noopener">Adventist Review, March 5, 1981, p. 4 (PDF)</a> — General Conference President while the GC filed as X21 "Protestant" with the IRS</cite>
+      </div>
+
+      <!-- 3SM 84.3 QUOTE FEATURE -->
+      <div class="quote-feature">
+        <div class="q-eyebrow">Prophetic Warning — Ellen G. White, Letter 156, 1903</div>
+        <blockquote>&ldquo;One thing is certain: Those Seventh-day Adventists who take their stand under Satan&rsquo;s banner will first give up their faith in the warnings and reproofs contained in the Testimonies of God&rsquo;s Spirit.&rdquo;</blockquote>
+        <cite>— Ellen G. White, Selected Messages, Book 3, p. 84 (Letter 156, 1903)</cite>
+      </div>
+
+      <!-- BIO GRID -->
+      <div class="bio-section">
+        <div class="bio-section-header">
+          <h2>The <em>Apostate Shepherds</em></h2>
+          {apostasyLeaders.length > 0 && <span class="count">{apostasyLeaders.length} biographical records</span>}
+        </div>
+
+        {apostasyLeaders.length > 0 ? (
+          <div class="bio-grid">
+            {apostasyLeaders.map((leader) => {
+              const initials = leader.data.name.split(' ').filter((p: string) => p.length > 1).map((p: string) => p[0]).slice(0, 2).join('');
+              return (
+                <div class="bio-card">
+                  <div class="bio-card-header">
+                    <div class="bio-initials">{initials}</div>
+                    <div class="bio-card-name">{leader.data.name}</div>
+                    <div class="bio-card-title">{leader.data.title}</div>
+                    <div class="bio-card-dates">{leader.data.birth} – {leader.data.death ?? 'present'}</div>
+                    {leader.data.apostasyDate && (
+                      <span class="bio-apostasy-date">Apostasy: {leader.data.apostasyDate}</span>
+                    )}
+                  </div>
+                  <div class="bio-card-body">
+                    {leader.data.excerpt && <p class="bio-excerpt" set:html={leader.data.excerpt}></p>}
+                    {leader.data.categories && leader.data.categories.length > 0 && (
+                      <div class="bio-cats">
+                        {leader.data.categories.map((cat: string) => (
+                          <span class="bio-cat">{cat}</span>
+                        ))}
+                      </div>
+                    )}
+                    <a class="bio-read-btn" href={`/apostasy/${leader.id}`}>
+                      Read Resume of Apostasy →
+                    </a>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        ) : (
+          <div class="bio-empty">
+            <p>Biographical records are being compiled. Each apostate shepherd's record will be preserved here — their career timeline, their role in the 1904 apostasy, their publications, and the evidence of their departure from the pioneer faith.</p>
+          </div>
+        )}
+      </div>
+
+      <!-- 5T 81 -->
+      <div class="unmasked-section">
+        <div class="u-label">Prophetic Warning — Testimonies Vol. 5, p. 81</div>
+        <blockquote>"Those who have betrayed sacred trusts will be <strong>UNMASKED</strong> before the world — whatever may be their position, height, or reputation."</blockquote>
+        <cite>— Ellen G. White</cite>
+      </div>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>Come Out of Her, My People</h2>
+        <p>Revelation 18:4 — The call is to those still inside the corporate structure, unaware of her identity. The documentation is here. The choice is yours.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">The Corporate Empire →</a>
+          <a class="cta-btn cta-btn-secondary" href="/library">Pioneer Library →</a>
+          <a class="cta-btn cta-btn-secondary" href="/babylon-antichrist-library">Babylon Library →</a>
+        </div>
+      </div>
+    </main>
+
+<SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'Apostate Shepherds', href: '/apostasy' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'SDA Schools Directory', href: '/apostasy/schools' },
+        { label: 'SDA Hospital Apostasy', href: '/apostasy/hospitals' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

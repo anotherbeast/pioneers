@@ -1,0 +1,360 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Harvey Edson Rogers — Signer No. 4 of the 1904 Incorporation | SundayLaw.com</title>
+  <meta name="description" content="Harvey Edson Rogers of Washington, D.C., was the fourth signatory on the Articles of Incorporation of the General Conference Corporation of Seventh-day Adventists, April 15, 1904 — making the church a creature of Caesar in defiance of God's prophetic warning.">
+  <link rel="canonical" href="https://sundaylaw.com/1904-signers/harvey-edson-rogers">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f; --bg-soft: #0d0018;
+      --ink: #f8f1dd; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --red: #ef4444; --red-soft: #fca5a5;
+      --blue: #3b82f6; --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-link { color: var(--muted); font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); display: block; }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); } .breadcrumb span { margin: 0 6px; }
+    .breadcrumb .current { color: var(--ink); }
+    .hero { padding: 44px 0 36px; }
+    .signer-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.73rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .hero-grid { display: grid; grid-template-columns: 260px 1fr; gap: 44px; align-items: start; }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; } }
+    .charge-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 3.5vw, 2.9rem); font-weight: 600; color: var(--ink); line-height: 1.15; margin-bottom: 10px; }
+    .charge-col h1 em { color: var(--red-soft); font-style: italic; }
+    .charge-sub { font-size: 0.97rem; color: rgba(248,241,221,0.78); line-height: 1.85; margin-bottom: 22px; }
+    .fact-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(150px, 1fr)); gap: 10px; }
+    .fact-box { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 10px; padding: 11px 13px; }
+    .fact-label { font-size: 0.69rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+    .fact-val { font-size: 0.88rem; color: var(--gold-soft); font-weight: 600; }
+    .fact-val.red { color: var(--red-soft); }
+    .sect { padding: 48px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 2.8vw, 2.3rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .sect-body { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 14px; }
+    .sect-body strong { color: var(--gold-soft); }
+    .sect-body em { color: var(--red-soft); }
+    .warn-box { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.35); border-radius: 18px; padding: 28px 26px; margin: 22px 0; }
+    .warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--red); margin-bottom: 10px; }
+    .warn-box blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.1rem, 1.9vw, 1.5rem); font-style: italic; color: #fde8e8; line-height: 1.65; margin-bottom: 10px; }
+    .warn-box cite { font-size: 0.8rem; color: rgba(252,165,165,0.7); font-style: normal; font-weight: 600; }
+    .crime-list { list-style: none; margin: 18px 0; }
+    .crime-list li { display: flex; gap: 13px; align-items: flex-start; padding: 14px 0; border-bottom: 1px solid rgba(239,68,68,0.08); }
+    .crime-list li:last-child { border-bottom: none; }
+    .crime-num { width: 32px; height: 32px; border-radius: 8px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.82rem; color: var(--red-soft); flex-shrink: 0; }
+    .crime-text { font-size: 0.94rem; color: rgba(248,241,221,0.82); line-height: 1.75; padding-top: 3px; }
+    .crime-text strong { color: var(--red-soft); }
+    .const-strip { background: rgba(30,58,138,0.1); border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; padding: 22px 24px; margin: 24px 0; }
+    .const-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 10px; }
+    .const-strip blockquote { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.7; }
+    .const-strip cite { font-size: 0.78rem; color: rgba(147,197,253,0.6); font-style: normal; margin-top: 8px; display: block; }
+    .const-strip p { font-size: 0.92rem; color: rgba(248,241,221,0.78); line-height: 1.8; margin-top: 12px; }
+    .const-strip a { color: var(--blue-soft); text-decoration: underline; }
+    .doc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 14px; margin: 20px 0; }
+    @media (max-width: 600px) { .doc-pair { grid-template-columns: 1fr; } }
+    .doc-frame { border: 1px solid rgba(239,68,68,0.25); border-radius: 12px; overflow: hidden; }
+    .doc-frame img { width: 100%; height: auto; display: block; }
+    .doc-caption { padding: 8px 13px; background: rgba(30,5,5,0.7); font-size: 0.77rem; color: var(--red-soft); line-height: 1.5; }
+    .signer-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 24px; }
+    .sn-card { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; padding: 13px 14px; text-decoration: none; display: block; transition: all 0.2s; }
+    .sn-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-2px); }
+    .sn-card.active { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.2); }
+    .sn-num { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 4px; }
+    .sn-name { font-size: 0.87rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .sn-loc { font-size: 0.74rem; color: var(--muted); margin-top: 3px; }
+    .site-footer { background: #04000a; border-top: 1px solid rgba(180,130,50,0.15); }
+    .footer-banner { padding: 20px; text-align: center; background: linear-gradient(to right, rgba(127,29,29,0.15), rgba(127,29,29,0.08), rgba(127,29,29,0.15)); }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.85rem; font-weight: 600; font-style: normal; display: block; margin-top: 5px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 38px 22px; display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 10px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; transition: color 0.2s; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.08); padding: 16px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #7f1d1d, #b91c1c, #d97706, #b91c1c, #7f1d1d); }
+  </style>
+</head>
+<body>
+  <div class="top-stripe"></div>
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a href="/" style="flex-shrink:0;margin-right:auto;">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com" style="height:38px;width:auto;display:block;border-radius:4px;" />
+        </a>
+        <a class="nav-link" href="/1904-signers">The 5 Signers</a>
+        <a class="nav-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Pioneer Library</a>
+        <a class="nav-cta" href="/loud-cry">Loud Cry — Rev. 18:4</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link" href="/1904-signers/arthur-g-daniells">Daniells</a>
+        <a class="nav-bottom-link" href="/1904-signers/amos-p-needham">Needham</a>
+        <a class="nav-bottom-link" href="/1904-signers/james-r-scott">Scott</a>
+        <a class="nav-bottom-link active" href="/1904-signers/harvey-edson-rogers">Rogers</a>
+        <a class="nav-bottom-link" href="/1904-signers/daniel-k-nicola">Nicola</a>
+        <a class="nav-bottom-link" href="/1904-signers">All 5 Signers</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/1904-signers">All 5 Signers</a>
+      <a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a>
+      <a href="/1904-signers/amos-p-needham">Amos P. Needham</a>
+      <a href="/1904-signers/james-r-scott">James R. Scott</a>
+      <a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a>
+      <a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a>
+      <a href="/april-15-1904-new-organization">April 15, 1904 Record</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/1904-signers">The 5 Signers</a><span>›</span>
+        <span class="current">Harvey Edson Rogers</span>
+      </div>
+
+      <div class="hero">
+        <div class="signer-badge">Signer No. 4 — Washington, D.C. — April 15, 1904</div>
+        <div class="hero-grid">
+          <div>
+            <div style="background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.25);border-radius:16px;padding:26px 20px;text-align:center;">
+              <div style="width:110px;height:110px;border-radius:50%;background:linear-gradient(135deg,#7f1d1d,#450a0a);border:2px solid rgba(239,68,68,0.35);margin:0 auto 14px;display:flex;align-items:center;justify-content:center;">
+                <span style="font-family:'Crimson Text',serif;font-size:2.2rem;color:#fca5a5;font-weight:600;">HR</span>
+              </div>
+              <div style="font-family:'Crimson Text',serif;font-size:1.32rem;font-weight:600;color:var(--ink);margin-bottom:4px;">Harvey Edson Rogers</div>
+              <div style="font-size:0.75rem;color:var(--red-soft);font-weight:700;text-transform:uppercase;letter-spacing:0.07em;padding:5px 12px;border:1px solid rgba(239,68,68,0.3);border-radius:999px;display:inline-block;margin-top:6px;">Washington, D.C.</div>
+            </div>
+            <div style="margin-top:12px;display:flex;flex-direction:column;gap:8px;">
+              <a href="/april-15-1904-new-organization" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.83rem;">Full 1904 Evidence Page &rarr;</a>
+              <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(212,165,55,0.1);border:1px solid rgba(212,165,55,0.25);color:var(--gold-soft);font-weight:700;font-size:0.83rem;">1905 Yearbook PDF</a>
+            </div>
+          </div>
+          <div class="charge-col">
+            <h1>Harvey Edson Rogers &mdash;<br><em>The Fourth Signature</em></h1>
+            <p class="charge-sub">
+              Harvey Edson Rogers was the fourth signatory on the Articles of Incorporation, signing from Washington, D.C. — the second of the three D.C. residents whose addresses gave the document its federal capital jurisdiction. His signature was the penultimate act in the process of forming the corporate shell that would claim dominion over the pioneer name, platform, and spiritually free movement begun in 1841.
+            </p>
+            <p class="charge-sub">
+              <strong style="color:var(--gold-soft);">Four-fifths of the required quantum of agreement was in place the moment Rogers wrote his name.</strong> The act was essentially accomplished. The corporate takeover of Adventism was one signature away from legal completion. His was the fourth and second-to-last nail.
+            </p>
+            <div class="fact-row">
+              <div class="fact-box"><div class="fact-label">Location</div><div class="fact-val">Washington, D.C.</div></div>
+              <div class="fact-box"><div class="fact-label">Signer No.</div><div class="fact-val red">4 of 5</div></div>
+              <div class="fact-box"><div class="fact-label">Crime Date</div><div class="fact-val red">April 15, 1904</div></div>
+              <div class="fact-box"><div class="fact-label">EGW Warning</div><div class="fact-val red">Oct. 1903</div></div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE ACT -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Act — April 15, 1904</div>
+        <h2>What Harvey Edson Rogers Signed</h2>
+        <p class="sect-body">On April 15, 1904, Rogers added his name to the Articles of Incorporation of the <strong>&ldquo;General Conference Corporation of Seventh-day Adventists&rdquo;</strong> — the document that created a state-registered civil corporation in the District of Columbia, with an Employer Identification Number (EIN #52-0643036), subject to the laws of Caesar's own capital city.</p>
+        <p class="sect-body">As the fourth signatory, Rogers' pen confirmed that this was no rogue act by a lone leader. <em>This was a coordinated, deliberate institutional decision</em> — made with full awareness of the Spirit of Prophecy testimony that stood against it. The four-signature milestone meant the legal threshold was effectively crossed. Daniel K. Nicola's fifth signature would only formalize what Rogers' fourth had already accomplished spiritually and practically.</p>
+
+        <div class="doc-pair">
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA1.jpg" alt="1904 Articles of Incorporation — Page 1" loading="lazy" />
+            <div class="doc-caption">The document Rogers signed on April 15, 1904 — making the free Advent movement a creature of D.C. corporate law.</div>
+          </div>
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA2.jpg" alt="1904 Articles of Incorporation — Signatures" loading="lazy" />
+            <div class="doc-caption">Rogers' signature, fourth among five. Four-fifths of the corporate formation accomplished. One signature remaining.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT THEY BUILT -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Structure They Created — Image of the Papacy</div>
+        <h2>What This Signature Helped Build</h2>
+        <p class="sect-body">The 1904 corporation did not simply organize a church's administrative affairs. It created — with Rogers' signature as a critical component — the institutional structure that prophetic Scripture identifies as the <strong style="color:var(--red-soft);">"Image of the Beast"</strong>: a church that uses civil legal power to enforce its institutional decisions.</p>
+        <img src="/images/sundaylaw/Babylon_Antichrist_GENERAL_CONFERENCE_OF_SEVENTH_DAY_ADVENTIST_1904_CORPORATE_STRUCTURE_new_organization_sda_new_changed_logo.jpg" alt="The 1904 SDA Corporate Structure — Babylon" loading="lazy" style="width:100%;border-radius:14px;margin:18px 0;border:1px solid rgba(239,68,68,0.18);" />
+        <p class="sect-body">The above structure — with the General Conference Corporation at its apex — uses civil trademark law, property deeds, corporate governance rules, and IRS tax regulations to control what is preached, who may preach it, and under what conditions. <strong>This is not the structure Jesus gave His church. This is the structure of the Papacy He warned His people to flee.</strong></p>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:20px 22px;margin-top:18px;">
+          <p style="font-size:0.78rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-soft);margin-bottom:10px;">Revelation 13:14 — What Was Created on April 15, 1904</p>
+          <p style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(248,241,221,0.9);line-height:1.65;">&ldquo;&hellip;saying to them that dwell on the earth, that they should make an image to the beast&hellip;&rdquo;</p>
+          <p style="font-size:0.9rem;color:rgba(248,241,221,0.75);line-height:1.8;margin-top:10px;">The 1850 Prophetic Chart — prepared by Otis Nichols under EGW's direction — shows the Papacy's model: a church operating through civil law. The 1904 corporation is its American image. Harvey Edson Rogers put his name on the document that built it.</p>
+        </div>
+      </div>
+
+      <!-- WARNINGS -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Warnings He Ignored</div>
+        <h2>Ellen White's Pre-1904 Testimony</h2>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; Letter 242, October 1903 — Six Months Before the Signing</div>
+          <blockquote>&ldquo;We cannot now enter into any new organization, for this would mean apostasy from the truth.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; The Centralization Warning — To the GC Leadership Directly</div>
+          <blockquote>&ldquo;There has been too much authority exercised by those in responsible positions. God's people are to work under His supervision, not under that of any man.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, Testimonies to Ministers, p. 342 — The GC officers who signed in 1904 were exercising exactly the kind of centralized authority EGW warned against. Rogers was the fourth pillar of that structure.</cite>
+        </div>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:20px 22px;margin-top:20px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.1rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:8px;">&ldquo;If men will not act upon the light that God sends them, they will act upon the light that the enemy furnishes.&rdquo;</p>
+          <cite style="font-size:0.78rem;color:var(--muted);font-weight:600;font-style:normal;">&mdash; Ellen G. White, Testimonies, Vol. 4, p. 166 — Rogers had the light. He chose the document.</cite>
+        </div>
+      </div>
+
+      <!-- CRIMES -->
+      <div class="sect">
+        <div class="sect-eyebrow">Spiritual &amp; Prophetic Record</div>
+        <h2>The Charges Against Harvey Edson Rogers</h2>
+        <ul class="crime-list">
+          <li>
+            <div class="crime-num">I</div>
+            <div class="crime-text"><strong>Penultimate complicity in the corporate takeover.</strong> As the fourth of five required signatories, Rogers participated in the legal formation of the D.C. corporation. His was not a marginal contribution — it was the fourth out of five pillars needed to complete the act.</div>
+          </li>
+          <li>
+            <div class="crime-num">II</div>
+            <div class="crime-text"><strong>Participating in the building of the Image of the Beast.</strong> The 1904 corporation, with Rogers' signature as one of five foundation stones, is the institutional expression of what Revelation 13 calls the "image" — a church structure using civil power to enforce its authority.</div>
+          </li>
+          <li>
+            <div class="crime-num">III</div>
+            <div class="crime-text"><strong>Defying the Spirit of Prophecy.</strong> Ellen White's warnings (Letter 242, October 1903) preceded the April 15, 1904 signing by six months. Rogers signed in defiance of that testimony, prioritizing institutional procedure over prophetic counsel.</div>
+          </li>
+          <li>
+            <div class="crime-num">IV</div>
+            <div class="crime-text"><strong>Enabling the IRS chain.</strong> The D.C. corporation Rogers helped create became the parent body of a 501(c)(3) tax-exempt organizational structure under the IRS — EIN #52-0643036. Every denominational institution that claims "Seventh-day Adventist" affiliation under this structure owes its existence partly to Rogers' fourth signature.</div>
+          </li>
+          <li>
+            <div class="crime-num">V</div>
+            <div class="crime-text"><strong>Voluntary subjugation under Caesar's jurisdiction.</strong> By adding his Washington, D.C. address to the document, Rogers helped make the incorporation a D.C.-jurisdiction act — placing the church squarely under the authority of the federal government in the very city the pioneers' prophetic charts identified as the seat of the second beast of Revelation 13.</div>
+          </li>
+        </ul>
+      </div>
+
+      <div class="const-strip">
+        <div class="const-label">First Amendment — The Freedom Rogers Helped Surrender</div>
+        <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof&hellip;&rdquo;</blockquote>
+        <cite>&mdash; First Amendment, U.S. Constitution, December 15, 1791</cite>
+        <p>The First Amendment protected American believers from government entanglement in religion. Harvey Edson Rogers, by adding his name to a D.C. corporate document, helped bring the Seventh-day Adventist movement into a voluntary relationship of legal accountability to the federal government. The freedom was theirs to keep. They chose to hand it over. <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank" rel="noopener noreferrer">Official source: constitution.congress.gov &rarr;</a></p>
+      </div>
+
+      <div class="sect">
+        <div class="sect-eyebrow">The Other Four Signers</div>
+        <h2>Five Men. One Act of Apostasy.</h2>
+        <div class="signer-nav">
+          <a href="/1904-signers/arthur-g-daniells" class="sn-card"><div class="sn-num">Signer 1</div><div class="sn-name">Arthur G. Daniells</div><div class="sn-loc">Takoma Park, MD</div></a>
+          <a href="/1904-signers/amos-p-needham" class="sn-card"><div class="sn-num">Signer 2</div><div class="sn-name">Amos P. Needham</div><div class="sn-loc">Takoma Park, MD</div></a>
+          <a href="/1904-signers/james-r-scott" class="sn-card"><div class="sn-num">Signer 3</div><div class="sn-name">James R. Scott</div><div class="sn-loc">Washington, D.C.</div></a>
+          <a href="/1904-signers/harvey-edson-rogers" class="sn-card active"><div class="sn-num">Signer 4</div><div class="sn-name">Harvey Edson Rogers</div><div class="sn-loc">Washington, D.C.</div></a>
+          <a href="/1904-signers/daniel-k-nicola" class="sn-card"><div class="sn-num">Signer 5</div><div class="sn-name">Daniel K. Nicola</div><div class="sn-loc">Washington, D.C.</div></a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-banner">
+      <p>&ldquo;Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;</p>
+      <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903) — The structure Rogers helped build on April 15, 1904</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div style="font-weight:700;font-size:1rem;color:#fff;margin-bottom:10px;">SundayLaw.com</div>
+        <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;">Preserving the 1841–1850 pioneer platform. Exposing the 1904 corporate apostasy.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The 5 Signers</h4>
+        <ul>
+          <li><a href="/1904-signers">Overview — All 5</a></li>
+          <li><a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a></li>
+          <li><a href="/1904-signers/amos-p-needham">Amos P. Needham</a></li>
+          <li><a href="/1904-signers/james-r-scott">James R. Scott</a></li>
+          <li><a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a></li>
+          <li><a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pioneer Platform</h4>
+        <ul>
+          <li><a href="/library">Full Pioneer Library</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom"><p>SundayLaw.com — "Come out of her, My people" — Revelation 18:4</p></div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn?.addEventListener('click', () => { mobileNav?.classList.toggle('open'); });
+  </script>
+  <SiteFooter
+    scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+    scriptureRef="Revelation 18:4 (KJV)"
+    pageLinks={[
+      { label: 'All Five 1904 Signers', href: '/1904-signers' },
+      { label: 'April 15, 1904 — The Record', href: '/april-15-1904-new-organization' },
+      { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+      { label: 'Apostate Shepherds', href: '/apostasy' }
+    ]}
+  />
+  <ShareBar />
+  <SiteSearch />
+</body>
+</html>

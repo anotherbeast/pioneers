@@ -1,0 +1,480 @@
+---
+export interface Props {
+  pdfUrl?: string;
+}
+const { pdfUrl = '' } = Astro.props;
+---
+
+<!-- ===== FLOATING SHARE RAIL ===== -->
+<div class="shr-wrap" id="share-rail" role="complementary" aria-label="Share this page">
+  <span class="shr-label" aria-hidden="true">Share</span>
+
+  <!-- Facebook -->
+  <button class="shr-btn" data-network="facebook" title="Share on Facebook" aria-label="Share on Facebook">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+    <span class="shr-tip">Facebook</span>
+  </button>
+
+  <!-- SMS/Text -->
+  <button class="shr-btn" data-network="sms" title="Share via SMS/Text" aria-label="Share via SMS/Text">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+    <span class="shr-tip">SMS/Text</span>
+  </button>
+
+  <!-- WhatsApp -->
+  <button class="shr-btn" data-network="whatsapp" title="Share on WhatsApp" aria-label="Share on WhatsApp">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.205 5.077 4.366.71.244 1.263.389 1.695.497.712.18 1.36.155 1.872.094.571-.067 1.758-.719 2.007-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+    <span class="shr-tip">WhatsApp</span>
+  </button>
+
+  <!-- Messenger -->
+  <button class="shr-btn" data-network="messenger" title="Share on Messenger" aria-label="Share on Messenger">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 2C6.477 2 2 6.016 2 11.027c0 2.37.97 4.53 2.6 6.18V22l2.39-1.31c1.13.31 2.34.48 3.61.48 5.523 0 10-4.016 10-9.027S17.523 2 12 2zm1.19 12.47l-2.19-2.34-4.03 2.34 5.22-5.67 2.19 2.34 4.03-2.34-5.22 5.67z"/></svg>
+    <span class="shr-tip">Messenger</span>
+  </button>
+
+  <!-- LinkedIn -->
+  <button class="shr-btn" data-network="linkedin" title="Share on LinkedIn" aria-label="Share on LinkedIn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.966 0-1.75-.79-1.75-1.76s.784-1.76 1.75-1.76 1.75.79 1.75 1.76-.784 1.76-1.75 1.76zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v4.74z"/></svg>
+    <span class="shr-tip">LinkedIn</span>
+  </button>
+
+  <!-- Pinterest -->
+  <button class="shr-btn" data-network="pinterest" title="Share on Pinterest" aria-label="Share on Pinterest">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M12 0C5.373 0 0 5.373 0 12c0 4.991 3.657 9.128 8.438 10.388-.117-.883-.223-2.239.047-3.205.242-.828 1.56-5.28 1.56-5.28s-.396-.793-.396-1.963c0-1.838 1.067-3.212 2.396-3.212 1.13 0 1.676.848 1.676 1.866 0 1.137-.724 2.837-1.096 4.418-.312 1.32.662 2.396 1.963 2.396 2.356 0 3.947-3.02 3.947-6.6 0-2.728-1.84-4.775-5.18-4.775-3.77 0-6.12 2.828-6.12 5.98 0 1.09.418 2.26.94 2.89.104.125.12.234.088.36-.096.39-.312 1.24-.354 1.41-.055.22-.18.267-.418.162-1.56-.64-2.53-2.64-2.53-4.25 0-3.46 2.92-7.59 8.7-7.59 4.65 0 7.7 3.34 7.7 6.93 0 4.78-2.65 8.35-6.57 8.35-1.32 0-2.56-.72-2.98-1.54l-.81 3.09c-.23.89-.68 2-1.01 2.68.76.23 1.56.36 2.4.36 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+    <span class="shr-tip">Pinterest</span>
+  </button>
+
+  <!-- Reddit -->
+  <button class="shr-btn" data-network="reddit" title="Share on Reddit" aria-label="Share on Reddit">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385-.113-.965-.215-2.448.045-3.497.234-.97 1.51-6.18 1.51-6.18s-.385-.77-.385-1.908c0-1.788 1.037-3.127 2.33-3.127 1.1 0 1.632.825 1.632 1.814 0 1.104-.705 2.753-1.068 4.287-.3 1.27.637 2.304 1.93 2.304 2.316 0 3.872-2.963 3.872-6.47 0-2.82-2.01-4.8-5.06-4.8-3.45 0-5.48 2.59-5.48 5.46 0 1.09.42 2.26.95 2.89.1.12.12.23.09.36-.09.39-.31 1.24-.35 1.41-.06.22-.18.27-.42.16-1.56-.64-2.53-2.64-2.53-4.25 0-3.46 2.92-7.59 8.7-7.59 4.65 0 7.7 3.34 7.7 6.93 0 4.78-2.65 8.35-6.57 8.35-1.32 0-2.56-.72-2.98-1.54l-.81 3.09c-.23.89-.68 2-1.01 2.68.76.23 1.56.36 2.4.36C20.627 24 24 18.627 24 12z"/></svg>
+    <span class="shr-tip">Reddit</span>
+  </button>
+
+  <!-- X / Twitter -->
+  <button class="shr-btn" data-network="x" title="Share on X / Twitter" aria-label="Share on X">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+    <span class="shr-tip">X / Twitter</span>
+  </button>
+
+  <!-- Instagram -->
+  <button class="shr-btn" data-network="instagram" title="Share on Instagram" aria-label="Share on Instagram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+    <span class="shr-tip">Instagram</span>
+  </button>
+
+  <!-- Telegram -->
+  <button class="shr-btn" data-network="telegram" title="Share on Telegram" aria-label="Share on Telegram">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" aria-hidden="true"><path d="M11.944 0A12 12 0 100 12a12 12 0 0011.944-12zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+    <span class="shr-tip">Telegram</span>
+  </button>
+
+  <!-- Email -->
+  <button class="shr-btn" data-network="email" title="Share by Email" aria-label="Share by Email">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+    <span class="shr-tip">Email</span>
+  </button>
+
+  <!-- PDF Download (conditional) -->
+  {pdfUrl && (
+    <a class="shr-btn shr-pdf" href={pdfUrl} target="_blank" rel="noopener noreferrer" title="Download PDF" aria-label="Download PDF" onclick="typeof trackDownload==='function'&&trackDownload(document.title)">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14 2H6a2 2 0 00-2 2v16a2 2 0 002 2h12a2 2 0 002-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><line x1="9" y1="15" x2="15" y2="15"/></svg>
+      <span class="shr-tip">Download PDF</span>
+    </a>
+  )}
+
+  <!-- Print -->
+  <button class="shr-btn" data-network="print" title="Print this page" aria-label="Print">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+    <span class="shr-tip">Print</span>
+  </button>
+
+  <!-- Copy Link -->
+  <button class="shr-btn shr-copy" id="shr-copy-btn" data-network="copy" title="Copy link" aria-label="Copy link">
+    <svg class="shr-icon-copy" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+    <svg class="shr-icon-check" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="#4ade80" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><polyline points="20 6 9 17 4 12"/></svg>
+    <span class="shr-tip">Copy Link</span>
+  </button>
+
+  <!-- Inline Share Section Anchor -->
+  <div class="shr-divider" aria-hidden="true"></div>
+  <a class="shr-btn shr-more" href="#share-section" title="See all share options" aria-label="More share options">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+    <span class="shr-tip">More</span>
+  </a>
+</div>
+
+<!-- ===== INLINE SHARE SECTION ===== -->
+<section id="share-section" class="shr-section" aria-label="Share options">
+  <div class="shr-section-inner">
+    <div class="shr-section-heading">
+      <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        <h3>Share This Page - Spread the Final Warning</h3>
+    </div>
+    <p class="shr-section-sub">The Three Angels&rsquo; Messages are meant for <em>every nation, kindred, tongue, and people.</em> Share this resource with someone who needs to hear it.</p>
+    <div class="shr-grid">
+      <button class="shr-grid-btn" data-network="facebook">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+        Share on Facebook
+      </button>
+      <button class="shr-grid-btn shr-x" data-network="x">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+        Share on X
+      </button>
+      <button class="shr-grid-btn shr-ig" data-network="instagram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="2" y="2" width="20" height="20" rx="5" ry="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+        Share on Instagram
+      </button>
+      <button class="shr-grid-btn shr-tg" data-network="telegram">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M11.944 0A12 12 0 100 12a12 12 0 0011.944-12zm4.962 7.224c.1-.002.321.023.465.14a.506.506 0 01.171.325c.016.093.036.306.02.472-.18 1.898-.962 6.502-1.36 8.627-.168.9-.499 1.201-.82 1.23-.696.065-1.225-.46-1.9-.902-1.056-.693-1.653-1.124-2.678-1.8-1.185-.78-.417-1.21.258-1.91.177-.184 3.247-2.977 3.307-3.23.007-.032.014-.15-.056-.212s-.174-.041-.249-.024c-.106.024-1.793 1.14-5.061 3.345-.48.33-.913.49-1.302.48-.428-.008-1.252-.241-1.865-.44-.752-.245-1.349-.374-1.297-.789.027-.216.325-.437.893-.663 3.498-1.524 5.83-2.529 6.998-3.014 3.332-1.386 4.025-1.627 4.476-1.635z"/></svg>
+        Share on Telegram
+      </button>
+      <button class="shr-grid-btn shr-em" data-network="email">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+        Share by Email
+      </button>
+      {pdfUrl && (
+        <a class="shr-grid-btn shr-dl" href={pdfUrl} target="_blank" rel="noopener noreferrer" onclick="typeof trackDownload==='function'&&trackDownload(document.title)">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Download PDF
+        </a>
+      )}
+      <button class="shr-grid-btn shr-pr" data-network="print">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 01-2-2v-5a2 2 0 012-2h16a2 2 0 012 2v5a2 2 0 01-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print This Page
+      </button>
+      <button class="shr-grid-btn shr-cp" id="shr-copy-btn-2" data-network="copy">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><rect x="9" y="9" width="13" height="13" rx="2" ry="2"/><path d="M5 15H4a2 2 0 01-2-2V4a2 2 0 012-2h9a2 2 0 012 2v1"/></svg>
+        <span id="shr-copy-text-2">Copy Link</span>
+      </button>
+      <!-- SMS/Text -->
+      <button class="shr-grid-btn shr-sms" data-network="sms">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" width="20" height="20"><path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/></svg>
+        Share via SMS/Text
+      </button>
+      <!-- WhatsApp -->
+      <button class="shr-grid-btn shr-wa" data-network="whatsapp">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.472-.148-.67.15-.198.297-.767.967-.94 1.166-.173.198-.347.223-.644.075-.297-.149-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.372-.025-.521-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51-.173-.008-.372-.01-.571-.01-.198 0-.52.074-.792.372-.272.297-1.04 1.016-1.04 2.479 0 1.462 1.065 2.875 1.213 3.074.149.198 2.1 3.205 5.077 4.366.71.244 1.263.389 1.695.497.712.18 1.36.155 1.872.094.571-.067 1.758-.719 2.007-1.413.248-.694.248-1.288.173-1.413-.074-.124-.272-.198-.57-.347z"/></svg>
+        Share on WhatsApp
+      </button>
+      <!-- Messenger -->
+      <button class="shr-grid-btn shr-ms" data-network="messenger">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 2C6.477 2 2 6.016 2 11.027c0 2.37.97 4.53 2.6 6.18V22l2.39-1.31c1.13.31 2.34.48 3.61.48 5.523 0 10-4.016 10-9.027S17.523 2 12 2zm1.19 12.47l-2.19-2.34-4.03 2.34 5.22-5.67 2.19 2.34 4.03-2.34-5.22 5.67z"/></svg>
+        Share on Messenger
+      </button>
+      <!-- LinkedIn -->
+      <button class="shr-grid-btn shr-li" data-network="linkedin">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M19 0h-14c-2.76 0-5 2.24-5 5v14c0 2.76 2.24 5 5 5h14c2.76 0 5-2.24 5-5v-14c0-2.76-2.24-5-5-5zm-11 19h-3v-9h3v9zm-1.5-10.28c-.966 0-1.75-.79-1.75-1.76s.784-1.76 1.75-1.76 1.75.79 1.75 1.76-.784 1.76-1.75 1.76zm13.5 10.28h-3v-4.5c0-1.08-.02-2.47-1.5-2.47-1.5 0-1.73 1.17-1.73 2.39v4.58h-3v-9h2.89v1.23h.04c.4-.76 1.38-1.56 2.84-1.56 3.04 0 3.6 2 3.6 4.59v4.74z"/></svg>
+        Share on LinkedIn
+      </button>
+      <!-- Pinterest -->
+      <button class="shr-grid-btn shr-pi" data-network="pinterest">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M12 0C5.373 0 0 5.373 0 12c0 4.991 3.657 9.128 8.438 10.388-.117-.883-.223-2.239.047-3.205.242-.828 1.56-5.28 1.56-5.28s-.396-.793-.396-1.963c0-1.838 1.067-3.212 2.396-3.212 1.13 0 1.676.848 1.676 1.866 0 1.137-.724 2.837-1.096 4.418-.312 1.32.662 2.396 1.963 2.396 2.356 0 3.947-3.02 3.947-6.6 0-2.728-1.84-4.775-5.18-4.775-3.77 0-6.12 2.828-6.12 5.98 0 1.09.418 2.26.94 2.89.104.125.12.234.088.36-.096.39-.312 1.24-.354 1.41-.055.22-.18.267-.418.162-1.56-.64-2.53-2.64-2.53-4.25 0-3.46 2.92-7.59 8.7-7.59 4.65 0 7.7 3.34 7.7 6.93 0 4.78-2.65 8.35-6.57 8.35-1.32 0-2.56-.72-2.98-1.54l-.81 3.09c-.23.89-.68 2-1.01 2.68.76.23 1.56.36 2.4.36 6.627 0 12-5.373 12-12S18.627 0 12 0z"/></svg>
+        Share on Pinterest
+      </button>
+      <!-- Reddit -->
+      <button class="shr-grid-btn shr-rd" data-network="reddit">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="20" height="20"><path d="M24 12c0-6.627-5.373-12-12-12S0 5.373 0 12c0 5.302 3.438 9.8 8.205 11.385-.113-.965-.215-2.448.045-3.497.234-.97 1.51-6.18 1.51-6.18s-.385-.77-.385-1.908c0-1.788 1.037-3.127 2.33-3.127 1.1 0 1.632.825 1.632 1.814 0 1.104-.705 2.753-1.068 4.287-.3 1.27.637 2.304 1.93 2.304 2.316 0 3.872-2.963 3.872-6.47 0-2.82-2.01-4.8-5.06-4.8-3.45 0-5.48 2.59-5.48 5.46 0 1.09.42 2.26.95 2.89.1.12.12.23.09.36-.09.39-.31 1.24-.35 1.41-.06.22-.18.27-.42.16-1.56-.64-2.53-2.64-2.53-4.25 0-3.46 2.92-7.59 8.7-7.59 4.65 0 7.7 3.34 7.7 6.93 0 4.78-2.65 8.35-6.57 8.35-1.32 0-2.56-.72-2.98-1.54l-.81 3.09c-.23.89-.68 2-1.01 2.68.76.23 1.56.36 2.4.36C20.627 24 24 18.627 24 12z"/></svg>
+        Share on Reddit
+      </button>
+    </div>
+    <div class="shr-toast" id="shr-toast" aria-live="polite"></div>
+  </div>
+</section>
+
+<style>
+  /* ===== FLOATING SHARE RAIL ===== */
+  .shr-wrap {
+    position: fixed;
+    right: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    z-index: 80;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2px;
+    background: rgba(4,4,20,0.92);
+    border: 1px solid rgba(212,165,55,0.22);
+    border-right: none;
+    border-radius: 12px 0 0 12px;
+    padding: 8px 6px 8px 8px;
+    backdrop-filter: blur(12px);
+    box-shadow: -4px 0 24px rgba(0,0,0,0.5);
+    transition: opacity 0.3s;
+  }
+  .shr-label {
+    font-size: 0.62rem;
+    font-weight: 800;
+    text-transform: uppercase;
+    letter-spacing: 0.12em;
+    color: rgba(212,165,55,0.7);
+    margin-bottom: 4px;
+    font-family: sans-serif;
+  }
+  .shr-btn {
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border: none;
+    background: transparent;
+    color: rgba(220,200,160,0.75);
+    cursor: pointer;
+    border-radius: 8px;
+    transition: all 0.18s;
+    padding: 0;
+    text-decoration: none;
+  }
+  .shr-btn svg {
+    width: 18px;
+    height: 18px;
+    flex-shrink: 0;
+    transition: transform 0.18s;
+  }
+  .shr-btn:hover {
+    background: rgba(212,165,55,0.15);
+    color: #fcd34d;
+  }
+  .shr-btn:hover svg { transform: scale(1.15); }
+
+  /* Tooltip */
+  .shr-tip {
+    position: absolute;
+    right: calc(100% + 8px);
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(4,4,20,0.96);
+    border: 1px solid rgba(212,165,55,0.3);
+    color: #fef3c7;
+    font-size: 0.75rem;
+    font-weight: 600;
+    padding: 4px 10px;
+    border-radius: 6px;
+    white-space: nowrap;
+    pointer-events: none;
+    opacity: 0;
+    transition: opacity 0.15s;
+    font-family: sans-serif;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.4);
+  }
+  .shr-tip::after {
+    content: '';
+    position: absolute;
+    left: 100%;
+    top: 50%;
+    transform: translateY(-50%);
+    border: 5px solid transparent;
+    border-left-color: rgba(212,165,55,0.3);
+  }
+  .shr-btn:hover .shr-tip,
+  .shr-btn:focus-visible .shr-tip { opacity: 1; }
+
+  /* Color variants for rail buttons */
+  .shr-btn[data-network="facebook"]:hover { background: rgba(24,119,242,0.18); color: #60a5fa; }
+  .shr-btn[data-network="x"]:hover { background: rgba(255,255,255,0.1); color: #f8f8f8; }
+  .shr-btn[data-network="instagram"]:hover { background: rgba(225,48,108,0.18); color: #f472b6; }
+  .shr-btn[data-network="telegram"]:hover { background: rgba(0,136,204,0.18); color: #7dd3fc; }
+  .shr-btn[data-network="email"]:hover { background: rgba(212,165,55,0.18); color: #fcd34d; }
+  .shr-btn[data-network="print"]:hover { background: rgba(156,163,175,0.15); color: #e5e7eb; }
+  .shr-btn[data-network="copy"]:hover { background: rgba(74,222,128,0.15); color: #86efac; }
+  .shr-pdf { color: rgba(196,181,253,0.8) !important; }
+  .shr-pdf:hover { background: rgba(139,92,246,0.18) !important; color: #c4b5fd !important; }
+
+  /* Copy icon toggle */
+  .shr-icon-check { display: none; }
+  .shr-copy.copied .shr-icon-copy { display: none; }
+  .shr-copy.copied .shr-icon-check { display: block; }
+
+  /* Divider */
+  .shr-divider { width: 24px; height: 1px; background: rgba(212,165,55,0.2); margin: 2px 0; }
+
+  /* ===== INLINE SHARE SECTION ===== */
+  .shr-section {
+    background: linear-gradient(135deg, rgba(4,4,20,0.95), rgba(8,8,30,0.98));
+    border-top: 1px solid rgba(212,165,55,0.18);
+    padding: 40px 20px;
+  }
+  .shr-section-inner {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+  .shr-section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 10px;
+  }
+  .shr-section-heading h3 {
+    font-family: 'Crimson Text', 'Cormorant Garamond', Georgia, serif;
+    font-size: clamp(1.4rem, 3vw, 2rem);
+    color: #fef3c7;
+    font-weight: 600;
+    margin: 0;
+  }
+  .shr-section-sub {
+    color: rgba(156,163,175,1);
+    font-size: 0.95rem;
+    line-height: 1.8;
+    margin-bottom: 22px;
+    font-family: sans-serif;
+  }
+  .shr-section-sub em { color: #fcd34d; font-style: normal; font-weight: 600; }
+
+  /* Share grid */
+  .shr-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 10px;
+  }
+  .shr-grid-btn {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    padding: 13px 16px;
+    border-radius: 10px;
+    border: 1px solid rgba(212,165,55,0.18);
+    background: rgba(255,255,255,0.03);
+    color: rgba(220,200,160,0.85);
+    font-size: 0.875rem;
+    font-weight: 600;
+    cursor: pointer;
+    text-decoration: none;
+    transition: all 0.18s;
+    font-family: sans-serif;
+  }
+  .shr-grid-btn:hover {
+    border-color: rgba(212,165,55,0.45);
+    background: rgba(212,165,55,0.08);
+    color: #fcd34d;
+    transform: translateY(-1px);
+  }
+  .shr-grid-btn.shr-x:hover { border-color: rgba(255,255,255,0.3); background: rgba(255,255,255,0.06); color: #f8f8f8; }
+  .shr-grid-btn.shr-ig:hover { border-color: rgba(225,48,108,0.4); background: rgba(225,48,108,0.08); color: #f472b6; }
+  .shr-grid-btn.shr-tg:hover { border-color: rgba(0,136,204,0.4); background: rgba(0,136,204,0.08); color: #7dd3fc; }
+  .shr-grid-btn.shr-em:hover { border-color: rgba(212,165,55,0.45); background: rgba(212,165,55,0.1); color: #fcd34d; }
+  .shr-grid-btn.shr-dl:hover { border-color: rgba(139,92,246,0.5); background: rgba(139,92,246,0.1); color: #c4b5fd; }
+  .shr-grid-btn.shr-pr:hover { border-color: rgba(156,163,175,0.4); background: rgba(156,163,175,0.08); color: #e5e7eb; }
+  .shr-grid-btn.shr-cp:hover { border-color: rgba(74,222,128,0.4); background: rgba(74,222,128,0.08); color: #86efac; }
+
+  /* Toast */
+  .shr-toast {
+    margin-top: 14px;
+    min-height: 22px;
+    font-size: 0.85rem;
+    color: #4ade80;
+    font-weight: 600;
+    font-family: sans-serif;
+    transition: opacity 0.3s;
+  }
+
+  /* Mobile responsiveness */
+  @media (max-width: 600px) {
+    .shr-wrap {
+      top: auto;
+      bottom: 0;
+      right: 0;
+      left: 0;
+      transform: none;
+      flex-direction: row;
+      border-radius: 12px 12px 0 0;
+      border-right: 1px solid rgba(212,165,55,0.22);
+      border-bottom: none;
+      padding: 8px 10px;
+      justify-content: space-around;
+      overflow-x: auto;
+      scrollbar-width: none;
+    }
+    .shr-label { display: none; }
+    .shr-tip { display: none; }
+    .shr-divider { display: none; }
+    .shr-more { display: none; }
+    .shr-grid { grid-template-columns: 1fr 1fr; }
+  }
+
+  @media (max-width: 1024px) {
+    .shr-wrap { opacity: 0.85; }
+    .shr-wrap:hover { opacity: 1; }
+  }
+</style>
+
+<script is:inline>
+(function() {
+  function getShareUrl() { return encodeURIComponent(window.location.href); }
+  function getTitle() { return encodeURIComponent(document.title); }
+  function getMsg() {
+    var m = document.querySelector('meta[name="description"]');
+    return encodeURIComponent(m ? m.getAttribute('content').substring(0, 200) : document.title);
+  }
+  function doShare(network) {
+    var url = getShareUrl();
+    var title = getTitle();
+    var w;
+    if (network === 'facebook') {
+      w = 'https://www.facebook.com/sharer/sharer.php?u=' + url;
+      window.open(w, 'fb-share', 'width=580,height=436');
+    } else if (network === 'sms') {
+      w = 'sms:?&body=' + getMsg() + '%20' + url;
+      window.open(w, '_blank');
+    } else if (network === 'whatsapp') {
+      w = 'https://wa.me/?text=' + getMsg() + '%20' + url;
+      window.open(w, 'wa-share', 'width=550,height=420');
+    } else if (network === 'messenger') {
+      w = 'https://www.facebook.com/dialog/send?link=' + url + '&app_id=281642655029021&redirect_uri=' + url;
+      window.open(w, 'msgr-share', 'width=550,height=420');
+    } else if (network === 'linkedin') {
+      w = 'https://www.linkedin.com/sharing/share-offsite/?url=' + url;
+      window.open(w, 'li-share', 'width=600,height=500');
+    } else if (network === 'pinterest') {
+      w = 'https://pinterest.com/pin/create/button/?url=' + url + '&description=' + getMsg();
+      window.open(w, 'pin-share', 'width=700,height=400');
+    } else if (network === 'reddit') {
+      w = 'https://www.reddit.com/submit?url=' + url + '&title=' + title;
+      window.open(w, 'rd-share', 'width=700,height=600');
+    } else if (network === 'x') {
+      w = 'https://twitter.com/intent/tweet?url=' + url + '&text=' + title;
+      window.open(w, 'x-share', 'width=550,height=420');
+    } else if (network === 'instagram') {
+      if (navigator.share) {
+        navigator.share({ title: document.title, text: document.querySelector('meta[name="description"]') ? document.querySelector('meta[name="description"]').content : document.title, url: window.location.href })
+          .catch(function() {});
+      } else {
+        navigator.clipboard.writeText(window.location.href).then(function() {
+          showToast('Link copied! Now share on Instagram.');
+        });
+      }
+    } else if (network === 'telegram') {
+      w = 'https://t.me/share/url?url=' + url + '&text=' + getMsg();
+      window.open(w, 'tg-share', 'width=550,height=420');
+    } else if (network === 'email') {
+      window.location.href = 'mailto:?subject=' + title + '&body=I%20thought%20you%20would%20find%20this%20important%3A%20' + url;
+    } else if (network === 'print') {
+      window.print();
+    } else if (network === 'copy') {
+      navigator.clipboard.writeText(window.location.href).then(function() {
+        showToast('Link copied to clipboard!');
+        var btns = document.querySelectorAll('.shr-copy');
+        btns.forEach(function(b) { b.classList.add('copied'); setTimeout(function() { b.classList.remove('copied'); }, 2500); });
+        var t2 = document.getElementById('shr-copy-text-2');
+        if (t2) { t2.textContent = 'Copied!'; setTimeout(function() { t2.textContent = 'Copy Link'; }, 2500); }
+      });
+    }
+    if (typeof gtag === 'function' && network !== 'print' && network !== 'copy') {
+      gtag('event', 'share', { event_category: 'social', event_label: network, page_url: window.location.href });
+    }
+  }
+  function showToast(msg) {
+    var t = document.getElementById('shr-toast');
+    if (t) { t.textContent = msg; t.style.opacity = '1'; setTimeout(function() { t.style.opacity = '0'; }, 3000); }
+  }
+
+  // Bind all share buttons (rail + grid)
+  document.addEventListener('DOMContentLoaded', function() {
+    document.querySelectorAll('[data-network]').forEach(function(el) {
+      el.addEventListener('click', function() { doShare(el.getAttribute('data-network')); });
+    });
+  });
+})();
+</script>

@@ -1,0 +1,546 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Support This Work | SundayLaw.com — Church of the Firstborn Ministry</title>
+    <meta name="description" content="Support SundayLaw.com, a Hebrews 12:23 KJV Church of the Firstborn ministry. Your gift helps preserve and re-publish original Protestant Advent reformer pioneer books, prophecy charts, sermons, and historic materials for the final warning to the world.">
+    <link rel="canonical" href="https://sundaylaw.com/donate">
+    <meta property="og:title" content="Support This Work | SundayLaw.com">
+    <meta property="og:description" content="Help preserve and publish original Protestant Advent reformer pioneer books, prophecy charts, sermons, and historic materials for Bible students around the world.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/donate">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "DonateAction",
+      "name": "Support This Work",
+      "recipient": { "@type": "Organization", "name": "SundayLaw.com" },
+      "description": "Support the publishing and distribution of original Protestant Advent reformer pioneer books, prophecy charts, sermons, and historic materials.",
+      "url": "https://sundaylaw.com/donate"
+    }
+    </script>
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e; --bg-soft: #0d0d3a; --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d; --red: #f87171;
+        --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { font-family: 'Inter', sans-serif; background: #0a0a2e; color: var(--ink); min-height: 100vh; overflow-x: hidden; }
+      .serif { font-family: 'Crimson Text', serif; }
+      a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: var(--gold-soft); }
+
+      /* ===== NAV ===== */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(5,5,30,0.94); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+      .nav-link:hover { color: var(--gold-soft); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--gold); color: #111; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+      .nav-cta:hover { background: var(--gold-soft); }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+      .nav-bottom-link:hover { color: var(--gold-soft); }
+      .nav-bottom-link.active { color: var(--gold-soft); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(5,5,30,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .mobile-nav a:hover { color: var(--gold-soft); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ===== HERO ===== */
+      .hero { padding: 80px 22px 64px; text-align: center; background: linear-gradient(to bottom, #04041a, #080820); border-bottom: 1px solid var(--line); }
+      .hero .eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 6px 16px; border-radius: 999px; background: rgba(212,165,55,0.10); border: 1px solid rgba(212,165,55,0.28); color: var(--gold-soft); font-size: 0.76rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 22px; }
+      .hero h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.6rem, 6vw, 4.2rem); font-weight: 600; color: var(--ink); margin-bottom: 18px; line-height: 1.1; }
+      .hero h1 .gold { color: var(--gold); }
+      .hero .subtitle { color: rgba(254,243,199,0.75); font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; margin-bottom: 22px; }
+      .hero .desc { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.8; max-width: 700px; margin: 0 auto 28px; }
+      .hero-quote { max-width: 620px; margin: 0 auto 32px; border-left: 4px solid var(--gold); padding-left: 20px; text-align: left; }
+      .hero-quote p { font-family: 'Crimson Text', serif; color: rgba(254,243,199,0.9); font-size: 1.1rem; font-style: italic; line-height: 1.7; }
+      .hero-quote cite { display: block; margin-top: 8px; color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; }
+      .hero-btns { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; margin-bottom: 48px; }
+      .hero-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 1rem; max-width: 540px; margin: 0 auto; }
+      .hero-stat { text-align: center; }
+      .hero-stat .num { font-size: 1.75rem; font-weight: 700; color: var(--gold); }
+      .hero-stat .label { font-size: 0.72rem; color: var(--ink-muted); margin-top: 4px; line-height: 1.4; }
+      .hero-stat:nth-child(2) { border-left: 1px solid var(--line); border-right: 1px solid var(--line); }
+
+      /* ===== LAYOUT ===== */
+      .section { padding: 72px 22px; }
+      .section-dark { background: linear-gradient(to bottom, #0a0a2e, #0d0d35, #0a0a2e); }
+      .section-warm { background: linear-gradient(to bottom, #0a0a2e, #140d00, #0a0a2e); }
+      .wrap { max-width: 1200px; margin: 0 auto; }
+      .wrap-narrow { max-width: 860px; margin: 0 auto; }
+      .sh { text-align: center; margin-bottom: 48px; }
+      .sh-deco { display: flex; align-items: center; justify-content: center; gap: 12px; margin-bottom: 12px; }
+      .sh-line { height: 1px; width: 56px; background: rgba(180,130,50,0.4); }
+      .sh-star { width: 20px; height: 20px; color: #b45309; }
+      .sh h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.75rem, 4vw, 2.75rem); font-weight: 700; color: var(--ink); }
+      .sh p { margin-top: 12px; color: rgba(254,243,199,0.65); font-size: 1.05rem; max-width: 720px; margin-left: auto; margin-right: auto; }
+
+      /* ===== SCRIPTURE QUOTE ===== */
+      .sq { position: relative; border-left: 4px solid rgba(180,130,50,0.5); padding: 20px 18px 20px 24px; border-radius: 0 8px 8px 0; margin-bottom: 24px; font-style: italic; }
+      .sq-gold { background: rgba(180,83,9,0.15); border-color: rgba(212,165,55,0.5); color: var(--ink); }
+      .sq-dark { background: rgba(0,0,0,0.35); border-color: rgba(100,100,150,0.4); color: #d1d5db; }
+      .sq p { font-family: 'Crimson Text', serif; font-size: 1.05rem; line-height: 1.7; }
+      .sq cite { display: block; margin-top: 10px; color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; }
+
+      /* ===== GRID ===== */
+      .grid-2 { display: grid; gap: 28px; }
+      .grid-3 { display: grid; gap: 20px; }
+      @media (min-width: 768px) { .grid-2 { grid-template-columns: 1fr 1fr; } .grid-3 { grid-template-columns: repeat(3,1fr); } }
+
+      /* ===== CARDS ===== */
+      .card { background: linear-gradient(135deg, rgba(26,26,78,0.8), rgba(13,13,53,0.8)); border: 1px solid var(--line); border-radius: 16px; padding: 28px 24px; }
+      .card h3 { font-family: 'Crimson Text', serif; font-size: 1.35rem; color: var(--ink); margin-bottom: 12px; }
+      .card p { color: var(--ink-muted); line-height: 1.8; font-size: 0.95rem; margin-bottom: 10px; }
+
+      /* ===== COMPARE ===== */
+      .compare-box { border-radius: 16px; border: 2px solid; padding: 28px 24px; }
+      .compare-seal { border-color: rgba(212,165,55,0.5); background: rgba(180,83,9,0.08); }
+      .compare-seal h4 { color: var(--gold-soft); }
+      .compare-mark { border-color: rgba(239,68,68,0.3); background: rgba(239,68,68,0.05); }
+      .compare-mark h4 { color: var(--red); }
+      .compare-list { list-style: none; }
+      .compare-list li { display: flex; align-items: flex-start; gap: 10px; padding: 6px 0; color: #d1d5db; font-size: 0.9rem; }
+      .dot { width: 8px; height: 8px; border-radius: 50%; margin-top: 6px; flex-shrink: 0; }
+      .dot-gold { background: var(--gold); }
+      .dot-red { background: #ef4444; }
+      .compare-result { margin-top: 18px; padding: 12px 16px; border-radius: 10px; text-align: center; font-weight: 700; font-size: 0.9rem; }
+      .result-gold { background: rgba(212,165,55,0.1); border: 1px solid rgba(212,165,55,0.3); color: var(--gold-soft); }
+      .result-red { background: rgba(239,68,68,0.1); border: 1px solid rgba(239,68,68,0.3); color: var(--red); }
+
+      /* ===== PARALLEL (gift amounts) ===== */
+      .gift-amounts { display: flex; flex-direction: column; gap: 10px; }
+      .gift-row { display: flex; align-items: center; gap: 16px; background: linear-gradient(to right, rgba(26,26,78,0.6), rgba(13,13,53,0.6)); border: 1px solid var(--line); border-radius: 12px; padding: 16px 20px; }
+      .gift-amount { font-size: 1.35rem; font-weight: 700; color: var(--gold); font-family: 'Crimson Text', serif; min-width: 64px; }
+      .gift-desc { color: #d1d5db; font-size: 0.9rem; }
+
+      /* ===== RESOURCE CARDS ===== */
+      .resource-card { display: block; background: rgba(13,13,48,0.8); border: 1px solid var(--line); border-radius: 12px; padding: 20px; transition: all 0.2s; text-decoration: none; }
+      .resource-card:hover { border-color: rgba(212,165,55,0.5); background: rgba(180,83,9,0.08); }
+      .resource-card h4 { color: #fde68a; font-weight: 700; margin-bottom: 6px; font-size: 0.95rem; }
+      .resource-card p { color: var(--ink-muted); font-size: 0.85rem; line-height: 1.6; }
+
+      /* ===== APPEAL ===== */
+      .appeal-box { background: rgba(180,83,9,0.10); border: 1px solid rgba(180,130,50,0.3); border-radius: 16px; padding: 36px 32px; text-align: center; }
+      .appeal-box h3 { font-family: 'Crimson Text', serif; font-size: 1.6rem; color: var(--gold-soft); margin-bottom: 18px; }
+      .appeal-box p { color: #d1d5db; line-height: 1.85; margin-bottom: 14px; }
+
+      /* ===== BUTTONS ===== */
+      .btn { display: inline-flex; align-items: center; justify-content: center; height: 50px; padding: 0 28px; border-radius: 10px; text-decoration: none; font-weight: 700; font-size: 0.95rem; transition: all 0.2s; border: none; cursor: pointer; }
+      .btn-gold { background: linear-gradient(to right, #b45309, #d97706); color: #fff; }
+      .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); transform: translateY(-2px); color: #fff; }
+      .btn-outline { border: 1px solid rgba(212,165,55,0.4); color: var(--gold-soft); background: transparent; }
+      .btn-outline:hover { background: rgba(212,165,55,0.08); color: var(--gold-soft); }
+      .btn-lg { height: 56px; font-size: 1.05rem; }
+
+      /* ===== FOOTER ===== */
+      .site-footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); }
+      .footer-banner { background: linear-gradient(to right, rgba(180,83,9,0.15), rgba(180,83,9,0.1), rgba(180,83,9,0.15)); padding: 24px; text-align: center; }
+      .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.1rem; font-style: italic; }
+      .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 6px; }
+      .footer-main { max-width: 1280px; margin: 0 auto; padding: 56px 22px; display: grid; gap: 2.5rem; }
+      @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+      .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+      .footer-col p { color: var(--ink-muted); font-size: 0.875rem; line-height: 1.7; }
+      .footer-col ul { list-style: none; }
+      .footer-col li { padding: 4px 0; }
+      .footer-col li a { color: var(--ink-muted); font-size: 0.875rem; transition: color 0.2s; text-decoration: none; }
+      .footer-col li a:hover { color: var(--gold-soft); }
+      .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+      .footer-brand-name em { color: var(--gold); font-style: normal; }
+      .footer-bottom { border-top: 1px solid rgba(180,130,50,0.1); padding: 20px 22px; text-align: center; }
+      .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+      .footer-flags { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 12px 0; }
+      .footer-flags div { width: 32px; height: 4px; border-radius: 2px; }
+      .flag-r { background: #b91c1c; } .flag-w { background: #fff; } .flag-b { background: #1d4ed8; }
+      .footer-stripe { height: 4px; background: linear-gradient(to right, #b91c1c, #fff, #1d4ed8); }
+
+      /* ===== BACK TO TOP ===== */
+      .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(212,165,55,0.15); border: 1px solid rgba(212,165,55,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(212,165,55,0.3); }
+
+      /* ===== MISC ===== */
+      .text-gold { color: var(--gold); }
+      .text-red { color: var(--red); }
+      .mb-6 { margin-bottom: 1.5rem; }
+      .mb-8 { margin-bottom: 2rem; }
+      .mt-6 { margin-top: 1.5rem; }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <div class="hero">
+      <div class="eyebrow">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Church of the Firstborn Ministry &mdash; Hebrews 12:23
+      </div>
+      <h1>Support This <span class="gold">Work</span></h1>
+      <div class="subtitle">A Message for This Generation</div>
+      <p class="desc">
+        Your gift helps preserve and re-publish <strong style="color:var(--gold)">original Protestant Advent reformer pioneer books</strong>,
+        prophecy charts, sermons, and historic materials for Bible students around the world.
+        These books are silent ministers &mdash; they enter homes, prisons, screens, and far countries
+        where many a human messenger cannot go.
+      </p>
+      <div class="hero-quote">
+        <p>&ldquo;But this I say, He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully&hellip; for God loveth a cheerful giver.&rdquo;</p>
+        <cite>&mdash; 2 Corinthians 9:6&ndash;7 (KJV)</cite>
+      </div>
+      <div class="hero-btns">
+        <a href="#make-a-gift" class="btn btn-gold btn-lg">Make a Gift</a>
+        <a href="/library" class="btn btn-outline">Visit the Pioneer Library</a>
+      </div>
+      <div class="hero-stats">
+        <div class="hero-stat"><div class="num">1841</div><div class="label">Pioneer Light<br>Preserved</div></div>
+        <div class="hero-stat"><div class="num">12:23</div><div class="label">Church of the<br>Firstborn</div></div>
+        <div class="hero-stat"><div class="num">14:12</div><div class="label">Commandments of God<br>&amp; Faith of Jesus</div></div>
+      </div>
+    </div>
+
+    <!-- ===== CHURCH OF THE FIRSTBORN ===== -->
+    <section class="section section-dark">
+      <div class="wrap">
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="sh-line"></div>
+          </div>
+          <h2 style="color:#fef3c7">The Church of the Firstborn</h2>
+          <p>SundayLaw.com is a Hebrews 12:23 KJV Church of the Firstborn ministry.</p>
+        </div>
+
+        <div class="wrap-narrow mb-8">
+          <div class="sq sq-gold">
+            <p>&ldquo;To the general assembly and church of the firstborn, which are written in heaven, and to God the Judge of all, and to the spirits of just men made perfect.&rdquo;</p>
+            <cite>&mdash; Hebrews 12:23 (KJV)</cite>
+          </div>
+        </div>
+
+        <div class="grid-2">
+          <div>
+            <h3 class="serif" style="font-size:1.65rem;color:#fef3c7;margin-bottom:18px">A Ministry Written in Heaven</h3>
+            <p style="color:#d1d5db;line-height:1.85;margin-bottom:14px">
+              This work exists to help men and women understand the final crisis centered on worship, obedience, and allegiance.
+              We labor to spread the Third Angel&rsquo;s Message of Revelation 14:9&ndash;12 and the mighty cry of Revelation 18:1&ndash;5,
+              calling souls to keep the commandments of God and the faith of Jesus.
+            </p>
+            <p style="color:#d1d5db;line-height:1.85;margin-bottom:22px">
+              The object is not amusement, applause, or soft words for itching ears. The object is warning, instruction, conviction,
+              and preparation &mdash; that souls may learn how to follow Christ by faith into the Most Holy Place, claim the promises
+              of God for victory over sin, and be ready before the door of probation closes forever.
+            </p>
+            <div class="sq sq-gold">
+              <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+              <cite>&mdash; Revelation 14:12 (KJV)</cite>
+            </div>
+          </div>
+          <div>
+            <div class="sq sq-gold mb-6">
+              <p>&ldquo;Thus saith the LORD, Stand ye in the ways, and see, and ask for the old paths, where is the good way, and walk therein, and ye shall find rest for your souls.&rdquo;</p>
+              <cite>&mdash; Jeremiah 6:16 (KJV)</cite>
+            </div>
+            <div class="sq sq-gold mb-6">
+              <p>&ldquo;Let the aged men who were pioneers in our work speak plainly, and let those who are dead speak also by the reprinting of their articles.&rdquo;</p>
+              <cite>&mdash; Ellen G. White, Manuscript 62, 1905</cite>
+            </div>
+            <div class="sq sq-dark">
+              <p>&ldquo;We are to repeat the words of the pioneers in our work, who knew what it cost to search for the truth as for hidden treasure&hellip; Let that which these men have written in the past be reproduced.&rdquo;</p>
+              <cite>&mdash; Review and Herald, May 25, 1905</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== WHY THIS WORK MATTERS ===== -->
+    <section class="section section-warm">
+      <div class="wrap">
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="sh-line"></div>
+          </div>
+          <h2 style="color:#fef3c7">Why This Work Matters</h2>
+          <p>The final warning must not be left to starve while error is fed with gold.</p>
+        </div>
+
+        <div class="grid-2">
+          <div class="compare-box compare-seal">
+            <h4 class="serif" style="font-size:1.2rem;margin-bottom:14px">What Your Gift Helps Do</h4>
+            <ul class="compare-list">
+              <li><span class="dot dot-gold"></span><span>Preserve original pioneer books, tracts, sermons, and prophecy charts</span></li>
+              <li><span class="dot dot-gold"></span><span>Build the Adventist Pioneer Library and place source materials before the people</span></li>
+              <li><span class="dot dot-gold"></span><span>Expand digital evangelism so truth can travel swiftly into all the earth</span></li>
+              <li><span class="dot dot-gold"></span><span>Strengthen the warning on the Sabbath, the seal of God, and the mark of the beast crisis</span></li>
+              <li><span class="dot dot-gold"></span><span>Defend liberty of conscience and expose the danger of enforced worship</span></li>
+              <li><span class="dot dot-gold"></span><span>Help individuals search the Scriptures and prepare to stand in the day of God</span></li>
+            </ul>
+            <div class="compare-result result-gold mt-6">Your gift helps truth travel farther than feet can go</div>
+            <div class="sq sq-gold mt-6">
+              <p>&ldquo;And the things that thou hast heard of me among many witnesses, the same commit thou to faithful men, who shall be able to teach others also.&rdquo;</p>
+              <cite>&mdash; 2 Timothy 2:2 (KJV)</cite>
+            </div>
+          </div>
+          <div class="compare-box compare-mark">
+            <h4 class="serif" style="font-size:1.2rem;margin-bottom:14px">The Crisis Before Us</h4>
+            <ul class="compare-list">
+              <li><span class="dot dot-red"></span><span>The Sunday law question is just before us</span></li>
+              <li><span class="dot dot-red"></span><span>Religious freedom is being weakened by the union of church and state</span></li>
+              <li><span class="dot dot-red"></span><span>Millions have never read the original warning message</span></li>
+              <li><span class="dot dot-red"></span><span>The mark of the beast issue is approaching with deceptive force</span></li>
+              <li><span class="dot dot-red"></span><span>Truth must reach souls before buying and selling is restricted</span></li>
+            </ul>
+            <div class="compare-result result-red mt-6">Delay helps error; faithful support strengthens the warning</div>
+            <div class="sq sq-dark mt-6">
+              <p>&ldquo;Get the oil for your lamp. Help support the work while probation&rsquo;s door is still open.&rdquo;</p>
+              <cite>&mdash; A solemn appeal for this hour</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== MAKE A GIFT ===== -->
+    <section id="make-a-gift" class="section section-dark">
+      <div class="wrap">
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="sh-line"></div>
+          </div>
+          <h2 style="color:#fef3c7">Make a Gift</h2>
+          <p>Lay up treasure in heaven while mercy still pleads.</p>
+        </div>
+
+        <div class="wrap-narrow mb-8">
+          <div class="sq sq-gold">
+            <p>&ldquo;But this I say, He which soweth sparingly shall reap also sparingly; and he which soweth bountifully shall reap also bountifully. Every man according as he purposeth in his heart, so let him give; not grudgingly, or of necessity: for God loveth a cheerful giver.&rdquo;</p>
+            <cite>&mdash; 2 Corinthians 9:6&ndash;7 (KJV)</cite>
+          </div>
+        </div>
+
+        <div class="grid-2 mb-8">
+          <div class="card">
+            <h3>Current Giving Method</h3>
+            <p>Support this work today through CashApp:</p>
+            <div class="sq sq-gold" style="margin-top:14px">
+              <p style="font-size:1.3rem"><strong>CashApp: $ThePresentTruth</strong></p>
+            </div>
+            <p>Give as the Lord has prospered you. Give while you can. Give to help publish truth that may outlive us all and still call souls to repentance.</p>
+            <div style="display:flex;flex-wrap:wrap;gap:12px;margin-top:20px">
+              <a href="https://cash.app/$ThePresentTruth" class="btn btn-gold" rel="noopener noreferrer" target="_blank">Make a Gift</a>
+              <a href="/contact" class="btn btn-outline">Questions? Contact Us</a>
+            </div>
+          </div>
+          <div class="card" style="border-color:rgba(239,68,68,0.3)">
+            <h3>Other Giving Options</h3>
+            <p><strong>Zelle:</strong> Coming Soon</p>
+            <p><strong>PayPal:</strong> Coming Soon</p>
+            <p><strong>Monthly Support:</strong> Coming Soon</p>
+            <div class="sq sq-dark" style="margin-top:16px">
+              <p>For questions about donations or to discuss other ways to support the mission, please contact us.</p>
+              <cite>info@SundayLaw.com &nbsp;&bull;&nbsp; help@sundaylaw.com</cite>
+            </div>
+            <p style="margin-top:14px;font-size:0.875rem;color:var(--ink-muted)"><strong>Tax-Deductible:</strong> Contributions to this ministry are tax-deductible to the extent permitted by law.</p>
+          </div>
+        </div>
+
+        <h3 class="serif" style="text-align:center;font-size:1.5rem;color:#fef3c7;margin-bottom:20px">Suggested Gifts</h3>
+        <div class="wrap-narrow mb-8">
+          <div class="gift-amounts">
+            <div class="gift-row"><div class="gift-amount">$25</div><div class="gift-desc">Helps preserve and publish historic truth resources</div></div>
+            <div class="gift-row"><div class="gift-amount">$50</div><div class="gift-desc">Helps place books and studies before searching souls</div></div>
+            <div class="gift-row"><div class="gift-amount">$100</div><div class="gift-desc">Helps expand digital evangelism and outreach</div></div>
+            <div class="gift-row"><div class="gift-amount">$250</div><div class="gift-desc">Helps build and strengthen the Adventist Pioneer Library</div></div>
+            <div class="gift-row"><div class="gift-amount">$500+</div><div class="gift-desc">Helps sustain major publishing and warning-message projects</div></div>
+          </div>
+        </div>
+
+        <div class="wrap-narrow">
+          <div class="appeal-box">
+            <h3>A Solemn Appeal</h3>
+            <p>The test is here. The warning is sounding. The books must go out. The charts must be seen. The sermons must be heard. The old paths must be restored before men are swept into the final delusion.</p>
+            <p>Sell your property if God so leads. Lay up treasure in heaven now. Help sustain the original historic Protestant Advent reform witness before the markets of conscience close to those who will not bow.</p>
+            <p>Will you help others choose the commandments of God and the faith of Jesus before the final division is forever fixed?</p>
+            <div style="margin-top:24px">
+              <a href="https://cash.app/$ThePresentTruth" class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">Make a Gift Now</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== OTHER WAYS TO SUPPORT ===== -->
+    <section class="section section-warm">
+      <div class="wrap">
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="sh-line"></div>
+          </div>
+          <h2 style="color:#fef3c7">Other Ways to Support the Mission</h2>
+          <p>Some can help with money. Some can help with tools. Some can help with property and resources turned into means for the spread of truth.</p>
+        </div>
+
+        <div class="grid-3 mb-8">
+          <a class="resource-card" href="/contact"><h4>Property or Land</h4><p>Land, homes, cabins, or ministry-use buildings that may help support gospel work.</p></a>
+          <a class="resource-card" href="/contact"><h4>Vehicles</h4><p>Cars, trucks, trailers, and other transportation resources useful for ministry or support.</p></a>
+          <a class="resource-card" href="/contact"><h4>Stocks &amp; Assets</h4><p>Stocks, marketable securities, appreciated assets, retirement assets, or trust-related gifts.</p></a>
+          <a class="resource-card" href="/contact"><h4>Equipment</h4><p>Printing, scanning, recording, publishing, camera, microphone, and computer equipment.</p></a>
+          <a class="resource-card" href="/contact"><h4>Archives &amp; Rare Books</h4><p>Rare Advent books, papers, tracts, charts, letters, and historical collections.</p></a>
+          <a class="resource-card" href="/contact"><h4>Estate Gifts</h4><p>Estate gifts, wills, and other planned-giving support for the spread of present truth.</p></a>
+        </div>
+
+        <div class="wrap-narrow">
+          <div style="background:rgba(29,78,216,0.08);border:1px solid rgba(59,130,246,0.25);border-radius:16px;padding:32px;text-align:center">
+            <h3 class="serif" style="color:#93c5fd;font-size:1.25rem;margin-bottom:12px">Questions About Giving?</h3>
+            <p style="color:#d1d5db;margin-bottom:16px">For questions about donations or to discuss property, vehicles, or other valuables to support the mission:</p>
+            <div class="sq sq-dark" style="max-width:400px;margin:0 auto">
+              <p>info@SundayLaw.com<br>help@sundaylaw.com</p>
+              <cite>Contact us to discuss the details</cite>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAKE YOUR STAND ===== -->
+    <section id="take-stand" class="section section-dark">
+      <div class="wrap-narrow" style="text-align:center">
+        <div class="sh">
+          <div class="sh-deco">
+            <div class="sh-line"></div>
+            <svg class="sh-star" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+            <div class="sh-line"></div>
+          </div>
+          <h2>Take Your Stand</h2>
+          <p>Support the warning while probation yet lingers.</p>
+        </div>
+
+        <div class="sq sq-gold mb-8">
+          <p>&ldquo;Choose you this day whom ye will serve&hellip; but as for me and my house, we will serve the LORD.&rdquo;</p>
+          <cite>&mdash; Joshua 24:15 (KJV)</cite>
+        </div>
+
+        <div style="display:flex;flex-wrap:wrap;gap:12px;justify-content:center;margin-bottom:48px">
+          <a href="https://cash.app/$ThePresentTruth" class="btn btn-gold btn-lg" target="_blank" rel="noopener noreferrer">Make a Gift</a>
+          <a href="/contact" class="btn btn-outline">Submit a Prayer Request</a>
+          <a href="/library" class="btn btn-outline">Visit the Pioneer Library</a>
+        </div>
+
+        <div style="background:rgba(180,83,9,0.10);border:1px solid rgba(180,130,50,0.3);border-radius:16px;padding:32px">
+          <p class="serif" style="color:#fcd34d;font-size:1.2rem;font-style:italic;line-height:1.8">
+            &ldquo;The foundation remains the same: <strong>1841&ndash;1850</strong> &mdash; the platform of eternal truth.
+            The Fourth Angel is calling. The harvest message is going forward. The light is shining everywhere.
+            The decision is life or death.&rdquo;
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="/#final-choice">The Final Choice</a></li>
+            <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="/#three-angels">Three Angels</a></li>
+            <li><a href="/#second-beast">Second Beast</a></li>
+            <li><a href="/#pioneer-library">Pioneer Library</a></li>
+            <li><a href="/midnight-cry">The Midnight Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/books">All Books &amp; Tracts</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <script is:inline>
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+    </script>
+    <SiteFooter
+      pageLinks={[
+        { label: 'Support the Work', href: '/donate' },
+        { label: 'Contact SundayLaw.com', href: '/contact' },
+        { label: 'All Pioneer Books', href: '/library' },
+        { label: 'SDA Apostasy Documented', href: '/apostasy' }
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>

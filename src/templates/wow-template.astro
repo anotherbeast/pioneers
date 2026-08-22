@@ -1,0 +1,317 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+
+const pageTitle = Astro.props.pageTitle;
+const metaDescription = Astro.props.metaDescription;
+const canonical = Astro.props.canonical;
+const ogTitle = Astro.props.ogTitle;
+const ogDescription = Astro.props.ogDescription;
+const ogImage = Astro.props.ogImage;
+const ogUrl = Astro.props.ogUrl;
+const ogSiteName = Astro.props.ogSiteName;
+const twitterTitle = Astro.props.twitterTitle;
+const twitterDescription = Astro.props.twitterDescription;
+const twitterImage = Astro.props.twitterImage;
+const keywords = Astro.props.keywords;
+const eyebrow = Astro.props.eyebrow;
+const heroTitle = Astro.props.heroTitle;
+const heroSubtitle = Astro.props.heroSubtitle;
+const heroCtas = Astro.props.heroCtas ? Astro.props.heroCtas : [];
+const featuredBookHref = Astro.props.featuredBookHref;
+const featuredBookLabel = Astro.props.featuredBookLabel ? Astro.props.featuredBookLabel : 'Featured Book';
+const section1Eyebrow = Astro.props.section1Eyebrow;
+const section1Title = Astro.props.section1Title;
+const section1Subtitle = Astro.props.section1Subtitle;
+const section1Content = Astro.props.section1Content;
+const section1Ctas = Astro.props.section1Ctas ? Astro.props.section1Ctas : [];
+const bottomNavLinks = Astro.props.bottomNavLinks ? Astro.props.bottomNavLinks : [];
+---
+<head>
+  <title>{pageTitle}</title>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content={metaDescription} />
+  <meta name="keywords" content={keywords} />
+  <link rel="canonical" href={canonical} />
+  <meta property="og:title" content={ogTitle} />
+  <meta property="og:description" content={ogDescription} />
+  <meta property="og:image" content={ogImage} />
+  <meta property="og:type" content="article" />
+  <meta property="og:url" content={ogUrl} />
+  <meta property="og:site_name" content={ogSiteName} />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={twitterTitle} />
+  <meta name="twitter:description" content={twitterDescription} />
+  <meta name="twitter:image" content={twitterImage} />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <!-- Google tag (gtag.js) -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=G-JEJDXYCYZ1"></script>
+  <script is:inline>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'G-JEJDXYCYZ1', {
+      send_page_view: true,
+      anonymize_ip: true
+    });
+    function trackFormSubmit(formType) {
+      gtag('event', 'form_submit', { form_type: formType });
+    }
+    document.addEventListener('DOMContentLoaded', function() {
+      document.body.addEventListener('click', function(e) {
+        let target = e.target && e.target.closest ? e.target.closest('a,button') : null;
+        if (target) {
+          gtag('event', 'click', {
+            event_category: 'engagement',
+            event_label: target.href || target.innerText || target.id || 'unknown',
+            element: target.tagName
+          });
+        }
+      });
+    });
+  </script>
+  <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #18183a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+        --accent: #7c3aed;
+        --accent2: #f43f5e;
+      }
+      html { scroll-behavior: smooth; }
+      body {
+        font-family: 'Inter', sans-serif;
+        color: var(--ink);
+        background: linear-gradient(120deg, var(--bg) 60%, var(--bg-soft) 100%);
+        margin: 0;
+        min-height: 100vh;
+        overflow-x: hidden;
+      }
+      .premium-hero {
+        background: linear-gradient(120deg, var(--bg) 60%, var(--accent) 100%);
+        padding: 80px 20px 40px 20px;
+        text-align: center;
+        border-bottom: 3px solid var(--gold);
+        box-shadow: 0 8px 32px rgba(124,58,237,0.08);
+        max-width: none;
+        margin: 0;
+      }
+      .premium-eyebrow {
+        display: inline-block;
+        background: var(--gold-soft);
+        color: #222;
+        font-weight: 800;
+        font-size: 0.92rem;
+        padding: 7px 22px;
+        border-radius: 999px;
+        margin-bottom: 18px;
+        letter-spacing: 0.08em;
+        text-transform: uppercase;
+        box-shadow: 0 2px 12px rgba(212,165,55,0.13);
+      }
+      .premium-title {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2.5rem, 7vw, 3.8rem);
+        color: var(--ink);
+        font-weight: 800;
+        margin-bottom: 18px;
+        letter-spacing: -0.01em;
+        text-shadow: 0 2px 12px rgba(124,58,237,0.08);
+      }
+      .premium-subtitle {
+        color: var(--gold);
+        font-size: 1.35rem;
+        margin-bottom: 18px;
+        font-family: 'Crimson Text', serif;
+        font-weight: 500;
+      }
+      .hero-cta-row {
+        display: flex;
+        gap: 14px;
+        flex-wrap: wrap;
+        justify-content: center;
+        margin-top: 22px;
+      }
+      .btn-gold, .btn-outline, .btn-featured {
+        display: inline-block;
+        font-size: 1.13rem;
+        font-weight: 700;
+        padding: 1.1rem 2.2rem;
+        border-radius: 14px;
+        text-decoration: none;
+        transition: background 0.18s, color 0.18s, transform 0.09s;
+        border: 2px solid var(--gold);
+        outline: 0;
+        position: relative;
+        z-index: 2;
+        margin-bottom: 8px;
+      }
+      .btn-gold {
+        background: linear-gradient(90deg, var(--gold), var(--gold-soft));
+        color: #222;
+        box-shadow: 0 2px 12px rgba(255,152,0,0.10);
+      }
+      .btn-gold:hover {
+        background: linear-gradient(90deg, var(--gold-soft), var(--gold));
+        color: var(--accent);
+        transform: translateY(-2px) scale(1.045);
+        border-color: var(--accent);
+      }
+      .btn-outline {
+        background: rgba(254,243,199,0.08);
+        color: var(--gold);
+        border: 2px solid var(--gold);
+      }
+      .btn-outline:hover {
+        background: var(--gold-soft);
+        color: #111;
+      }
+      .btn-featured {
+        background: linear-gradient(90deg, var(--accent2), var(--amber));
+        color: #fff;
+        border: 2px solid var(--accent2);
+        font-size: 1.18rem;
+        font-weight: 800;
+        box-shadow: 0 4px 24px rgba(244,63,94,0.13);
+      }
+      .btn-featured:hover {
+        background: linear-gradient(90deg, var(--amber), var(--accent2));
+        color: var(--gold);
+        border-color: var(--amber);
+      }
+      .premium-section {
+        max-width: 1100px;
+        margin: 0 auto;
+        padding: 60px 1.5rem 0 1.5rem;
+      }
+      .section-header {
+        text-align: center;
+        margin-bottom: 36px;
+      }
+      .sh-eyebrow {
+        display: inline-block;
+        padding: 5px 16px;
+        border-radius: 999px;
+        border: 1.5px solid var(--accent2);
+        color: var(--accent2);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.93rem;
+        font-weight: 700;
+        margin-bottom: 12px;
+        background: rgba(244,63,94,0.08);
+      }
+      .section-header h2 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+        font-weight: 700;
+        color: var(--ink);
+        margin-bottom: 10px;
+      }
+      .section-header p {
+        color: var(--ink-muted);
+        font-size: 1.13rem;
+        line-height: 1.8;
+        max-width: 640px;
+        margin: 0 auto;
+      }
+      .prose {
+        max-width: 760px;
+        margin: 0 auto;
+        font-size: 1.13rem;
+        color: rgba(254,243,199,0.95);
+        line-height: 2.05;
+      }
+      .prose blockquote {
+        border-left: 6px solid var(--accent2);
+        padding: 18px 28px;
+        margin: 32px 0;
+        background: rgba(244,63,94,0.06);
+        border-radius: 0 18px 18px 0;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.22rem;
+        font-style: italic;
+        color: #fde68a;
+        box-shadow: 0 2px 12px rgba(244,63,94,0.10);
+      }
+      .prose blockquote cite {
+        display: block;
+        margin-top: 10px;
+        font-size: 1.02rem;
+        color: var(--accent2);
+        font-style: normal;
+        font-weight: 700;
+      }
+      .bottom-navbar {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 1.2rem;
+        justify-content: center;
+        margin: 3.5rem 0 2.2rem 0;
+        padding: 1.5rem 0 0 0;
+        border-top: 2px solid var(--line);
+        background: rgba(13,13,45,0.92);
+      }
+      .bottom-navbar a {
+        color: var(--gold-soft);
+        background: var(--accent);
+        border-radius: 10px;
+        padding: 0.9rem 1.7rem;
+        font-weight: 700;
+        font-size: 1.08rem;
+        text-decoration: none;
+        transition: background 0.18s, color 0.18s;
+      }
+      .bottom-navbar a:hover {
+        background: var(--gold-soft);
+        color: var(--accent);
+      }
+    </style>
+
+
+{/* Site Navigation */}
+<SiteNav />
+<main>
+  <section class="premium-hero">
+    {eyebrow ? <div class="premium-eyebrow">{eyebrow}</div> : ''}
+    <h1 class="premium-title" set:html={heroTitle}></h1>
+    {heroSubtitle ? <div class="premium-subtitle">{heroSubtitle}</div> : ''}
+    <div class="hero-cta-row">
+      {heroCtas && heroCtas.length > 0 ? (
+        heroCtas.map((cta: any) => <a href={cta.href} class={cta.style}>{cta.label}</a>)
+      ) : ''}
+      {featuredBookHref ? (
+        <a href={featuredBookHref} class="btn-featured">{featuredBookLabel}</a>
+      ) : ''}
+    </div>
+  </section>
+  <section class="premium-section" id="content">
+    <div class="section-header">
+      {section1Eyebrow ? <div class="sh-eyebrow">{section1Eyebrow}</div> : ''}
+      <h2>{section1Title}</h2>
+      {section1Subtitle ? <p>{section1Subtitle}</p> : ''}
+    </div>
+    <div class="prose" set:html={section1Content} />
+    {section1Ctas && section1Ctas.length > 0 ? (
+      <div class="hero-cta-row" style="margin-top:2.5rem;">
+        {section1Ctas.map((cta: any) => <a href={cta.href} class={cta.style}>{cta.label}</a>)}
+      </div>
+    ) : ''}
+  </section>
+  {bottomNavLinks && bottomNavLinks.length > 0 ? (
+    <nav class="bottom-navbar">
+      {bottomNavLinks.map((link: any) => <a href={link.href}>{link.label}</a>)}
+    </nav>
+  ) : ''}
+</main>
+<ShareBar />
+{/* Site Footer */}
+<SiteFooter />

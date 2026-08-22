@@ -1,0 +1,29 @@
+{
+  "name": "pioneers",
+  "type": "module",
+  "version": "0.0.1",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "dev": "astro dev",
+    "build": "astro build && npx pagefind --site dist",
+    "preview": "astro preview",
+    "astro": "astro",
+    "organize:books": "node scripts/organize-books-by-author.js",
+    "organize:books:apply": "node scripts/organize-books-by-author.js --apply",
+    "gen:books": "node scripts/generate-book-entries.js",
+    "gen:books:apply": "node scripts/generate-book-entries.js --apply",
+    "link:books": "node scripts/link-pioneer-books.js",
+    "link:books:apply": "node scripts/link-pioneer-books.js --apply",
+    "sundaylaw:layout": "node scripts/apply-sundaylaw-layout.js",
+    "sundaylaw:layout:apply": "node scripts/apply-sundaylaw-layout.js --apply"
+  },
+  "dependencies": {
+    "astro": "^6.1.2",
+    "marked": "^17.0.5"
+  },
+  "devDependencies": {
+    "pagefind": "^1.4.0"
+  }
+}

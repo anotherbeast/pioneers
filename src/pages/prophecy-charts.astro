@@ -1,0 +1,1174 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+const pageUrl = "https://sundaylaw.com/prophecy-charts";
+const pageTitle = "The Prophetic Charts — 1843 & 1850 | Written in Vision, Proven in Time";
+const pageDesc = "The Adventist Prophetic Charts of 1843 and 1850 fulfill Habakkuk 2:2–3. The dates are correct — October 22, 1844, Jesus moved into the Most Holy Place in the Heavenly Sanctuary. Discover the math, the Day-Year principle, Hosea 6:2, and the Golden Scepter of Queen Esther.";
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <Analytics />
+  <title>{pageTitle}</title>
+  <meta name="description" content={pageDesc} />
+  <meta property="og:title" content={pageTitle} />
+  <meta property="og:description" content={pageDesc} />
+  <meta property="og:image" content="/images/pioneers/1843-1850-adventist-prophecy-charts.jpg" />
+  <meta property="og:url" content={pageUrl} />
+  <meta property="og:type" content="article" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content={pageTitle} />
+  <meta name="twitter:description" content={pageDesc} />
+  <meta name="twitter:image" content="/images/pioneers/1843-1850-adventist-prophecy-charts.jpg" />
+  <link rel="canonical" href={pageUrl} />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet" />
+  <script type="text/javascript">
+    function googleTranslateElementInit() {
+      new google.translate.TranslateElement({ pageLanguage: 'en', layout: google.translate.TranslateElement.InlineLayout.SIMPLE }, 'google_translate_element');
+    }
+  </script>
+  <script type="text/javascript" src="//translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+  <style>
+    :root {
+      --bg: #0a0a2e;
+      --bg-soft: #0d0d3a;
+      --ink: #fef3c7;
+      --ink-muted: #9ca3af;
+      --gold: #d4a537;
+      --gold-soft: #fcd34d;
+      --amber: #f59e0b;
+      --line: rgba(212,165,55,0.22);
+      --line-soft: rgba(212,165,55,0.12);
+      --green: rgba(74,150,60,0.85);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--ink);
+      background: var(--bg);
+      overflow-x: hidden;
+    }
+    .serif { font-family: 'Crimson Text', serif; }
+    img { max-width: 100%; height: auto; display: block; }
+    a { color: var(--amber); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+
+    /* ── TRANSLATE BAR ── */
+    .translate-bar {
+      background: rgba(5,5,25,0.98);
+      border-bottom: 1px solid var(--line-soft);
+      padding: 6px 18px;
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 0.78rem;
+      color: var(--ink-muted);
+    }
+    #google_translate_element { display: inline-block; }
+    #google_translate_element .goog-te-gadget-simple {
+      background: transparent; border: none; font-size:0.78rem;
+    }
+
+    /* ── NAV ── */
+    .nav {
+      position: sticky; top: 0; z-index: 100;
+      background: rgba(5,5,30,0.96);
+      backdrop-filter: blur(14px);
+      border-bottom: 1px solid var(--line);
+    }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row {
+      display: flex; align-items: center; padding: 0 22px;
+    }
+    .nav-row-top { gap: 22px; height: 60px; border-bottom: 1px solid rgba(212,165,55,0.10); }
+    .nav-row-bottom { gap: 20px; height: 40px; font-size: 0.81rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-brand {
+      text-decoration: none; color: var(--ink); font-family: 'Crimson Text', serif;
+      font-weight: 600; font-size: 1.25rem; flex-shrink: 0; margin-right: auto;
+    }
+    .nav-brand span { color: var(--gold); }
+    .nav-link {
+      color: var(--ink-muted); text-decoration: none; font-weight: 600;
+      font-size: 0.88rem; white-space: nowrap; transition: color 0.18s;
+    }
+    .nav-link:hover, .nav-link.active { color: var(--gold-soft); text-decoration: none; }
+    .nav-cta {
+      display: inline-flex; align-items: center; height: 36px; padding: 0 16px;
+      border-radius: 8px; background: var(--gold); color: #111;
+      font-weight: 700; font-size: 0.86rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s;
+    }
+    .nav-cta:hover { background: var(--gold-soft); text-decoration: none; }
+    .nav-bottom-link {
+      color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500;
+      white-space: nowrap; transition: color 0.18s; flex-shrink: 0;
+    }
+    .nav-bottom-link:hover { color: var(--gold-soft); text-decoration: none; }
+    .menu-btn {
+      display: none; width: 38px; height: 38px; border: 1px solid var(--line);
+      border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink);
+      font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center;
+    }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 12px 22px 16px; background: rgba(5,5,30,0.98); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 7px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mobile-nav a:hover { color: var(--gold-soft); }
+
+    /* ── HERO ── */
+    .hero {
+      position: relative; min-height: 72vh;
+      display: flex; align-items: center; justify-content: center;
+      overflow: hidden;
+      background: linear-gradient(160deg, #04041a 0%, #080828 52%, #040418 100%);
+    }
+    .hero-orb1 { position: absolute; width: 600px; height: 600px; border-radius: 50%; top: -120px; left: -120px; background: radial-gradient(circle, rgba(212,165,55,0.13) 0%, transparent 65%); pointer-events: none; }
+    .hero-orb2 { position: absolute; width: 500px; height: 500px; border-radius: 50%; bottom: -80px; right: -80px; background: radial-gradient(circle, rgba(90,60,180,0.15) 0%, transparent 65%); pointer-events: none; }
+    .hero-stripe { position: absolute; bottom: 0; left: 0; right: 0; height: 3px; background: linear-gradient(to right, transparent, var(--gold), transparent); z-index: 3; }
+    .hero-content {
+      position: relative; z-index: 2; text-align: center;
+      max-width: 940px; padding: 72px 28px 88px;
+    }
+    .hero-badge {
+      display: inline-flex; align-items: center; gap: 8px;
+      padding: 7px 18px; border-radius: 999px;
+      border: 1px solid rgba(212,165,55,0.4); background: rgba(212,165,55,0.08);
+      color: var(--gold-soft); font-size: 0.78rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 26px;
+    }
+    .hero h1 {
+      font-family: 'Crimson Text', serif;
+      font-size: clamp(2.8rem, 7.5vw, 6rem);
+      font-weight: 600; line-height: 1.05; color: var(--ink);
+      text-shadow: 0 4px 32px rgba(0,0,0,0.5); margin-bottom: 12px;
+    }
+    .hero h1 .gold { color: var(--gold); }
+    .hero-sub {
+      font-family: 'Crimson Text', serif; font-style: italic;
+      font-size: clamp(1.25rem, 3vw, 1.85rem);
+      color: rgba(254,243,199,0.82); margin-bottom: 22px;
+    }
+    .habakkuk-hero {
+      display: inline-block; max-width: 700px;
+      border-top: 1px solid rgba(212,165,55,0.35);
+      border-bottom: 1px solid rgba(212,165,55,0.35);
+      padding: 16px 24px; margin: 0 auto 32px;
+      font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic;
+      color: rgba(254,243,199,0.88); line-height: 1.75;
+    }
+    .habakkuk-hero cite { display: block; margin-top: 8px; font-size: 0.88rem; color: var(--gold-soft); font-style: normal; font-weight: 700; }
+    .hero-nav-btns {
+      display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 28px;
+    }
+    .hnb {
+      display: inline-flex; align-items: center; height: 42px; padding: 0 20px;
+      border-radius: 9px; font-weight: 600; font-size: 0.88rem; text-decoration: none;
+      transition: all 0.2s;
+    }
+    .hnb-gold { background: var(--gold); color: #111; }
+    .hnb-gold:hover { background: var(--gold-soft); transform: translateY(-2px); text-decoration: none; }
+    .hnb-outline { border: 1px solid rgba(254,243,199,0.28); color: var(--ink); background: rgba(255,255,255,0.04); }
+    .hnb-outline:hover { border-color: var(--gold); color: var(--gold-soft); text-decoration: none; }
+
+    /* ── SECTION BASE ── */
+    .section { padding: 80px 22px; position: relative; }
+    .section-dark { background: linear-gradient(to bottom, #0a0a2e, #080828, #0a0a2e); }
+    .section-warm { background: linear-gradient(to bottom, #0a0a2e, #0e0820, #0a0a2e); }
+    .section-navy { background: #070718; }
+    .section-inner { max-width: 1200px; margin: 0 auto; }
+    .section-narrow { max-width: 900px; margin: 0 auto; }
+    .stripe-top { position: absolute; top: 0; left: 0; right: 0; height: 2px; background: linear-gradient(to right, transparent, rgba(212,165,55,0.3), transparent); }
+
+    /* ── SECTION HEADINGS ── */
+    .sh { text-align: center; margin-bottom: 52px; }
+    .sh-eyebrow {
+      display: inline-block; padding: 5px 16px; border-radius: 999px;
+      background: rgba(212,165,55,0.1); border: 1px solid rgba(212,165,55,0.26);
+      color: var(--gold-soft); font-size: 0.75rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px;
+    }
+    .sh h2 {
+      font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 4.5vw, 3.2rem);
+      font-weight: 600; color: var(--ink); line-height: 1.15; margin-bottom: 14px;
+    }
+    .sh h2 .gold { color: var(--gold); }
+    .sh p { color: var(--ink-muted); font-size: 1.05rem; line-height: 1.8; max-width: 720px; margin: 0 auto; }
+    .sh-divider { display: flex; align-items: center; justify-content: center; gap: 14px; margin-bottom: 14px; }
+    .sh-line { height: 1px; width: 52px; background: rgba(212,165,55,0.4); }
+
+    /* ── SCRIPTURE BLOCK ── */
+    .scripture {
+      border-radius: 14px; padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(10,18,5,0.92), rgba(4,10,22,0.92));
+      border: 1px solid rgba(110,180,80,0.28); margin-bottom: 20px; position: relative;
+    }
+    .scripture::before { content: '\201C'; position: absolute; top: -6px; left: 16px; font-size: 3.5rem; color: rgba(110,180,80,0.18); font-family: serif; line-height: 1; }
+    .scripture p { font-family: 'Crimson Text', serif; font-size: 1.15rem; font-style: italic; color: var(--ink); line-height: 1.85; margin-bottom: 10px; }
+    .scripture cite { color: var(--gold-soft); font-size: 0.84rem; font-weight: 700; font-style: normal; }
+
+    /* ── GOLD QUOTE BLOCK ── */
+    .gold-block {
+      border-radius: 14px; padding: 24px 28px;
+      background: linear-gradient(135deg, rgba(20,14,2,0.92), rgba(8,12,30,0.92));
+      border: 1px solid rgba(212,165,55,0.35); margin-bottom: 20px;
+    }
+    .gold-block p { font-family: 'Crimson Text', serif; font-size: 1.12rem; font-style: italic; color: var(--ink); line-height: 1.85; margin-bottom: 10px; }
+    .gold-block cite { color: var(--gold-soft); font-size: 0.84rem; font-weight: 700; font-style: normal; }
+    .gold-block h3 { color: var(--gold-soft); font-size: 1.2rem; margin-bottom: 12px; font-family: 'Crimson Text', serif; }
+
+    /* ── CARDS ── */
+    .card { background: linear-gradient(180deg, rgba(14,18,48,0.92), rgba(7,12,32,0.95)); border: 1px solid rgba(212,165,55,0.2); border-radius: 16px; padding: 24px; }
+    .card h3 { color: var(--gold-soft); margin-bottom: 10px; font-family: 'Crimson Text', serif; font-size: 1.25rem; }
+    .card p { color: var(--ink-muted); line-height: 1.8; margin-bottom: 8px; }
+    .card-featured { border-color: rgba(212,165,55,0.45); background: linear-gradient(160deg, rgba(22,16,4,0.9), rgba(8,10,32,0.9)); }
+
+    /* ── CHART GALLERY ── */
+    .chart-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; margin-top: 32px; }
+    @media (max-width: 900px) { .chart-grid { grid-template-columns: 1fr; } }
+    .chart-card {
+      border-radius: 18px; overflow: hidden;
+      border: 1px solid rgba(212,165,55,0.3);
+      background: linear-gradient(180deg, rgba(12,16,44,0.95), rgba(6,10,28,0.95));
+      transition: transform 0.25s, border-color 0.25s;
+    }
+    .chart-card:hover { transform: translateY(-4px); border-color: rgba(212,165,55,0.6); }
+    .chart-img-wrap { position: relative; overflow: hidden; cursor: zoom-in; }
+    .chart-img-wrap img { width: 100%; aspect-ratio: 4/3; object-fit: cover; display: block; transition: transform 0.4s; }
+    .chart-img-wrap:hover img { transform: scale(1.04); }
+    .chart-img-label { position: absolute; bottom: 0; left: 0; right: 0; padding: 10px 14px; background: linear-gradient(0deg, rgba(4,8,24,0.9), transparent); color: var(--gold-soft); font-size: 0.78rem; font-weight: 700; }
+    .chart-body { padding: 20px 20px 24px; }
+    .chart-eyebrow { font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold-soft); margin-bottom: 8px; }
+    .chart-body h3 { font-family: 'Crimson Text', serif; font-size: 1.3rem; color: var(--ink); margin-bottom: 10px; }
+    .chart-body p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.75; margin-bottom: 16px; }
+    .chart-btns { display: flex; flex-wrap: wrap; gap: 8px; }
+    .btn-sm { display: inline-flex; align-items: center; height: 36px; padding: 0 14px; border-radius: 8px; font-weight: 700; font-size: 0.82rem; text-decoration: none; transition: all 0.2s; }
+    .btn-sm-gold { background: var(--gold); color: #111; }
+    .btn-sm-gold:hover { background: var(--gold-soft); text-decoration: none; }
+    .btn-sm-outline { border: 1px solid rgba(212,165,55,0.4); color: var(--amber); }
+    .btn-sm-outline:hover { background: rgba(212,165,55,0.1); text-decoration: none; }
+
+    /* ── GRID UTILITIES ── */
+    .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 24px; }
+    @media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+    .grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; }
+    @media (max-width: 760px) { .grid-3 { grid-template-columns: 1fr; } }
+
+    /* ── MATH BOX ── */
+    .math-box {
+      border-radius: 14px; padding: 22px 26px;
+      background: rgba(6,12,38,0.9); border: 1px solid rgba(212,165,55,0.2);
+      font-family: 'Inter', sans-serif; margin-bottom: 18px;
+    }
+    .math-row { display: flex; align-items: baseline; gap: 12px; margin-bottom: 10px; flex-wrap: wrap; }
+    .math-label { color: var(--gold-soft); font-size: 0.82rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.06em; min-width: 140px; }
+    .math-value { color: var(--ink); font-size: 1rem; line-height: 1.6; }
+    .math-value strong { color: var(--gold); }
+    .math-result { border-top: 1px solid rgba(212,165,55,0.28); padding-top: 10px; margin-top: 4px; }
+    .math-result .math-value { font-size: 1.1rem; font-weight: 700; color: var(--gold-soft); }
+
+    /* ── TIMELINE ── */
+    .timeline { position: relative; padding-left: 28px; }
+    .timeline::before { content: ''; position: absolute; left: 10px; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--gold), rgba(212,165,55,0.08)); }
+    .tl-item { position: relative; margin-bottom: 28px; }
+    .tl-dot { position: absolute; left: -24px; top: 4px; width: 14px; height: 14px; border-radius: 50%; background: var(--gold); border: 2px solid #0a0a2e; }
+    .tl-date { color: var(--gold-soft); font-size: 0.8rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.08em; margin-bottom: 4px; }
+    .tl-text { color: var(--ink-muted); line-height: 1.75; }
+    .tl-text strong { color: var(--ink); }
+
+    /* ── ESTHER / PARALLEL ── */
+    .parallel-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border-radius: 16px; overflow: hidden; border: 1px solid rgba(212,165,55,0.25); }
+    @media (max-width: 680px) { .parallel-grid { grid-template-columns: 1fr; } }
+    .parallel-col { padding: 26px 24px; }
+    .parallel-left { background: linear-gradient(160deg, rgba(10,20,8,0.92), rgba(4,12,20,0.95)); border-right: 1px solid rgba(212,165,55,0.2); }
+    .parallel-right { background: linear-gradient(160deg, rgba(4,8,28,0.92), rgba(2,6,22,0.95)); }
+    @media (max-width: 680px) { .parallel-left { border-right: none; border-bottom: 1px solid rgba(212,165,55,0.2); } }
+    .parallel-col h3 { font-family: 'Crimson Text', serif; font-size: 1.2rem; color: var(--gold-soft); margin-bottom: 16px; display: flex; align-items: center; gap: 8px; }
+    .parallel-item { display: flex; gap: 10px; margin-bottom: 14px; }
+    .pi-num { width: 24px; height: 24px; border-radius: 50%; background: rgba(212,165,55,0.18); border: 1px solid rgba(212,165,55,0.35); color: var(--gold-soft); font-size: 0.76rem; font-weight: 700; flex-shrink: 0; display: flex; align-items: center; justify-content: center; }
+    .pi-text { color: var(--ink-muted); font-size: 0.93rem; line-height: 1.7; }
+    .pi-text strong { color: var(--ink); }
+
+    /* ── FAQ ── */
+    .faq-item { border-bottom: 1px solid rgba(212,165,55,0.12); margin-bottom: 0; }
+    .faq-q { width: 100%; text-align: left; padding: 18px 0; background: transparent; border: none; color: var(--ink); font-size: 1rem; font-weight: 600; cursor: pointer; display: flex; align-items: center; justify-content: space-between; gap: 12px; }
+    .faq-q:hover { color: var(--gold-soft); }
+    .faq-icon { color: var(--gold); font-size: 1.2rem; flex-shrink: 0; transition: transform 0.25s; }
+    .faq-a { max-height: 0; overflow: hidden; transition: max-height 0.35s ease; }
+    .faq-a.open { max-height: 500px; }
+    .faq-inner { padding: 0 0 18px; color: var(--ink-muted); line-height: 1.85; font-size: 0.95rem; }
+    .faq-inner p { margin-bottom: 10px; }
+    .faq-inner strong { color: var(--ink); }
+
+    /* ── SHARE ── */
+    .share-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px, 1fr)); gap: 10px; }
+    .share-btn {
+      display: flex; align-items: center; justify-content: center; gap: 8px; padding: 13px;
+      border-radius: 10px; font-weight: 700; font-size: 0.88rem;
+      background: linear-gradient(180deg, rgba(20,28,62,0.9), rgba(10,16,44,0.9));
+      border: 1px solid rgba(255,255,255,0.08); color: var(--ink); cursor: pointer; transition: all 0.2s;
+      text-decoration: none;
+    }
+    .share-btn:hover { border-color: rgba(212,165,55,0.4); transform: translateY(-2px); text-decoration: none; }
+    .print-btn { background: linear-gradient(180deg, rgba(212,165,55,0.14), rgba(212,165,55,0.08)); border-color: rgba(212,165,55,0.3); color: var(--gold-soft); }
+
+    /* ── LIGHTBOX ── */
+    .lightbox { position: fixed; inset: 0; z-index: 9000; background: rgba(2,5,20,0.94); backdrop-filter: blur(10px); display: none; align-items: center; justify-content: center; padding: 20px; }
+    .lightbox.open { display: flex; }
+    .lightbox-inner { position: relative; max-width: min(1200px, 95vw); max-height: 90vh; }
+    .lightbox-inner img { max-width: 100%; max-height: 88vh; object-fit: contain; border-radius: 12px; box-shadow: 0 40px 100px rgba(0,0,0,0.6); }
+    .lb-close { position: absolute; top: -14px; right: -14px; width: 40px; height: 40px; border-radius: 999px; background: var(--gold); color: #111; font-weight: 900; font-size: 1.1rem; border: none; cursor: pointer; display: flex; align-items: center; justify-content: center; }
+    .lb-caption { text-align: center; color: var(--ink-muted); font-size: 0.84rem; margin-top: 10px; }
+
+    /* ── FOOTER ── */
+    .site-footer { background: #050518; border-top: 1px solid rgba(180,130,50,0.2); }
+    .footer-banner { text-align: center; padding: 32px 22px 28px; border-bottom: 1px solid rgba(212,165,55,0.12); }
+    .footer-banner p { font-family: 'Crimson Text', serif; font-size: 1.1rem; font-style: italic; color: rgba(254,243,199,0.8); max-width: 700px; margin: 0 auto 8px; }
+    .footer-banner cite { font-size: 0.85rem; color: var(--gold-soft); font-weight: 700; font-style: normal; }
+    .footer-main { max-width: 1200px; margin: 0 auto; padding: 40px 22px; display: grid; grid-template-columns: 1.4fr 1fr 1fr 1fr; gap: 32px; }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+    .footer-col p { color: #6b7280; font-size: 0.9rem; line-height: 1.75; }
+    .footer-col ul { list-style: none; padding: 0; margin: 0; display: grid; gap: 9px; }
+    .footer-col ul a { color: #9ca3af; text-decoration: none; font-size: 0.9rem; transition: color 0.18s; }
+    .footer-col ul a:hover { color: var(--gold-soft); }
+    .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 14px; }
+    .footer-brand-name span { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: #fff; }
+    .footer-brand-name span em { color: var(--gold); font-style: normal; }
+    .footer-bottom { border-top: 1px solid rgba(212,165,55,0.1); padding: 20px 22px; text-align: center; display: flex; flex-wrap: wrap; align-items: center; justify-content: space-between; gap: 12px; }
+    .footer-bottom p { color: #6b7280; font-size: 0.85rem; }
+    .footer-flags { display: flex; gap: 4px; }
+    .flag-r { width: 24px; height: 12px; background: #b91c1c; border-radius: 2px 0 0 2px; }
+    .flag-w { width: 24px; height: 12px; background: #e5e7eb; }
+    .flag-b { width: 24px; height: 12px; background: #1d4ed8; border-radius: 0 2px 2px 0; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, transparent, var(--gold), transparent); }
+
+    /* ── BACK TO TOP ── */
+    .btt { position: fixed; bottom: 24px; right: 24px; width: 44px; height: 44px; border-radius: 10px; background: rgba(212,165,55,0.16); border: 1px solid rgba(212,165,55,0.38); color: var(--gold-soft); cursor: pointer; display: none; align-items: center; justify-content: center; z-index: 99; transition: all 0.2s; }
+    .btt.visible { display: flex; }
+    .btt:hover { background: rgba(212,165,55,0.3); }
+
+    /* ── RESPONSIVE ── */
+    @media (max-width: 1024px) { .footer-main { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 768px) { .nav-link { display: none; } .menu-btn { display: inline-flex; } }
+    @media (max-width: 640px) { .footer-main { grid-template-columns: 1fr; } }
+
+    @media print {
+      .nav, .translate-bar, .hero-nav-btns, .share-section, .btt, .mobile-nav { display: none !important; }
+      body { background: white; color: black; }
+    }
+  </style>
+</head>
+<body>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" role="dialog" aria-modal="true" aria-label="Chart full view">
+  <div class="lightbox-inner">
+    <button class="lb-close" onclick="closeLightbox()" aria-label="Close">&#10005;</button>
+    <img src="" id="lb-img" alt="Prophetic chart full view" />
+    <p class="lb-caption" id="lb-caption"></p>
+  </div>
+</div>
+
+<!-- TRANSLATE BAR -->
+<div class="translate-bar">
+  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M2 12h20M12 2a15.3 15.3 0 0 1 4 10 15.3 15.3 0 0 1-4 10 15.3 15.3 0 0 1-4-10 15.3 15.3 0 0 1 4-10z"/></svg>
+  Translate:
+  <div id="google_translate_element"></div>
+</div>
+
+<!-- NAV -->
+<SiteNav />
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-orb1"></div>
+  <div class="hero-orb2"></div>
+  <div class="hero-stripe"></div>
+  <div class="hero-content">
+    <div class="hero-badge">
+      <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+      The Prophetic Charts &mdash; 1843 &amp; 1850
+    </div>
+    <h1 class="serif">Written in <span class="gold">Vision</span>,<br>Proven in Time</h1>
+    <p class="hero-sub">The charts God commanded to be made plain &mdash; and their perfect fulfillment</p>
+    <div class="habakkuk-hero">
+      &ldquo;Write the vision, and make it plain upon tables, that he may run that readeth it. For the vision is yet for an appointed time, but at the end it shall speak, and not lie: though it tarry, wait for it; because it will surely come, it will not tarry.&rdquo;
+      <cite>&mdash; Habakkuk 2:2&ndash;3 (KJV)</cite>
+    </div>
+    <div class="hero-nav-btns">
+      <a href="#charts-gallery" class="hnb hnb-gold">View the Charts &darr;</a>
+      <a href="#dates-correct" class="hnb hnb-outline">Oct. 22, 1844 Explained</a>
+      <a href="#the-math" class="hnb hnb-outline">Show Me the Math</a>
+      <a href="#golden-scepter" class="hnb hnb-outline">The Golden Scepter</a>
+    </div>
+  </div>
+</header>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 1 — HABAKKUK'S COMMAND
+═══════════════════════════════════════════════════════════ -->
+<section id="habakkuk" class="section section-dark">
+  <div class="stripe-top"></div>
+  <div class="section-inner section-narrow">
+    <div class="sh">
+      <div class="sh-eyebrow">Habakkuk 2:2&ndash;3</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">God Commanded the <span class="gold">Vision to Be Made Plain</span></h2>
+      <p>Nearly 2,500 years before the Advent movement, God told Habakkuk to write the vision on tables so that everyone who reads it could run with it. The Adventist prophetic charts of 1843 and 1850 were the direct fulfillment of this command.</p>
+    </div>
+
+    <div class="scripture">
+      <p class="serif">&ldquo;And the LORD answered me, and said, Write the vision, and make it plain upon tables, that he may run that readeth it. For the vision is yet for an appointed time, but at the end it shall speak, and not lie: though it tarry, wait for it; because it will surely come, it will not tarry.&rdquo;</p>
+      <cite>&mdash; Habakkuk 2:2&ndash;3 (KJV)</cite>
+    </div>
+
+    <div class="grid-2" style="margin-top:28px;">
+      <div>
+        <div class="gold-block">
+          <h3>Ellen White on the Charts and Habakkuk</h3>
+          <p>&ldquo;I saw that the 1843 chart was directed by the hand of the Lord, and that it should not be altered; that the figures were as He wanted them; that His hand was over and hid a mistake in some of the figures, so that none could see it, until His hand was removed.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Early Writings</em>, p. 74 (1882)</cite>
+        </div>
+        <div class="gold-block">
+          <p>&ldquo;I have seen that the 1843 chart was directed by the Lord, and that it fulfilled the command of Habakkuk: Write the vision, and make it plain upon tables.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Life Sketches</em></cite>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--ink-muted);line-height:1.9;margin-bottom:18px;">
+          The Millerite preachers &mdash; William Miller, Charles Fitch, Joshua Himes, Josiah Litch &mdash; used these large visual charts in tent meetings across America and Britain, proclaiming the First Angel's Message: <em>&ldquo;Fear God, and give glory to him; for the hour of his judgment is come.&rdquo;</em> (Revelation 14:7)
+        </p>
+        <p style="color:var(--ink-muted);line-height:1.9;margin-bottom:18px;">
+          The charts made the complex prophecies of Daniel and Revelation visible at a glance. They mapped out the 2,300-day prophecy, the 70 weeks, the 1260/1290/1335-day periods, and pointed with mathematical precision to a date in the mid-1840s.
+        </p>
+        <p style="color:var(--ink-muted);line-height:1.9;">
+          The vision has spoken. It did not lie. It will be made plain in every language and to every nation before Christ returns.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 2 — THE THREE CHARTS
+═══════════════════════════════════════════════════════════ -->
+<section id="charts-gallery" class="section section-warm">
+  <div class="stripe-top"></div>
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">God&rsquo;s Prophetic Blueprint</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">The Three <span class="gold">Prophetic Charts</span></h2>
+      <p>Three charts produced by the Advent pioneers &mdash; two pinpointing the time of judgment, one proclaiming the law of God that is the standard of that judgment. Click any chart to enlarge it. Download the PDFs for full print quality.</p>
+    </div>
+
+    <div class="chart-grid">
+
+      <!-- CHART 1: 1843 -->
+      <div class="chart-card">
+        <div class="chart-img-wrap" onclick="openLightbox('/images/pioneers/1843-prophecy-chart.jpg','The 1843 Millerite Adventist Prophetic Chart &mdash; Daniel &amp; Revelation')">
+          <img src="/images/pioneers/1843-prophecy-chart.jpg" alt="The 1843 Millerite Adventist Prophetic Chart" loading="lazy" />
+          <div class="chart-img-label">&#128269; Click to enlarge</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-eyebrow">1843 &mdash; Fitch &amp; Hale</div>
+          <h3>The 1843 Prophetic Chart</h3>
+          <p>Produced by Charles Fitch and Apollos Hale, this chart mapped the 2,300-day prophecy of Daniel 8:14 and the complete prophetic timeline of Daniel and Revelation. William Miller used this chart in preaching to hundreds of thousands across America.</p>
+          <div class="chart-btns">
+            <a href="/books/1843-prophecy-chart/1843-chart.pdf" target="_blank" rel="noopener" class="btn-sm btn-sm-gold">&#8659; Download PDF</a>
+            <a href="/pioneers/1843-prophecy-chart" class="btn-sm btn-sm-outline">Full Page &rarr;</a>
+            <a href="/books/1843-prophecy-chart/1843_Chart_Key_of_Explaination.pdf" target="_blank" rel="noopener" class="btn-sm btn-sm-outline">Chart Key</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 2: 1850 SANCTUARY -->
+      <div class="chart-card">
+        <div class="chart-img-wrap" onclick="openLightbox('/images/pioneers/1850-prophecy-chart.jpg','The 1850 Adventist Prophetic Chart &mdash; Sanctuary, Sabbath &amp; Three Angels')">
+          <img src="/images/pioneers/1850-prophecy-chart.jpg" alt="The 1850 Adventist Prophetic Chart — Sanctuary and Three Angels" loading="lazy" />
+          <div class="chart-img-label">&#128269; Click to enlarge</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-eyebrow">1850 &mdash; Otis Nichols</div>
+          <h3>The 1850 Sanctuary Chart</h3>
+          <p>After the Great Disappointment, the Adventist pioneers produced this revised chart showing the heavenly sanctuary, the seventh-day Sabbath, the Seal of God, the Three Angels' Messages, and the truth about October 22, 1844.</p>
+          <div class="chart-btns">
+            <a href="/books/1850-prophecy-chart/1850-chart.pdf" target="_blank" rel="noopener" class="btn-sm btn-sm-gold">&#8659; Download PDF</a>
+            <a href="/pioneers/1850-prophecy-chart" class="btn-sm btn-sm-outline">Full Page &rarr;</a>
+            <a href="/books/1850-prophecy-chart/1850_Chart_Key_of_Explanation.pdf" target="_blank" rel="noopener" class="btn-sm btn-sm-outline">Chart Key</a>
+          </div>
+        </div>
+      </div>
+
+      <!-- CHART 3: 1850 LAW OF GOD -->
+      <div class="chart-card card-featured">
+        <div class="chart-img-wrap" onclick="openLightbox('/images/pioneers/james-white.jpg','James White presenting the 1850 Law of God Chart &mdash; God\'s Ten Commandments')">
+          <img src="/images/pioneers/james-white.jpg" alt="James White with the 1850 Law of God Chart — the Ten Commandments" loading="lazy" style="object-position: top;" />
+          <div class="chart-img-label">&#128269; James White &mdash; the Law of God Chart</div>
+        </div>
+        <div class="chart-body">
+          <div class="chart-eyebrow">1850 &mdash; James White</div>
+          <h3>The 1850 Law of God Chart</h3>
+          <p>The third chart in the series &mdash; God's Ten Commandments displayed in full, presenting the Sabbath of the fourth commandment as the Seal of the Living God against Rome's mark of authority. The standard of judgment at the end.</p>
+          <div class="chart-btns">
+            <a href="/books/1850-prophecy-chart/1850-Law-of-God-Perfect-11x17.pdf" target="_blank" rel="noopener" class="btn-sm btn-sm-gold">&#8659; Download PDF</a>
+            <a href="/pioneers/1850-law-of-god" class="btn-sm btn-sm-outline">Full Page &rarr;</a>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end chart-grid -->
+
+    <!-- Combined PDF download -->
+    <div style="text-align:center;margin-top:32px;">
+      <a href="/books/prophecy-charts/1843%20and%201850%20Charts.pdf" target="_blank" rel="noopener" class="hnb hnb-gold">&#8659; Download Both Charts Combined — PDF</a>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 3 — OCTOBER 22, 1844: DATES ARE CORRECT
+═══════════════════════════════════════════════════════════ -->
+<section id="dates-correct" class="section section-dark">
+  <div class="stripe-top"></div>
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">The Great Disappointment &mdash; Solved</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">October 22, 1844 &mdash; <span class="gold">Not the Wrong Date.<br>The Wrong Event.</span></h2>
+      <p>The Millerites expected Jesus to return visibly to the earth on October 22, 1844. He did not. This is called the Great Disappointment. But the dates of the prophecy were <em>perfectly correct</em> &mdash; it was the <em>event</em> that was misunderstood.</p>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="gold-block">
+          <h3>What Actually Happened on October 22, 1844</h3>
+          <p>&ldquo;At the end of the 2300 days, in 1844, our great High Priest entered the most holy place of the heavenly sanctuary, to perform the closing work of atonement preparatory to His coming.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>The Great Controversy</em>, p. 422</cite>
+        </div>
+        <div class="gold-block">
+          <p>&ldquo;As Jesus moved out of the most holy place, I heard the tinkling of the bells upon His garment; and as He left, a cloud of darkness covered the inhabitants of the earth. There was then no mediator between guilty man and an offended God.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>Early Writings</em>, p. 280</cite>
+        </div>
+        <div class="gold-block">
+          <p>&ldquo;In 1844, at the close of the prophetic period of 2300 days, Christ entered upon the closing work of His ministry. He then began His ministration in the second apartment of the heavenly sanctuary, in the presence of God, to make atonement for all who are shown to be entitled to its benefit.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, <em>The Great Controversy</em>, p. 421</cite>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--ink-muted);line-height:1.9;margin-bottom:20px;">
+          According to Hebrews 8-10, there is a heavenly sanctuary &mdash; the pattern of which Moses built. The earthly sanctuary had two compartments: the Holy Place and the Most Holy Place. On the Day of Atonement (Yom Kippur), the high priest moved from the Holy Place into the Most Holy Place to perform the final work of atonement for Israel.
+        </p>
+        <p style="color:var(--ink-muted);line-height:1.9;margin-bottom:20px;">
+          Jesus, our High Priest, had been ministering in the Holy Place of the heavenly sanctuary since His ascension in 31 AD. On October 22, 1844, exactly as Daniel 8:14 predicted, He moved into the Most Holy Place &mdash; into the very presence of God, before the Ark of the Covenant containing the Ten Commandments &mdash; to begin the final work of atonement.
+        </p>
+
+        <div style="border-radius:14px;padding:20px 22px;background:linear-gradient(135deg,rgba(20,10,40,0.92),rgba(4,10,28,0.92));border:1px solid rgba(160,100,220,0.28);margin-bottom:18px;">
+          <p style="color:var(--ink);font-family:'Crimson Text',serif;font-style:italic;font-size:1.1rem;line-height:1.85;margin-bottom:10px;">&ldquo;Unto two thousand and three hundred days; then shall the sanctuary be cleansed.&rdquo;</p>
+          <cite style="color:var(--gold-soft);font-size:0.84rem;font-weight:700;font-style:normal;">&mdash; Daniel 8:14 (KJV)</cite>
+        </div>
+
+        <div style="border-radius:14px;padding:20px 22px;background:linear-gradient(135deg,rgba(20,10,40,0.92),rgba(4,10,28,0.92));border:1px solid rgba(160,100,220,0.28);">
+          <p style="color:var(--ink);font-family:'Crimson Text',serif;font-style:italic;font-size:1.1rem;line-height:1.85;margin-bottom:10px;">&ldquo;Now of the things which we have spoken this is the sum: We have such an high priest, who is set on the right hand of the throne of the Majesty in the heavens; A minister of the sanctuary, and of the true tabernacle, which the Lord pitched, and not man.&rdquo;</p>
+          <cite style="color:var(--gold-soft);font-size:0.84rem;font-weight:700;font-style:normal;">&mdash; Hebrews 8:1&ndash;2 (KJV)</cite>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 4 — THE MATH: DAY-YEAR PRINCIPLE
+═══════════════════════════════════════════════════════════ -->
+<section id="the-math" class="section section-warm">
+  <div class="stripe-top"></div>
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">The Day-Year Principle</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">The Prophecy Math &mdash; <span class="gold">Step by Step</span></h2>
+      <p>Prophetic time in the Bible uses the Day-Year principle: one prophetic day equals one literal year. This is established in three clear Bible passages, and demonstrated in the precise fulfillment of the 2,300-day prophecy of Daniel 8:14.</p>
+    </div>
+
+    <!-- THREE DAY-YEAR VERSES -->
+    <div class="grid-3" style="margin-bottom:40px;">
+      <div class="scripture">
+        <p class="serif">&ldquo;After the number of the days in which ye searched the land, even forty days, <strong>each day for a year,</strong> shall ye bear your iniquities, even forty years.&rdquo;</p>
+        <cite>&mdash; Numbers 14:34 (KJV)</cite>
+      </div>
+      <div class="scripture">
+        <p class="serif">&ldquo;And when thou hast accomplished them, lie again on thy right side, and thou shalt bear the iniquity of the house of Judah forty days: <strong>I have appointed thee each day for a year.</strong>&rdquo;</p>
+        <cite>&mdash; Ezekiel 4:6 (KJV)</cite>
+      </div>
+      <div class="scripture">
+        <p class="serif">&ldquo;But, beloved, be not ignorant of this one thing, that <strong>one day is with the Lord as a thousand years, and a thousand years as one day.</strong>&rdquo;</p>
+        <cite>&mdash; 2 Peter 3:8 (KJV)</cite>
+      </div>
+    </div>
+
+    <!-- THE YEAR 0 EXPLANATION -->
+    <div class="gold-block" style="margin-bottom:32px;">
+      <h3>Understanding the &ldquo;Year 0&rdquo; Correction</h3>
+      <p>The Julian calendar <strong>has no year zero</strong>. The calendar goes directly from 1&nbsp;BC to 1&nbsp;AD. This is not an error &mdash; it is how historians have always counted. However, when calculating across the BC/AD boundary, we must account for this:
+      <br><br>
+      From 1&nbsp;BC to 1&nbsp;AD counts as 1 year, not 2 years. Therefore, when calculating 2,300 years from 457&nbsp;BC, the calculation is: <strong>457 + 1843 = 2,300</strong>, landing precisely in autumn of 1844&nbsp;AD.
+      <br><br>
+      Some have said the charts were wrong because &ldquo;457&nbsp;BC + 2300 = 1843.&rdquo; But when you correctly account for the missing year zero, the math lands exactly in <strong>autumn 1844</strong> &mdash; specifically on the Day of Atonement (Yom Kippur), October 22, 1844.
+      </p>
+    </div>
+
+    <!-- STEP BY STEP 2300 DAY PROPHECY -->
+    <h3 style="font-family:'Crimson Text',serif;font-size:1.6rem;color:var(--gold-soft);margin-bottom:24px;text-align:center;">The 2,300-Day Prophecy &mdash; Complete Calculation</h3>
+
+    <div class="grid-2" style="margin-bottom:32px;">
+      <div>
+        <div class="math-box">
+          <div class="math-row">
+            <span class="math-label">Starting Point:</span>
+            <span class="math-value"><strong>457 BC</strong> &mdash; Decree of Artaxerxes I (Ezra 7:12&ndash;26) to restore and rebuild Jerusalem</span>
+          </div>
+          <div class="math-row">
+            <span class="math-label">Prophetic Period:</span>
+            <span class="math-value"><strong>2,300 prophetic days</strong> = 2,300 literal years (day-year principle)</span>
+          </div>
+          <div class="math-row">
+            <span class="math-label">BC years counted:</span>
+            <span class="math-value">457&nbsp;BC &rarr; 1&nbsp;AD = <strong>457 years</strong> (no year zero)</span>
+          </div>
+          <div class="math-row">
+            <span class="math-label">AD years counted:</span>
+            <span class="math-value">1&nbsp;AD &rarr; 1844&nbsp;AD = <strong>1,843 years</strong></span>
+          </div>
+          <div class="math-row math-result">
+            <span class="math-label">Total:</span>
+            <span class="math-value">457 + 1,843 = <strong>2,300 years &#10003;</strong></span>
+          </div>
+        </div>
+        <p style="color:var(--ink-muted);line-height:1.8;font-size:0.92rem;margin-top:8px;">The decree of Artaxerxes was given in the autumn of 457&nbsp;BC. Counting 2,300 years forward brings us precisely to autumn of 1844&nbsp;AD &mdash; the season of Yom Kippur, when the High Priest entered the Most Holy Place.</p>
+      </div>
+      <div>
+        <div class="timeline">
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">457 BC</div>
+            <div class="tl-text"><strong>Artaxerxes&rsquo; Decree</strong> (Ezra 7) &mdash; The 2,300 days + 70 weeks begin. Jerusalem to be restored and rebuilt.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">27 AD (483 years later)</div>
+            <div class="tl-text"><strong>Baptism of Jesus</strong> &mdash; The Messiah anointed. 69 weeks (483 years) of the 70-week prophecy fulfilled. (457 + 26 = 483 &#10003;)</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">31 AD (in the middle of the 70th week)</div>
+            <div class="tl-text"><strong>Crucifixion of Christ</strong> &mdash; &ldquo;He shall cause the sacrifice and oblation to cease&rdquo; (Daniel 9:27). The earthly sanctuary types met their antitype.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">34 AD (490 years / 70 weeks fulfilled)</div>
+            <div class="tl-text"><strong>Stoning of Stephen</strong> &mdash; The gospel formally extended to the Gentiles. The 70 weeks cut off from the 2,300 days are complete.</div>
+          </div>
+          <div class="tl-item">
+            <div class="tl-dot"></div>
+            <div class="tl-date">1844 AD (2,300 years complete)</div>
+            <div class="tl-text"><strong>Jesus enters the Most Holy Place</strong> &mdash; October 22, 1844. The heavenly sanctuary begins to be cleansed. The investigative judgment begins. The Third Angel&rsquo;s Message given to the world.</div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <p style="color:var(--ink-muted);line-height:1.85;max-width:860px;margin:0 auto;text-align:center;">
+      The 70 weeks (490 years) are &ldquo;cut off&rdquo; (Hebrew: <em>chathak</em>) from the 2,300 days &mdash; taken from the beginning of the period. They cover 457&nbsp;BC to 34&nbsp;AD and contain the exact year of Christ&rsquo;s baptism and the exact year of His crucifixion. This double fulfillment with perfect mathematical precision is God&rsquo;s seal of approval on this prophecy.
+    </p>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 5 — HOSEA 6:2 AND THE 2,000 YEARS
+═══════════════════════════════════════════════════════════ -->
+<section id="hosea" class="section section-dark">
+  <div class="stripe-top"></div>
+  <div class="section-inner section-narrow">
+    <div class="sh">
+      <div class="sh-eyebrow">Hosea 6:1&ndash;3</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">After Two Days &mdash; <span class="gold">He Will Revive Us</span></h2>
+      <p>One of the most remarkable time prophecies in all of Scripture. Hosea 6:2 points to 2,000 years after the death and resurrection of Christ &mdash; the time when God&rsquo;s people will live in His sight.</p>
+    </div>
+
+    <div class="scripture" style="margin-bottom:28px;">
+      <p class="serif">&ldquo;Come, and let us return unto the LORD: for he hath torn, and he will heal us; he hath smitten, and he will bind us up. <strong>After two days will he revive us: in the third day he will raise us up, and we shall live in his sight.</strong> Then shall we know, if we follow on to know the LORD: his going forth is prepared as the morning; and he shall come unto us as the rain, as the latter and former rain unto the earth.&rdquo;</p>
+      <cite>&mdash; Hosea 6:1&ndash;3 (KJV)</cite>
+    </div>
+
+    <div class="grid-2">
+      <div>
+        <div class="gold-block">
+          <h3>The Three Time Markers</h3>
+          <p>Using the prophetic scale of 2 Peter 3:8 &mdash; <em>&ldquo;one day is with the Lord as a thousand years&rdquo;</em> &mdash; the three phases of Hosea 6:2 map out:</p>
+        </div>
+        <div class="math-box">
+          <div class="math-row">
+            <span class="math-label">Christ died:</span>
+            <span class="math-value"><strong>31 AD</strong> &mdash; He was &ldquo;smitten&rdquo; for our iniquities</span>
+          </div>
+          <div class="math-row">
+            <span class="math-label">&ldquo;After two days&rdquo;</span>
+            <span class="math-value">2 days &times; 1,000 years/day = <strong>2,000 years</strong></span>
+          </div>
+          <div class="math-row">
+            <span class="math-label">31 AD + 2,000 years =</span>
+            <span class="math-value"><strong>~2031 AD</strong> &mdash; &ldquo;He will revive us&rdquo;</span>
+          </div>
+          <div class="math-row math-result">
+            <span class="math-label">&ldquo;Third day&rdquo;</span>
+            <span class="math-value">The Millennium &mdash; we shall <strong>live in His sight</strong></span>
+          </div>
+        </div>
+        <p style="color:var(--ink-muted);line-height:1.8;font-size:0.9rem;margin-top:12px;">
+          We are living in the final moments before the close of the second prophetic &ldquo;day.&rdquo; The return of Christ is imminent. The Third Angel&rsquo;s Message is going to the world. The sealing of the 144,000 is in progress.
+        </p>
+      </div>
+      <div>
+        <div class="scripture">
+          <p class="serif">&ldquo;But, beloved, be not ignorant of this one thing, that one day is with the Lord as a thousand years, and a thousand years as one day.&rdquo;</p>
+          <cite>&mdash; 2 Peter 3:8 (KJV)</cite>
+        </div>
+        <div class="scripture">
+          <p class="serif">&ldquo;For a thousand years in thy sight are but as yesterday when it is past, and as a watch in the night.&rdquo;</p>
+          <cite>&mdash; Psalm 90:4 (KJV)</cite>
+        </div>
+        <div class="scripture">
+          <p class="serif">&ldquo;And after three days I will rise again.&rdquo; (Matthew 27:63) &mdash; Christ rose on the literal third day, and He will raise us on the prophetic third day. The pattern of His resurrection becomes the pattern of ours.</p>
+          <cite>&mdash; Matthew 27:63 (KJV)</cite>
+        </div>
+        <p style="color:var(--ink-muted);line-height:1.8;font-size:0.9rem;margin-top:12px;">
+          The latter rain is falling. The invitation is going out: &ldquo;Come, and let us return unto the LORD.&rdquo; He is coming &ldquo;as the rain, as the latter and former rain unto the earth.&rdquo; Hosea 6:3.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 6 — QUEEN ESTHER AND THE GOLDEN SCEPTER
+═══════════════════════════════════════════════════════════ -->
+<section id="golden-scepter" class="section section-warm">
+  <div class="stripe-top"></div>
+  <div class="section-inner">
+    <div class="sh">
+      <div class="sh-eyebrow">Esther 4&ndash;5 &mdash; The Royal Parallel</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">Queen Esther and the <span class="gold">Golden Scepter</span></h2>
+      <p>The story of Queen Esther is one of the most beautiful prophetic pictures in all of Scripture. It mirrors exactly the experience of God&rsquo;s people in the last days &mdash; in the court of the heavenly King, with Jesus Christ as the Golden Scepter extended to all who approach in faith.</p>
+    </div>
+
+    <div class="grid-2" style="margin-bottom:36px;">
+      <div>
+        <div class="scripture">
+          <p class="serif">&ldquo;Go, gather together all the Jews that are present in Shushan, and fast ye for me, and neither eat nor drink <strong>three days, night or day:</strong> I also and my maidens will fast likewise; and so will I go in unto the king, which is not according to the law: and if I perish, I perish.&rdquo;</p>
+          <cite>&mdash; Esther 4:16 (KJV)</cite>
+        </div>
+        <div class="scripture">
+          <p class="serif">&ldquo;Now it came to pass <strong>on the third day,</strong> that Esther put on her royal apparel, and stood in the inner court of the king&rsquo;s house&hellip; and the king held out to Esther <strong>the golden sceptre</strong> that was in his hand. So Esther drew near, <strong>and touched the top of the sceptre.</strong>&rdquo;</p>
+          <cite>&mdash; Esther 5:1&ndash;2 (KJV)</cite>
+        </div>
+      </div>
+      <div>
+        <p style="color:var(--ink-muted);line-height:1.9;margin-bottom:16px;">
+          After two full days of fasting&hellip; on the third day, Queen Esther put on her royal robes and entered the inner court before the king. The approach was forbidden by law &mdash; death was the sentence for any who entered without being summoned. But the king <em>extended the golden scepter</em> to her. She touched its top. And <strong>she lived in the king&rsquo;s sight.</strong>
+        </p>
+        <div class="gold-block">
+          <h3>What Does This Mean for Us?</h3>
+          <p>Esther fasted and prayed in total dependence and faith. She did not rely on her own righteousness. She put on royal apparel &mdash; clothed in dignity, not in her own righteousness</div>
+        </div>
+      </div>
+    </div>
+
+    <div class="parallel-grid">
+      <div class="parallel-col parallel-left">
+        <h3><span>&#128212;</span> Queen Esther&rsquo;s Story</h3>
+        <div class="parallel-item">
+          <div class="pi-num">1</div>
+          <div class="pi-text">The people of God are under a <strong>death sentence</strong> &mdash; Haman&rsquo;s decree (Esther 3:13)</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">2</div>
+          <div class="pi-text">Esther <strong>fasts two days</strong>, submitting entirely in faith and prayer, with no confidence in self</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">3</div>
+          <div class="pi-text">On <strong>the third day</strong> she puts on royal apparel &mdash; clothed in dignity, not in her own righteousness</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">4</div>
+          <div class="pi-text">The king extends <strong>the golden scepter</strong> &mdash; the symbol of grace and acceptance and life</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">5</div>
+          <div class="pi-text">Esther <strong>drew near and touched</strong> the top of the scepter &mdash; an act of faith and surrender</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">6</div>
+          <div class="pi-text">She <strong>lived in the king&rsquo;s sight,</strong> and the death sentence against God&rsquo;s people was reversed</div>
+        </div>
+      </div>
+      <div class="parallel-col parallel-right">
+        <h3><span>&#10024;</span> The Last-Day Fulfillment</h3>
+        <div class="parallel-item">
+          <div class="pi-num">1</div>
+          <div class="pi-text">Every soul is under <strong>the sentence of death</strong> for sin &mdash; Romans 6:23, Revelation 13&rsquo;s death decree</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">2</div>
+          <div class="pi-text">After <strong>two prophetic days</strong> (2,000 years), Hosea 6:2 says &ldquo;He will revive us&rdquo; &mdash; the time of revival is now</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">3</div>
+          <div class="pi-text">On the <strong>third day</strong> (the Millennium) we will stand before the King, clothed in <strong>Christ&rsquo;s righteousness</strong></div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">4</div>
+          <div class="pi-text"><strong>Jesus Christ is the Golden Scepter</strong> &mdash; God&rsquo;s grace extended to every human soul. He is our Mediator before the Father.</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">5</div>
+          <div class="pi-text">We <strong>reach out and touch the scepter</strong> by claiming and believing His Word &mdash; total dependence on Christ alone, nothing of ourselves</div>
+        </div>
+        <div class="parallel-item">
+          <div class="pi-num">6</div>
+          <div class="pi-text">We shall <strong>live in His sight</strong> &mdash; Hosea 6:2. The Second Death has no power over those who overcome by the blood of the Lamb and the word of their testimony (Rev. 20:6; 12:11)</div>
+        </div>
+      </div>
+    </div>
+
+    <div style="margin-top:36px;">
+      <div class="scripture" style="max-width:760px;margin:0 auto;">
+        <p class="serif">&ldquo;And they overcame him by <strong>the blood of the Lamb,</strong> and by the word of their testimony; and they loved not their lives unto the death.&rdquo;</p>
+        <cite>&mdash; Revelation 12:11 (KJV) &mdash; This is what it means to touch the golden scepter: complete reliance on the Word of God and total faith in the blood of Jesus.</cite>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 7 — SHARE / PRINT / DOWNLOAD
+═══════════════════════════════════════════════════════════ -->
+<section class="share-section section section-navy">
+  <div class="stripe-top"></div>
+  <div class="section-inner section-narrow">
+    <div class="sh">
+      <div class="sh-eyebrow">Spread the Vision</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">&ldquo;Write the Vision, and <span class="gold">Make It Plain</span>&rdquo;</h2>
+      <p>Habakkuk 2:2 &mdash; Share this page, download the charts, print the prophecy. God commanded His vision to run until everyone can read it.</p>
+    </div>
+
+    <div class="share-grid" style="max-width:700px;margin:0 auto 24px;">
+      <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsundaylaw.com%2Fprophecy-charts" target="_blank" rel="noopener noreferrer" class="share-btn" style="border-color:rgba(59,130,246,0.3);color:#93c5fd;">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/></svg>
+        Facebook
+      </a>
+      <a href="https://twitter.com/intent/tweet?text=The+Prophetic+Charts+of+1843+%26+1850+%E2%80%94+Written+in+Vision%2C+Proven+in+Time.+Habakkuk+2:2-3&url=https%3A%2F%2Fsundaylaw.com%2Fprophecy-charts" target="_blank" rel="noopener noreferrer" class="share-btn" style="border-color:rgba(29,161,242,0.3);color:#7dd3fc;">
+        <svg width="18" height="18" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-4.714-6.231-5.401 6.231H2.744l7.737-8.835L1.254 2.25H8.08l4.253 5.622L18.244 2.25zm-1.161 17.52h1.833L7.084 4.126H5.117L17.083 19.77z"/></svg>
+        X / Twitter
+      </a>
+      <button onclick="window.print()" class="share-btn print-btn">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><polyline points="6 9 6 2 18 2 18 9"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="8"/></svg>
+        Print Page
+      </button>
+      <a href="/books/prophecy-charts/1843%20and%201850%20Charts.pdf" target="_blank" download class="share-btn" style="border-color:rgba(212,165,55,0.3);color:var(--gold-soft);">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+        Download PDF
+      </a>
+      <button onclick="if(navigator.share){navigator.share({title:'The Prophetic Charts \u2014 1843 & 1850',url:window.location.href})}else{navigator.clipboard.writeText(window.location.href).then(()=>alert('Link copied!'))}" class="share-btn">
+        <svg width="18" height="18" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg>
+        Share Link
+      </button>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 8 — FAQ
+═══════════════════════════════════════════════════════════ -->
+<section id="faq" class="section section-dark">
+  <div class="stripe-top"></div>
+  <div class="section-inner section-narrow">
+    <div class="sh">
+      <div class="sh-eyebrow">Frequently Asked Questions</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">Questions About the <span class="gold">Prophetic Charts</span></h2>
+    </div>
+
+    <div id="faq-list">
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Were the dates on the 1843 chart wrong?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>No. The dates were perfectly correct. The 2,300-day prophecy of Daniel 8:14 runs from 457&nbsp;BC (the decree of Artaxerxes) to the autumn of 1844&nbsp;AD. The chart used 1843 because that was the Jewish sacred year (spring 1843 to spring 1844), but the actual end of the prophetic period fell in autumn 1844 &mdash; specifically on October 22, the Day of Atonement.</p>
+            <p>Ellen White wrote: <em>&ldquo;I saw that the 1843 chart was directed by the hand of the Lord, and that it should not be altered.&rdquo;</em> (Early Writings, p.74)</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Why didn&rsquo;t Jesus return visibly on October 22, 1844?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>The Millerites misunderstood which sanctuary was to be &ldquo;cleansed&rdquo; (Daniel 8:14). They expected the cleansing of the earthly church or the return of Christ to earth. But the prophecy referred to the <strong>heavenly sanctuary</strong> &mdash; specifically, Jesus moving from the Holy Place (where He had been interceding since His ascension) into the Most Holy Place (the second apartment) to begin the final work of atonement before His return.</p>
+            <p>The event was real and momentous &mdash; it just happened in heaven, not on earth. Hebrews 8:1-2 makes clear there is a true sanctuary in heaven that Jesus ministers in.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the significance of the Day of Atonement?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>In Israel&rsquo;s sanctuary service, Yom Kippur (the Day of Atonement) was the one day each year when the High Priest entered the Most Holy Place, before the Ark of the Covenant, to make final atonement for all of Israel. All Israel was required to <em>afflict their souls</em> (humble themselves, fast, search their hearts) on this day or be &ldquo;cut off&rdquo; from God&rsquo;s people.</p>
+            <p>This ceremony was a type pointing to Christ&rsquo;s final work in the heavenly sanctuary in the end times &mdash; the antitypical Day of Atonement that began on October 22, 1844, and continues until the close of probation.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What does Habakkuk 2:2&ndash;3 have to do with the charts?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>God commanded Habakkuk that the vision would be written on tables so plainly that everyone who reads it can run with it. The Adventist pioneers understood this to refer to the prophetic charts &mdash; literally large poster-sized visual diagrams displayed in public meetings that presented the timeline of prophecy so clearly that any person could understand it at a glance.</p>
+            <p>Ellen White specifically confirmed this connection: she saw that the charts were directed by the hand of the Lord and fulfilled the Habakkuk 2:2 command.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          What is the Third Angel&rsquo;s Message, and why does it connect to the charts?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>The Third Angel of Revelation 14:9-12 gives the most solemn warning in the Bible: those who worship the beast and receive his mark will receive the undiluted wrath of God and have no rest day or night. This message began with the opening of the Most Holy Place on October 22, 1844, and calls God&rsquo;s people to keep <em>&ldquo;the commandments of God and the faith of Jesus.&rdquo;</em></p>
+            <p>The charts connected the time prophecy (pointing to 1844) with the content of that message: the heavenly sanctuary truth, the seventh-day Sabbath (the 4th commandment, the Seal of God), and the warning against the mark of the beast.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How was the apostasy prophesied on the 1850 chart fulfilled?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>The 1850 Prophetic Chart warned that the final apostasy would be the formation of an "Image of the Papacy" — a Protestant church uniting with the state, copying Rome's structure, and enforcing religious authority through civil law. In 1904, under the presidency of <strong style="color:#fca5a5;"><a href="/april-15-1904-new-organization#signer-daniells" style="color:#fca5a5;text-decoration:underline;">Arthur G. Daniells</a></strong>, and in open defiance of the counsel of the Lord's messenger Ellen G. White, the General Conference leadership incorporated the church in Washington, D.C. as a civil corporation. The April 15, 1904 articles list the five signers who executed it: <a href="/pioneers/james-r-scott" style="color:#fcd34d;text-decoration:underline;">James R. Scott</a>, <a href="/pioneers/harvey-edson-rogers" style="color:#fcd34d;text-decoration:underline;">Harvey Edson Rogers</a>, <a href="/pioneers/daniel-k-nicola" style="color:#fcd34d;text-decoration:underline;">Daniel K. Nicola</a>, <a href="/april-15-1904-new-organization#signer-daniells" style="color:#fcd34d;text-decoration:underline;">Arthur G. Daniells</a>, and <a href="/pioneers/amos-p-needham" style="color:#fcd34d;text-decoration:underline;">Amos P. Needham</a>. <a href="/april-15-1904-new-organization#signers" style="color:#fcd34d;text-decoration:underline;">Meet the 5 Signers &rarr;</a></p>
+            <p>The "Image of the Papacy" is not a statue — it is a system: a church that wields state power, enforces its will by law, and repeats the union of church and state that marked the Dark Ages. The prophecy is fulfilled.</p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          How does the year-zero correction work exactly?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>The BC/AD calendar system was invented by Dionysius Exiguus in the 6th century. It has no year zero: the sequence is &hellip;3&nbsp;BC, 2&nbsp;BC, 1&nbsp;BC, 1&nbsp;AD, 2&nbsp;AD, 3&nbsp;AD&hellip;. This means crossing from BC to AD only counts as one year, not two.</p>
+            <p><strong>The calculation:</strong> From autumn 457&nbsp;BC to 1&nbsp;AD = 457 years. From 1&nbsp;AD to autumn 1844 = 1,843 years. Total = 457 + 1,843 = <strong>2,300 years exactly.</strong></p>
+            <p>This is mathematically precise and arrives in the autumnal season of 1844 &mdash; the exact time of Yom Kippur.<br>
+            <em>No correction needed. No fudging required. The prophecy lands exactly where God said it would.</em></p>
+          </div>
+        </div>
+      </div>
+
+      <div class="faq-item">
+        <button class="faq-q" onclick="toggleFaq(this)">
+          Can I download the original charts?
+          <span class="faq-icon">+</span>
+        </button>
+        <div class="faq-a">
+          <div class="faq-inner">
+            <p>Yes! Full PDF downloads are available on this page and on the individual chart pages. The PDFs include: the 1843 Prophetic Chart, the 1843 Chart Key of Explanation, the 1850 Prophetic Chart, the 1850 Chart Key of Explanation, the 1850 Law of God Chart (11&times;17 format), and the combined 1843 &amp; 1850 Charts PDF.</p>
+            <p>These are high-quality historic charts and documents. They may be freely shared, printed, and distributed for the glory of God.</p>
+          </div>
+        </div>
+      </div>
+
+    </div><!-- end faq-list -->
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     SECTION 9 — THE APOSTASY FULFILLED: THE IMAGE OF THE PAPACY
+═══════════════════════════════════════════════════════════ -->
+<section id="apostasy-fulfilled" class="section section-warm">
+  <div class="section-inner section-narrow">
+    <div class="sh">
+      <div class="sh-eyebrow">Apostasy Foretold, Apostasy Fulfilled</div>
+      <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+      <h2 class="serif">The Image of the Papacy —<br>Fulfilled in 1904</h2>
+    </div>
+    <div style="margin:38px 0 32px 0;text-align:center;">
+      <img src="/images/1904-image-of-papacy/habakkuk-2-2-3-1850-prophecy-chart-excerpt-image-of-the-papacy.jpg" alt="1850 Prophetic Chart — Image of the Papacy Excerpt" style="max-width:540px;width:100%;margin-left:auto;margin-right:auto;border-radius:14px;border:2px solid rgba(212,165,55,0.35);margin-bottom:18px;display:block;" loading="lazy" />
+      <div style="font-size:0.82rem;color:#fcd34d;font-weight:700;margin-bottom:18px;">1850 Prophetic Chart — "Image of the Papacy" Excerpt</div>
+      <img src="/images/sundaylaw/Babylon_Antichrist_GENERAL_CONFERENCE_OF_SEVENTH_DAY_ADVENTIST_1904_CORPORATE_STRUCTURE_new_organization_sda_new_changed_logo.jpg" alt="General Conference of Seventh-day Adventists 1904 Corporate Structure — Babylon Antichrist New Organization" style="max-width:900px;width:100%;margin-left:auto;margin-right:auto;border-radius:14px;border:2px solid rgba(220,38,38,0.35);margin-bottom:10px;display:block;box-shadow:0 8px 40px rgba(220,38,38,0.18);" loading="lazy" />
+      <div style="font-size:0.8rem;color:#fca5a5;font-weight:700;">General Conference Corporation of Seventh-day Adventists — April 15, 1904 — Washington, D.C.</div>
+      <a href="/april-15-1904-new-organization#signers" class="hnb hnb-gold" style="margin-top:18px;display:inline-block;">Meet the 5 Signers &rarr;</a>
+    </div>
+    <div style="background:rgba(212,165,55,0.07);border-left:4px solid #d4a537;border-radius:0 14px 14px 0;padding:22px 26px;margin-bottom:24px;">
+      <p style="font-size:1.07rem;color:rgba(254,243,199,0.93);line-height:1.85;margin:0 0 14px;">
+        The 1850 Prophetic Chart, created under divine direction, warned that the final apostasy would be the formation of an <strong style="color:#fcd34d;">Image of the Papacy</strong> — a Protestant church uniting with the state, copying Rome's structure, and enforcing religious authority through civil law. In 1904, under President <a href="/april-15-1904-new-organization#signer-daniells" style="color:#fcd34d;text-decoration:underline;">Arthur G. Daniells</a>, and in open defiance of the counsel of Ellen G. White, the General Conference leadership incorporated the church in Washington, D.C. as a civil corporation. The April 15, 1904 articles list the five signers who executed it: <a href="/pioneers/james-r-scott" style="color:#fcd34d;text-decoration:underline;">James R. Scott</a>, <a href="/pioneers/harvey-edson-rogers" style="color:#fcd34d;text-decoration:underline;">Harvey Edson Rogers</a>, <a href="/pioneers/daniel-k-nicola" style="color:#fcd34d;text-decoration:underline;">Daniel K. Nicola</a>, <a href="/april-15-1904-new-organization#signer-daniells" style="color:#fcd34d;text-decoration:underline;">Arthur G. Daniells</a>, and <a href="/pioneers/amos-p-needham" style="color:#fcd34d;text-decoration:underline;">Amos P. Needham</a>. <a href="/april-15-1904-new-organization#signers" style="color:#fcd34d;text-decoration:underline;">Meet the 5 Signers &rarr;</a></p>
+        <p style="font-size:1.02rem;color:rgba(254,243,199,0.88);line-height:1.8;margin:0;">
+          The "Image of the Papacy" is not a statue — it is a system: a church that wields state power, enforces its will by law, and repeats the union of church and state that marked the Dark Ages. The 1850 chart mapped the danger; the 1904 corporation made it reality. The prophecy is fulfilled — and the warning stands for all who will see.
+        </p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════════════════════════════════════════════════════
+     FOOTER
+═══════════════════════════════════════════════════════════ -->
+<footer class="site-footer">
+  <div class="footer-banner">
+    <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+    <cite>&mdash; Revelation 14:12 (KJV)</cite>
+  </div>
+  <div class="footer-main">
+    <div class="footer-col">
+      <div class="footer-brand-name">
+        <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        <span>Sunday<em>Law</em>.com</span>
+      </div>
+      <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+    </div>
+    <div class="footer-col">
+      <h4>The Charts</h4>
+      <ul>
+        <li><a href="/pioneers/1843-prophecy-chart">1843 Prophetic Chart</a></li>
+        <li><a href="/pioneers/1850-prophecy-chart">1850 Sanctuary Chart</a></li>
+        <li><a href="/pioneers/1850-law-of-god">1850 Law of God Chart</a></li>
+        <li><a href="#habakkuk">Habakkuk 2:2&ndash;3</a></li>
+        <li><a href="#dates-correct">Oct. 22, 1844 Explained</a></li>
+        <li><a href="#the-math">The Prophecy Math</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Resources</h4>
+      <ul>
+        <li><a href="/">SundayLaw.com Home</a></li>
+        <li><a href="/library">Pioneer Library</a></li>
+        <li><a href="/pioneers">Pioneer Biographies</a></li>
+        <li><a href="/religious-liberty">Religious Liberty</a></li>
+        <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+        <li><a href="/loud-cry">The Loud Cry</a></li>
+        <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+        <li><a href="/midnight-cry">1844 Midnight Cry Movie</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Connect</h4>
+      <ul>
+        <li><a href="/contact">Contact Us</a></li>
+        <li><a href="/contact">Prayer Request</a></li>
+        <li><a href="/contact">Newsletter</a></li>
+        <li><a href="/contact">Share Message</a></li>
+        <li><a href="/donate">Donate</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+    <div class="footer-flags">
+      <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+    </div>
+    <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+  </div>
+  <div class="footer-stripe"></div>
+</footer>
+
+<button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+  <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+</button>
+
+<script is:inline>
+  // Back to top
+  const btt = document.getElementById('btt');
+  window.addEventListener('scroll', () => {
+    if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+  }, { passive: true });
+
+  // Lightbox
+  function openLightbox(src, caption) {
+    const lb = document.getElementById('lightbox');
+    const img = document.getElementById('lb-img');
+    const cap = document.getElementById('lb-caption');
+    if (lb && img) {
+      img.src = src;
+      if (cap) cap.textContent = caption || '';
+      lb.classList.add('open');
+      document.body.style.overflow = 'hidden';
+    }
+  }
+  function closeLightbox() {
+    const lb = document.getElementById('lightbox');
+    if (lb) {
+      lb.classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+  document.getElementById('lightbox')?.addEventListener('click', (e) => {
+    if (e.target === e.currentTarget) closeLightbox();
+  });
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') closeLightbox();
+  });
+
+  // FAQ accordion
+  function toggleFaq(btn) {
+    const answer = btn.nextElementSibling;
+    const icon = btn.querySelector('.faq-icon');
+    const isOpen = answer.classList.contains('open');
+    // close all
+    document.querySelectorAll('.faq-a.open').forEach(a => {
+      a.classList.remove('open');
+      a.previousElementSibling.querySelector('.faq-icon').textContent = '+';
+    });
+    if (!isOpen) {
+      answer.classList.add('open');
+      if (icon) icon.textContent = '−';
+    }
+  }
+</script>
+<SiteFooter
+  scripture="Here are they that keep the commandments of God, and the faith of Jesus."
+  scriptureRef="Revelation 14:12 (KJV)"
+  pageLinks={[
+    { label: 'Prophecy Charts — 1843 & 1850', href: '/prophecy-charts' },
+    { label: '1843 Prophecy Chart', href: '/pioneers/1843-prophecy-chart' },
+    { label: '1850 Prophecy Chart', href: '/pioneers/1850-prophecy-chart' },
+    { label: 'Prophecy Explained', href: '/prophecy-explained' }
+  ]}
+/>
+<ShareBar />
+</body>
+</html>

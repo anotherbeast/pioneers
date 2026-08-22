@@ -1,0 +1,635 @@
+---
+import Analytics from '../../../components/Analytics.astro';
+import ShareBar from '../../../components/ShareBar.astro';
+import SiteSearch from '../../../components/SiteSearch.astro';
+import SiteFooter from '../../../components/SiteFooter.astro';
+import churchData from '../../../data/churches.json';
+
+export function getStaticPaths() {
+  return churchData.map(church => ({
+    params: { slug: church.slug },
+    props: { church },
+  }));
+}
+
+interface ChurchEntry {
+  slug: string;
+  name: string;
+  address?: string;
+  city?: string;
+  state?: string;
+  stateCode?: string;
+  country?: string;
+  zip?: string;
+  phone?: string;
+  website?: string;
+  facebook?: string;
+  instagram?: string;
+  twitter?: string;
+  youtube?: string;
+  latitude?: number | null;
+  longitude?: number | null;
+  pastor?: string;
+  conference?: string;
+  unionConference?: string;
+  division?: string;
+  ein?: string;
+  nteeCode?: string;
+  revenue?: number;
+  description?: string;
+  verified?: boolean;
+  source?: string;
+  lastUpdated?: string;
+}
+
+const { church } = Astro.props as { church: ChurchEntry };
+
+const fullAddress = [church.address, church.city, church.stateCode || church.state, church.zip, church.country !== 'USA' ? church.country : '']
+  .filter(Boolean).join(', ');
+
+const mapsQuery = church.latitude && church.longitude
+  ? `${church.latitude},${church.longitude}`
+  : encodeURIComponent(fullAddress || church.name);
+
+const breadcrumbState = church.stateCode || church.state || '';
+const canonicalUrl = `https://sundaylaw.com/apostasy/churches/${church.slug}`;
+
+// JSON-LD structured data for Google Maps / GPS discovery
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@type": "Church",
+  "name": church.name,
+  "url": canonicalUrl,
+  ...(church.address || church.city ? {
+    "address": {
+      "@type": "PostalAddress",
+      "streetAddress": church.address || undefined,
+      "addressLocality": church.city || undefined,
+      "addressRegion": church.stateCode || church.state || undefined,
+      "postalCode": church.zip || undefined,
+      "addressCountry": church.country || "US",
+    }
+  } : {}),
+  ...(church.phone ? { "telephone": church.phone } : {}),
+  ...(church.website ? { "sameAs": [church.website] } : {}),
+  ...(church.latitude && church.longitude ? {
+    "geo": {
+      "@type": "GeoCoordinates",
+      "latitude": church.latitude,
+      "longitude": church.longitude,
+    }
+  } : {}),
+  "parentOrganization": {
+    "@type": "Organization",
+    "name": "General Conference Corporation of Seventh-day Adventists",
+    "identifier": "EIN 52-0643036",
+  },
+};
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{church.name} — 501(c)(3) Church Profile | SundayLaw.com</title>
+    <meta name="description" content={`${church.name}${church.city ? ' in ' + church.city : ''}${church.stateCode ? ', ' + church.stateCode : ''} — corporate franchise operating under GC Group Exemption GEN 1071 (EIN 52-0643036). See EIN, address, phone, apostasy context, and corporate structure.`}>
+    <link rel="canonical" href={canonicalUrl}>
+    <meta property="og:type" content="article">
+    <meta property="og:title" content={`${church.name} — SDA Corporate Franchise Profile`}>
+    <meta property="og:description" content={`${church.name} operates under GC Group Exemption GEN 1071, parent EIN 52-0643036. The GC declared itself "truly Catholic" (1981). Understand the corporate structure before you attend.`}>
+    <meta property="og:url" content={canonicalUrl}>
+    <meta name="twitter:card" content="summary">
+    <meta name="robots" content="index, follow">
+    <!-- JSON-LD structured data for Google Maps GPS search -->
+    <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    {church.latitude && church.longitude && (
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" integrity="sha256-p4NxAoJBhIIN+hmNHrzRCf9tD/miZyoHS5obTRR9BMY=" crossorigin="">
+    )}
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239; --indigo: #4f46e5;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      /* ── NAV ── */
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.97); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; margin-right: 80px; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; margin-right: 80px; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.98); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      /* ── PAGE LAYOUT ── */
+      .page-wrap { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 20px; padding-top: 36px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .profile-grid { display: grid; grid-template-columns: 1fr 340px; gap: 36px; align-items: start; }
+      @media (max-width: 900px) { .profile-grid { grid-template-columns: 1fr; } }
+
+      /* ── MAIN COLUMN ── */
+      .profile-main {}
+
+      .church-photo { width: 100%; aspect-ratio: 16/7; border-radius: 14px; overflow: hidden; background: var(--bg-card); border: 1px solid var(--line-soft); margin-bottom: 30px; display: flex; align-items: center; justify-content: center; }
+      .church-photo img { width: 100%; height: 100%; object-fit: cover; }
+      .church-photo-placeholder { display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 10px; color: var(--ink-muted); font-size: 0.82rem; }
+      .church-photo-placeholder svg { width: 52px; height: 52px; opacity: 0.3; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(79,70,229,0.12); border: 1px solid rgba(79,70,229,0.35); color: #a5b4fc; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 14px; }
+      h1 { font-family: 'Crimson Text', serif; font-size: clamp(1.9rem, 4vw, 2.9rem); font-weight: 600; line-height: 1.1; margin-bottom: 10px; }
+      h1 em { color: #a5b4fc; font-style: italic; }
+      .church-subtitle { font-size: 0.95rem; color: rgba(254,243,199,0.72); line-height: 1.8; max-width: 680px; margin-bottom: 26px; }
+
+      .badge-row { display: flex; flex-wrap: wrap; gap: 8px; margin-bottom: 28px; }
+      .state-badge { display: inline-block; padding: 4px 12px; border-radius: 6px; background: rgba(79,70,229,0.1); border: 1px solid rgba(79,70,229,0.3); color: #a5b4fc; font-size: 0.78rem; font-weight: 700; }
+      .ein-badge { display: inline-flex; align-items: center; gap: 5px; padding: 4px 12px; border-radius: 6px; background: rgba(212,165,55,0.1); border: 1px solid rgba(212,165,55,0.3); font-size: 0.78rem; color: var(--gold); font-family: 'Courier New', monospace; font-weight: 700; }
+      .verified-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 6px; background: rgba(22,163,74,0.1); border: 1px solid rgba(22,163,74,0.3); font-size: 0.78rem; color: #4ade80; font-weight: 700; }
+      .unverified-badge { display: inline-flex; align-items: center; gap: 4px; padding: 4px 12px; border-radius: 6px; background: rgba(212,165,55,0.07); border: 1px solid rgba(212,165,55,0.2); font-size: 0.78rem; color: var(--gold); font-weight: 600; }
+
+      /* ── APOSTASY ALERT ── */
+      .apostasy-alert { background: linear-gradient(135deg, rgba(50,0,0,0.65), rgba(12,5,5,0.95)); border: 1px solid rgba(220,38,38,0.4); border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; padding: 24px 28px; margin-bottom: 34px; }
+      .apostasy-alert h2 { font-family: 'Crimson Text', serif; font-size: 1.3rem; color: var(--red-muted); margin-bottom: 12px; }
+      .apostasy-alert p { font-size: 0.86rem; color: rgba(254,243,199,0.82); line-height: 1.8; margin-bottom: 10px; }
+      .apostasy-alert p:last-child { margin-bottom: 0; }
+      .apostasy-alert strong { color: var(--gold-soft); }
+      .apostasy-alert a { color: var(--gold); text-decoration: underline; text-underline-offset: 3px; }
+      .apostasy-alert a:hover { color: #fcd34d; }
+      .ein-chain { font-family: 'Courier New', monospace; font-size: 0.82rem; color: rgba(254,243,199,0.75); background: rgba(0,0,0,0.3); border: 1px solid rgba(255,255,255,0.07); border-radius: 6px; padding: 10px 14px; margin-top: 10px; line-height: 1.9; }
+      .ein-chain span { color: var(--gold); }
+
+      /* ── SECTION ── */
+      .section { padding: 32px 0; border-top: 1px solid var(--line-soft); }
+      .section h2 { font-family: 'Crimson Text', serif; font-size: 1.45rem; color: var(--ink); margin-bottom: 16px; }
+      .section h2 em { color: #a5b4fc; font-style: italic; }
+      .section p { font-size: 0.87rem; color: rgba(254,243,199,0.78); line-height: 1.85; margin-bottom: 10px; }
+
+      /* ── MAP ── */
+      #church-map { width: 100%; height: 300px; border-radius: 14px; border: 1px solid var(--line-soft); margin-top: 12px; background: var(--bg-card); }
+
+      /* ── QUOTE ── */
+      .quote-block { background: rgba(24,6,6,0.7); border: 1px solid rgba(220,38,38,0.22); border-left: 4px solid var(--red); border-radius: 0 12px 12px 0; padding: 16px 20px; margin-bottom: 16px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.05rem; color: rgba(254,243,199,0.9); line-height: 1.8; margin-bottom: 5px; }
+      .quote-block cite { font-size: 0.75rem; color: var(--gold); font-style: italic; }
+
+      /* ── SIDEBAR ── */
+      .profile-sidebar { position: sticky; top: 80px; display: flex; flex-direction: column; gap: 20px; }
+
+      .sidebar-card { background: var(--bg-card); border: 1px solid var(--line-soft); border-radius: 14px; padding: 20px; }
+      .sidebar-card h3 { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: var(--ink); margin-bottom: 14px; padding-bottom: 10px; border-bottom: 1px solid var(--line-soft); }
+
+      .info-row { display: flex; flex-direction: column; gap: 2px; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      .info-row:last-child { border-bottom: none; padding-bottom: 0; }
+      .info-label { font-size: 0.7rem; color: var(--ink-muted); text-transform: uppercase; letter-spacing: 0.08em; font-weight: 700; }
+      .info-value { font-size: 0.87rem; color: var(--ink); line-height: 1.4; }
+      .info-value a { color: var(--red-muted); }
+      .info-value.mono { font-family: 'Courier New', monospace; color: var(--gold); font-size: 0.85rem; }
+
+      .social-links { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+      .social-btn { display: inline-flex; align-items: center; gap: 6px; padding: 7px 12px; border-radius: 8px; border: 1px solid rgba(255,255,255,0.09); background: rgba(255,255,255,0.04); color: var(--ink-muted); font-size: 0.78rem; font-weight: 600; text-decoration: none; transition: all 0.18s; }
+      .social-btn:hover { border-color: rgba(220,38,38,0.4); color: var(--red-muted); background: rgba(220,38,38,0.07); }
+      .social-btn svg { width: 14px; height: 14px; }
+
+      .maps-btn { display: flex; align-items: center; gap: 8px; padding: 10px 14px; border-radius: 10px; background: rgba(79,70,229,0.1); border: 1px solid rgba(79,70,229,0.25); color: #a5b4fc; font-size: 0.82rem; font-weight: 600; text-decoration: none; transition: all 0.18s; }
+      .maps-btn:hover { background: rgba(79,70,229,0.18); color: #c7d2fe; }
+      .maps-btn svg { width: 16px; height: 16px; flex-shrink: 0; }
+
+      .parent-chain { font-size: 0.75rem; color: var(--ink-muted); line-height: 1.9; }
+      .parent-chain strong { color: var(--gold); font-family: 'Courier New', monospace; font-size: 0.78rem; }
+      .chain-arrow { display: block; padding-left: 12px; }
+
+      .nav-links-list { display: flex; flex-direction: column; gap: 6px; }
+      .nav-link-btn { display: flex; align-items: center; justify-content: space-between; padding: 9px 12px; border-radius: 8px; background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); color: var(--ink-muted); font-size: 0.83rem; font-weight: 600; text-decoration: none; transition: all 0.18s; }
+      .nav-link-btn:hover { background: rgba(220,38,38,0.08); border-color: rgba(220,38,38,0.25); color: var(--red-muted); }
+
+      /* ── REV 18:4 BANNER ── */
+      .rev-banner { background: linear-gradient(135deg, rgba(60,0,0,0.6), rgba(12,5,5,0.95)); border: 1px solid rgba(220,38,38,0.35); border-radius: 16px; padding: 24px 26px; text-align: center; margin-top: 40px; }
+      .rev-banner blockquote { font-family: 'Crimson Text', serif; font-size: 1.35rem; font-style: italic; color: rgba(254,243,199,0.9); line-height: 1.7; margin-bottom: 8px; }
+      .rev-banner cite { font-size: 0.78rem; color: var(--gold); }
+      .rev-banner .cta-row { display: flex; flex-wrap: wrap; gap: 10px; justify-content: center; margin-top: 18px; }
+      .rev-btn { display: inline-flex; align-items: center; gap: 6px; padding: 10px 20px; border-radius: 10px; font-weight: 700; font-size: 0.85rem; text-decoration: none; transition: all 0.2s; }
+      .rev-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .rev-btn-primary:hover { background: var(--red); color: #fff; }
+      .rev-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .rev-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/apostasy">Apostasy</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn" id="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/lawyers">Lawyers</a>
+          <a class="nav-bottom-link active" href="/apostasy/churches">Churches</a>
+          <a class="nav-bottom-link" href="/apostasy/videos">Videos</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3)</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+        </div>
+        <div class="mobile-nav" id="mobile-nav">
+          <a href="/">Home</a>
+          <a href="/apostasy/corporations">Corporate Empire</a>
+          <a href="/apostasy/churches">Church Directory</a>
+          <a href="/apostasy/schools">Schools</a>
+          <a href="/apostasy/hospitals">Hospitals</a>
+          <a href="/apostasy/lawyers">Lawyers</a>
+          <a href="/501c3">501(c)(3)</a>
+          <a href="/apostasy">Apostate Shepherds</a>
+          <a href="/library">Pioneer Library</a>
+        </div>
+      </div>
+    </nav>
+
+    <div class="page-wrap">
+      <!-- BREADCRUMB -->
+      <nav class="breadcrumb" aria-label="Breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/apostasy">Apostasy</a><span>›</span>
+        <a href="/apostasy/churches">Churches</a><span>›</span>
+        {breadcrumbState && <><a href={`/apostasy/churches`}>{breadcrumbState}</a><span>›</span></>}
+        {church.name}
+      </nav>
+
+      <div class="profile-grid">
+        <!-- ═══ MAIN COLUMN ═══ -->
+        <article class="profile-main">
+
+          <!-- Church photo slot -->
+          <div class="church-photo">
+            <div class="church-photo-placeholder">
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M18 8h1a4 4 0 010 8h-1"/><path d="M2 8h16v9a4 4 0 01-4 4H6a4 4 0 01-4-4V8z"/><line x1="6" y1="1" x2="6" y2="4"/><line x1="10" y1="1" x2="10" y2="4"/><line x1="14" y1="1" x2="14" y2="4"/></svg>
+              <span>Photo not yet on file — contribute at <code>public/images/apostasy/churches/{church.slug}.jpg</code></span>
+            </div>
+          </div>
+
+          <div class="page-eyebrow">501(c)(3) Corporate Church Profile · GEN 1071</div>
+          <h1>{church.name}</h1>
+          {church.description && <p class="church-subtitle">{church.description}</p>}
+
+          <div class="badge-row">
+            {(church.stateCode || church.state) && (
+              <span class="state-badge">{church.stateCode || church.state}</span>
+            )}
+            {church.ein ? (
+              <span class="ein-badge">EIN {church.ein}</span>
+            ) : (
+              <span class="unverified-badge">EIN Not Yet Documented</span>
+            )}
+            {church.verified ? (
+              <span class="verified-badge">✓ IRS Record Verified</span>
+            ) : (
+              <span class="unverified-badge">⚠ Verification Pending</span>
+            )}
+          </div>
+
+          <!-- APOSTASY ALERT -->
+          <div class="apostasy-alert">
+            <h2>Corporate Structure — What This Church Really Is</h2>
+            <p>
+              <strong>{church.name}</strong> is not an independent congregation. It is a corporate franchise
+              operating within the <strong>General Conference Corporation of Seventh-day Adventists</strong>
+              (EIN <strong>52-0643036</strong>), under IRS Group Exemption Number <strong>GEN 1071</strong>.
+              {church.ein && <> Its own EIN is <strong>{church.ein}</strong>, issued under the GC umbrella.</>}
+            </p>
+            <p>
+              The IRS classifies the parent corporation under NTEE code <strong>X21 (Protestant)</strong> —
+              yet GC President Neal C. Wilson declared in the <em>Adventist Review</em> (March 5, 1981):
+              <strong> "I want to say this carefully — there is something very Catholic about the Seventh-day Adventist Church."</strong>
+              The IRS also lists the parent organization's primary business activity as <strong>underwriting municipal insurance</strong> —
+              not gospel ministry.
+            </p>
+            <p>
+              Every pastor at this church is a Conference employee, not a congregationally-chosen shepherd.
+              Every tithe dollar flows upward to the corporate pyramid. The <strong>501(c)(3) speech restrictions</strong>
+              of federal law — prohibiting "political" speech on pain of losing the entire GEN 1071 umbrella —
+              apply to every pulpit in this building.
+            </p>
+            <div class="ein-chain">
+              GC Corp of SDA — <span>EIN 52-0643036</span> (parent, GEN 1071)<br>
+              &nbsp;&nbsp;└─ {church.division || 'North American Division'}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ {church.unionConference || 'Union Conference'}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ {church.conference || 'Local Conference'}<br>
+              &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;└─ <span>{church.name}</span>{church.ein && <> — EIN <span>{church.ein}</span></>}
+            </div>
+          </div>
+
+          {/* MAP — only if we have coordinates */}
+          {church.latitude && church.longitude && (
+            <section class="section">
+              <h2>Location Map</h2>
+              <p>GPS coordinates available. Leaflet map powered by OpenStreetMap — no API key, no Google tracking.</p>
+              <div id="church-map" role="img" aria-label={`Map showing location of ${church.name}`}></div>
+            </section>
+          )}
+
+          <!-- GC ADMISSION QUOTES -->
+          <section class="section">
+            <h2>The Admission — <em>In Their Own Words</em></h2>
+            <div class="quote-block">
+              <blockquote>"I want to say this carefully — there is something very Catholic about the Seventh-day Adventist Church."</blockquote>
+              <cite>— Neal C. Wilson, GC President, Adventist Review, March 5, 1981</cite>
+            </div>
+            <div class="quote-block">
+              <blockquote>"The General Conference in the persons of these leaders has gone off the rails — it has become a trash heap."</blockquote>
+              <cite>— Neal C. Wilson, GC President (paraphrase, Merikay McLeod trial transcript, 1974)</cite>
+            </div>
+            <div class="quote-block">
+              <blockquote>"Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."</blockquote>
+              <cite>— Revelation 18:4 (KJV) — the final call to God's people in Babylon</cite>
+            </div>
+          </section>
+
+          <!-- WHAT THE PIONEER CHURCH WAS -->
+          <section class="section">
+            <h2>What the Pioneer Church Was</h2>
+            <p>The Advent movement of 1844–1860 was built by men and women who refused to organize into a hierarchy. It was a movement of the Spirit — not a corporation. The pioneers — William Miller, Joseph Bates, James White, Ellen G. White, Uriah Smith, John Andrews — preached the Three Angels' Messages and warned against exactly the structure that now bears the name "Adventist."</p>
+            <p>Ellen G. White wrote in 1 Selected Messages 204: <em>"The church may appear as about to fall, but it does not fall. It remains, while the sinners in Zion will be sifted out — the chaff separated from the precious wheat."</em> The corporate franchise now bearing the "Adventist" trademark is not the remnant. It is the new organization of 1904 — the one the pioneers warned about.</p>
+            <p>The three angels still fly (Revelation 14:6–12). The call to come out of Babylon still stands (Revelation 18:4). The corporate franchise does not change the message — it buries it.</p>
+          </section>
+
+          <!-- REVOLUTION 18:4 CTA -->
+          <div class="rev-banner">
+            <blockquote>"Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."</blockquote>
+            <cite>Revelation 18:4 (KJV)</cite>
+            <div class="cta-row">
+              <a class="rev-btn rev-btn-primary" href="/apostasy/corporations">See the Full Corporate Empire →</a>
+              <a class="rev-btn rev-btn-secondary" href="/library">Read the Pioneer Books →</a>
+            </div>
+          </div>
+
+        </article>
+
+        <!-- ═══ SIDEBAR ═══ -->
+        <aside class="profile-sidebar">
+
+          <!-- Church Details Card -->
+          <div class="sidebar-card">
+            <h3>Church Record</h3>
+
+            {church.name && (
+              <div class="info-row">
+                <span class="info-label">Church Name</span>
+                <span class="info-value">{church.name}</span>
+              </div>
+            )}
+
+            {church.pastor && (
+              <div class="info-row">
+                <span class="info-label">Pastor</span>
+                <span class="info-value">{church.pastor}</span>
+              </div>
+            )}
+
+            {(church.address || church.city) && (
+              <div class="info-row">
+                <span class="info-label">Address</span>
+                <span class="info-value">{fullAddress || '—'}</span>
+              </div>
+            )}
+
+            {church.phone && (
+              <div class="info-row">
+                <span class="info-label">Phone</span>
+                <span class="info-value"><a href={`tel:${church.phone.replace(/\D/g,'')}`}>{church.phone}</a></span>
+              </div>
+            )}
+
+            {church.ein && (
+              <div class="info-row">
+                <span class="info-label">IRS EIN</span>
+                <span class="info-value mono">{church.ein}</span>
+              </div>
+            )}
+
+            {church.nteeCode && (
+              <div class="info-row">
+                <span class="info-label">NTEE Code</span>
+                <span class="info-value mono">{church.nteeCode} (Protestant)</span>
+              </div>
+            )}
+
+            {church.conference && (
+              <div class="info-row">
+                <span class="info-label">Conference</span>
+                <span class="info-value">{church.conference}</span>
+              </div>
+            )}
+
+            {church.unionConference && church.unionConference !== church.conference && (
+              <div class="info-row">
+                <span class="info-label">Union</span>
+                <span class="info-value">{church.unionConference}</span>
+              </div>
+            )}
+
+            {church.division && (
+              <div class="info-row">
+                <span class="info-label">Division</span>
+                <span class="info-value">{church.division}</span>
+              </div>
+            )}
+
+            <div class="info-row">
+              <span class="info-label">Parent EIN</span>
+              <span class="info-value mono">52-0643036</span>
+            </div>
+
+            <div class="info-row">
+              <span class="info-label">Group Exemption</span>
+              <span class="info-value mono">GEN 1071</span>
+            </div>
+
+            {church.source && (
+              <div class="info-row">
+                <span class="info-label">Source</span>
+                <span class="info-value" style="font-size:0.75rem;color:var(--ink-muted)">{church.source}</span>
+              </div>
+            )}
+          </div>
+
+          {/* Social / web links */}
+          {(church.website || church.facebook || church.instagram || church.twitter || church.youtube) && (
+            <div class="sidebar-card">
+              <h3>Links</h3>
+              <div class="social-links">
+                {church.website && (
+                  <a class="social-btn" href={church.website} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><line x1="2" y1="12" x2="22" y2="12"/><path d="M12 2a15.3 15.3 0 014 10 15.3 15.3 0 01-4 10 15.3 15.3 0 01-4-10 15.3 15.3 0 014-10z"/></svg>
+                    Website
+                  </a>
+                )}
+                {church.facebook && (
+                  <a class="social-btn" href={church.facebook} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18 2h-3a5 5 0 00-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 011-1h3z"/></svg>
+                    Facebook
+                  </a>
+                )}
+                {church.instagram && (
+                  <a class="social-btn" href={church.instagram} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="2" width="20" height="20" rx="5"/><path d="M16 11.37A4 4 0 1112.63 8 4 4 0 0116 11.37z"/><line x1="17.5" y1="6.5" x2="17.51" y2="6.5"/></svg>
+                    Instagram
+                  </a>
+                )}
+                {church.twitter && (
+                  <a class="social-btn" href={church.twitter} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/></svg>
+                    X / Twitter
+                  </a>
+                )}
+                {church.youtube && (
+                  <a class="social-btn" href={church.youtube} target="_blank" rel="noopener noreferrer">
+                    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor"><path d="M22.54 6.42a2.78 2.78 0 00-1.95-1.96C18.88 4 12 4 12 4s-6.88 0-8.59.46a2.78 2.78 0 00-1.95 1.96A29 29 0 001 12a29 29 0 00.46 5.58A2.78 2.78 0 003.41 19.6C5.12 20 12 20 12 20s6.88 0 8.59-.4a2.78 2.78 0 001.95-1.95A29 29 0 0023 12a29 29 0 00-.46-5.58z"/><polygon points="9.75 15.02 15.5 12 9.75 8.98 9.75 15.02" fill="#0d0505"/></svg>
+                    YouTube
+                  </a>
+                )}
+              </div>
+            </div>
+          )}
+
+          {/* Maps button */}
+          {(church.latitude && church.longitude || fullAddress) && (
+            <div class="sidebar-card">
+              <h3>Get Directions</h3>
+              <a class="maps-btn" href={`https://www.google.com/maps/search/?api=1&query=${mapsQuery}`} target="_blank" rel="noopener noreferrer">
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0118 0z"/><circle cx="12" cy="10" r="3"/></svg>
+                Open in Google Maps
+              </a>
+            </div>
+          )}
+
+          <!-- Corporate Chain Card -->
+          <div class="sidebar-card">
+            <h3>Corporate Chain</h3>
+            <div class="parent-chain">
+              <div>GC Corp of SDA</div>
+              <div><strong>EIN 52-0643036</strong></div>
+              <div>GEN 1071 · Silver Spring, MD</div>
+              {church.division && <div class="chain-arrow">└─ {church.division}</div>}
+              {church.unionConference && <div class="chain-arrow" style="padding-left:24px">└─ {church.unionConference}</div>}
+              {church.conference && <div class="chain-arrow" style="padding-left:36px">└─ {church.conference}</div>}
+              <div class="chain-arrow" style="padding-left:48px">└─ <strong style="color:var(--red-muted)">{church.name}</strong></div>
+              {church.ein && <div style="padding-left:64px;"><strong>EIN {church.ein}</strong></div>}
+            </div>
+          </div>
+
+          <!-- Navigation links -->
+          <div class="sidebar-card">
+            <h3>More Apostasy Exposure</h3>
+            <div class="nav-links-list">
+              <a class="nav-link-btn" href="/apostasy/corporations">
+                Corporate Empire
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a class="nav-link-btn" href="/apostasy/schools">
+                Schools (7,500+)
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a class="nav-link-btn" href="/apostasy/hospitals">
+                Hospitals (173)
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a class="nav-link-btn" href="/apostasy/lawyers">
+                Lawyers
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a class="nav-link-btn" href="/501c3">
+                501(c)(3) Trap
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+              <a class="nav-link-btn" href="/apostasy/churches">
+                ← All Churches
+                <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" style="width:12px;height:12px"><polyline points="9 18 15 12 9 6"/></svg>
+              </a>
+            </div>
+          </div>
+
+        </aside>
+      </div>
+    </div>
+
+    <SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: "Church Directory", href: "/apostasy/churches" },
+        { label: "Corporate Empire", href: "/apostasy/corporations" },
+        { label: "501(c)(3) Trap", href: "/501c3" },
+        { label: "Apostate Shepherds", href: "/apostasy" },
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+
+    {church.latitude && church.longitude && (
+      <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js" integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV/XN/WLs=" crossorigin=""></script>
+    )}
+
+    <script>
+      // Mobile nav
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+
+    {church.latitude && church.longitude && (
+      <script define:vars={{ lat: church.latitude, lng: church.longitude, churchName: church.name }}>
+        window.addEventListener('load', () => {
+          const mapEl = document.getElementById('church-map');
+          if (!mapEl || typeof L === 'undefined') return;
+          const map = L.map('church-map', { center: [lat, lng], zoom: 14, scrollWheelZoom: false });
+          L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+            maxZoom: 18,
+          }).addTo(map);
+          L.circleMarker([lat, lng], {
+            radius: 10,
+            fillColor: '#dc2626',
+            color: '#9f1239',
+            weight: 2,
+            opacity: 1,
+            fillOpacity: 0.85,
+          }).bindPopup(`<strong>${churchName}</strong>`).addTo(map).openPopup();
+        });
+      </script>
+    )}
+  </body>
+</html>

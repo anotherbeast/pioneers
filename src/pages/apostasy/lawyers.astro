@@ -1,0 +1,274 @@
+---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>"Adventist Lawyer" — GC-SDA Trademarked a Profession | SundayLaw.com</title>
+    <meta name="description" content='The General Conference of Seventh-day Adventists trademarked the term "Adventist Lawyer" — Trademark Registration #1177185, filed 1980, registered 1981. An organization that exists to preach the gospel needed to own a legal profession title. The evidence is on file with the U.S. Patent and Trademark Office.'>
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/lawyers">
+    <meta property="og:title" content='"Adventist Lawyer" — The GC Trademark Exposed | SundayLaw.com'>
+    <meta property="og:type" content="article">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239; --amber: #d97706;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(217,119,6,0.12); border: 1px solid rgba(217,119,6,0.35); color: #fcd34d; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: #fcd34d; }
+      .page-header .subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      .section { padding: 44px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 26px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: #fcd34d; font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* TRADEMARK RECORD */
+      .tm-record { background: linear-gradient(135deg, rgba(20,12,0,0.7), rgba(12,5,5,0.98)); border: 1px solid rgba(212,165,55,0.35); border-radius: 18px; padding: 30px; margin-bottom: 36px; font-family: 'Courier New', monospace; font-size: 0.84rem; color: rgba(254,243,199,0.88); line-height: 2.1; }
+      .tm-record h3 { font-family: 'Inter', sans-serif; font-size: 0.8rem; color: var(--gold); font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; border-bottom: 1px solid rgba(212,165,55,0.2); padding-bottom: 8px; }
+      .tm-field { display: flex; gap: 16px; flex-wrap: wrap; margin-bottom: 2px; }
+      .tm-key { color: var(--gold); font-weight: 700; min-width: 200px; }
+      .tm-val { color: rgba(254,243,199,0.85); }
+      .tm-special { color: var(--red-muted); font-weight: 700; }
+
+      /* ANALYSIS CARDS */
+      .analysis-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(260px, 1fr)); gap: 16px; }
+      .analysis-card { background: var(--bg-card); border: 1px solid rgba(217,119,6,0.2); border-radius: 14px; padding: 20px; }
+      .analysis-card h3 { font-family: 'Crimson Text', serif; font-size: 1.05rem; color: #fcd34d; margin-bottom: 8px; }
+      .analysis-card p { font-size: 0.81rem; color: var(--ink-muted); line-height: 1.7; }
+
+      /* IRAS LAWYERS */
+      .rlas-box { background: linear-gradient(135deg, rgba(50,0,0,0.4), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-radius: 16px; padding: 26px 28px; }
+      .rlas-box h3 { font-family: 'Crimson Text', serif; font-size: 1.4rem; color: var(--red-muted); margin-bottom: 14px; }
+      .rlas-box p { font-size: 0.87rem; color: rgba(254,243,199,0.8); line-height: 1.8; margin-bottom: 12px; }
+
+      /* QUOTE */
+      .quote-block { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 20px 22px; margin-bottom: 20px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: rgba(254,243,199,0.92); line-height: 1.85; margin-bottom: 6px; }
+      .quote-block cite { font-size: 0.78rem; color: var(--gold); font-style: italic; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link active" href="/apostasy/lawyers">Lawyers</a>
+          <a class="nav-bottom-link" href="/apostasy/churches">Churches</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+          <a class="nav-bottom-link" href="/501c3">501(c)(3)</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/lawyers">Lawyers</a>
+        <a href="/apostasy/churches">Churches</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/apostasy/corporations">Corporate Empire</a><span>›</span>
+          Adventist Lawyers
+        </div>
+        <div class="page-eyebrow">Trademark Record Exposed</div>
+        <div class="page-header">
+          <h1>The GC Trademarked <em>"Adventist Lawyer"</em></h1>
+          <p class="subtitle">In 1980, the General Conference of Seventh-day Adventists applied to the United States Patent and Trademark Office to own the term <strong>"Adventist Lawyer."</strong> The trademark was granted in 1981 — Registration #1177185. A church that exists to preach the everlasting gospel needed to own a legal profession title. Jesus said woe to lawyers who take away the key of knowledge. The GC said: trademark it.</p>
+        </div>
+      </div>
+
+      <!-- TRADEMARK RECORD -->
+      <section class="section" style="padding-top: 0; border-top: none;">
+        <div class="tm-record">
+          <h3>USPTO Trademark Record — Primary Source</h3>
+          <div class="tm-field"><span class="tm-key">Trademark:</span><span class="tm-val tm-special">"ADVENTIST LAWYER"</span></div>
+          <div class="tm-field"><span class="tm-key">Registration Number:</span><span class="tm-val">1177185</span></div>
+          <div class="tm-field"><span class="tm-key">Filed:</span><span class="tm-val">1980</span></div>
+          <div class="tm-field"><span class="tm-key">Registered:</span><span class="tm-val">1981</span></div>
+          <div class="tm-field"><span class="tm-key">Registrant:</span><span class="tm-val">GENERAL CONFERENCE CORPORATION OF SEVENTH-DAY ADVENTISTS</span></div>
+          <div class="tm-field"><span class="tm-key">Registrant EIN:</span><span class="tm-val">52-0643036</span></div>
+          <div class="tm-field"><span class="tm-key">Source:</span><span class="tm-val">Justia Trademarks — trademark.justia.com</span></div>
+          <div class="tm-field"><span class="tm-key">Filed same year as:</span><span class="tm-val tm-special">Neal Wilson's "truly Catholic" statement (Adventist Review, March 5, 1981)</span></div>
+        </div>
+      </section>
+
+      <!-- ANALYSIS -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">What This Means</div>
+          <h2>Why a <em>Church Owns a Lawyer Title</em></h2>
+          <p>A religious organization does not trademark profession names unless it is operating as a professional guild — not a church. The GC-SDA trademark of "Adventist Lawyer" reveals the corporate depth of the 1904 organization.</p>
+        </div>
+        <div class="analysis-grid">
+          <div class="analysis-card">
+            <h3>Professional Organization, Not Church</h3>
+            <p>Religious bodies don't trademark professional titles. A church does not own the right to the title "Christian Attorney" or "Baptist Doctor." Trademarking "Adventist Lawyer" indicates a bar association function — institutional control of the legal profession within the corporate SDA family.</p>
+          </div>
+          <div class="analysis-card">
+            <h3>Brand Protection — Over Gospel</h3>
+            <p>The GC-SDA has a Trademark Office. It aggressively protects the "Adventist" brand, including "Adventist Lawyer," "Adventist Health," "Adventist Education," and others. The corporate brand is more legally protected than the gospel it claims to preach.</p>
+          </div>
+          <div class="analysis-card">
+            <h3>Registered in 1981 — Same Year</h3>
+            <p>The trademark was registered in 1981 — the same year GC President Neal C. Wilson publicly declared the SDA Church "truly a Catholic organization." The corporate machinery was fully operational while the Protestant identity was being publicly surrendered.</p>
+          </div>
+          <div class="analysis-card">
+            <h3>Silencing Independent SDA Lawyers</h3>
+            <p>If the GC owns "Adventist Lawyer," an independent Adventist attorney who opposes the corporate structure cannot use the term to identify themselves without potential trademark infringement. The trademark is a tool of ecclesiastical control.</p>
+          </div>
+          <div class="analysis-card">
+            <h3>The EEOC Connection</h3>
+            <p>In the same era (1974 EEOC v. Pacific Press), the GC deployed lawyers against its own employees. The corporate legal apparatus — now operating under the "Adventist Lawyer" brand — defends the corporation against those who challenge it from within.</p>
+          </div>
+          <div class="analysis-card">
+            <h3>Religious Liberty Department — Irony</h3>
+            <p>The GC operates a Religious Liberty Department (Charles Longacre's legacy) — and also holds trademark control over the legal professional title associated with religious liberty law practice. The department that warns of Sunday law is owned by the corporation that trademarked the lawyer defending against it.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- SCRIPTURE -->
+      <section class="section">
+        <div class="quote-block">
+          <blockquote>"Woe unto you, lawyers! for ye have taken away the key of knowledge: ye entered not in yourselves, and them that were entering in ye hindered."</blockquote>
+          <cite>— Luke 11:52, KJV — spoken by Jesus to those who used legal knowledge to close off the truth</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"The time is coming when in their fraud and insolence men will reach a point that the Lord will not permit them to pass and He will then interpose to check the further advance of satanic agencies."</blockquote>
+          <cite>— Ellen G. White, Testimonies, Vol. 9, p. 13</cite>
+        </div>
+      </section>
+
+      <!-- RLAS INTERNATIONAL -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Religious Liberty Legal Arm</div>
+          <h2>The Adventist Legal Network — <em>Serving the Corporation</em></h2>
+        </div>
+        <div class="rlas-box">
+          <h3>RLAS — Religious Liberty Advocacy &amp; Legal Services</h3>
+          <p>The GC-SDA maintains a legal network including the <strong>North American Division Office of General Counsel</strong> and various state conference attorneys. These legal professionals operate under the GC corporate umbrella — their primary obligation is to the 501(c)(3) corporation, not to individual members.</p>
+          <p>The same legal apparatus that defends "religious liberty" on Sunday law issues in the courts has also been deployed in:</p>
+          <p>— Defending the GC in employment discrimination cases (EEOC v. Pacific Press, 1974)<br>
+          — Protecting the GC trademark portfolio (including "Adventist Lawyer")<br>
+          — Enforcing member compliance with corporate governance<br>
+          — Defending conference administrators against member lawsuits<br>
+          — Blocking independent ministries from using the "Adventist" name</p>
+          <p>This is the legal arm of Babylon — dressed in the language of religious liberty.</p>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>"Woe Unto You, Lawyers"</h2>
+        <p>The corporation trademarked the lawyer. The lawyer defends the corporation. The layperson funds both. This is the system the 1904 organization built.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">Full Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/501c3">501(c)(3) Trap →</a>
+          <a class="cta-btn cta-btn-secondary" href="/apostasy/schools">Schools Fraud →</a>
+          <a class="cta-btn cta-btn-secondary" href="/apostasy">Apostate Shepherds →</a>
+        </div>
+      </div>
+    </main>
+
+<SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: 'SDA Lawyers & Trademark', href: '/apostasy/lawyers' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: '501(c)(3) Speech Trap', href: '/apostasy/501c3' },
+        { label: 'Apostate Shepherds', href: '/apostasy' }
+      ]}
+    />
+    <ShareBar />
+    <SiteSearch />
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

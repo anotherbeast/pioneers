@@ -1,0 +1,538 @@
+﻿---
+import Analytics from '../../components/Analytics.astro';
+import SiteFooter from '../../components/SiteFooter.astro';
+import ShareBar from '../../components/ShareBar.astro';
+import SiteSearch from '../../components/SiteSearch.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Arthur G. Daniells — GC President Who Signed the 1904 Incorporation | SundayLaw.com</title>
+  <meta name="description" content="Arthur Grosvenor Daniells (1858–1936), General Conference President 1901–1922, was the presiding authority behind the April 15, 1904 incorporation of the General Conference Corporation of Seventh-day Adventists — in direct defiance of Ellen White's October 1903 warning. His is the most culpable name on the document.">
+  <link rel="canonical" href="https://sundaylaw.com/1904-signers/arthur-g-daniells">
+  <meta property="og:title" content="Arthur G. Daniells — The GC President Who Created Babylon's Paper Church">
+  <meta property="og:image" content="https://sundaylaw.com/images/sundaylaw/1904SDA2.jpg">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f; --bg-soft: #0d0018; --bg-card: rgba(20,5,35,0.85);
+      --ink: #f8f1dd; --muted: #9ca3af; --gold: #d4a537; --gold-soft: #fcd34d;
+      --amber: #f59e0b; --red: #ef4444; --red-soft: #fca5a5;
+      --blue: #3b82f6; --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22); --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3); --line-blue: rgba(59,130,246,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+    .breadcrumb { padding: 22px 0 0; font-size: 0.8rem; color: var(--muted); }
+    .breadcrumb a { color: var(--muted); } .breadcrumb span { margin: 0 6px; }
+    .breadcrumb .current { color: var(--ink); }
+
+    /* HERO */
+    .hero { padding: 44px 0 36px; }
+    .signer-badge { display: inline-flex; align-items: center; gap: 8px; padding: 6px 16px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.73rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; margin-bottom: 16px; }
+    .hero-grid { display: grid; grid-template-columns: 280px 1fr; gap: 48px; align-items: start; }
+    @media (max-width: 768px) { .hero-grid { grid-template-columns: 1fr; gap: 28px; } }
+    .charge-col { }
+    .charge-col h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 4vw, 3.2rem); font-weight: 600; color: var(--ink); line-height: 1.1; margin-bottom: 10px; }
+    .charge-col h1 em { color: var(--red-soft); font-style: italic; }
+    .charge-sub { font-size: 1rem; color: rgba(248,241,221,0.78); line-height: 1.8; margin-bottom: 22px; }
+    .fact-row { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 12px; margin-bottom: 24px; }
+    .fact-box { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 10px; padding: 12px 14px; }
+    .fact-label { font-size: 0.7rem; text-transform: uppercase; letter-spacing: 0.1em; color: var(--muted); font-weight: 700; margin-bottom: 4px; }
+    .fact-val { font-size: 0.9rem; color: var(--gold-soft); font-weight: 600; }
+    .fact-val.red { color: var(--red-soft); }
+
+    /* SECTION */
+    .sect { padding: 50px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.7rem, 3vw, 2.5rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.2; }
+    .sect-body { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 14px; }
+    .sect-body strong { color: var(--gold-soft); }
+    .sect-body em { color: var(--red-soft); }
+
+    /* WARNING CALLOUT */
+    .warn-box { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.35); border-radius: 18px; padding: 32px 30px; margin: 28px 0; }
+    .warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.18em; color: var(--red); margin-bottom: 12px; }
+    .warn-box blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.2rem, 2.2vw, 1.65rem); font-style: italic; color: #fde8e8; line-height: 1.65; margin-bottom: 12px; }
+    .warn-box cite { font-size: 0.82rem; color: rgba(252,165,165,0.7); font-style: normal; font-weight: 600; }
+
+    /* CRIME LIST */
+    .crime-list { list-style: none; margin: 20px 0; }
+    .crime-list li { display: flex; gap: 14px; align-items: flex-start; padding: 16px 0; border-bottom: 1px solid rgba(239,68,68,0.08); }
+    .crime-list li:last-child { border-bottom: none; }
+    .crime-num { width: 34px; height: 34px; border-radius: 8px; background: rgba(127,29,29,0.5); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.85rem; color: var(--red-soft); flex-shrink: 0; }
+    .crime-text { font-size: 0.95rem; color: rgba(248,241,221,0.82); line-height: 1.75; padding-top: 4px; }
+    .crime-text strong { color: var(--red-soft); }
+
+    /* CONSTITUTION */
+    .const-strip { background: rgba(30,58,138,0.1); border-left: 5px solid var(--blue); border-radius: 0 14px 14px 0; padding: 24px 26px; margin: 28px 0; }
+    .const-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 10px; }
+    .const-strip blockquote { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.7; }
+    .const-strip cite { font-size: 0.78rem; color: rgba(147,197,253,0.6); font-style: normal; margin-top: 10px; display: block; }
+    .const-strip p { font-size: 0.92rem; color: rgba(248,241,221,0.78); line-height: 1.8; margin-top: 14px; }
+    .const-strip a { color: var(--blue-soft); text-decoration: underline; }
+
+    /* IDEM SONANS */
+    .idem-strip { background: rgba(30,58,138,0.1); border: 1px solid rgba(59,130,246,0.25); border-radius: 14px; padding: 28px 26px; margin: 28px 0; }
+    .idem-title { font-family: 'Crimson Text', serif; font-size: 1.6rem; font-style: italic; color: var(--blue-soft); margin-bottom: 10px; }
+    .idem-strip p { font-size: 0.93rem; color: rgba(248,241,221,0.8); line-height: 1.8; margin-bottom: 10px; }
+    .idem-strip strong { color: var(--gold-soft); }
+    .idem-strip a { color: var(--blue-soft); text-decoration: underline; }
+
+    /* DOCS */
+    .doc-pair { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin: 24px 0; }
+    @media (max-width: 600px) { .doc-pair { grid-template-columns: 1fr; } }
+    .doc-frame { border: 1px solid rgba(239,68,68,0.25); border-radius: 14px; overflow: hidden; }
+    .doc-frame img { width: 100%; height: auto; display: block; }
+    .doc-caption { padding: 10px 14px; background: rgba(30,5,5,0.7); font-size: 0.78rem; color: var(--red-soft); line-height: 1.5; }
+
+    /* SIGNERS NAV */
+    .signer-nav { display: grid; grid-template-columns: repeat(auto-fill, minmax(160px, 1fr)); gap: 10px; margin-top: 28px; }
+    .sn-card { background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; padding: 14px 14px; text-decoration: none; display: block; transition: all 0.2s; }
+    .sn-card:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-2px); }
+    .sn-card.active { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.2); }
+    .sn-num { font-size: 0.68rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 4px; }
+    .sn-name { font-size: 0.88rem; color: var(--ink); font-weight: 600; line-height: 1.3; }
+    .sn-loc { font-size: 0.75rem; color: var(--muted); margin-top: 3px; }
+
+    /* FOOTER */
+    .site-footer { background: #04000a; border-top: 1px solid rgba(180,130,50,0.15); }
+    .footer-banner { padding: 22px; text-align: center; background: linear-gradient(to right, rgba(127,29,29,0.15), rgba(127,29,29,0.08), rgba(127,29,29,0.15)); }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.05rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.875rem; font-weight: 600; font-style: normal; display: block; margin-top: 5px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 44px 22px; display: grid; gap: 2rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 12px; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; text-decoration: none; transition: color 0.2s; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.08); padding: 18px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #7f1d1d, #b91c1c, #d97706, #b91c1c, #7f1d1d); }
+
+    @media (max-width: 600px) {
+      .doc-pair { grid-template-columns: 1fr; }
+      .fact-row { grid-template-columns: 1fr 1fr; }
+    }
+  </style>
+</head>
+<body>
+  <div class="top-stripe"></div>
+
+  <nav class="nav" id="navbar">
+    <div class="nav-wrap">
+      <div class="nav-row nav-row-top">
+        <a href="/" style="flex-shrink:0;margin-right:auto;">
+          <img src="/images/shield_sundaylaw.com_the_final_warning_logo.jpg" alt="SundayLaw.com" style="height:38px;width:auto;display:block;border-radius:4px;" />
+        </a>
+        <a class="nav-link" href="/1904-signers">The 5 Signers</a>
+        <a class="nav-link" href="/april-15-1904-new-organization">1904 Record</a>
+        <a class="nav-link" href="/religious-liberty">Religious Liberty</a>
+        <a class="nav-link" href="/library">Pioneer Library</a>
+        <a class="nav-cta" href="/loud-cry">Loud Cry — Rev. 18:4</a>
+        <button class="menu-btn" id="menu-btn" aria-label="Open menu">&#9776;</button>
+      </div>
+      <div class="nav-row nav-row-bottom">
+        <a class="nav-bottom-link active" href="/1904-signers/arthur-g-daniells">Daniells</a>
+        <a class="nav-bottom-link" href="/1904-signers/amos-p-needham">Needham</a>
+        <a class="nav-bottom-link" href="/1904-signers/james-r-scott">Scott</a>
+        <a class="nav-bottom-link" href="/1904-signers/harvey-edson-rogers">Rogers</a>
+        <a class="nav-bottom-link" href="/1904-signers/daniel-k-nicola">Nicola</a>
+        <a class="nav-bottom-link" href="/1904-signers">All 5 Signers</a>
+        <a class="nav-bottom-link" href="/1860-name-selection">1860 Name</a>
+        <a class="nav-bottom-link" href="/loud-cry">Loud Cry</a>
+      </div>
+    </div>
+    <div class="mobile-nav" id="mobile-nav">
+      <a href="/1904-signers">All 5 Signers (Index)</a>
+      <a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a>
+      <a href="/1904-signers/amos-p-needham">Amos P. Needham</a>
+      <a href="/1904-signers/james-r-scott">James R. Scott</a>
+      <a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a>
+      <a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a>
+      <a href="/april-15-1904-new-organization">April 15, 1904 Record</a>
+      <a href="/library">Pioneer Library</a>
+      <a href="/loud-cry">The Loud Cry</a>
+    </div>
+  </nav>
+
+  <main>
+    <div class="page">
+      <div class="breadcrumb">
+        <a href="/">Home</a><span>›</span>
+        <a href="/1904-signers">The 5 Signers</a><span>›</span>
+        <span class="current">Arthur G. Daniells</span>
+      </div>
+
+      <!-- HERO -->
+      <div class="hero">
+        <div class="signer-badge">
+          <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          Signer No. 1 &mdash; Takoma Park, Maryland &mdash; April 15, 1904
+        </div>
+
+        <div class="hero-grid">
+          <div>
+            <div style="background:rgba(127,29,29,0.2);border:1px solid rgba(239,68,68,0.25);border-radius:16px;padding:28px 22px;text-align:center;">
+              <img
+                src="/images/pioneers/arthur-g-daniells.jpg" loading="lazy"
+                alt="Arthur G. Daniells — General Conference President — Signer of the 1904 Articles of Incorporation"
+                style="width:120px;height:120px;border-radius:50%;object-fit:cover;object-position:top center;border:3px solid rgba(239,68,68,0.4);margin:0 auto 16px;display:block;"
+              />
+              <div style="font-family:'Crimson Text',serif;font-size:1.45rem;font-weight:600;color:var(--ink);margin-bottom:4px;">Arthur G. Daniells</div>
+              <div style="font-size:0.8rem;color:var(--muted);margin-bottom:8px;">1858 &ndash; 1935</div>
+              <div style="font-size:0.75rem;color:var(--red-soft);font-weight:700;text-transform:uppercase;letter-spacing:0.08em;padding:5px 12px;border:1px solid rgba(239,68,68,0.3);border-radius:999px;display:inline-block;">General Conference President</div>
+            </div>
+            <div style="margin-top:14px;display:flex;flex-direction:column;gap:8px;">
+              <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(212,165,55,0.1);border:1px solid rgba(212,165,55,0.25);color:var(--gold-soft);font-weight:700;font-size:0.84rem;">
+                <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+                1905 Yearbook — His Name on Page 135
+              </a>
+              <a href="/april-15-1904-new-organization" style="display:flex;align-items:center;gap:8px;padding:10px 16px;border-radius:10px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.84rem;">
+                Evidence Page &rarr;
+              </a>
+            </div>
+          </div>
+          <div class="charge-col">
+            <h1>Arthur Grosvenor Daniells &mdash;<br><em>The President Who Signed Away the Church</em></h1>
+            <p class="charge-sub">
+              Arthur G. Daniells was the <strong style="color:var(--gold-soft);">General Conference President of the Seventh-day Adventist denomination</strong> at the time of the April 15, 1904 incorporation. As the highest authority in the organization, he did not merely witness or endorse the signing — he orchestrated it. His name appears first among the Takoma Park signatories. He had read Ellen White's Letter 242 (October 1903). He had heard her warnings against centralization. He signed anyway.
+            </p>
+            <div class="fact-row">
+              <div class="fact-box">
+                <div class="fact-label">Born</div>
+                <div class="fact-val">1858, Iowa</div>
+              </div>
+              <div class="fact-box">
+                <div class="fact-label">Died</div>
+                <div class="fact-val">1935, Takoma Park</div>
+              </div>
+              <div class="fact-box">
+                <div class="fact-label">GC President</div>
+                <div class="fact-val red">1901 – 1922</div>
+              </div>
+              <div class="fact-box">
+                <div class="fact-label">Crime Date</div>
+                <div class="fact-val red">April 15, 1904</div>
+              </div>
+              <div class="fact-box">
+                <div class="fact-label">Location Filed</div>
+                <div class="fact-val red">Washington, D.C.</div>
+              </div>
+              <div class="fact-box">
+                <div class="fact-label">EGW Warning</div>
+                <div class="fact-val red">October 1903</div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- WHAT HE DID -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Act — April 15, 1904</div>
+        <h2>What Arthur G. Daniells Did</h2>
+        <p class="sect-body">On April 15, 1904, Arthur G. Daniells — serving as the elected president of the General Conference of Seventh-day Adventists — oversaw and signed the incorporation of the <strong>&ldquo;General Conference Corporation of Seventh-day Adventists&rdquo;</strong> as a civil legal entity in the District of Columbia, under the laws of the federal government of the "UNITED STATES."</p>
+        <p class="sect-body">This act created what Ellen White had explicitly warned against in October 1903: <em>"a new organization."</em> It placed the Seventh-day Adventist movement under the legal authority and oversight of a civil government — registering the church's governance, property, and institutional authority as subject to the laws of Caesar.</p>
+        <p class="sect-body">This is precisely the definition of the <strong>Image of the Papacy</strong> as described by the 1850 Prophetic Chart: a religious body that uses civil power to enforce its decrees. Rome did this. Now, in April 1904, Adventism did this in the very city designed after Rome.</p>
+
+        <div class="doc-pair">
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA1.jpg" alt="Articles of Incorporation — April 15, 1904 — Page 1" loading="lazy" />
+            <div class="doc-caption">Articles of Incorporation — April 15, 1904 — The document that created "Babylon's Paper Church"</div>
+          </div>
+          <div class="doc-frame">
+            <img src="/images/sundaylaw/1904SDA2.jpg" alt="Articles of Incorporation — April 15, 1904 — Page 2 — Signers' Names" loading="lazy" />
+            <div class="doc-caption">Page 2: Daniells' name appears first among the Takoma Park signatories. Five signatures. One act of apostasy. The church is now property of the state.</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- THE WARNINGS HE IGNORED -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Warnings He Ignored — Before April 15, 1904</div>
+        <h2>What Ellen White Told Him</h2>
+        <p class="sect-body">Ellen White's warnings to the General Conference leadership — including specific correspondence directed at Daniells as president — were unambiguous. These warnings were given <em>before</em> the signing. Daniells was not ignorant. He was defiant.</p>
+
+        <div class="warn-box">
+          <div class="warn-eyebrow">&#9888; Letter 242, October 1903 — Six Months Before the Signing</div>
+          <blockquote>&ldquo;We have our Bibles. We have our experience, attesting to the truth of God's word, and <strong>we cannot now enter into any new organization, for this would mean apostasy from the truth.</strong>&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+
+        <div class="warn-box" style="margin-top:20px;">
+          <div class="warn-eyebrow">&#9888; Same Letter — October 1903 — The Structural Warning</div>
+          <blockquote>&ldquo;The enemy of souls has sought to bring in the supposition that a great reformation was to take place among Seventh-day Adventists, and that this reformation would consist in giving up the doctrines which stand as the pillars of our faith&hellip; The principles of truth that God in His wisdom has given to the remnant church, would be discarded.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903)</cite>
+        </div>
+
+        <div class="warn-box" style="margin-top:20px;">
+          <div class="warn-eyebrow">&#9888; Same Letter — The Sand Foundation Warning</div>
+          <blockquote>&ldquo;Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, 1SM 204 (Letter 242, October 1903) — Describing what Daniells built on April 15, 1904</cite>
+        </div>
+
+        <div class="warn-box" style="margin-top:20px;">
+          <div class="warn-eyebrow">&#9888; Testimonies for the Church — The Centralization Warning</div>
+          <blockquote>&ldquo;God has not called any one man, or set of men, to be the repository of all truth, or to be entrusted with the concentration of power over the flock of Christ. The spirit of domination must not be allowed to develop. The men who lead the work must let the Spirit of God do the directing, not lay their plans and pursue them by their own authority.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, Testimonies to Ministers, p. 493</cite>
+        </div>
+
+        <div class="warn-box" style="margin-top:20px;">
+          <div class="warn-eyebrow">&#9888; The 1901 GC Session Warning — Before He Was Even Inaugurated</div>
+          <blockquote>&ldquo;The work is so large and has extended to such dimensions that the power of one man or a few men to control it is not only unwise but positively dangerous. Study how God organized Israel&hellip; I am instructed to say that God's delegated, representative authority is being ignored by men who presume to exalt themselves.&rdquo;</blockquote>
+          <cite>&mdash; Ellen G. White, Address at the 1901 General Conference Session, April 1901</cite>
+        </div>
+      </div>
+
+      <!-- HIS CRIMES LIST -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Indictment — Spiritual &amp; Prophetic Record</div>
+        <h2>The Charges Against Arthur G. Daniells</h2>
+        <p class="sect-body">This is not a legal court. This is the court of Heaven's record and the testimony of the prophets. The following charges stand against Arthur G. Daniells on the basis of the Scriptures, the Spirit of Prophecy, and the historical evidence.</p>
+        <ul class="crime-list">
+          <li>
+            <div class="crime-num">I</div>
+            <div class="crime-text"><strong>Apostasy against the Original Pioneer Platform.</strong> As GC President, he led the denomination away from the divine structure established by God's own direction through the pioneering work of 1841–1850 — unincorporated, Spirit-directed, and free from civil entanglement.</div>
+          </li>
+          <li>
+            <div class="crime-num">II</div>
+            <div class="crime-text"><strong>Defiant rejection of a direct prophetic warning.</strong> Ellen White's Letter 242 (October 1903) was delivered six months before the April 15, 1904 signing. Daniells, as GC President, was the intended recipient of that warning. He read it. He signed anyway.</div>
+          </li>
+          <li>
+            <div class="crime-num">III</div>
+            <div class="crime-text"><strong>Creating the Image of the Papacy.</strong> By incorporating the church under civil law, Daniells joined the religious body to the civil state — the very definition of the "Image of the Papacy" as described in Revelation 13 and on the 1850 Prophetic Chart. The union of church and state, warned against by every Adventist pioneer, was consummated under his signature.</div>
+          </li>
+          <li>
+            <div class="crime-num">IV</div>
+            <div class="crime-text"><strong>Identity theft of the pioneer name "Seventh-day Adventist."</strong> Under the Idem Sonans doctrine, the 1904 corporate name "General Conference Corporation of Seventh-day Adventists" was designed to sound identical to the free spiritual name chosen by the pioneers in 1860. Daniells used the similarity to claim the legacy, libraries, and credibility of the pioneer movement for a corporate body that stood in opposition to it.</div>
+          </li>
+          <li>
+            <div class="crime-num">V</div>
+            <div class="crime-text"><strong>Violation of the First Amendment principle of church-state separation.</strong> By voluntarily incorporating under the laws of the District of Columbia — the federal "UNITED STATES" jurisdictional entity — Daniells placed the church under Caesar's oversight. The First Amendment protected Adventists' right to worship without government control. He voluntarily surrendered that protection.</div>
+          </li>
+          <li>
+            <div class="crime-num">VI</div>
+            <div class="crime-text"><strong>Silencing and persecuting truth-bearers.</strong> The incorporation gave the corporate body legal tools — trademark law, copyright enforcement, institutional disfellowship — to suppress and punish those who continued proclaiming the original Three Angels' Messages. Daniells' structure began fulfilling Loughborough's Fifth Step of Apostasy: <em>"commence persecution against such."</em></div>
+          </li>
+          <li>
+            <div class="crime-num">VII</div>
+            <div class="crime-text"><strong>The Korah Rebellion Pattern.</strong> Ellen White compared the 1904 new organization to the rebellion of Korah, Dathan, and Abiram — men who, under the form of piety, challenged God's appointed structure and set up their own rival authority. Daniells, like Korah, wore a priestly garment while building an altar to self-governance.</div>
+          </li>
+        </ul>
+      </div>
+
+      <!-- PIONEER VOICES AGAINST WHAT HE DID -->
+      <div class="sect">
+        <div class="sect-eyebrow">What the Founding Pioneers Said About This Exact Act</div>
+        <h2>The Pioneers Prophesied What Daniells Would Do</h2>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;margin-bottom:18px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">&ldquo;The first step of apostasy is to get up a creed, telling us what we shall believe&hellip; the second is to make that creed a test of fellowship; the third is to try members by that creed; the fourth to denounce as heretics those who do not believe that creed; and fifth, to commence persecution against such.&rdquo;</p>
+          <cite style="font-size:0.8rem;color:var(--muted);font-weight:600;">&mdash; John N. Loughborough, Review &amp; Herald, October 8, 1861 — Loughborough founded the church with James White. He described Daniells' 1904 path 43 years before Daniells walked it.</cite>
+        </div>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;margin-bottom:18px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">&ldquo;Making a creed is setting the stakes, and driving them firmly, after which there is no moving&hellip; Instead of this, let the living, free Spirit of God guide His people in the old paths.&rdquo;</p>
+          <cite style="font-size:0.8rem;color:var(--muted);font-weight:600;">&mdash; James White, 1848 — James White refused any organization that placed human or civil authority over the free movement of God's Spirit. Daniells reversed this in 1904.</cite>
+        </div>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;margin-bottom:18px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">&ldquo;The making of laws in the religious domain, and the enforcement of them by civil power, is what Protestants once called POPERY.&rdquo;</p>
+          <cite style="font-size:0.8rem;color:var(--muted);font-weight:600;">&mdash; James White, Review &amp; Herald, 1877 — April 15, 1904 is when Adventism became what James White spent his life opposing.</cite>
+        </div>
+
+        <div style="background:rgba(13,5,25,0.7);border:1px solid var(--line-soft);border-radius:14px;padding:22px 24px;margin-bottom:18px;">
+          <p style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(248,241,221,0.88);line-height:1.65;margin-bottom:10px;">&ldquo;The union of church and state is the masterpiece of Satan. When a church body submits to civil incorporation, it prostrates itself before the very power it was called to reform.&rdquo;</p>
+          <cite style="font-size:0.8rem;color:var(--muted);font-weight:600;">&mdash; Alonzo T. Jones, The Two Republics, 1891 — The man who had sat in the U.S. Senate hearings arguing against the National Sunday Law described exactly what Daniells signed into existence in 1904.</cite>
+        </div>
+      </div>
+
+      <!-- IDEM SONANS -->
+      <div class="sect">
+        <div class="sect-eyebrow">Legal Doctrine — Name Theft</div>
+        <h2>How Daniells Stole the Pioneer Name</h2>
+        <p class="sect-body">The original name <strong style="color:#6ee7b7;">"Seventh-day Adventist"</strong> was chosen in 1860 by the founding pioneers as a free spiritual identity. It was never trademarked, never incorporated, never registered with any government. It was a people's prophetic name — belonging to everyone who kept the Commandments of God and had the Faith of Jesus (Rev. 14:12).</p>
+        <div class="idem-strip">
+          <div class="idem-title">Idem Sonans — &ldquo;Sounding the Same&rdquo;</div>
+          <p>Arthur Daniells' 1904 corporate filing used the name <strong>"General Conference Corporation of Seventh-day Adventists"</strong> — deliberately engineered to echo the pioneer name "Seventh-day Adventist." Under the legal doctrine of <strong>Idem Sonans</strong> (&ldquo;sounding the same&rdquo;), two names that sound nearly identical are treated as the same entity in legal proceedings.</p>
+          <p>This is how the 1904 corporate entity <strong>stole the identity, legacy, and writings of the pioneer movement</strong>. A church member hearing "Seventh-day Adventist Church" and "General Conference Corporation of Seventh-day Adventists" would assume they were the same body. The law agrees. Spiritually and historically, <strong>they are not the same body.</strong></p>
+          <p>The 1904 corporation has since trademarked the name "Seventh-day Adventist" and used the civil courts — the very courts the Name was incorporated into — to prevent non-corporate Adventists from using their own pioneers' name. This is the boot on the neck. This is Daniells' legacy.</p>
+          <a href="https://en.wikipedia.org/wiki/Idem_sonans" target="_blank" rel="noopener noreferrer">Wikipedia: Idem Sonans &rarr;</a> &nbsp;&bull;&nbsp; <a href="https://thelawdictionary.org/idem-sonans/" target="_blank" rel="noopener noreferrer">The Law Dictionary &rarr;</a> &nbsp;&bull;&nbsp; <a href="https://legal-resources.uslegalforms.com/i/idem-sonans" target="_blank" rel="noopener noreferrer">US Legal Forms &rarr;</a>
+        </div>
+      </div>
+
+      <!-- CONSTITUTION -->
+      <div class="const-strip">
+        <div class="const-label">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          First Amendment — United States Constitution — Ratified December 15, 1791
+        </div>
+        <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof&hellip;&rdquo;</blockquote>
+        <cite>&mdash; First Amendment, Bill of Rights, U.S. Constitution, December 15, 1791</cite>
+        <p>The First Amendment was designed by men who feared exactly what Daniells created. By voluntarily incorporating under civil law, Daniells placed the church under government oversight — submitting GC governance to the laws of the "UNITED STATES" corporate entity in the District of Columbia. The government now had legal authority over the church's organizational structure, property, and institutional behavior. <strong>The First Amendment protected Adventists from government control of religion. Daniells voluntarily waived that protection on April 15, 1904.</strong></p>
+        <a href="https://constitution.congress.gov/constitution/amendment-1/" target="_blank" rel="noopener noreferrer">Official Source: constitution.congress.gov &rarr;</a>
+      </div>
+
+      <!-- THE MAYFLOWER -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Historical Irony</div>
+        <h2>The Mayflower vs. The District of Columbia</h2>
+        <p class="sect-body">In 1620, the Pilgrims crossed the Atlantic in the Mayflower, fleeing the <strong>Church of England's persecuting power</strong> — a state church that used civil law to fine, imprison, and silence those who refused to worship according to its decrees. They came to America and established the principle that would become the First Amendment: <em>Congress shall make no law respecting an establishment of religion.</em></p>
+        <p class="sect-body">In 1904, in Washington, District of Columbia — a city modeled explicitly after Rome, with its domed Capitol echoing the Pantheon and its obelisk mirroring the Vatican — Arthur G. Daniells signed the identical structure back into existence. <strong>The church-state union the Pilgrims crossed an ocean to escape, Daniells walked across a street to create.</strong></p>
+        <img src="/images/sundaylaw/mayflower-1620-religious-freedom-james-white-family-escaping-state-church-tyranny-sundaylaw.jpg" alt="The Mayflower 1620 — Fleeing Religious Tyranny" loading="lazy" style="width:100%;border-radius:14px;margin:18px 0;border:1px solid rgba(212,165,55,0.15);" />
+        <div style="background:rgba(127,29,29,0.15);border:1px solid rgba(239,68,68,0.2);border-radius:12px;padding:18px 22px;">
+          <p style="font-size:0.95rem;color:rgba(248,241,221,0.85);line-height:1.8;"><strong style="color:var(--red-soft);">The Adventist pioneers themselves fled Babylon.</strong> They left their churches in 1843–1844 when those churches rejected the First Angel's Message. They founded a free movement on the original 1841–1850 platform. They chose a name — "Seventh-day Adventist" — that belonged to no government. Arthur G. Daniells, in a single morning in April 1904, undid sixty years of prophetic protest and handed the keys of the church to Caesar.</p>
+        </div>
+      </div>
+
+      <!-- YEARBOOK EVIDENCE -->
+      <div class="sect">
+        <div class="sect-eyebrow">Official Documentary Evidence</div>
+        <h2>His Name in the 1905 Yearbook</h2>
+        <p class="sect-body">The Articles of Incorporation signed by Daniells and the other four were officially published and confirmed in the <strong>1905 Seventh-day Adventist Yearbook</strong> (pages 135–149). The document confirms: <em>"this fifteenth day of April, A.D. 1904"</em> and lists all five signatories, with their locations in either Takoma Park, Maryland, or Washington, D.C.</p>
+        <div style="display:flex;gap:12px;flex-wrap:wrap;margin-top:18px;">
+          <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.3);color:var(--gold-soft);font-weight:700;font-size:0.9rem;">
+            <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/></svg>
+            Read the 1905 Yearbook PDF
+          </a>
+          <a href="/april-15-1904-new-organization" style="display:inline-flex;align-items:center;gap:8px;padding:12px 22px;border-radius:12px;background:rgba(239,68,68,0.1);border:1px solid rgba(239,68,68,0.25);color:var(--red-soft);font-weight:700;font-size:0.9rem;">
+            Full Evidence Page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <!-- OTHER SIGNERS NAV -->
+      <div class="sect">
+        <div class="sect-eyebrow">The Other Four Signers</div>
+        <h2>Five Men. One Act of Apostasy.</h2>
+        <div class="signer-nav">
+          <a href="/1904-signers/arthur-g-daniells" class="sn-card active">
+            <div class="sn-num">Signer 1</div>
+            <div class="sn-name">Arthur G. Daniells</div>
+            <div class="sn-loc">Takoma Park, MD</div>
+          </a>
+          <a href="/1904-signers/amos-p-needham" class="sn-card">
+            <div class="sn-num">Signer 2</div>
+            <div class="sn-name">Amos P. Needham</div>
+            <div class="sn-loc">Takoma Park, MD</div>
+          </a>
+          <a href="/1904-signers/james-r-scott" class="sn-card">
+            <div class="sn-num">Signer 3</div>
+            <div class="sn-name">James R. Scott</div>
+            <div class="sn-loc">Washington, D.C.</div>
+          </a>
+          <a href="/1904-signers/harvey-edson-rogers" class="sn-card">
+            <div class="sn-num">Signer 4</div>
+            <div class="sn-name">Harvey Edson Rogers</div>
+            <div class="sn-loc">Washington, D.C.</div>
+          </a>
+          <a href="/1904-signers/daniel-k-nicola" class="sn-card">
+            <div class="sn-num">Signer 5</div>
+            <div class="sn-name">Daniel K. Nicola</div>
+            <div class="sn-loc">Washington, D.C.</div>
+          </a>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer class="site-footer">
+    <div class="footer-banner">
+      <p>&ldquo;Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;</p>
+      <cite>&mdash; Ellen G. White, 1SM 204 — Written about the "new organization" signed by Arthur G. Daniells on April 15, 1904</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div style="font-weight:700;font-size:1.05rem;color:#fff;margin-bottom:10px;">SundayLaw.com</div>
+        <p style="color:var(--muted);font-size:0.875rem;line-height:1.7;">Preserving the 1841–1850 pioneer platform. Exposing the 1904 corporate apostasy. Proclaiming the Three Angels' Messages.</p>
+      </div>
+      <div class="footer-col">
+        <h4>The 5 Signers</h4>
+        <ul>
+          <li><a href="/1904-signers">Overview — All 5</a></li>
+          <li><a href="/1904-signers/arthur-g-daniells">Arthur G. Daniells</a></li>
+          <li><a href="/1904-signers/amos-p-needham">Amos P. Needham</a></li>
+          <li><a href="/1904-signers/james-r-scott">James R. Scott</a></li>
+          <li><a href="/1904-signers/harvey-edson-rogers">Harvey Edson Rogers</a></li>
+          <li><a href="/1904-signers/daniel-k-nicola">Daniel K. Nicola</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">April 15, 1904 Record</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Pioneer Platform</h4>
+        <ul>
+          <li><a href="/library">Full Pioneer Library</a></li>
+          <li><a href="/books/charles-fitch">Charles Fitch</a></li>
+          <li><a href="/books/joseph-bates-seal">Joseph Bates</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/pioneers">Pioneer Biographies</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SundayLaw.com — Three Angels' Messages — Revelation 14:6–12 — "Come out of her, My people" — Revelation 18:4</p>
+    </div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <script>
+    const menuBtn = document.getElementById('menu-btn');
+    const mobileNav = document.getElementById('mobile-nav');
+    menuBtn?.addEventListener('click', () => {
+      const open = mobileNav?.classList.toggle('open');
+      menuBtn.setAttribute('aria-expanded', String(open));
+    });
+  </script>
+  <SiteFooter
+    scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+    scriptureRef="Revelation 18:4 (KJV)"
+    pageLinks={[
+      { label: 'Arthur G. Daniells — 1904 Signer', href: '/1904-signers/arthur-g-daniells' },
+      { label: 'April 15, 1904 — The Record', href: '/april-15-1904-new-organization' },
+      { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+      { label: 'All Five 1904 Signers', href: '/1904-signers' }
+    ]}
+  />
+  <ShareBar />
+  <SiteSearch />
+</body>
+</html>

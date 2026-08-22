@@ -1,0 +1,295 @@
+---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>The 501(c)(3) Trap — How Government Tax Status Silences Prophetic Truth | SundayLaw.com</title>
+    <meta name="description" content="The 501(c)(3) tax-exempt status is not a blessing — it is a government muzzle. The GC-SDA General Conference (EIN 52-0643036) accepted 501(c)(3) under the 1950 tax code, and every SDA ministry under GEN 1071 is legally prohibited from speaking the whole prophetic truth about government, Sunday law, and Roman Catholicism.">
+    <link rel="canonical" href="https://sundaylaw.com/501c3">
+    <meta property="og:title" content="The 501(c)(3) Trap — How Government Controls Church Speech">
+    <meta property="og:description" content="The 501(c)(3) tax-exempt status is a government muzzle. The GC-SDA General Conference accepted 501(c)(3) in 1950, legally prohibiting the full prophetic truth about government, Sunday law, and Rome.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/501c3">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(220,38,38,0.1); border: 1px solid rgba(220,38,38,0.3); color: var(--red-muted); font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: var(--red-muted); }
+      .page-header .subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      .section { padding: 44px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 26px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: var(--red-muted); font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* COMPARISON TABLE */
+      .compare-table { width: 100%; border-collapse: collapse; font-size: 0.87rem; margin-bottom: 28px; }
+      .compare-table th { padding: 10px 16px; text-align: left; font-weight: 700; font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; }
+      .compare-table th.green { background: rgba(5,150,105,0.12); color: #6ee7b7; border: 1px solid rgba(5,150,105,0.25); }
+      .compare-table th.red { background: rgba(159,18,57,0.15); color: var(--red-muted); border: 1px solid rgba(220,38,38,0.3); }
+      .compare-table td { padding: 10px 16px; border: 1px solid rgba(255,255,255,0.07); vertical-align: top; line-height: 1.7; }
+      .compare-table tr:nth-child(odd) td { background: rgba(255,255,255,0.015); }
+      .compare-table td strong { color: var(--ink); }
+      .compare-table td em { color: var(--red-muted); font-style: italic; }
+
+      /* RESTRICTIONS */
+      .restrictions-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(240px, 1fr)); gap: 14px; }
+      .restriction-card { background: var(--bg-card); border: 1px solid rgba(220,38,38,0.2); border-radius: 14px; padding: 18px; }
+      .restriction-icon { font-size: 1.4rem; margin-bottom: 8px; }
+      .restriction-title { font-family: 'Crimson Text', serif; font-size: 1rem; color: var(--red-muted); font-weight: 600; margin-bottom: 6px; }
+      .restriction-text { font-size: 0.8rem; color: var(--ink-muted); line-height: 1.65; }
+
+      /* IRS BOX */
+      .irs-record { background: linear-gradient(135deg, rgba(20,5,0,0.6), rgba(12,5,5,0.98)); border: 1px solid rgba(212,165,55,0.28); border-radius: 18px; padding: 30px; margin-bottom: 30px; font-family: 'Courier New', monospace; font-size: 0.83rem; color: rgba(254,243,199,0.85); line-height: 2; }
+      .irs-record h3 { font-family: 'Crimson Text', serif; font-size: 1.2rem; color: var(--gold); margin-bottom: 16px; font-family: inherit; text-transform: uppercase; letter-spacing: 0.08em; }
+      .irs-field { display: flex; gap: 16px; flex-wrap: wrap; }
+      .irs-key { color: var(--gold); font-weight: 700; min-width: 220px; }
+      .irs-val { color: rgba(254,243,199,0.85); }
+
+      /* QUOTES */
+      .quote-block { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 20px 22px; margin-bottom: 20px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: rgba(254,243,199,0.92); line-height: 1.85; margin-bottom: 6px; }
+      .quote-block cite { font-size: 0.78rem; color: var(--gold); font-style: italic; }
+
+      /* 508 ALT */
+      .alt-box { background: linear-gradient(135deg, rgba(2,40,20,0.4), rgba(5,30,15,0.7)); border: 1px solid rgba(5,150,105,0.35); border-radius: 16px; padding: 26px 28px; }
+      .alt-box h3 { font-family: 'Crimson Text', serif; font-size: 1.4rem; color: #6ee7b7; margin-bottom: 14px; }
+      .alt-box p { font-size: 0.88rem; color: rgba(254,243,199,0.8); line-height: 1.8; margin-bottom: 10px; }
+      .alt-box strong { color: #6ee7b7; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .restrictions-grid { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          501(c)(3) Tax Structure
+        </div>
+        <div class="page-eyebrow">Government Control of Religion</div>
+        <div class="page-header">
+          <h1>The <em>501(c)(3) Trap</em></h1>
+          <p class="subtitle">When an organization accepts 501(c)(3) status from the federal government, it does not merely receive a tax benefit — it enters into a legal contract with the state that restricts what it can say, what it can teach, and what political or governmental positions it can publicly advocate. The pioneers never asked the government for permission to preach the Third Angel's Message. The 1904 organization did.</p>
+        </div>
+      </div>
+
+      <!-- IRS RECORD -->
+      <section class="section" style="padding-top:0; border-top: none;">
+        <div class="irs-record">
+          <h3>IRS Record — GC-SDA Primary Entity</h3>
+          <div class="irs-field"><span class="irs-key">Organization Name:</span><span class="irs-val">GENERAL CONFERENCE CORPORATION OF SEVENTH-DAY ADVENTISTS</span></div>
+          <div class="irs-field"><span class="irs-key">EIN:</span><span class="irs-val">52-0643036</span></div>
+          <div class="irs-field"><span class="irs-key">IRS Classification:</span><span class="irs-val">X21 — Protestant (as filed)</span></div>
+          <div class="irs-field"><span class="irs-key">GC President (1981):</span><span class="irs-val">Neal C. Wilson — "truly a Catholic organization" (Adventist Review)</span></div>
+          <div class="irs-field"><span class="irs-key">Ruling Year:</span><span class="irs-val">1950</span></div>
+          <div class="irs-field"><span class="irs-key">Group Exemption Number:</span><span class="irs-val">GEN 1071 — covers thousands of subsidiary entities</span></div>
+          <div class="irs-field"><span class="irs-key">Primary Activity (IRS):</span><span class="irs-val">"Underwriting municipal insurance"</span></div>
+          <div class="irs-field"><span class="irs-key">Subsidiaries under GEN 1071:</span><span class="irs-val">7,500+ schools, 173 hospitals, 133 universities, media, conferences</span></div>
+          <div class="irs-field" style="margin-top:12px;"><span class="irs-key">IRS Publication 1828:</span><span class="irs-val">Tax Guide for Churches and Religious Organizations</span></div>
+        </div>
+      </section>
+
+      <!-- WHAT 501c3 PROHIBITS -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Legal Muzzle</div>
+          <h2>What <em>501(c)(3) Prohibits</em> a Church From Saying</h2>
+          <p>Under 26 U.S.C. § 501(c)(3) and IRS Publication 1828, a qualifying religious organization must agree to certain operational restrictions in exchange for tax exemption. These are not theoretical — they are the law.</p>
+        </div>
+        <div class="restrictions-grid">
+          <div class="restriction-card">
+            <div class="restriction-icon">🚫</div>
+            <div class="restriction-title">No Partisan Political Activity</div>
+            <p class="restriction-text">A 501(c)(3) organization cannot participate in any political campaign activity on behalf of or in opposition to any candidate for public office. Direct or indirect. This includes Sunday law candidates.</p>
+          </div>
+          <div class="restriction-card">
+            <div class="restriction-icon">🚫</div>
+            <div class="restriction-title">Substantial Lobbying Restricted</div>
+            <p class="restriction-text">A 501(c)(3) org cannot make lobbying a "substantial part" of its activities. Prophetic preaching about Sunday law legislation is lobbying content. The government muzzle is built into the contract.</p>
+          </div>
+          <div class="restriction-card">
+            <div class="restriction-icon">🚫</div>
+            <div class="restriction-title">No "Private Inurement" — But Salaries Are Permitted</div>
+            <p class="restriction-text">Excessive compensation is prohibited in theory — yet GC and hospital executives routinely earn $500K–$1M+ annually, documented in 990 filings. "No private inurement" in practice means controlled wealth concentration.</p>
+          </div>
+          <div class="restriction-card">
+            <div class="restriction-icon">🚫</div>
+            <div class="restriction-title">Government Oversight</div>
+            <p class="restriction-text">Most 501(c)(3) nonprofits file an annual Form 990 disclosing finances, compensation, governance, and activities. Churches, however, are typically exempt from this filing requirement. Even so, they remain subject to applicable laws and regulatory authority, and their operations exist within a state-recognized legal structure.</p>
+          </div>
+          <div class="restriction-card">
+            <div class="restriction-icon">🚫</div>
+            <div class="restriction-title">Cannot Oppose Government Mandates</div>
+            <p class="restriction-text">A 501(c)(3) org risks its status if it actively opposes government health mandates, vaccine requirements, or any other government directive in a way that the IRS interprets as political activity.</p>
+          </div>
+          <div class="restriction-card">
+            <div class="restriction-icon">🚫</div>
+            <div class="restriction-title">Sunday Law Preaching — A Liability</div>
+            <p class="restriction-text">The Third Angel's Message names a specific law and a specific power behind it. Preaching prophetically against Sunday law legislation as a 501(c)(3) organization creates direct legal exposure. This is by design.</p>
+          </div>
+        </div>
+      </section>
+
+      <!-- PROTESTANT vs CATHOLIC -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Identity Fraud</div>
+          <h2>Protestant on the IRS Form, <em>Catholic in Court</em></h2>
+        </div>
+        <table class="compare-table">
+          <thead>
+            <tr>
+              <th class="green" style="width:50%">What they filed with the IRS</th>
+              <th class="red" style="width:50%">What they said in court &amp; print</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td><strong>IRS Classification:</strong> X21 — Protestant<br><em>EIN 52-0643036, ruling year 1950</em></td>
+                <td><strong>Neal Wilson, 1981:</strong> <em>"There is another universal and truly Catholic organization — the Seventh-day Adventist Church."</em><br><em><a href="/books/1904-image-of-papacy/1981.pdf" target="_blank" rel="noopener">Adventist Review, March 5, 1981, p. 4 (PDF)</a></em><br><span style="color:var(--red-muted);font-weight:700;">(<a href="/books/1904-image-of-papacy/insurance.pdf" target="_blank" rel="noopener" style="color:var(--red-muted);text-decoration:underline;">filed as Protestant</a>)</span></td>
+            </tr>
+            <tr>
+              <td><strong>Donors told:</strong> Your donations support a Protestant faith ministry for the spread of the Three Angels' Messages.</td>
+              <td><strong>In federal court, 1974 (EEOC v. Pacific Press):</strong> GC acting through counsel placed positions of faith on the "trash heap" — treating belief as disposable when legally inconvenient.</td>
+            </tr>
+            <tr>
+              <td><strong>IRS Primary Activity:</strong> Religious organization (implied from 501c3 classification)</td>
+              <td><strong>IRS Primary Activity (actual filing):</strong> "Underwriting municipal insurance" — the GC's listed primary business activity.</td>
+            </tr>
+            <tr>
+              <td><strong>Schools filed as:</strong> Protestant religious schools, qualifing for faith-based exemptions</td>
+              <td><strong>Schools operate under:</strong> Catholic Middle States Association and other Catholic-initiated accreditation bodies — requirement: Trinity doctrine, ecumenical participation, government oversight</td>
+            </tr>
+          </tbody>
+        </table>
+      </section>
+
+      <!-- EGW -->
+      <section class="section">
+        <div class="quote-block">
+          <blockquote>"Our religion would be changed. The Protestant form would be retained, but the spirit and power would be gone. It would be a Protestant in name only."</blockquote>
+          <cite>— Ellen G. White, Manuscript 3, 1883</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"When the churches shall unite with the worldly elements, leaning upon the arm of human power, then the Protestant world will have gone over to Rome."</blockquote>
+          <cite>— Ellen G. White, Signs of the Times, February 19, 1894</cite>
+        </div>
+      </section>
+
+      <!-- 508c1a -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Alternative</div>
+          <h2>508(c)(1)(a) — The <em>Unregistered Church</em></h2>
+        </div>
+        <div class="alt-box">
+          <h3>Churches Are Not Required to Register with the IRS</h3>
+          <p>Under 26 U.S.C. § 508(c)(1)(a), <strong>churches are automatically tax-exempt</strong> without applying for 501(c)(3) status. A church that does NOT hold 501(c)(3) status:</p>
+          <p>— Is NOT required to file Form 990<br>
+          — Is NOT subject to 501(c)(3) political activity restrictions<br>
+          — Is NOT under IRS oversight and audit risk<br>
+          — Can preach freely on any topic — Sunday law, government, Rome, prophecy — without risking tax-exempt status<br>
+          — Cannot have its tax exemption revoked by the IRS because it never accepted a government grant of exemption</p>
+          <p>The pioneers did not hold 501(c)(3) status. They preached what they believed without government permission. The 1904 GC-SDA corporation sought federal incorporation and IRS registration — and traded the pulpit for the government's protection.</p>
+          <p><strong>IRS Publication 1828</strong> — the government's own guide for churches — is available below. Read what the government says about what your church may and may not do under 501(c)(3).</p>
+          {/* PDF link if/when available */}
+          <a href="/books/pdf/irs-form-1828/p1828.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;margin-top:14px;padding:10px 18px;background:rgba(5,150,105,0.15);border:1px solid rgba(5,150,105,0.35);border-radius:8px;color:#6ee7b7;font-weight:700;font-size:0.83rem;">Download IRS Publication 1828 PDF →</a>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>The Government Owns What It Created</h2>
+        <p>The 1904 GC-SDA corporation and every entity under GEN 1071 exists at the pleasure of the federal government. The pioneers preached without a license. Will you?</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">Full Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/apostasy/schools">Schools Fraud →</a>
+          <a class="cta-btn cta-btn-secondary" href="/library">Pioneer Library →</a>
+          <a class="cta-btn cta-btn-secondary" href="/babylon-antichrist-library">Babylon Library →</a>
+        </div>
+      </div>
+    </main>
+
+    <SiteFooter
+      scripture="Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."
+      scriptureRef="Revelation 18:4 (KJV)"
+      pageLinks={[
+        { label: '501(c)(3) Speech Trap', href: '/apostasy/501c3' },
+        { label: 'SDA Corporation (EIN 52-0643036)', href: '/apostasy/corporations' },
+        { label: 'Apostate Shepherds', href: '/apostasy' },
+        { label: 'Religious Liberty', href: '/religious-liberty' }
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>

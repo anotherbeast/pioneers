@@ -1,0 +1,110 @@
+---
+name: "Henry Mead"
+title: "Adventist Pioneer & Regional Minister"
+birth: 1830
+death: 1905
+birthDate: "1830-05-15"
+deathDate: "1905-10-20"
+birthPlace: "Massachusetts, USA"
+excerpt: "Adventist minister whose regional evangelistic work and church planting expanded Seventh-day Adventism. Henry Mead exemplified commitment to systematic regional development."
+image: "/images/pioneers/henry-mead.jpg"
+books: []
+categories: ["pioneer", "minister", "evangelist"]
+---
+
+## Henry Mead (1830–1905)
+
+Henry Mead was an Adventist minister whose regional evangelistic work and systematic church planting expanded Seventh-day Adventism across multiple communities. His methodical approach combined revival preaching with institutional building.
+
+## Early Life & Calling
+
+- **Born**: Massachusetts, 1830
+- **Religious Background**: Christian heritage
+- **Conversion**: Embraced Adventist faith
+- **Calling**: Clear ministerial calling emerged
+
+## Early Evangelistic Work
+
+**Ministry Development**:
+- Developed preaching competency
+- Studied Adventist doctrine
+- Learned evangelistic methodology
+- Prepared for field work
+
+**Preaching Gifts**:
+- Effective oratorical ability
+- Doctrinal clarity
+- Spiritual persuasiveness
+- Revival effectiveness
+
+## Regional Evangelistic Campaigns
+
+**Systematic Approach**:
+- Conducted extended meetings
+- Multiple-week campaigns
+- Strategic location selection
+- Community outreach
+
+**Campaign Results**:
+- Established new congregations
+- Created faith constituencies
+- Built community interest
+- Secured regular attendance
+
+## Church Planting Methodology
+
+**Congregational Formation**:
+- Organized convert groups
+- Established church leadership
+- Trained local officers
+- Left functioning congregations
+
+**Institutional Legacy**:
+- Many churches continued after departure
+- Trained pastors continued work
+- Organizations became established
+- Created lasting structures
+
+## Evangelistic Strategy
+
+**Personal Touch**:
+- Individual counseling
+- Family visits
+- Spiritual guidance
+- Pastoral follow-up
+
+**Leadership Development**:
+- Identified local leaders
+- Provided training
+- Delegated responsibility
+- Built leadership capacity
+
+## Extended Service
+
+**Career Longevity**:
+- Active evangelism spanning decades
+- Maintained systematic work
+- Multiple geographic transitions
+- Persistent commitment
+
+**Cumulative Impact**:
+- Dozens of congregations established
+- Hundreds of converts brought in
+- Regional Adventist presence solidified
+- Denominational growth enabled
+
+## Later Years
+
+**Life Span**:
+- Lived to 75 years old
+- Witnessed denominational establishment
+- Saw church institutions flourish
+- Left secure legacy
+
+## Legacy
+
+Henry Mead exemplifies regional evangelists whose systematic campaigns and church planting built denominational foundations. His combination of revival preaching with institution-building proved sustainable. His regional impact contributed significantly to geographic expansion and organizational establishment.
+
+## Historical Recognition
+
+Adventist historians recognize Mead as important regional evangelist. His evangelistic campaigns established patterns; his church planting built congregations; his systematic work created lasting communities; his pioneering expanded regional presence.

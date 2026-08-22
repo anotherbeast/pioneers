@@ -1,0 +1,1535 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <Analytics />
+    <title>SundayLaw.com — The Final Choice: God's Law or Man's Law</title>
+    <meta name="description" content="The final issue of earth's history is the Sabbath — the seal of the living God versus the mark of the beast. Here are they that keep the commandments of God and the faith of Jesus.">
+    <meta property="og:title" content="SundayLaw.com — The Final Choice: God's Law or Man's Law">
+    <meta property="og:description" content="The final issue of earth's history is the Sabbath — the seal of the living God versus the mark of the beast. Here are they who keep the commandments of God and the faith of Jesus.">
+    <meta property="og:image" content="https://sundaylaw.com/images/shield_sundaylaw.com_the_final_warning_logo.jpg">
+    <meta property="og:type" content="website">
+    <meta property="og:url" content="https://sundaylaw.com/">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0a0a2e;
+        --bg-soft: #0d0d3a;
+        --ink: #fef3c7;
+        --ink-muted: #9ca3af;
+        --gold: #d4a537;
+        --gold-soft: #fcd34d;
+        --amber: #f59e0b;
+        --line: rgba(212,165,55,0.22);
+        --line-soft: rgba(212,165,55,0.12);
+      }
+
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+
+      body {
+        margin: 0;
+        font-family: 'Inter', sans-serif;
+        color: var(--ink);
+        background: #0a0a2e;
+        overflow-x: hidden;
+      }
+
+      .serif { font-family: 'Crimson Text', serif; }
+
+      /* ===== NAV ===== */
+      .nav {
+        position: sticky;
+        top: 0;
+        z-index: 100;
+        background: rgba(5, 5, 30, 0.94);
+        backdrop-filter: blur(12px);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+
+      .nav-row {
+        display: flex;
+        align-items: center;
+        padding: 0 22px;
+      }
+
+      .nav-row-top {
+        gap: 28px;
+        height: 62px;
+        border-bottom: 1px solid rgba(212,165,55,0.10);
+      }
+
+      .nav-row-bottom {
+        gap: 22px;
+        height: 42px;
+        font-size: 0.82rem;
+        overflow-x: auto;
+        scrollbar-width: none;
+      }
+
+      .nav-brand {
+        text-decoration: none;
+        color: var(--ink);
+        font-weight: 700;
+        font-size: 1.05rem;
+        letter-spacing: 0.02em;
+        flex-shrink: 0;
+        display: flex;
+        align-items: center;
+        margin-right: auto;
+      }
+
+      .nav-brand span { color: var(--gold); }
+      .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+
+      .hero-desc-wrap {
+        display: inline-block;
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        background: rgba(5,5,30,0.52);
+        border-radius: 14px;
+        padding: 18px 24px;
+        margin: 0 auto 30px;
+        max-width: 680px;
+        border: 1px solid rgba(212,165,55,0.15);
+      }
+
+      .nav-link {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        font-size: 0.9rem;
+        white-space: nowrap;
+        transition: color 0.18s;
+      }
+
+      .nav-link:hover { color: var(--gold-soft); }
+
+      .nav-cta {
+        display: inline-flex;
+        align-items: center;
+        height: 38px;
+        padding: 0 18px;
+        border-radius: 8px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.88rem;
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: background 0.18s;
+      }
+
+      .nav-cta:hover { background: var(--gold-soft); }
+
+      .nav-bottom-link {
+        color: rgba(156,163,175,0.8);
+        text-decoration: none;
+        font-weight: 500;
+        white-space: nowrap;
+        transition: color 0.18s;
+        flex-shrink: 0;
+      }
+
+      .nav-bottom-link:hover { color: var(--gold-soft); }
+
+      .menu-btn {
+        display: none;
+        width: 40px;
+        height: 40px;
+        border: 1px solid var(--line);
+        border-radius: 8px;
+        background: rgba(255,255,255,0.03);
+        color: var(--ink);
+        font-size: 1.2rem;
+        cursor: pointer;
+        flex-shrink: 0;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .mobile-nav {
+        display: none;
+        border-top: 1px solid var(--line);
+        padding: 14px 22px 18px;
+        background: rgba(5,5,30,0.97);
+      }
+
+      .mobile-nav.open { display: grid; gap: 6px; }
+
+      .mobile-nav a {
+        color: var(--ink-muted);
+        text-decoration: none;
+        font-weight: 600;
+        padding: 8px 0;
+        border-bottom: 1px solid rgba(255,255,255,0.05);
+      }
+
+      .mobile-nav a:hover { color: var(--gold-soft); }
+
+      /* ===== HERO ===== */
+      .hero {
+        position: relative;
+        min-height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+      }
+
+      .hero-bg {
+        position: absolute;
+        inset: 0;
+        z-index: 0;
+      }
+
+      .hero-bg img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        object-position: center top;
+      }
+
+      .hero-overlay {
+        position: absolute;
+        inset: 0;
+        background: linear-gradient(to bottom,
+          rgba(5,5,30,0.55) 0%,
+          rgba(5,5,30,0.25) 30%,
+          rgba(5,5,30,0.45) 70%,
+          rgba(5,5,30,0.92) 100%
+        );
+      }
+
+      .hero-overlay2 {
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at center bottom, rgba(212,165,55,0.06), transparent 60%);
+      }
+
+      .hero-stripe {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--gold), transparent);
+        z-index: 3;
+      }
+
+      .hero-content {
+        position: relative;
+        z-index: 2;
+        text-align: center;
+        max-width: 900px;
+        padding: 80px 28px 100px;
+      }
+
+      .hero-badge {
+        display: inline-flex;
+        align-items: center;
+        gap: 10px;
+        padding: 8px 18px;
+        border-radius: 999px;
+        border: 1px solid rgba(212,165,55,0.4);
+        background: rgba(212,165,55,0.09);
+        color: var(--gold-soft);
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 28px;
+      }
+
+      .hero h1 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(3.2rem, 9vw, 7rem);
+        font-weight: 600;
+        line-height: 1.0;
+        letter-spacing: -0.01em;
+        color: #fef3c7;
+        text-shadow: 0 4px 32px rgba(0,0,0,0.55);
+        margin-bottom: 18px;
+      }
+
+      .hero h1 .gold { color: var(--gold); }
+
+      .hero-subtitle {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(1.5rem, 3.5vw, 2.2rem);
+        color: rgba(254,243,199,0.85);
+        margin-bottom: 24px;
+        font-style: italic;
+      }
+
+      .hero-desc {
+        color: rgba(156,163,175,0.95);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        max-width: 680px;
+        margin: 0 auto 30px;
+      }
+
+      .hero-quote {
+        display: inline-block;
+        font-family: 'Crimson Text', serif;
+        font-size: 1.15rem;
+        font-style: italic;
+        color: rgba(254,243,199,0.75);
+        border-top: 1px solid rgba(212,165,55,0.3);
+        border-bottom: 1px solid rgba(212,165,55,0.3);
+        padding: 14px 22px;
+        margin-bottom: 34px;
+      }
+
+      .hero-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 52px;
+      }
+
+      .btn-primary {
+        display: inline-flex;
+        align-items: center;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.95rem;
+        text-decoration: none;
+        transition: all 0.2s;
+      }
+
+      .btn-primary:hover { background: var(--gold-soft); transform: translateY(-2px); }
+
+      .btn-outline {
+        display: inline-flex;
+        align-items: center;
+        height: 52px;
+        padding: 0 28px;
+        border-radius: 10px;
+        border: 1px solid rgba(254,243,199,0.3);
+        color: var(--ink);
+        font-weight: 600;
+        font-size: 0.95rem;
+        text-decoration: none;
+        background: rgba(255,255,255,0.04);
+        transition: all 0.2s;
+      }
+
+      .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+
+      .hero-stats {
+        display: flex;
+        justify-content: center;
+        gap: 48px;
+        flex-wrap: wrap;
+        padding-top: 38px;
+        border-top: 1px solid rgba(212,165,55,0.2);
+      }
+
+      .hero-stat .num {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2.8rem, 6vw, 4.2rem);
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+      }
+
+      .hero-stat .label {
+        font-size: 0.8rem;
+        color: var(--ink-muted);
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        margin-top: 6px;
+        max-width: 130px;
+      }
+
+      /* ===== SECTIONS ===== */
+      .section { padding: 80px 22px; position: relative; }
+
+      .section-dark {
+        background: linear-gradient(to bottom, #0a0a2e, #080828, #0a0a2e);
+      }
+
+      .section-warm {
+        background: linear-gradient(to bottom, #0a0a2e, #100820, #0a0a2e);
+      }
+
+      .section-inner { max-width: 1200px; margin: 0 auto; }
+      .section-narrow { max-width: 920px; margin: 0 auto; }
+
+      .section-stripe-top {
+        position: absolute;
+        top: 0; left: 0; right: 0;
+        height: 3px;
+        background: linear-gradient(to right, transparent, rgba(212,165,55,0.35), transparent);
+      }
+
+      /* ===== SECTION HEADINGS ===== */
+      .sh { text-align: center; margin-bottom: 52px; }
+
+      .sh-eyebrow {
+        display: inline-block;
+        padding: 6px 16px;
+        border-radius: 999px;
+        background: rgba(212,165,55,0.1);
+        border: 1px solid rgba(212,165,55,0.28);
+        color: var(--gold-soft);
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 16px;
+      }
+
+      .sh h2 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2rem, 4.5vw, 3.2rem);
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.15;
+      }
+
+      .sh p {
+        margin-top: 14px;
+        color: var(--ink-muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        max-width: 720px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .sh-divider {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        gap: 14px;
+        margin-bottom: 16px;
+      }
+
+      .sh-line { height: 1px; width: 52px; background: rgba(212,165,55,0.4); }
+
+      /* ===== QUOTE BLOCKS ===== */
+      .qb {
+        border-left: 4px solid rgba(212,165,55,0.5);
+        padding: 20px 20px 20px 24px;
+        border-radius: 0 10px 10px 0;
+        margin-bottom: 22px;
+        background: rgba(212,165,55,0.06);
+      }
+
+      .qb p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.12rem;
+        line-height: 1.75;
+        color: rgba(254,243,199,0.92);
+        font-style: italic;
+        margin: 0;
+      }
+
+      .qb cite {
+        display: block;
+        margin-top: 10px;
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .qb-dark {
+        background: rgba(0,0,0,0.3);
+        border-color: rgba(100,100,200,0.3);
+      }
+
+      .qb-dark p { color: var(--ink-muted); }
+
+      /* ===== FEATURE CARDS ===== */
+      .feature-grid {
+        display: grid;
+        gap: 22px;
+        grid-template-columns: repeat(3, 1fr);
+      }
+
+      .feature-card {
+        border: 1px solid var(--line);
+        border-radius: 16px;
+        padding: 28px 24px;
+        background: linear-gradient(135deg, rgba(20,20,68,0.8), rgba(10,10,48,0.8));
+        transition: all 0.25s;
+      }
+
+      .feature-card:hover {
+        border-color: rgba(212,165,55,0.45);
+        transform: translateY(-3px);
+      }
+
+      .feature-card .fc-icon {
+        font-size: 2rem;
+        margin-bottom: 14px;
+        display: block;
+      }
+
+      .feature-card h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.3rem;
+        font-weight: 600;
+        color: #fef3c7;
+        margin-bottom: 10px;
+      }
+
+      .feature-card p {
+        color: var(--ink-muted);
+        font-size: 0.95rem;
+        line-height: 1.75;
+      }
+
+      .feature-card a {
+        display: inline-block;
+        margin-top: 14px;
+        color: var(--gold-soft);
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.88rem;
+      }
+
+      .feature-card a:hover { color: var(--ink); }
+
+      /* ===== COMPARISON ===== */
+      .compare-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 22px;
+        margin-bottom: 32px;
+      }
+
+      .compare-card {
+        border-radius: 16px;
+        padding: 28px 24px;
+        border: 2px solid;
+      }
+
+      .compare-gold {
+        border-color: rgba(212,165,55,0.45);
+        background: linear-gradient(135deg, rgba(28,20,0,0.75), rgba(10,10,48,0.85));
+      }
+
+      .compare-red {
+        border-color: rgba(220,50,50,0.4);
+        background: linear-gradient(135deg, rgba(40,5,5,0.75), rgba(10,10,48,0.85));
+      }
+
+      .compare-label {
+        display: inline-block;
+        padding: 5px 12px;
+        border-radius: 999px;
+        font-size: 0.74rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      .label-seal {
+        background: rgba(212,165,55,0.14);
+        border: 1px solid rgba(212,165,55,0.4);
+        color: var(--gold-soft);
+      }
+
+      .label-mark {
+        background: rgba(220,50,50,0.12);
+        border: 1px solid rgba(220,50,50,0.4);
+        color: #f87171;
+      }
+
+      .compare-card h3 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.4rem;
+        font-weight: 600;
+        margin-bottom: 14px;
+      }
+
+      .compare-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 9px;
+      }
+
+      .compare-card ul li {
+        display: flex;
+        gap: 10px;
+        align-items: flex-start;
+        color: var(--ink-muted);
+        font-size: 0.94rem;
+        line-height: 1.6;
+      }
+
+      .compare-card ul li::before {
+        content: '›';
+        color: var(--gold);
+        flex-shrink: 0;
+        font-weight: 700;
+      }
+
+      .compare-red ul li::before { color: #f87171; }
+
+      /* ===== TEN COMMANDMENTS ===== */
+      .cmd-grid {
+        display: grid;
+        grid-template-columns: repeat(5, 1fr);
+        gap: 14px;
+        margin: 32px 0;
+      }
+
+      .cmd-item {
+        background: linear-gradient(135deg, rgba(20,20,68,0.85), rgba(10,10,46,0.9));
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        padding: 18px 14px;
+        text-align: center;
+        transition: all 0.2s;
+      }
+
+      .cmd-item:nth-child(4) {
+        border-color: rgba(212,165,55,0.65);
+        background: linear-gradient(135deg, rgba(40,30,0,0.85), rgba(20,15,0,0.9));
+        box-shadow: 0 0 22px rgba(212,165,55,0.14);
+      }
+
+      .cmd-num {
+        font-family: 'Crimson Text', serif;
+        font-size: 2rem;
+        font-weight: 600;
+        color: var(--gold);
+        line-height: 1;
+        display: block;
+      }
+
+      .cmd-item:nth-child(4) .cmd-num { color: var(--gold-soft); }
+
+      .cmd-text {
+        font-size: 0.78rem;
+        color: var(--ink-muted);
+        margin-top: 7px;
+        line-height: 1.5;
+      }
+
+      .cmd-item:nth-child(4) .cmd-text { color: rgba(254,243,199,0.85); }
+
+      /* ===== LIBRARY STRIP ===== */
+      .lib-strip {
+        display: grid;
+        grid-template-columns: repeat(4, 1fr);
+        gap: 18px;
+        margin: 32px 0;
+      }
+
+      .lib-card {
+        background: linear-gradient(135deg, rgba(26,26,78,0.82), rgba(13,13,52,0.82));
+        border: 1px solid var(--line-soft);
+        border-radius: 14px;
+        padding: 22px 18px;
+        transition: all 0.25s;
+        text-decoration: none;
+        display: block;
+      }
+
+      .lib-card:hover {
+        border-color: var(--line);
+        transform: translateY(-3px);
+      }
+
+      .lc-author {
+        font-size: 0.76rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        color: var(--gold-soft);
+        margin-bottom: 8px;
+      }
+
+      .lib-card h4 {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: #fef3c7;
+        line-height: 1.35;
+        margin-bottom: 6px;
+      }
+
+      .lc-year {
+        font-size: 0.8rem;
+        color: var(--ink-muted);
+      }
+
+      /* ===== CTA ===== */
+      .cta-box {
+        text-align: center;
+        max-width: 760px;
+        margin: 0 auto;
+      }
+
+      .cta-box h2 {
+        font-family: 'Crimson Text', serif;
+        font-size: clamp(2rem, 4.5vw, 3rem);
+        font-weight: 600;
+        color: #fef3c7;
+        margin-bottom: 18px;
+      }
+
+      .cta-box p {
+        color: var(--ink-muted);
+        font-size: 1.05rem;
+        line-height: 1.8;
+        margin-bottom: 32px;
+      }
+
+      .cta-btns {
+        display: flex;
+        gap: 14px;
+        justify-content: center;
+        flex-wrap: wrap;
+      }
+
+      /* ===== FOOTER ===== */
+      .site-footer {
+        background: #050518;
+        border-top: 1px solid rgba(180,130,50,0.2);
+      }
+
+      .footer-banner {
+        text-align: center;
+        padding: 32px 22px 28px;
+        border-bottom: 1px solid rgba(212,165,55,0.12);
+      }
+
+      .footer-banner p {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.1rem;
+        font-style: italic;
+        color: rgba(254,243,199,0.8);
+        max-width: 700px;
+        margin: 0 auto 8px;
+      }
+
+      .footer-banner cite {
+        font-size: 0.85rem;
+        color: var(--gold-soft);
+        font-weight: 700;
+        font-style: normal;
+      }
+
+      .footer-main {
+        max-width: 1200px;
+        margin: 0 auto;
+        padding: 40px 22px;
+        display: grid;
+        grid-template-columns: 1.4fr 1fr 1fr 1fr;
+        gap: 32px;
+      }
+
+      .footer-col h4 {
+        color: var(--gold-soft);
+        font-size: 0.85rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 14px;
+      }
+
+      .footer-col p {
+        color: #6b7280;
+        font-size: 0.9rem;
+        line-height: 1.75;
+      }
+
+      .footer-col ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 9px;
+      }
+
+      .footer-col ul a {
+        color: #9ca3af;
+        text-decoration: none;
+        font-size: 0.9rem;
+        transition: color 0.18s;
+      }
+
+      .footer-col ul a:hover { color: var(--gold-soft); }
+
+      .footer-brand-name {
+        display: flex;
+        align-items: center;
+        gap: 8px;
+        margin-bottom: 14px;
+      }
+
+      .footer-brand-name span {
+        font-family: 'Crimson Text', serif;
+        font-size: 1.2rem;
+        font-weight: 600;
+        color: #fff;
+      }
+
+      .footer-brand-name span em { color: var(--gold); font-style: normal; }
+
+      .footer-bottom {
+        border-top: 1px solid rgba(212,165,55,0.1);
+        padding: 20px 22px;
+        text-align: center;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .footer-bottom p { color: #6b7280; font-size: 0.85rem; }
+
+      .footer-flags { display: flex; gap: 4px; }
+      .flag-r { width: 24px; height: 12px; background: #b91c1c; border-radius: 2px 0 0 2px; }
+      .flag-w { width: 24px; height: 12px; background: #e5e7eb; }
+      .flag-b { width: 24px; height: 12px; background: #1d4ed8; border-radius: 0 2px 2px 0; }
+
+      .footer-stripe {
+        height: 4px;
+        background: linear-gradient(to right, transparent, var(--gold), transparent);
+      }
+
+      /* ===== BACK TO TOP ===== */
+      .btt {
+        position: fixed;
+        bottom: 24px;
+        right: 24px;
+        width: 44px;
+        height: 44px;
+        border-radius: 10px;
+        background: rgba(212,165,55,0.18);
+        border: 1px solid rgba(212,165,55,0.4);
+        color: var(--gold-soft);
+        cursor: pointer;
+        display: none;
+        align-items: center;
+        justify-content: center;
+        z-index: 99;
+        transition: all 0.2s;
+      }
+
+      .btt.visible { display: flex; }
+      .btt:hover { background: rgba(212,165,55,0.3); }
+
+      /* ===== RESPONSIVE ===== */
+      @media (max-width: 1024px) {
+        .feature-grid { grid-template-columns: 1fr 1fr; }
+        .lib-strip { grid-template-columns: 1fr 1fr; }
+        .footer-main { grid-template-columns: 1fr 1fr; }
+      }
+
+      @media (max-width: 768px) {
+        .nav-link { display: none; }
+        .menu-btn { display: inline-flex; }
+        .compare-grid { grid-template-columns: 1fr; }
+        .feature-grid { grid-template-columns: 1fr; }
+        .lib-strip { grid-template-columns: 1fr 1fr; }
+        .hero-stats { gap: 28px; }
+      }
+
+      @media (max-width: 580px) {
+        .cmd-grid { gap: 6px; }
+        .cmd-item { padding: 12px 8px; }
+        .cmd-num { font-size: 1.5rem; }
+        .cmd-text { font-size: 0.7rem; }
+        .lib-strip { grid-template-columns: 1fr; }
+        .footer-main { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+
+    <SiteNav />
+
+    <!-- ===== HERO ===== -->
+    <section class="hero">
+      <div class="hero-bg">
+        <img
+          src="https://d64gsuwffb70l.cloudfront.net/699945b4d31b2e67f5b3be5f_1771652624074_0d90e786.png"
+          alt="America at a crossroads — The Final Choice"
+          loading="eager"
+        >
+        <div class="hero-overlay"></div>
+        <div class="hero-overlay2"></div>
+      </div>
+      <div class="hero-stripe"></div>
+
+      <div class="hero-content">
+        <div class="hero-badge">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          A Message for This Generation
+        </div>
+
+        <h1>The Final <span class="gold">Choice</span></h1>
+        <p class="hero-subtitle">God&rsquo;s Law or Man&rsquo;s Law</p>
+
+        <div class="hero-desc-wrap">
+          <p class="hero-desc" style="margin:0;">
+            The final great issue of earth&rsquo;s history is worship &mdash; whether you will keep the commandments
+            of God and the faith of Jesus, or follow the beast power into apostasy. The hour of God&rsquo;s
+            judgment is come. Choose this day whom ye will serve.
+          </p>
+        </div>
+
+        <div class="hero-quote">
+          &ldquo;Choose you this day whom ye will serve&hellip; but as for me and my house, we will serve the LORD.&rdquo;
+          <span style="display:block;margin-top:8px;font-size:0.9rem;color:var(--gold-soft);font-style:normal;font-weight:700">&mdash; Joshua 24:15 (KJV)</span>
+        </div>
+
+        <div class="hero-btns">
+          <a href="#final-choice" class="btn-primary">Discover the Final Choice</a>
+          <a href="/library" class="btn-outline">Pioneer Library</a>
+        </div>
+
+        <div class="hero-stats">
+          <div class="hero-stat">
+            <div class="num serif">10</div>
+            <div class="label">Commandments Written in Stone</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num serif">4th</div>
+            <div class="label">The Seal of the Living God</div>
+          </div>
+          <div class="hero-stat">
+            <div class="num serif">666</div>
+            <div class="label">The Mark of the Beast</div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== THE FINAL CHOICE ===== -->
+    <section id="final-choice" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+        <div class="sh">
+          <div class="sh-eyebrow">The Core Issue</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Sabbath &mdash; God&rsquo;s Seal vs. Man&rsquo;s Institution</h2>
+          <p>The seventh-day Sabbath is the seal of the living God &mdash; the sign between God and His people forever.
+          The first-day Sunday is the mark of Rome&rsquo;s authority, exalted above the Word of God.</p>
+        </div>
+
+        <div style="border-radius:1rem;overflow:hidden;position:relative;margin-bottom:28px;">
+          <img
+            src="/images/the-seventh-day-sabbath-rest-friday-sundown-to-saturday-sundown.jpg"
+            alt="The Seventh Day Sabbath Rest — from Friday sundown to Saturday sundown"
+            style="width:100%;height:300px;object-fit:cover"
+            loading="eager"
+          >
+          <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(0,0,0,0.7),transparent)"></div>
+          <div style="position:absolute;bottom:1.5rem;left:1.5rem;right:1.5rem">
+            <h3 class="serif" style="font-size:1.5rem;font-weight:700;color:#fff">The Seventh-Day Sabbath</h3>
+            <p style="color:#fcd34d;font-size:.875rem;margin-top:.25rem">A Memorial of Creation &mdash; From Sundown Friday to Sundown Saturday</p>
+          </div>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;<em>Remember</em> the sabbath day, to keep it holy. Six days shalt thou labour, and do all thy work: but the seventh day is the sabbath of the <strong>Lord</strong> thy God: in it thou shalt not do any work, thou, nor thy son, nor thy daughter, thy manservant, nor thy maidservant, nor thy cattle, nor thy stranger that is within thy gates: for in six days the <strong>Lord</strong> made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the <strong>Lord</strong> blessed the sabbath day, and hallowed it.&rdquo;</p>
+          <cite>&mdash; Exodus 20:8&ndash;11 (KJV) &mdash; The Fourth Commandment</cite>
+        </div>
+
+        <!-- SABBATH: GOD'S SEAL -->
+        <div style="margin:32px 0;border:1px solid rgba(212,165,55,0.35);border-radius:16px;overflow:hidden;background:linear-gradient(135deg,rgba(28,20,0,0.85),rgba(8,10,32,0.9));">
+          <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;">
+            <div style="display:flex;align-items:center;justify-content:center;background:transparent;padding:0;">
+              <img
+                src="/images/the-sabbath-as-gods-seal-name-title-territory.jpg"
+                alt="The Sabbath as God's Seal — Name, Title, and Territory"
+                style="width:100%;height:auto;display:block;"
+                loading="eager"
+              >
+            </div>
+            <div style="padding:28px 26px;">
+              <div style="font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-soft);margin-bottom:10px;">The Seal of the Living God</div>
+              <h3 class="serif" style="font-size:1.5rem;font-weight:700;color:#fef3c7;margin-bottom:14px;line-height:1.2;">The Sabbath: God&rsquo;s Seal</h3>
+              <p style="color:var(--ink-muted);font-size:0.92rem;line-height:1.75;margin-bottom:14px;">A seal on a document proves it is real and official &mdash; showing the authority behind it with the official&rsquo;s <strong style="color:#fef3c7;">name</strong>, <strong style="color:#fef3c7;">title</strong>, and <strong style="color:#fef3c7;">territory</strong>. All three appear in the Fourth Commandment:</p>
+              <div style="background:rgba(212,165,55,0.09);border-left:3px solid var(--gold);border-radius:0 8px 8px 0;padding:12px 16px;margin-bottom:14px;font-family:'Crimson Text',serif;font-size:0.95rem;color:rgba(254,243,199,0.9);line-height:1.7;font-style:italic;">
+                &ldquo;the sabbath of the <strong style="color:var(--gold-soft);font-style:normal;">Lord</strong> thy God&rdquo; &mdash; <em>His NAME</em><br>
+                &ldquo;<strong style="color:var(--gold-soft);font-style:normal;">Lord</strong> made heaven and earth&rdquo; &mdash; <em>His TITLE (Creator)</em><br>
+                &ldquo;heaven and earth, the sea, and all that in them is&rdquo; &mdash; <em>His TERRITORY</em>
+              </div>
+              <p style="color:var(--ink-muted);font-size:0.9rem;line-height:1.75;margin-bottom:14px;">At the end of time, those who keep God&rsquo;s commandments &mdash; including the seventh-day Sabbath &mdash; show by their obedience that they are followers of Christ, not of the beast. Revelation calls this the &ldquo;seal&rdquo; on their foreheads.</p>
+              <div style="border-top:1px solid rgba(212,165,55,0.2);padding-top:14px;">
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.85);line-height:1.7;margin-bottom:6px;">&ldquo;If you love me, you will keep my commandments.&rdquo;</p>
+                <div style="font-size:0.8rem;font-weight:700;color:var(--gold-soft);">Jesus &mdash; John 14:15</div>
+              </div>
+            </div>
+          </div>
+          <div style="border-top:1px solid rgba(212,165,55,0.18);padding:18px 26px;">
+            <p style="font-family:'Crimson Text',serif;font-size:0.97rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.75;margin-bottom:8px;">&ldquo;The fourth commandment is the only one of all the ten in which are found both the name and the title of the Lawgiver. It is the only one that shows by whose authority the law is given. Thus it contains the seal of God, affixed to His law as evidence of its authenticity and binding force.&rdquo;</p>
+            <div style="font-size:0.82rem;color:var(--gold-soft);font-weight:700;">— Ellen G. White &mdash; <a href="https://m.egwwritings.org/en/book/14809.726" target="_blank" rel="noopener" style="color:var(--gold-soft);text-decoration:underline;font-weight:700;">Read Source &rarr;</a></div>
+          </div>
+        </div>
+
+        <div class="qb qb-dark">
+          <p>&ldquo;Sunday is our mark of authority&hellip; The church is above the Bible, and this transference of Sabbath
+          observance is proof of that fact.&rdquo;</p>
+          <cite>&mdash; Catholic Record of London, Ontario, September 1, 1923</cite>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+          <cite>&mdash; Revelation 14:12 (KJV) &mdash; The Third Angel&rsquo;s Message</cite>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="/religious-liberty" class="btn-primary">Explore Religious Liberty</a>
+          <a href="/library" class="btn-outline">Study Pioneer Writings</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SEAL VS MARK ===== -->
+    <section id="seal-vs-mark" class="section section-warm">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+        <div class="sh">
+          <div class="sh-eyebrow">Revelation 7 &amp; 13</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>Seal of God vs. Mark of the Beast</h2>
+          <p>Two marks. Two kingdoms. Two destinies. Every soul in earth&rsquo;s last generation will receive one or the other.</p>
+        </div>
+
+        <div class="compare-grid">
+          <div class="compare-card compare-gold">
+            <span class="compare-label label-seal">Seal of the Living God</span>
+            <h3 style="color:var(--gold-soft)">The Seventh-Day Sabbath</h3>
+            <ul>
+              <li>Written by God&rsquo;s own finger in stone &mdash; Exodus 31:18</li>
+              <li>The sign between God and His people forever &mdash; Ezekiel 20:12</li>
+              <li>Captain Bates&rsquo; 1849 tract: <em>A Seal of the Living God</em></li>
+              <li>Reveals God as Creator &mdash; the memorial of creation</li>
+              <li>The 4th commandment &mdash; the heart of the Decalogue</li>
+              <li>Those sealed stand on Mt. Zion with the Lamb &mdash; Rev. 14:1</li>
+            </ul>
+          </div>
+          <div class="compare-card compare-red">
+            <span class="compare-label label-mark">Mark of the Beast</span>
+            <h3 style="color:#f87171">Sunday &mdash; Man&rsquo;s Institution</h3>
+            <ul>
+              <li>No Bible commandment &mdash; tradition of Rome alone</li>
+              <li>The Papacy claims Sunday as its mark of authority</li>
+              <li>Enforced by civil law &mdash; union of church and state</li>
+              <li>The image of the beast: U.S. enforcing Rome&rsquo;s decree</li>
+              <li>The number 666 identifies the man of sin &mdash; Rev. 13:18</li>
+              <li>Those who receive it drink of God&rsquo;s wrath &mdash; Rev. 14:9&ndash;10</li>
+            </ul>
+          </div>
+        </div>
+
+        <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.25);border-left:4px solid #ef4444;border-radius:0 12px 12px 0;padding:18px 22px;margin:24px 0;">
+          <div style="font-size:0.72rem;color:#f87171;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:8px;">Ellen G. White — What It Means to Receive the Mark</div>
+          <p style="font-family:'Crimson Text',serif;font-size:1.18rem;font-style:italic;color:#fca5a5;line-height:1.68;margin-bottom:8px;">&ldquo;To receive this mark means to come to the same decision as the beast has done, and to advocate the same ideas, in direct opposition to the Word of God.&rdquo;</p>
+          <cite style="font-size:0.78rem;color:rgba(252,165,165,0.6);font-style:normal;">— Ellen G. White, <em>Review &amp; Herald</em>, April 27, 1911; <em>SDA Bible Commentary</em>, vol. 7, p. 979.12; <em>Review &amp; Herald</em>, July 13, 1897</cite>
+        </div>
+
+        <div style="text-align:center;">
+          <a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener" class="btn-primary">Read: A Seal of the Living God (Bates, 1849)</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TEN COMMANDMENTS ===== -->
+    <section class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+        <div class="sh">
+          <div class="sh-eyebrow">Exodus 20:1&ndash;17</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Ten Commandments &mdash; Written in Stone</h2>
+          <p>Written by God&rsquo;s own finger. Kept in the ark beneath the mercy seat in the Most Holy Place. Unchanged. Unbroken. The 4th is sealed.</p>
+        </div>
+
+        <!-- LAW OF GOD CHART -->
+        <div style="margin-bottom:48px;border:1px solid rgba(212,165,55,0.35);border-radius:18px;overflow:hidden;background:linear-gradient(135deg,rgba(22,16,4,0.92),rgba(8,10,32,0.92));">
+          <div style="padding:26px 28px 20px;border-bottom:1px solid rgba(212,165,55,0.15);">
+            <div style="font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.12em;color:var(--gold-soft);margin-bottom:8px;">1850 &mdash; James White</div>
+            <h3 style="font-family:'Crimson Text',serif;font-size:1.6rem;color:#fef3c7;margin-bottom:4px;">The Law of God Chart</h3>
+            <p style="color:var(--ink-muted);font-size:0.9rem;">The Ten Commandments displayed as the Seal of the Living God &mdash; used by the Adventist pioneers to proclaim the hour of judgment.</p>
+          </div>
+          <div style="padding:20px 28px;text-align:center;">
+            <a href="/images/pioneers/1850-law-of-god-chart.jpg" target="_blank" rel="noopener">
+              <img
+                src="/images/pioneers/1850-law-of-god-chart.jpg" loading="eager"
+                alt="1850 Law of God Chart — James White — Ten Commandments as the Seal of the Living God"
+                style="max-width:100%;border-radius:10px;border:1px solid rgba(212,165,55,0.28);cursor:zoom-in;"
+                loading="eager"
+              >
+            </a>
+          </div>
+          <div style="padding:0 28px 24px;display:flex;gap:12px;justify-content:center;flex-wrap:wrap;">
+            <a href="/pioneers/images/1850-law-of-god-chart.jpg" download="1850-Law-of-God-Chart-James-White.jpg" class="btn-primary" style="height:44px;font-size:0.88rem;">&#8595; Download Chart</a>
+            <a href="https://twitter.com/intent/tweet?text=The+1850+Law+of+God+Chart+%E2%80%94+The+Ten+Commandments+as+the+Seal+of+the+Living+God+(James+White,+1850)&url=https%3A%2F%2Fsundaylaw.com" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on X</a>
+            <a href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fsundaylaw.com" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on Facebook</a>
+            <a href="https://wa.me/?text=The%201850%20Law%20of%20God%20Chart%20%E2%80%94%20The%20Ten%20Commandments%20as%20the%20Seal%20of%20the%20Living%20God%20(James%20White,%201850)" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on WhatsApp</a>
+            <a href="https://pinterest.com/pin/create/button/?url=https%3A%2F%2Fsundaylaw.com&media=https%3A%2F%2Fsundaylaw.com%2Fimages%2F1850-law-of-god-chart.jpg&description=The%201850%20Law%20of%20God%20Chart%20%E2%80%94%20The%20Ten%20Commandments%20as%20the%20Seal%20of%20the%20Living%20God%20(James%20White,%201850)" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on Pinterest</a>
+            <a href="https://www.reddit.com/submit?url=https%3A%2F%2Fsundaylaw.com&title=The%201850%20Law%20of%20God%20Chart%20%E2%80%94%20The%20Ten%20Commandments%20as%20the%20Seal%20of%20the%20Living%20God%20(James%20White,%201850)" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on Reddit</a>
+            <a href="mailto:?subject=The%201850%20Law%20of%20God%20Chart%20(James%20White,%201850)&body=Check%20out%20the%201850%20Law%20of%20God%20Chart%20%E2%80%94%20The%20Ten%20Commandments%20as%20the%20Seal%20of%20the%20Living%20God%20(James%20White,%201850):%20https%3A%2F%2Fsundaylaw.com" class="btn-outline" style="height:44px;font-size:0.88rem;">Share via Email</a>
+            <a href="https://www.linkedin.com/sharing/share-offsite/?url=https%3A%2F%2Fsundaylaw.com" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on LinkedIn</a>
+            <a href="https://t.me/share/url?url=https%3A%2F%2Fsundaylaw.com&text=The%201850%20Law%20of%20God%20Chart%20%E2%80%94%20The%20Ten%20Commandments%20as%20the%20Seal%20of%20the%20Living%20God%20(James%20White,%201850)" target="_blank" rel="noopener" class="btn-outline" style="height:44px;font-size:0.88rem;">Share on Telegram</a>
+          </div>
+        </div>
+
+        <!-- TEN COMMANDMENTS — STONE TABLETS LAYOUT -->
+        <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid rgba(212,165,55,0.22);border-radius:18px;overflow:hidden;min-height:600px;">
+          <!-- LEFT: Stone tablets image -->
+          <div style="position:relative;overflow:hidden;min-height:500px;">
+            <img
+              src="/images/the-ten-commandments.jpg"
+              alt="The Ten Commandments written in stone — tablets of the law"
+              style="width:100%;height:100%;object-fit:cover;object-position:center;display:block;"
+              loading="eager"
+            >
+            <div style="position:absolute;inset:0;background:linear-gradient(to right,transparent 60%,rgba(10,10,46,1));"></div>
+          </div>
+          <!-- RIGHT: Commandments list -->
+          <div style="background:#0a0a2e;padding:28px 24px;display:flex;flex-direction:column;gap:10px;">
+            <!-- 1 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">1</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt have no other gods before me.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:3</div>
+              </div>
+            </div>
+            <!-- 2 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">2</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not make unto thee any graven image, or any likeness of any thing that is in heaven above, or that is in the earth beneath, or that is in the water under the earth: thou shalt not bow down thyself to them, nor serve them.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:4&ndash;6</div>
+              </div>
+            </div>
+            <!-- 3 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">3</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not take the name of the <strong style="font-style:normal;">Lord</strong> thy God in vain; for the <strong style="font-style:normal;">Lord</strong> will not hold him guiltless that taketh his name in vain.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:7</div>
+              </div>
+            </div>
+            <!-- 4 — HIGHLIGHTED -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:14px 14px;border-radius:10px;border:2px solid rgba(212,165,55,0.65);background:linear-gradient(135deg,rgba(40,30,0,0.6),rgba(10,10,46,0.7));box-shadow:0 0 24px rgba(212,165,55,0.1);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:var(--gold);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:#111;">4</div>
+              <div style="flex:1;">
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.95);line-height:1.7;margin-bottom:8px;">&ldquo;<em style="font-weight:700;">Remember</em> the sabbath day, to keep it holy. Six days shalt thou labour, and do all thy work: But the seventh day is the sabbath of the <strong style="font-style:normal;">Lord</strong> thy God: in it thou shalt not do any work&hellip; For in six days the <strong style="font-style:normal;">Lord</strong> made heaven and earth, the sea, and all that in them is, and rested the seventh day: wherefore the <strong style="font-style:normal;">Lord</strong> blessed the sabbath day, and hallowed it.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);margin-bottom:10px;">Exodus 20:8&ndash;11</div>
+                <div style="background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.4);border-radius:6px;padding:7px 12px;font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-soft);">The Seal of God &mdash; The Only Commandment That Begins With &ldquo;Remember&rdquo;</div>
+              </div>
+            </div>
+            <!-- 5 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">5</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Honour thy father and thy mother: that thy days <em>may be long</em> upon the land which the <strong style="font-style:normal;">Lord</strong> thy God giveth thee.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:12</div>
+              </div>
+            </div>
+            <!-- 6 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">6</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not kill.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:13</div>
+              </div>
+            </div>
+            <!-- 7 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">7</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not commit adultery.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:14</div>
+              </div>
+            </div>
+            <!-- 8 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">8</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not steal.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:15</div>
+              </div>
+            </div>
+            <!-- 9 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">9</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not bear false witness against thy neighbour.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:16</div>
+              </div>
+            </div>
+            <!-- 10 -->
+            <div style="display:flex;gap:14px;align-items:flex-start;padding:12px 14px;border-radius:10px;border:1px solid rgba(255,255,255,0.06);background:rgba(255,255,255,0.02);">
+              <div style="flex-shrink:0;width:34px;height:34px;border-radius:8px;background:rgba(100,90,60,0.5);display:flex;align-items:center;justify-content:center;font-family:'Crimson Text',serif;font-size:1.1rem;font-weight:700;color:var(--gold-soft);">10</div>
+              <div>
+                <p style="font-family:'Crimson Text',serif;font-size:0.95rem;font-style:italic;color:rgba(254,243,199,0.88);line-height:1.65;margin-bottom:4px;">&ldquo;Thou shalt not covet thy neighbour&rsquo;s house, thou shalt not covet thy neighbour&rsquo;s wife, nor his manservant, nor his maidservant, nor his ox, nor his ass, nor any thing that is thy neighbour&rsquo;s.&rdquo;</p>
+                <div style="font-size:0.78rem;font-weight:700;color:var(--gold-soft);">Exodus 20:17</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ===== THREE ANGELS ===== -->
+    <section id="three-angels" class="section section-warm">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+        <div class="sh">
+          <div class="sh-eyebrow">Revelation 14:6&ndash;12</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Three Angels&rsquo; Messages</h2>
+          <p>The foundational proclamation of the Advent movement &mdash; inscribed on the 1843 and 1850 prophetic charts and proclaimed to every nation, kindred, tongue, and people.</p>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;Fear God, and give glory to him; for the hour of his judgment is come: and worship him that made heaven, and earth, and the sea, and the fountains of waters.&rdquo;</p>
+          <cite>&mdash; Revelation 14:7 (KJV) &mdash; First Angel: Worship the Creator</cite>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;Babylon is fallen, is fallen, that great city, because she made all nations drink of the wine of the wrath of her fornication.&rdquo;</p>
+          <cite>&mdash; Revelation 14:8 (KJV) &mdash; Second Angel: Babylon is Fallen</cite>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;If any man worship the beast and his image, and receive his mark in his forehead, or in his hand, the same shall drink of the wine of the wrath of God&hellip; Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+          <cite>&mdash; Revelation 14:9&ndash;12 (KJV) &mdash; Third Angel: The Final Warning</cite>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="/prophecy-explained" class="btn-primary">Study the Prophecy Charts</a>
+          <a href="/library" class="btn-outline">Pioneer Writings</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== SECOND BEAST ===== -->
+    <section id="second-beast" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner section-narrow">
+        <div class="sh">
+          <div class="sh-eyebrow">Revelation 13:11&ndash;17</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Second Beast &mdash; The Image of the Beast</h2>
+          <p>A nation rises from the earth &mdash; lamb-like, speaking as a dragon. The April 15, 1904 incorporation joins church and state under civil law. Ellen White warned this meant apostasy from the truth.</p>
+        </div>
+
+        <div class="qb qb-dark">
+          <p>&ldquo;And he exerciseth all the power of the first beast before him, and causeth the earth and them which
+          dwell therein to worship the first beast&hellip; And he had power to give life unto the image of the beast,
+          that the image of the beast should both speak, and cause that as many as would not worship the image
+          of the beast should be killed.&rdquo;</p>
+          <cite>&mdash; Revelation 13:12&ndash;15 (KJV)</cite>
+        </div>
+
+        <div class="qb">
+          <p>&ldquo;We cannot now enter into any new organization; for this would mean apostasy from the truth.&rdquo;</p>
+          <cite>&mdash; Ellen G. White, Selected Messages Book 1, p. 204.2</cite>
+        </div>
+
+        <div style="margin-top:28px;display:flex;gap:14px;flex-wrap:wrap;">
+          <a href="/april-15-1904-new-organization" class="btn-primary">View the 1904 Documentary Record</a>
+          <a href="/religious-liberty" class="btn-outline">Religious Liberty History</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== PIONEER LIBRARY ===== -->
+    <section id="pioneer-library" class="section section-warm">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+        <div class="sh">
+          <div class="sh-eyebrow">1836 &ndash; 1892</div>
+          <div class="sh-divider"><div class="sh-line"></div><div class="sh-line"></div></div>
+          <h2>The Pioneer Library</h2>
+          <p>The writings that laid the foundation &mdash; books, tracts, sermons, and prophetic charts from the men and women who kept the commandments of God and the faith of Jesus after October 22, 1844.</p>
+        </div>
+
+        <div class="lib-strip">
+          <a href="/books/joseph-bates-seal" class="lib-card">
+            <div class="lc-author">Captain Joseph Bates</div>
+            <h4>A Seal of the Living God</h4>
+            <div class="lc-year">1849 &mdash; The Sabbath &amp; the 144,000</div>
+          </a>
+          <a href="/books/1843-prophecy-chart" class="lib-card">
+            <div class="lc-author">Fitch &amp; Hale</div>
+            <h4>The 1843 Prophetic Chart</h4>
+            <div class="lc-year">1843 &mdash; Daniel &amp; Revelation Timeline</div>
+          </a>
+          <a href="/books/1850-prophecy-chart" class="lib-card">
+            <div class="lc-author">Otis Nichols</div>
+            <h4>The 1850 Prophetic Chart</h4>
+            <div class="lc-year">1850 &mdash; Sanctuary &amp; Third Angel</div>
+          </a>
+          <a href="/books/william-miller-miller-evidencefromscriptureandhistory-secondcomingofchristaboutyear1843-1836" class="lib-card">
+            <div class="lc-author">William Miller</div>
+            <h4>Evidence from Scripture &amp; History</h4>
+            <div class="lc-year">1836 &mdash; Daniel 8:14 &amp; the 2300 Days</div>
+          </a>
+          <a href="/books/john-nevins-andrews-history-of-the-sabbath-and-first-day-of-the-week" class="lib-card">
+            <div class="lc-author">J. N. Andrews</div>
+            <h4>History of the Sabbath</h4>
+            <div class="lc-year">1862 &mdash; Every Century Traced</div>
+          </a>
+          <a href="/books/charles-fitch" class="lib-card">
+            <div class="lc-author">Charles Fitch</div>
+            <h4>Come Out of Her My People</h4>
+            <div class="lc-year">1843 &mdash; The Babylon Sermon</div>
+          </a>
+          <a href="/books/advent-review-thrilling-testimonies-1850" class="lib-card featured" style="border-color:rgba(252,211,77,0.42);background:linear-gradient(135deg,rgba(180,83,9,0.18),rgba(8,10,32,0.92));">
+            <div class="lc-author" style="color:var(--gold-soft)">James White, Hiram Edson, S. W. Rhodes, D. Arnold, G. W. Holt</div>
+            <h4>The Advent Review: Thrilling Testimonies</h4>
+            <div class="lc-year">1850 &mdash; The Fire of the Second Advent</div>
+            <p style="margin-top:10px;color:#fcd34d;font-size:0.97rem;font-weight:600;">A spiritual time capsule of the Second Advent movement—miracles, midnight cries, and the faith that shook a generation. <span style='color:#fff;'>Read the electrifying testimonies that launched a movement.</span></p>
+          </a>
+          <a href="/books/the-great-second-advent-movement" class="lib-card">
+            <div class="lc-author">J. N. Loughborough</div>
+            <h4>The Great Second Advent Movement</h4>
+            <div class="lc-year">1892 &mdash; Authoritative Movement History</div>
+            <p style="margin-top:10px;color:#fcd34d;font-size:0.97rem;font-weight:600;">The only first-person, eyewitness account of the rise of the Advent Movement—miracles, midnight cries, and the faith that shook a generation. <span style='color:#fff;'>Read the book that preserves the living memory of the pioneers.</span></p>
+          </a>
+          <a href="/pioneers" class="lib-card" style="border-color:rgba(212,165,55,0.42);background:linear-gradient(135deg,rgba(38,28,0,0.84),rgba(18,18,58,0.84));">
+            <div class="lc-author" style="color:var(--gold-soft)">All Biographies</div>
+            <h4>Browse All Pioneer Biographies</h4>
+            <div class="lc-year">Complete pioneer library &rarr;</div>
+          </a>
+        </div>
+
+        <!-- JAMES WHITE FEATURED PORTRAIT -->
+        <div style="margin-top:36px;display:grid;grid-template-columns:200px 1fr;gap:28px;align-items:center;border:1px solid rgba(212,165,55,0.28);border-radius:18px;overflow:hidden;background:linear-gradient(135deg,rgba(22,16,4,0.9),rgba(8,10,32,0.9));">
+          <a href="/images/pioneers/james-white.jpg" style="display:block;overflow:hidden;flex-shrink:0;">
+            <img
+              src="/images/pioneers/james-white.jpg" loading="eager"
+              alt="James White — co-founder of the original Seventh-day Adventist Church, not the April 15, 1904 501(c)(3) GENERAL CONFERENCE OF SEVENTH DAY ADVENTIST state-church corporation"
+              style="width:100%;height:220px;object-fit:cover;object-position:top;display:block;transition:transform .4s;"
+              onmouseover="this.style.transform='scale(1.04)'"
+              onmouseout="this.style.transform='scale(1)'"
+              loading="eager"
+            />
+          </a>
+          <div style="padding:20px 24px 20px 0;">
+            <div style="font-size:0.74rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;color:var(--gold-soft);margin-bottom:8px;">Pioneer Spotlight &mdash; 1821&ndash;1881</div>
+            <h3 style="font-family:'Crimson Text',serif;font-size:1.6rem;font-weight:600;color:#fef3c7;margin-bottom:10px;line-height:1.2;">James White</h3>
+            <p style="color:var(--ink-muted);font-size:0.95rem;line-height:1.75;margin-bottom:16px;">
+              Co-founder of the Seventh-day Adventist Church. Publisher of <a href="/books/james-white/ThePresentTruth.pdf" target="_blank" rel="noopener" style="color:var(--gold-soft);text-decoration:underline;"><em>The Present Truth</em></a> and <a href="/books/pdf/voice-of-truth/PT-AR-Part4-SP.pdf" target="_blank" rel="noopener" style="color:var(--gold-soft);text-decoration:underline;"><em>The Advent Review</em></a>. Presented the 1850 Law of God chart showing the Ten Commandments as the Seal of the Living God and the standard of the final judgment — <a href="/april-15-1904-new-organization/" style="color:var(--gold-soft);text-decoration:underline;">not the April 15, 1904 501(c)(3) GENERAL CONFERENCE OF SEVENTH DAY ADVENTIST state-church corporation</a>.
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/pioneers/james-springer-white" style="display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:8px;background:var(--gold);color:#111;font-weight:700;font-size:0.85rem;text-decoration:none;">Read Biography &rarr;</a>
+              <a href="/pioneers/1850-law-of-god" style="display:inline-flex;align-items:center;height:38px;padding:0 18px;border-radius:8px;border:1px solid rgba(254,243,199,0.25);color:var(--ink);font-size:0.85rem;font-weight:600;text-decoration:none;">Law of God Chart &rarr;</a>
+            </div>
+          </div>
+        </div>
+
+        <div style="text-align:center;margin-top:32px;">
+          <a href="/library" class="btn-primary" style="font-size:1rem;height:56px;padding:0 36px;">Enter the Full Pioneer Gateway &rarr;</a>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FEATURES / MORE RESOURCES ===== -->
+    <section id="religious-liberty-cta" class="section section-dark">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+        <div class="feature-grid">
+          <div class="feature-card" style="grid-column:span 2;">
+            <span class="fc-icon">&#127963;</span>
+            <h3>Religious Liberty &amp; the First Amendment</h3>
+            <p>
+              The United States Constitution guarantees the free exercise of religion and prohibits an establishment
+              of religion. The Advent pioneers &mdash; especially Alonzo T. Jones &mdash; stood before Congress to oppose
+              the Blair Bill&rsquo;s Sunday law in 1888. The same crisis returns. The First Amendment was written precisely
+              to prevent church-state union &mdash; the exact union the Second Beast of Revelation 13 will enforce.
+            </p>
+            <a href="/religious-liberty">Explore the Religious Liberty Archive &rarr;</a>
+          </div>
+          <div class="feature-card">
+            <span class="fc-icon">&#128220;</span>
+            <h3>The 1904 Incorporation</h3>
+            <p>
+              On April 15, 1904, five men signed articles incorporating the General Conference Corporation &mdash;
+              joining church and state under civil law. EIN 52-0643036. Assets over $10 million.
+              Ellen White warned this meant apostasy from the truth.
+            </p>
+            <a href="/april-15-1904-new-organization">View the Documentary Record &rarr;</a>
+          </div>
+          <div class="feature-card">
+            <span class="fc-icon">&#128214;</span>
+            <h3>Prophecy Charts &mdash; 1843 &amp; 1850</h3>
+            <p>
+              The prophetic timeline charts used by the Advent pioneers to proclaim the hour of God&rsquo;s judgment
+              from the 2300 days of Daniel 8:14. Habakkuk 2:2&ndash;3 &mdash; make it plain. Write the vision.
+            </p>
+            <a href="/prophecy-charts">Study the Prophecy Charts &rarr;</a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== TAKE YOUR STAND ===== -->
+    <section id="take-stand" class="section section-warm">
+      <div class="section-stripe-top"></div>
+      <div class="section-inner">
+        <div class="cta-box">
+          <div class="sh-eyebrow" style="margin-bottom:18px">The Final Call</div>
+          <h2>Take Your Stand</h2>
+          <p>
+            The hour of God&rsquo;s judgment is come. Come out of Babylon. Keep the commandments of God and
+            the faith of Jesus. Study the writings of the historic Adventist pioneers. Let the records
+            speak. The sealing of the 144,000 is in progress.
+          </p>
+          <div class="cta-btns">
+            <a href="/contact" class="btn-primary">Contact Us</a>
+            <a href="/library" class="btn-outline">Enter the Pioneer Library</a>
+            <a href="/donate" class="btn-outline">Support This Work</a>
+          </div>
+
+          <div class="qb" style="margin-top:40px;text-align:left;">
+            <p>&ldquo;And I heard another voice from heaven, saying, Come out of her, my people, that ye be not
+            partakers of her sins, and that ye receive not of her plagues.&rdquo;</p>
+            <cite>&mdash; Revelation 18:4 (KJV)</cite>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===== FOOTER ===== -->
+    <footer class="site-footer">
+      <div class="footer-banner">
+        <p>&ldquo;Here is the patience of the saints: here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+        <cite>&mdash; Revelation 14:12 (KJV)</cite>
+      </div>
+      <div class="footer-main">
+        <div class="footer-col">
+          <div class="footer-brand-name">
+            <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span>Sunday<em>Law</em>.com</span>
+          </div>
+          <p>Proclaiming the Third Angel&rsquo;s Message &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people.</p>
+        </div>
+        <div class="footer-col">
+          <h4>Navigate</h4>
+          <ul>
+            <li><a href="#final-choice">The Final Choice</a></li>
+            <li><a href="#seal-vs-mark">Seal vs. Mark</a></li>
+            <li><a href="#three-angels">Three Angels</a></li>
+            <li><a href="#second-beast">Second Beast</a></li>
+            <li><a href="#pioneer-library">Pioneer Library</a></li>
+            <li><a href="/religious-liberty">Religious Liberty</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Resources</h4>
+          <ul>
+            <li><a href="/library">Full Pioneer Gateway</a></li>
+            <li><a href="/pioneers">Pioneer Biographies</a></li>
+            <li><a href="/books">All Books &amp; Tracts</a></li>
+            <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+            <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+            <li><a href="/april-15-1904-new-organization">1904 Record</a></li>
+            <li><a href="/loud-cry">The Loud Cry</a></li>
+            <li><a href="/midnight-cry">1844 Midnight Cry Movie</a></li>
+          </ul>
+        </div>
+        <div class="footer-col">
+          <h4>Connect</h4>
+          <ul>
+            <li><a href="/contact">Contact Us</a></li>
+            <li><a href="/contact">Prayer Request</a></li>
+            <li><a href="/contact">Newsletter</a></li>
+            <li><a href="/contact">Share Message</a></li>
+            <li><a href="/donate">Donate</a></li>
+          </ul>
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <p>SundayLaw.com &mdash; Proclaiming the Third and Fourth Angel&rsquo;s Messages</p>
+        <div class="footer-flags">
+          <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+        </div>
+        <p>&ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      </div>
+      <div class="footer-stripe"></div>
+    </footer>
+
+    <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+      <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+    </button>
+
+    <audio id="bg-music" preload="auto">
+      <source src="/assets/music/morse/What_a_Glorious_Home_That_Will_Be.mp3" type="audio/mpeg">
+    </audio>
+
+    <script is:inline>
+
+      const btt = document.getElementById('btt');
+      window.addEventListener('scroll', () => {
+        if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+      }, { passive: true });
+
+      // Play "What a Glorious Home That Will Be" on first click — plays twice total
+      document.addEventListener('click', startMusicOnce, { once: true });
+      function startMusicOnce() {
+        const audio = document.getElementById('bg-music');
+        if (!audio) return;
+        let endedCount = 0;
+        const maxEnds = 1;
+        audio.loop = false;
+        audio.currentTime = 0;
+        audio.addEventListener('ended', function () {
+          if (endedCount < maxEnds) {
+            endedCount++;
+            audio.currentTime = 0;
+            audio.play().catch(() => {});
+          }
+        });
+        audio.play().catch(() => {});
+      }
+    </script>
+    <SiteFooter
+      pageLinks={[
+        { label: 'Seal vs. Mark of the Beast', href: '/#seal-vs-mark' },
+        { label: 'Three Angels\u2019 Messages', href: '/#three-angels' },
+        { label: 'All Pioneer Biographies', href: '/pioneers' },
+        { label: 'SDA Apostasy Documented', href: '/apostasy' }
+      ]}
+    />
+    <ShareBar />
+  <script>
+    // Ensure hash anchors scroll correctly when arriving from another page
+    if (window.location.hash) {
+      const el = document.getElementById(window.location.hash.slice(1));
+      if (el) el.scrollIntoView({ behavior: 'smooth' });
+    }
+  </script>
+  </body>
+</html>

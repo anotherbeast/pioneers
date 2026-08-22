@@ -1,0 +1,671 @@
+{
+  "sourceDir": "sundaylaw-export-4-3-26\\sundaylaw.com",
+  "targetRoot": "public\\books",
+  "applyChanges": true,
+  "totals": {
+    "authors": 15,
+    "pdfFiles": 135,
+    "moved": 56,
+    "copied": 0,
+    "unmatched": 0,
+    "alreadyExisted": 79
+  },
+  "moved": [
+    {
+      "file": "1872.pdf",
+      "author": "Pdf/1872",
+      "via": "override",
+      "destination": "public\\books\\pdf\\1872\\1872.pdf"
+    },
+    {
+      "file": "1872beliefs.pdf",
+      "author": "Pdf/1872",
+      "via": "override",
+      "destination": "public\\books\\pdf\\1872\\1872beliefs.pdf"
+    },
+    {
+      "file": "1904.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1904.pdf"
+    },
+    {
+      "file": "1904SDA.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1904SDA.pdf"
+    },
+    {
+      "file": "1904SDACORPORATION.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1904SDACORPORATION.pdf"
+    },
+    {
+      "file": "1981.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1981.pdf"
+    },
+    {
+      "file": "1983.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1983.pdf"
+    },
+    {
+      "file": "4th-angels-message.pdf",
+      "author": "3angels",
+      "via": "override",
+      "destination": "public\\books\\3angels\\4th-angels-message.pdf"
+    },
+    {
+      "file": "501c3-GC-SDA-CORPORATIONS-BABYLON-since-1904.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\501c3-GC-SDA-CORPORATIONS-BABYLON-since-1904.pdf"
+    },
+    {
+      "file": "52-0643036 -GCOSDA aka PARENT ORGANIZATION 1950 ruling year.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\52-0643036 -GCOSDA aka PARENT ORGANIZATION 1950 ruling year.pdf"
+    },
+    {
+      "file": "52-0643036 -GCOSDA-aka-PARENT-ORGANIZATION-1950-ruling-year.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\52-0643036 -GCOSDA-aka-PARENT-ORGANIZATION-1950-ruling-year.pdf"
+    },
+    {
+      "file": "6-22-25-GC-SDA-underwriting-municipal-insurance.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\6-22-25-GC-SDA-underwriting-municipal-insurance.pdf"
+    },
+    {
+      "file": "AdventistHistory.pdf",
+      "author": "Adventist History",
+      "via": "override",
+      "destination": "public\\books\\adventist-history\\AdventistHistory.pdf"
+    },
+    {
+      "file": "AdventistReview1981.pdf",
+      "author": "Adventist History",
+      "via": "override",
+      "destination": "public\\books\\adventist-history\\AdventistReview1981.pdf"
+    },
+    {
+      "file": "babylon-sda-paper-church-betrayal-ellen-white-articles-of-incorporation-1904-original-adventist-platform.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\babylon-sda-paper-church-betrayal-ellen-white-articles-of-incorporation-1904-original-adventist-platform.pdf"
+    },
+    {
+      "file": "Bel-and-the-Dragon.pdf",
+      "author": "Apocrypha",
+      "via": "override",
+      "destination": "public\\books\\apocrypha\\Bel-and-the-Dragon.pdf"
+    },
+    {
+      "file": "Bible.pdf",
+      "author": "Bible",
+      "via": "override",
+      "destination": "public\\books\\bible\\Bible.pdf"
+    },
+    {
+      "file": "Cestui-Que-Vie-Act-1666.pdf",
+      "author": "Religious Liberty",
+      "via": "override",
+      "destination": "public\\books\\religious-liberty\\Cestui-Que-Vie-Act-1666.pdf"
+    },
+    {
+      "file": "Constitution_of_the_GENERAL_CONFERENCE_OF_SEVENTH_DAY_ADVENTIST.pdf",
+      "author": "Religious Liberty",
+      "via": "override",
+      "destination": "public\\books\\religious-liberty\\Constitution_of_the_GENERAL_CONFERENCE_OF_SEVENTH_DAY_ADVENTIST.pdf"
+    },
+    {
+      "file": "death-of-general-conference-1904-spiritual-epitaph-modern-adventism.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\death-of-general-conference-1904-spiritual-epitaph-modern-adventism.pdf"
+    },
+    {
+      "file": "GC-SDA-501c3-Babylon-Mask-Fire-Chains-Incorporation-Exposed.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\GC-SDA-501c3-Babylon-Mask-Fire-Chains-Incorporation-Exposed.pdf"
+    },
+    {
+      "file": "General Conference Corporation of Seventh-day Adventist.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\General Conference Corporation of Seventh-day Adventist.pdf"
+    },
+    {
+      "file": "general-conference-corporation-1904-articles-of-incorporation-sda-church-state-merger-babylon-falling-144000-ado.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\general-conference-corporation-1904-articles-of-incorporation-sda-church-state-merger-babylon-falling-144000-ado.pdf"
+    },
+    {
+      "file": "insurance.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\insurance.pdf"
+    },
+    {
+      "file": "investments.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\investments.pdf"
+    },
+    {
+      "file": "LaodiceanChurch.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\LaodiceanChurch.pdf"
+    },
+    {
+      "file": "LaodiceanWarning.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\LaodiceanWarning.pdf"
+    },
+    {
+      "file": "ModernMoses.pdf",
+      "author": "James White",
+      "via": "override",
+      "destination": "public\\books\\james-white\\ModernMoses.pdf"
+    },
+    {
+      "file": "out-backup.pdf",
+      "author": "Charles Fitch",
+      "via": "override",
+      "destination": "public\\books\\charles-fitch\\out-backup.pdf"
+    },
+    {
+      "file": "Perfection.pdf",
+      "author": "Charles Fitch",
+      "via": "override",
+      "destination": "public\\books\\charles-fitch\\Perfection.pdf"
+    },
+    {
+      "file": "Review Herald March 5, 1981 Neal C. Wilson There is another universal and truly catholic organization, the Seventh day Adventist Church 19810305-V158-10__B (1).pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\Review Herald March 5, 1981 Neal C. Wilson There is another universal and truly catholic organization, the Seventh day Adventist Church 19810305-V158-10__B (1).pdf"
+    },
+    {
+      "file": "RomesChallenge.pdf",
+      "author": "Religious Liberty",
+      "via": "override",
+      "destination": "public\\books\\religious-liberty\\RomesChallenge.pdf"
+    },
+    {
+      "file": "seal-backup.pdf",
+      "author": "Captain Joseph Bates",
+      "via": "override",
+      "destination": "public\\books\\joseph-bates\\seal-backup.pdf"
+    },
+    {
+      "file": "Seventh-day-Adventist-Yearbook _ January 1, 1905.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\Seventh-day-Adventist-Yearbook _ January 1, 1905.pdf"
+    },
+    {
+      "file": "Slaveholding.pdf",
+      "author": "Charles Fitch",
+      "via": "override",
+      "destination": "public\\books\\charles-fitch\\Slaveholding.pdf"
+    },
+    {
+      "file": "slaveholding2.pdf",
+      "author": "Charles Fitch",
+      "via": "override",
+      "destination": "public\\books\\charles-fitch\\slaveholding2.pdf"
+    },
+    {
+      "file": "slaveholding3.pdf",
+      "author": "Charles Fitch",
+      "via": "override",
+      "destination": "public\\books\\charles-fitch\\slaveholding3.pdf"
+    },
+    {
+      "file": "SundayLaw.pdf",
+      "author": "Religious Liberty",
+      "via": "override",
+      "destination": "public\\books\\religious-liberty\\SundayLaw.pdf"
+    },
+    {
+      "file": "TheLaodiceanChurch.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\TheLaodiceanChurch.pdf"
+    },
+    {
+      "file": "The_Day_Star.pdf",
+      "author": "Ellen White",
+      "via": "override",
+      "destination": "public\\books\\ellen-white\\The_Day_Star.pdf"
+    },
+    {
+      "file": "The_Miracles_of_Christ.pdf",
+      "author": "Ellen White",
+      "via": "override",
+      "destination": "public\\books\\ellen-white\\The_Miracles_of_Christ.pdf"
+    },
+    {
+      "file": "third-angels-message.pdf",
+      "author": "3angels",
+      "via": "override",
+      "destination": "public\\books\\3angels\\third-angels-message.pdf"
+    },
+    {
+      "file": "thirdperson.pdf",
+      "author": "1904 Image Of Papacy/trinity",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\trinity\\thirdperson.pdf"
+    },
+    {
+      "file": "topsecret.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\topsecret.pdf"
+    },
+    {
+      "file": "trinity.pdf",
+      "author": "1904 Image Of Papacy/trinity",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\trinity\\trinity.pdf"
+    },
+    {
+      "file": "Truth.pdf",
+      "author": "1904 Image Of Papacy/trinity",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\trinity\\Truth.pdf"
+    },
+    {
+      "file": "TwelvePatriarchs.pdf",
+      "author": "Apocrypha",
+      "via": "override",
+      "destination": "public\\books\\apocrypha\\TwelvePatriarchs.pdf"
+    },
+    {
+      "file": "VerdadPresente.pdf",
+      "author": "James White",
+      "via": "override",
+      "destination": "public\\books\\james-white\\VerdadPresente.pdf"
+    },
+    {
+      "file": "library\\pdf\\1872.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1872.pdf"
+    },
+    {
+      "file": "library\\pdf\\52-0643036-GCOSDA-aka-PARENT-ORGANIZATION-1950-ruling-year.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\52-0643036-GCOSDA-aka-PARENT-ORGANIZATION-1950-ruling-year.pdf"
+    },
+    {
+      "file": "library\\pdf\\p1828.pdf",
+      "author": "Pdf/1872",
+      "via": "override",
+      "destination": "public\\books\\pdf\\1872\\p1828.pdf"
+    },
+    {
+      "file": "library\\books\\1983-Year-of-the-Bible-US-Law.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\1983-Year-of-the-Bible-US-Law.pdf"
+    },
+    {
+      "file": "library\\books\\Blair_Sunday_Law_Bill_S2983_1888_United_States_Congress.pdf",
+      "author": "Religious Liberty",
+      "via": "override",
+      "destination": "public\\books\\religious-liberty\\Blair_Sunday_Law_Bill_S2983_1888_United_States_Congress.pdf"
+    },
+    {
+      "file": "library\\books\\Seventh-day-Adventist-Yearbook _ January_1,_1905.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\Seventh-day-Adventist-Yearbook _ January_1,_1905.pdf"
+    },
+    {
+      "file": "library\\books\\seventh-day-adventist-yearbook-1905.pdf",
+      "author": "1904 Image Of Papacy",
+      "via": "override",
+      "destination": "public\\books\\1904-image-of-papacy\\seventh-day-adventist-yearbook-1905.pdf"
+    },
+    {
+      "file": "library\\books\\William_Tyndale\\William_Tyndale_and_the_English_Bible_a_lecture_1865.pdf",
+      "author": "William Tyndale",
+      "via": "override",
+      "destination": "public\\books\\william-tyndale\\William_Tyndale_and_the_English_Bible_a_lecture_1865.pdf"
+    }
+  ],
+  "copied": [],
+  "alreadyExisted": [
+    {
+      "file": "seal.pdf",
+      "destination": "public\\books\\joseph-bates\\seal.pdf"
+    },
+    {
+      "file": "library\\pdf\\1904SDA.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\1904SDA.pdf"
+    },
+    {
+      "file": "library\\pdf\\1981.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\1981.pdf"
+    },
+    {
+      "file": "library\\pdf\\insurance.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\insurance.pdf"
+    },
+    {
+      "file": "library\\pdf\\investments.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\investments.pdf"
+    },
+    {
+      "file": "library\\books\\1843 and 1850 Charts.pdf",
+      "destination": "public\\books\\prophecy-charts\\1843 and 1850 Charts.pdf"
+    },
+    {
+      "file": "library\\books\\1843Chart.pdf",
+      "destination": "public\\books\\1843-prophecy-chart\\1843Chart.pdf"
+    },
+    {
+      "file": "library\\books\\1843_Chart_Key_of_Explaination.pdf",
+      "destination": "public\\books\\1843-prophecy-chart\\1843_Chart_Key_of_Explaination.pdf"
+    },
+    {
+      "file": "library\\books\\1843_fitch_comeOutOfHerMyPeople.pdf",
+      "destination": "public\\books\\charles-fitch\\1843_fitch_comeOutOfHerMyPeople.pdf"
+    },
+    {
+      "file": "library\\books\\1850-Law-of-God-Perfect1-11x17.pdf",
+      "destination": "public\\books\\1850-prophecy-chart\\1850-Law-of-God-Perfect1-11x17.pdf"
+    },
+    {
+      "file": "library\\books\\1850ChartExplanation.pdf",
+      "destination": "public\\books\\1850-prophecy-chart\\1850ChartExplanation.pdf"
+    },
+    {
+      "file": "library\\books\\1850_white-j_brothersMillerDream.pdf",
+      "destination": "public\\books\\william-miller\\1850_white-j_brothersMillerDream.pdf"
+    },
+    {
+      "file": "library\\books\\1858.Great.Controversy.pdf",
+      "destination": "public\\books\\ellen-white\\1858.Great.Controversy.pdf"
+    },
+    {
+      "file": "library\\books\\1872.pdf",
+      "destination": "public\\books\\pdf\\1872\\1872.pdf"
+    },
+    {
+      "file": "library\\books\\1888greatcontroverywhite.pdf",
+      "destination": "public\\books\\ellen-white\\1888greatcontroverywhite.pdf"
+    },
+    {
+      "file": "library\\books\\1904SDA.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\1904SDA.pdf"
+    },
+    {
+      "file": "library\\books\\2SG.pdf",
+      "destination": "public\\books\\ellen-white\\2SG.pdf"
+    },
+    {
+      "file": "library\\books\\3SG.pdf",
+      "destination": "public\\books\\ellen-white\\3SG.pdf"
+    },
+    {
+      "file": "library\\books\\4SGa.pdf",
+      "destination": "public\\books\\ellen-white\\4SGa.pdf"
+    },
+    {
+      "file": "library\\books\\501c3-GC-SDA-CORPORATIONS-BABYLON-since-1904.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\501c3-GC-SDA-CORPORATIONS-BABYLON-since-1904.pdf"
+    },
+    {
+      "file": "library\\books\\dream.pdf",
+      "destination": "public\\books\\william-miller\\dream.pdf"
+    },
+    {
+      "file": "library\\books\\investments.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\investments.pdf"
+    },
+    {
+      "file": "library\\books\\LifeIncidents.pdf",
+      "destination": "public\\books\\james-white\\LifeIncidents.pdf"
+    },
+    {
+      "file": "library\\books\\LittleFlock.pdf",
+      "destination": "public\\books\\ellen-white\\LittleFlock.pdf"
+    },
+    {
+      "file": "library\\books\\memoirsofwilliammiller_sylvester_bliss_1853.pdf",
+      "destination": "public\\books\\william-miller\\memoirsofwilliammiller_sylvester_bliss_1853.pdf"
+    },
+    {
+      "file": "library\\books\\memoirsofwilliam_sylvester_bliss_1853.pdf",
+      "destination": "public\\books\\william-miller\\memoirsofwilliam_sylvester_bliss_1853.pdf"
+    },
+    {
+      "file": "library\\books\\Millers-Works.-Volume-2.-Evidence-from-Scripture-and-History-of-the-Second-Coming-of-Christ-about-the-Year-1843.pdf",
+      "destination": "public\\books\\william-miller\\Millers-Works.-Volume-2.-Evidence-from-Scripture-and-History-of-the-Second-Coming-of-Christ-about-the-Year-1843.pdf"
+    },
+    {
+      "file": "library\\books\\Millers14Rules.pdf",
+      "destination": "public\\books\\william-miller\\Millers14Rules.pdf"
+    },
+    {
+      "file": "library\\books\\Miller_evidenceFromScriptureAndHistory_secondComingOfChristAboutYear1843_1836.pdf",
+      "destination": "public\\books\\william-miller\\Miller_evidenceFromScriptureAndHistory_secondComingOfChristAboutYear1843_1836.pdf"
+    },
+    {
+      "file": "library\\books\\SabbathHistory.pdf",
+      "destination": "public\\books\\john-nevins-andrews\\SabbathHistory.pdf"
+    },
+    {
+      "file": "library\\books\\seal-backup.pdf",
+      "destination": "public\\books\\joseph-bates\\seal-backup.pdf"
+    },
+    {
+      "file": "library\\books\\seal.pdf",
+      "destination": "public\\books\\joseph-bates\\seal.pdf"
+    },
+    {
+      "file": "library\\books\\Slaveholding.pdf",
+      "destination": "public\\books\\charles-fitch\\Slaveholding.pdf"
+    },
+    {
+      "file": "library\\books\\Slaveholding2.pdf",
+      "destination": "public\\books\\charles-fitch\\Slaveholding2.pdf"
+    },
+    {
+      "file": "library\\books\\slaveholding3.pdf",
+      "destination": "public\\books\\charles-fitch\\slaveholding3.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-N0-13.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-N0-13.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-N0-14.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-N0-14.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-1.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-1.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-10.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-10.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-11.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-11.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-12.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-12.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-15.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-15.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-16.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-16.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-17.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-17.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-18.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-18.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-19.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-19.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-2.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-2.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-20.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-20.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-21.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-21.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-22.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-22.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-23.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-23.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-24.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-24.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-25.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-25.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-26.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-26.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-27.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-27.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-28.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-28.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-4.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-4.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-5.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-5.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-6.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-6.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-7.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-7.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-8.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-8.pdf"
+    },
+    {
+      "file": "library\\books\\Testimony-for-the-Church-No-9.pdf",
+      "destination": "public\\books\\ellen-white\\Testimony-for-the-Church-No-9.pdf"
+    },
+    {
+      "file": "library\\books\\The-Great-Second-Advent-Movement-John-Loughborough.pdf",
+      "destination": "public\\books\\john-norton-loughborough\\The-Great-Second-Advent-Movement-John-Loughborough.pdf"
+    },
+    {
+      "file": "library\\books\\TheDeityofChristCharlesLongacre.pdf",
+      "destination": "public\\books\\charles-s-longacre\\TheDeityofChristCharlesLongacre.pdf"
+    },
+    {
+      "file": "library\\books\\TheLaodiceanChurch.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\TheLaodiceanChurch.pdf"
+    },
+    {
+      "file": "library\\books\\ThePresentTruth.pdf",
+      "destination": "public\\books\\james-white\\ThePresentTruth.pdf"
+    },
+    {
+      "file": "library\\books\\The_Day_Star.pdf",
+      "destination": "public\\books\\ellen-white\\The_Day_Star.pdf"
+    },
+    {
+      "file": "library\\books\\The_Miracles_of_Christ.pdf",
+      "destination": "public\\books\\ellen-white\\The_Miracles_of_Christ.pdf"
+    },
+    {
+      "file": "library\\books\\topsecret.pdf",
+      "destination": "public\\books\\1904-image-of-papacy\\topsecret.pdf"
+    },
+    {
+      "file": "library\\books\\TwelvePatriarchs.pdf",
+      "destination": "public\\books\\apocrypha\\TwelvePatriarchs.pdf"
+    },
+    {
+      "file": "library\\books\\WayMarks.pdf",
+      "destination": "public\\books\\joseph-bates\\WayMarks.pdf"
+    },
+    {
+      "file": "library\\books\\White-Great-Controversy-1884-1st-Ed.pdf",
+      "destination": "public\\books\\ellen-white\\White-Great-Controversy-1884-1st-Ed.pdf"
+    },
+    {
+      "file": "library\\books\\Charles_Fitch\\1843_fitch_comeOutOfHerMyPeople.pdf",
+      "destination": "public\\books\\charles-fitch\\1843_fitch_comeOutOfHerMyPeople.pdf"
+    },
+    {
+      "file": "library\\adventist-prophecy-charts\\1843_Chart_Key_of_Explaination.pdf",
+      "destination": "public\\books\\1843-prophecy-chart\\1843_Chart_Key_of_Explaination.pdf"
+    },
+    {
+      "file": "adventist-prophecy-charts\\1843-chart.pdf",
+      "destination": "public\\books\\1843-prophecy-chart\\1843-chart.pdf"
+    },
+    {
+      "file": "adventist-prophecy-charts\\1843_Chart_Key_of_Explaination.pdf",
+      "destination": "public\\books\\1843-prophecy-chart\\1843_Chart_Key_of_Explaination.pdf"
+    },
+    {
+      "file": "adventist-prophecy-charts\\1850-chart.pdf",
+      "destination": "public\\books\\1850-prophecy-chart\\1850-chart.pdf"
+    },
+    {
+      "file": "adventist-prophecy-charts\\1850-Law-of-God-Perfect-11x17.pdf",
+      "destination": "public\\books\\1850-prophecy-chart\\1850-Law-of-God-Perfect-11x17.pdf"
+    },
+    {
+      "file": "adventist-prophecy-charts\\1850_Chart_Key_of_Explanation.pdf",
+      "destination": "public\\books\\1850-prophecy-chart\\1850_Chart_Key_of_Explanation.pdf"
+    }
+  ],
+  "unmatched": []
+}

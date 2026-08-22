@@ -1,0 +1,323 @@
+---
+import Analytics from '../../components/Analytics.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Adventist Churches — 501(c)(3) Corporate Franchises | SundayLaw.com</title>
+    <meta name="description" content="Every local Seventh-day Adventist church operates as a franchise of the General Conference 501(c)(3) corporation (EIN 52-0643036, GEN 1071). These are not independent congregations — they are corporate subsidiaries. Their EINs are on file. Their restrictions are real.">
+    <link rel="canonical" href="https://sundaylaw.com/apostasy/churches">
+    <meta property="og:title" content="Adventist Churches — Corporate Franchises Under GEN 1071">
+    <meta property="og:type" content="article">
+    <Analytics />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+    <style>
+      :root {
+        --bg: #0d0505; --bg-soft: #120808; --bg-card: #160a0a;
+        --ink: #fef3c7; --ink-muted: #9ca3af;
+        --gold: #d4a537; --gold-soft: #fcd34d;
+        --red: #dc2626; --red-soft: #ef4444; --red-muted: #fca5a5;
+        --crimson: #9f1239; --indigo: #4f46e5;
+        --line: rgba(220,38,38,0.22); --line-soft: rgba(220,38,38,0.12);
+      }
+      *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+      html { scroll-behavior: smooth; }
+      body { margin: 0; font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+      a { color: var(--red-muted); text-decoration: none; transition: color 0.2s; }
+      a:hover { color: #fff; }
+
+      .nav { position: sticky; top: 0; z-index: 100; background: rgba(10,2,2,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+      .nav-wrap { max-width: 1280px; margin: 0 auto; }
+      .nav-row { display: flex; align-items: center; padding: 0 22px; }
+      .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(220,38,38,0.10); }
+      .nav-row-bottom { gap: 22px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+      .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; margin-right: auto; }
+      .nav-link { color: var(--ink-muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; }
+      .nav-link:hover { color: var(--red-muted); }
+      .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: var(--crimson); color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; }
+      .nav-cta:hover { background: var(--red-soft); color: #fff; }
+      .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; flex-shrink: 0; }
+      .nav-bottom-link:hover, .nav-bottom-link.active { color: var(--red-muted); }
+      .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+      .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(10,2,2,0.97); }
+      .mobile-nav.open { display: grid; gap: 6px; }
+      .mobile-nav a { color: var(--ink-muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+      @media (max-width: 860px) { .nav-row-bottom { display: none; } .menu-btn { display: inline-flex; } .nav-link { display: none; } }
+
+      .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 80px; }
+      .hero { padding: 52px 0 44px; }
+      .breadcrumb { font-size: 0.8rem; color: var(--ink-muted); margin-bottom: 18px; }
+      .breadcrumb a { color: var(--ink-muted); }
+      .breadcrumb a:hover { color: var(--red-muted); }
+      .breadcrumb span { margin: 0 6px; opacity: 0.5; }
+
+      .page-eyebrow { display: inline-flex; align-items: center; gap: 6px; padding: 5px 14px; border-radius: 999px; background: rgba(79,70,229,0.12); border: 1px solid rgba(79,70,229,0.35); color: #a5b4fc; font-size: 0.74rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; margin-bottom: 16px; }
+      .page-header h1 { font-family: 'Crimson Text', serif; font-size: clamp(2rem, 5vw, 3.2rem); font-weight: 600; line-height: 1.1; color: var(--ink); margin-bottom: 12px; }
+      .page-header h1 em { font-style: italic; color: #a5b4fc; }
+      .page-header .subtitle { font-size: 1rem; color: rgba(254,243,199,0.75); line-height: 1.85; max-width: 760px; margin-bottom: 28px; }
+
+      .section { padding: 44px 0; border-top: 1px solid var(--line-soft); }
+      .section-header { margin-bottom: 26px; }
+      .sh-eyebrow { display: inline-block; padding: 4px 14px; border-radius: 999px; border: 1px solid var(--line); color: var(--red-muted); letter-spacing: 0.1em; text-transform: uppercase; font-size: 0.72rem; font-weight: 700; margin-bottom: 10px; }
+      .section-header h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.6rem, 3vw, 2.2rem); font-weight: 600; color: var(--ink); margin-bottom: 8px; }
+      .section-header h2 em { color: #a5b4fc; font-style: italic; }
+      .section-header p { color: var(--ink-muted); font-size: 0.92rem; line-height: 1.8; max-width: 780px; }
+
+      /* STRUCTURE DIAGRAM */
+      .structure-box { background: var(--bg-card); border: 1px solid rgba(79,70,229,0.25); border-radius: 18px; padding: 28px; margin-bottom: 32px; }
+      .structure-box h3 { font-family: 'Crimson Text', serif; font-size: 1.3rem; color: #a5b4fc; margin-bottom: 18px; }
+      .structure-level { display: flex; align-items: center; gap: 12px; padding: 10px 14px; border-radius: 8px; margin-bottom: 4px; }
+      .sl-1 { background: rgba(159,18,57,0.2); border: 1px solid rgba(159,18,57,0.35); }
+      .sl-2 { background: rgba(79,70,229,0.1); border: 1px solid rgba(79,70,229,0.22); margin-left: 24px; }
+      .sl-3 { background: rgba(212,165,55,0.08); border: 1px solid rgba(212,165,55,0.18); margin-left: 48px; }
+      .sl-4 { background: rgba(255,255,255,0.03); border: 1px solid rgba(255,255,255,0.07); margin-left: 72px; }
+      .sl-arrow { color: var(--ink-muted); font-size: 0.8rem; }
+      .sl-name { font-size: 0.87rem; color: var(--ink); font-weight: 600; }
+      .sl-ein { font-size: 0.72rem; color: var(--gold); font-family: 'Courier New', monospace; }
+      .sl-note { font-size: 0.72rem; color: var(--ink-muted); }
+
+      /* CHURCHES TABLE */
+      .churches-table { width: 100%; border-collapse: collapse; font-size: 0.85rem; margin-bottom: 20px; }
+      .churches-table th { padding: 9px 14px; background: rgba(79,70,229,0.1); color: #a5b4fc; border: 1px solid rgba(79,70,229,0.2); font-size: 0.72rem; text-transform: uppercase; letter-spacing: 0.07em; text-align: left; font-weight: 700; }
+      .churches-table td { padding: 9px 14px; border: 1px solid rgba(255,255,255,0.06); vertical-align: middle; }
+      .churches-table tr:nth-child(even) td { background: rgba(255,255,255,0.018); }
+      .ein-code { font-family: 'Courier New', monospace; color: var(--gold); font-size: 0.8rem; }
+      .state-badge { display: inline-block; padding: 2px 7px; border-radius: 4px; background: rgba(79,70,229,0.1); border: 1px solid rgba(79,70,229,0.2); color: #a5b4fc; font-size: 0.68rem; font-weight: 700; }
+
+      /* FRANCHISE BOX */
+      .franchise-box { background: linear-gradient(135deg, rgba(30,5,5,0.6), rgba(12,5,5,0.95)); border: 1px solid rgba(220,38,38,0.3); border-radius: 16px; padding: 26px 28px; }
+      .franchise-box h3 { font-family: 'Crimson Text', serif; font-size: 1.4rem; color: var(--red-muted); margin-bottom: 14px; }
+      .franchise-box p { font-size: 0.87rem; color: rgba(254,243,199,0.8); line-height: 1.8; margin-bottom: 12px; }
+      .franchise-items { display: grid; grid-template-columns: repeat(auto-fill, minmax(220px, 1fr)); gap: 10px; margin-top: 16px; }
+      .fi { background: rgba(220,38,38,0.06); border: 1px solid rgba(220,38,38,0.14); border-radius: 8px; padding: 10px 12px; font-size: 0.8rem; color: rgba(254,243,199,0.75); line-height: 1.55; }
+      .fi strong { color: var(--red-muted); display: block; margin-bottom: 3px; }
+
+      /* QUOTE */
+      .quote-block { background: linear-gradient(135deg, rgba(50,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.3); border-left: 4px solid var(--red); border-radius: 0 14px 14px 0; padding: 20px 22px; margin-bottom: 20px; }
+      .quote-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.1rem; color: rgba(254,243,199,0.92); line-height: 1.85; margin-bottom: 6px; }
+      .quote-block cite { font-size: 0.78rem; color: var(--gold); font-style: italic; }
+
+      /* CTA */
+      .cta-bar { background: linear-gradient(135deg, rgba(60,0,0,0.5), rgba(12,5,5,0.9)); border: 1px solid rgba(220,38,38,0.35); border-radius: 18px; padding: 30px; text-align: center; margin-top: 50px; }
+      .cta-bar h2 { font-family: 'Crimson Text', serif; font-size: 1.8rem; color: var(--ink); margin-bottom: 8px; }
+      .cta-bar p { font-size: 0.9rem; color: var(--ink-muted); line-height: 1.8; max-width: 560px; margin: 0 auto 20px; }
+      .cta-buttons { display: flex; flex-wrap: wrap; gap: 12px; justify-content: center; }
+      .cta-btn { display: inline-flex; align-items: center; gap: 6px; padding: 11px 20px; border-radius: 10px; font-weight: 700; font-size: 0.87rem; text-decoration: none; transition: all 0.2s; }
+      .cta-btn-primary { background: var(--crimson); color: #fff; border: 1px solid rgba(220,38,38,0.5); }
+      .cta-btn-primary:hover { background: var(--red); color: #fff; }
+      .cta-btn-secondary { background: transparent; color: var(--gold); border: 1px solid rgba(212,165,55,0.4); }
+      .cta-btn-secondary:hover { background: rgba(212,165,55,0.1); color: #fcd34d; }
+
+      .footer { border-top: 1px solid var(--line-soft); padding: 26px 22px; text-align: center; font-size: 0.78rem; color: var(--ink-muted); }
+      .footer a { color: var(--red-muted); }
+
+      @media (max-width: 640px) { .franchise-items { grid-template-columns: 1fr; } }
+    </style>
+  </head>
+  <body>
+
+    <nav class="nav">
+      <div class="nav-wrap">
+        <div class="nav-row nav-row-top">
+          <a class="nav-brand" href="/">SundayLaw.com</a>
+          <a class="nav-link" href="/library">Pioneer Library</a>
+          <a class="nav-link" href="/pioneers">Pioneers</a>
+          <a class="nav-link" href="/babylon-antichrist-library">Babylon Library</a>
+          <a class="nav-cta" href="/apostasy/corporations">Corporate Empire</a>
+          <button class="menu-btn">☰</button>
+        </div>
+        <div class="nav-row nav-row-bottom">
+          <a class="nav-bottom-link" href="/apostasy/corporations">Corporations</a>
+          <a class="nav-bottom-link" href="/apostasy/schools">Schools (7,500+)</a>
+          <a class="nav-bottom-link" href="/apostasy/hospitals">Hospitals (173)</a>
+          <a class="nav-bottom-link" href="/apostasy/lawyers">Lawyers</a>
+          <a class="nav-bottom-link active" href="/apostasy/churches">Churches</a>
+          <a class="nav-bottom-link" href="/apostasy">Apostate Shepherds</a>
+        </div>
+      </div>
+      <div class="mobile-nav">
+        <a href="/">Home</a>
+        <a href="/apostasy/corporations">Corporate Empire</a>
+        <a href="/apostasy/lawyers">Lawyers</a>
+        <a href="/apostasy/churches">Churches</a>
+        <a href="/apostasy">Apostate Shepherds</a>
+      </div>
+    </nav>
+
+    <main class="page">
+      <div class="hero">
+        <div class="breadcrumb">
+          <a href="/">Home</a><span>›</span>
+          <a href="/apostasy/corporations">Corporate Empire</a><span>›</span>
+          Churches
+        </div>
+        <div class="page-eyebrow">Corporate Franchise System</div>
+        <div class="page-header">
+          <h1>SDA Churches — <em>Corporate Franchises</em></h1>
+          <p class="subtitle">The local Seventh-day Adventist church is not an independent congregation. It is a corporate franchise — operating under a Conference license, subject to GC working policy, covered by Group Exemption number GEN 1071 under the parent EIN 52-0643036. Every local church pastor is a corporate employee. Every tithe dollar goes up the corporate pyramid. Every message from the pulpit is subject to the 501(c)(3) restrictions of the federal government.</p>
+        </div>
+      </div>
+
+      <!-- CORPORATE STRUCTURE -->
+      <section class="section" style="padding-top:0; border-top:none;">
+        <div class="structure-box">
+          <h3>The Corporate Chain of Command</h3>
+          <div class="structure-level sl-1">
+            <span class="sl-name">General Conference Corporation of Seventh-day Adventists</span>
+            <span class="sl-ein">EIN 52-0643036 · GEN 1071 · Silver Spring, MD</span>
+          </div>
+          <div class="structure-level sl-2">
+            <span class="sl-arrow">└─</span>
+            <span class="sl-name">North American Division (NAD)</span>
+            <span class="sl-ein">EIN 20-3164300</span>
+          </div>
+          <div class="structure-level sl-3">
+            <span class="sl-arrow">└─</span>
+            <span class="sl-name">Union Conferences (e.g. Columbia, Pacific, Atlantic)</span>
+            <span class="sl-note">Multiple EINs under GEN 1071</span>
+          </div>
+          <div class="structure-level sl-4">
+            <span class="sl-arrow">└─</span>
+            <span class="sl-name">Local Conferences (e.g. Rocky Mountain, Idaho, Ohio)</span>
+            <span class="sl-ein">Rocky Mountain: 27-4456014 · Idaho: 82-6004797</span>
+          </div>
+          <div class="structure-level sl-4" style="margin-left:96px;">
+            <span class="sl-arrow">└─</span>
+            <span class="sl-name">Local Churches (Bellevue SDA, SDA Church of Raleigh, LifeSpring SDA, etc.)</span>
+            <span class="sl-note">Each has its own EIN under GEN 1071</span>
+          </div>
+        </div>
+      </section>
+
+      <!-- CHURCH EINS TABLE -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">Documented EINs</div>
+          <h2>Local Church EINs — <em>On Record</em></h2>
+          <p>These are local SDA church EINs confirmed via IRS records. Each operates under the GC Group Exemption GEN 1071 — meaning their tax exemption is granted by the parent corporation's umbrella, not as independent religious bodies.</p>
+        </div>
+        <table class="churches-table">
+          <thead>
+            <tr>
+              <th>Church Name</th>
+              <th>EIN</th>
+              <th>State</th>
+              <th>Notes</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bellevue Seventh-day Adventist Church</td>
+              <td class="ein-code">91-1234673</td>
+              <td><span class="state-badge">WA</span></td>
+              <td>Washington State; Conference: Washington Conference</td>
+            </tr>
+            <tr>
+              <td>SDA Church of Raleigh</td>
+              <td class="ein-code">56-1722812</td>
+              <td><span class="state-badge">NC</span></td>
+              <td>North Carolina; Conference: Carolina Conference</td>
+            </tr>
+            <tr>
+              <td>LifeSpring Seventh-day Adventist Church</td>
+              <td class="ein-code">46-4168701</td>
+              <td><span class="state-badge">Multiple</span></td>
+              <td>Contemporary-branding SDA church plant</td>
+            </tr>
+            <tr>
+              <td>Mt. Pleasant SDA Church &amp; School</td>
+              <td class="ein-code">38-3194119</td>
+              <td><span class="state-badge">MI</span></td>
+              <td>Combined church/school entity; Lake Union Conference</td>
+            </tr>
+            <tr>
+              <td>SDA Kinship International</td>
+              <td class="ein-code">95-3685909</td>
+              <td><span class="state-badge">CA</span></td>
+              <td>LGBTQ-affirming SDA ministry; operates under GEN 1071 umbrella</td>
+            </tr>
+            <tr>
+              <td>Rocky Mountain Conference of SDA</td>
+              <td class="ein-code">27-4456014</td>
+              <td><span class="state-badge">CO</span></td>
+              <td>Conference body covering Colorado/Wyoming</td>
+            </tr>
+            <tr>
+              <td>Idaho Conference of SDA</td>
+              <td class="ein-code">82-6004797</td>
+              <td><span class="state-badge">ID</span></td>
+              <td>Conference body covering Idaho</td>
+            </tr>
+          </tbody>
+        </table>
+        <p style="font-size:0.78rem;color:var(--ink-muted);">Source: IRS records via GuideStar, ProPublica Nonprofit Explorer, and 144000.com/schoolfraud. Thousands of additional local church EINs exist under GEN 1071 — these are representative examples.</p>
+      </section>
+
+      <!-- FRANCHISE REALITY -->
+      <section class="section">
+        <div class="section-header">
+          <div class="sh-eyebrow">The Franchise Reality</div>
+          <h2>What It Means to Be a <em>Corporate Franchise Church</em></h2>
+        </div>
+        <div class="franchise-box">
+          <h3>Your Local SDA Church Is a Corporate Subsidiary — Not an Independent Congregation</h3>
+          <p>When you attend a local SDA church and drop your tithe in the offering plate, you are funding a corporate franchise. The money flows upward: Local Church → Conference → Union → Division → General Conference. The GC at the top is the federal corporation (EIN 52-0643036) that:</p>
+          <div class="franchise-items">
+            <div class="fi"><strong>Controls Policy</strong>Filed as Protestant with the IRS. Declared "truly Catholic" by its own president in 1981.</div>
+            <div class="fi"><strong>Controls Pastors</strong>Local pastors are Conference employees. Their salary, placement, and continued employment depends on Conference approval — not congregational vote.</div>
+            <div class="fi"><strong>Controls Speech</strong>501(c)(3) restrictions apply to every entity under GEN 1071 — including your local church. Government-prohibited topics cannot be preached without risking the entire umbrella's tax status.</div>
+            <div class="fi"><strong>Controls Property</strong>Church buildings are typically owned by the Conference, not the congregation. If a congregation votes to leave the denomination, the Conference can retain the building.</div>
+            <div class="fi"><strong>Controls Curriculum</strong>Sabbath School lessons are produced by the GC. Pastoral training comes from denominational schools with Catholic accreditation. The theological pipeline flows from the top down.</div>
+            <div class="fi"><strong>Controls Brand</strong>The GC-SDA trademark covers "Adventist" — an independent congregation that leaves cannot take the name "Adventist" with it without trademark infringement exposure.</div>
+          </div>
+        </div>
+      </section>
+
+      <!-- QUOTES -->
+      <section class="section">
+        <div class="quote-block">
+          <blockquote>"And in her was found the blood of prophets, and of saints, and of all that were slain upon the earth."</blockquote>
+          <cite>— Revelation 18:24 — the description of what Babylon the great represents</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues."</blockquote>
+          <cite>— Revelation 18:4, KJV</cite>
+        </div>
+        <div class="quote-block">
+          <blockquote>"I have been shown that Satan has been preparing his snares for every soul… The church that is organized to serve the corporate interests of the General Conference is no longer the remnant that God commissioned to give the Three Angels' Messages."</blockquote>
+          <cite>— Ellen G. White (paraphrase of 1SM 204 principle)</cite>
+        </div>
+      </section>
+
+      <!-- CTA -->
+      <div class="cta-bar">
+        <h2>Come Out of Her — Before She Receives Her Plagues</h2>
+        <p>Revelation 18:4. Not a suggestion. A commandment. The corporate franchise church was not the remnant the pioneers built. It is the new organization of 1904.</p>
+        <div class="cta-buttons">
+          <a class="cta-btn cta-btn-primary" href="/apostasy/corporations">Full Corporate Empire →</a>
+          <a class="cta-btn cta-btn-primary" href="/apostasy/schools">Schools Fraud →</a>
+          <a class="cta-btn cta-btn-secondary" href="/501c3">501(c)(3) Trap →</a>
+          <a class="cta-btn cta-btn-secondary" href="/library">Pioneer Library →</a>
+        </div>
+      </div>
+    </main>
+
+    <footer class="footer">
+      <p>Sources: <a href="https://projects.propublica.org/nonprofits/organizations/520643036" target="_blank" rel="noopener">ProPublica EIN 52-0643036</a> | <a href="https://144000.com/schoolfraud/" target="_blank" rel="noopener">144000.com/schoolfraud</a> | GuideStar Church EIN records | Adventist Review, March 5, 1981 | Rev. 18:4 | EGW 1SM 204</p>
+    </footer>
+
+    <script>
+      document.querySelectorAll('.menu-btn').forEach(btn => {
+        btn.addEventListener('click', () => {
+          const wrap = btn.closest('.nav-wrap');
+          if (!wrap) return;
+          wrap.querySelector('.mobile-nav')?.classList.toggle('open');
+        });
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,26 @@
+---
+
+---
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-JEJDXYCYZ1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+  gtag('config', 'G-JEJDXYCYZ1', { send_page_view: true, anonymize_ip: true });
+
+  function trackFormSubmit(formType) {
+    gtag('event', 'form_submit', { form_type: formType });
+  }
+
+  function trackShare(channel) {
+    gtag('event', 'share', { event_category: 'social', event_label: channel });
+  }
+
+  function trackDownload(label) {
+    gtag('event', 'file_download', { event_category: 'Download', event_label: label });
+  }
+
+  window.trackFormSubmit = trackFormSubmit;
+  window.trackShare = trackShare;
+  window.trackDownload = trackDownload;
+</script>

@@ -1,0 +1,44 @@
+---
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Member Login — SundayLaw.com</title>
+    <link rel="stylesheet" href="/css/styles.css">
+  </head>
+  <body>
+    <SiteNav />
+    <div class="page-wrap">
+      <div class="page-hero">
+        <div class="eyebrow">
+          <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          SundayLaw.com
+        </div>
+        <h1>Member <span class="gold">Login</span></h1>
+        <p>Returning member? Log in to access your account.</p>
+      </div>
+      <div class="form-card" role="form">
+        <h2>Login</h2>
+        <form method="POST" action="/api/login.php" id="loginForm" autocomplete="on">
+          <div class="form-group">
+            <label for="l-email">Email *</label>
+            <input type="email" id="l-email" name="email" required placeholder="your@email.com" autocomplete="email" aria-label="Email" />
+          </div>
+          <div class="form-group">
+            <label for="l-password">Password *</label>
+            <input type="password" id="l-password" name="password" required placeholder="Your password" autocomplete="current-password" aria-label="Password" />
+          </div>
+          <button type="submit" class="btn-submit btn-blue">Login</button>
+        </form>
+        <div style="margin-top:18px;text-align:center;">
+          <a href="/forgot-password" class="btn-submit btn-purple" style="max-width:200px;display:inline-block;">Forgot Password?</a>
+        </div>
+      </div>
+    </div>
+    <SiteFooter />
+  </body>
+</html>

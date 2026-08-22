@@ -1,0 +1,933 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>The Test That Decides Your Eternal Destiny — Image of the Beast, 1904, and the Loud Cry | SundayLaw.com</title>
+  <meta name="description" content="Ellen White warned: the image of the beast WILL BE FORMED before probation closes — it IS the great test by which your eternal destiny will be decided. The 1904 new organization, the 501(c)(3) state church, and the Loud Cry of Revelation 18 are all one story. Come out of her, my people — NOW.">
+  <link rel="canonical" href="https://sundaylaw.com/prophecy-explained">
+  <meta property="og:title" content="The Test That Decides Your Eternal Destiny — Image of the Beast and the Loud Cry">
+  <meta property="og:description" content="The image of the beast WILL BE FORMED before probation closes. It IS the great test. Your eternal destiny is decided by how you obey when you learn the truth. Come out of the 501(c)(3) state church — NOW.">
+  <meta property="og:image" content="https://sundaylaw.com/images/sundaylaw/mayflower-1620-religious-freedom-james-white-family-escaping-state-church-tyranny-sundaylaw.jpg">
+  <meta property="og:type" content="article">
+  <meta property="og:url" content="https://sundaylaw.com/prophecy-explained">
+  <Analytics />
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Crimson+Text:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --bg: #07000f;
+      --bg-soft: #0d0018;
+      --bg-card: rgba(20,5,35,0.85);
+      --ink: #f8f1dd;
+      --muted: #9ca3af;
+      --gold: #d4a537;
+      --gold-soft: #fcd34d;
+      --amber: #f59e0b;
+      --red: #ef4444;
+      --red-soft: #fca5a5;
+      --teal: #14b8a6;
+      --teal-soft: #5eead4;
+      --blue: #3b82f6;
+      --blue-soft: #93c5fd;
+      --line: rgba(212,165,55,0.22);
+      --line-soft: rgba(212,165,55,0.12);
+      --line-red: rgba(239,68,68,0.3);
+    }
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    html { scroll-behavior: smooth; }
+    body { font-family: 'Inter', sans-serif; color: var(--ink); background: var(--bg); overflow-x: hidden; }
+    a { color: var(--gold); text-decoration: none; transition: color 0.2s; }
+    a:hover { color: var(--gold-soft); }
+
+    .top-stripe { height: 5px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+
+    /* NAV */
+    .nav { position: sticky; top: 0; z-index: 100; background: rgba(7,0,15,0.96); backdrop-filter: blur(12px); border-bottom: 1px solid var(--line); }
+    .nav-wrap { max-width: 1280px; margin: 0 auto; }
+    .nav-row { display: flex; align-items: center; padding: 0 22px; }
+    .nav-row-top { gap: 28px; height: 62px; border-bottom: 1px solid rgba(212,165,55,0.08); }
+    .nav-row-bottom { gap: 20px; height: 42px; font-size: 0.82rem; overflow-x: auto; scrollbar-width: none; }
+    .nav-brand { text-decoration: none; color: var(--ink); font-weight: 700; font-size: 1.05rem; flex-shrink: 0; display: flex; align-items: center; margin-right: auto; }
+    .nav-brand img { height: 38px; width: auto; display: block; border-radius: 4px; }
+    .nav-link { color: var(--muted); text-decoration: none; font-weight: 600; font-size: 0.9rem; white-space: nowrap; transition: color 0.18s; }
+    .nav-link:hover { color: var(--gold-soft); }
+    .nav-cta { display: inline-flex; align-items: center; height: 38px; padding: 0 18px; border-radius: 8px; background: #9f1239; color: #fff; font-weight: 700; font-size: 0.88rem; text-decoration: none; flex-shrink: 0; transition: background 0.18s; }
+    .nav-cta:hover { background: #be123c; color: #fff; }
+    .nav-bottom-link { color: rgba(156,163,175,0.8); text-decoration: none; font-weight: 500; white-space: nowrap; transition: color 0.18s; flex-shrink: 0; }
+    .nav-bottom-link:hover { color: var(--gold-soft); }
+    .nav-bottom-link.active { color: var(--gold-soft); }
+    .menu-btn { display: none; width: 40px; height: 40px; border: 1px solid var(--line); border-radius: 8px; background: rgba(255,255,255,0.03); color: var(--ink); font-size: 1.2rem; cursor: pointer; flex-shrink: 0; align-items: center; justify-content: center; }
+    .mobile-nav { display: none; border-top: 1px solid var(--line); padding: 14px 22px 18px; background: rgba(7,0,15,0.97); }
+    .mobile-nav.open { display: grid; gap: 6px; }
+    .mobile-nav a { color: var(--muted); text-decoration: none; font-weight: 600; padding: 8px 0; border-bottom: 1px solid rgba(255,255,255,0.05); }
+    .mobile-nav a:hover { color: var(--gold-soft); }
+    @media (max-width: 860px) {
+      .nav-row-bottom { display: none; }
+      .menu-btn { display: inline-flex; }
+      .nav-link { display: none; }
+    }
+
+    .page { max-width: 1100px; margin: 0 auto; padding: 0 22px 100px; }
+
+    /* HERO */
+    .hero-section { padding: 64px 0 52px; text-align: center; border-bottom: 1px solid rgba(239,68,68,0.18); }
+    .indictment-badge { display: inline-flex; align-items: center; gap: 8px; padding: 7px 20px; border-radius: 999px; background: rgba(127,29,29,0.35); border: 1px solid var(--line-red); color: var(--red-soft); font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.16em; margin-bottom: 22px; }
+    .hero-h1 { font-family: 'Crimson Text', serif; font-size: clamp(2.4rem, 5.5vw, 4.2rem); font-weight: 600; color: var(--ink); line-height: 1.08; margin-bottom: 22px; }
+    .hero-h1 em { color: var(--red-soft); font-style: italic; }
+    .hero-h1 strong { color: var(--gold-soft); font-style: normal; }
+    .hero-sub { font-size: 1.08rem; color: rgba(248,241,221,0.75); line-height: 1.9; max-width: 760px; margin: 0 auto 34px; }
+    .hero-sub strong { color: var(--red-soft); }
+    .hero-truth-pill { display: inline-flex; align-items: center; gap: 10px; padding: 12px 30px; border-radius: 14px; background: rgba(127,29,29,0.25); border: 1px solid rgba(239,68,68,0.35); font-size: 0.92rem; font-weight: 700; color: var(--red-soft); }
+
+    /* SECTIONS */
+    .sect { padding: 60px 0; border-top: 1px solid rgba(212,165,55,0.1); }
+    .sect-eyebrow { display: inline-block; padding: 5px 15px; border-radius: 999px; border: 1px solid var(--line); color: var(--gold-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect-eyebrow-red { display: inline-block; padding: 5px 15px; border-radius: 999px; background: rgba(127,29,29,0.25); border: 1px solid var(--line-red); color: var(--red-soft); text-transform: uppercase; font-size: 0.72rem; font-weight: 700; letter-spacing: 0.1em; margin-bottom: 12px; }
+    .sect h2 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.2vw, 2.7rem); font-weight: 600; color: var(--ink); margin-bottom: 10px; line-height: 1.15; }
+    .sect h2 em { color: var(--red-soft); font-style: italic; }
+    .sect-center { text-align: center; }
+    .sect-sub { font-size: 0.97rem; color: rgba(248,241,221,0.8); line-height: 1.9; margin-bottom: 22px; }
+    .sect-sub strong { color: var(--gold-soft); }
+    .sect-sub em { color: var(--red-soft); font-style: normal; font-weight: 600; }
+
+    /* EGW MEGA WARNING BLOCK */
+    .mega-warn { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(7,0,15,0.95)); border: 2px solid rgba(239,68,68,0.45); border-radius: 22px; padding: 48px 44px; margin: 36px 0; text-align: center; position: relative; overflow: hidden; }
+    .mega-warn::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(239,68,68,0.08) 0%, transparent 60%); pointer-events: none; }
+    .mega-warn-icon { display: flex; justify-content: center; margin-bottom: 20px; color: var(--red-soft); position: relative; z-index: 1; }
+    .mega-warn-eyebrow { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.2em; color: var(--red); margin-bottom: 18px; position: relative; z-index: 1; }
+    .mega-warn blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.5rem, 3vw, 2.2rem); font-style: italic; color: #fde8e8; line-height: 1.55; margin-bottom: 20px; position: relative; z-index: 1; }
+    .mega-warn blockquote strong { font-style: normal; color: var(--red-soft); text-transform: uppercase; }
+    .mega-warn cite { font-size: 0.88rem; color: rgba(252,165,165,0.75); font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; position: relative; z-index: 1; display: block; }
+    @media (max-width: 640px) { .mega-warn { padding: 32px 22px; } }
+
+    /* GOLD MEGA QUOTE */
+    .mega-quote { background: linear-gradient(135deg, rgba(26,16,0,0.9), rgba(7,0,15,0.95)); border: 2px solid rgba(212,165,55,0.4); border-radius: 22px; padding: 48px 44px; margin: 36px 0; text-align: center; position: relative; overflow: hidden; }
+    .mega-quote::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at 50% 30%, rgba(212,165,55,0.07) 0%, transparent 60%); pointer-events: none; }
+    .mega-quote-icon { display: flex; justify-content: center; margin-bottom: 20px; color: var(--gold); position: relative; z-index: 1; }
+    .mega-quote blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.45rem, 2.8vw, 2rem); font-style: italic; color: #fef3c7; line-height: 1.6; margin-bottom: 18px; position: relative; z-index: 1; }
+    .mega-quote blockquote strong { color: var(--gold-soft); font-style: normal; }
+    .mega-quote cite { font-size: 0.88rem; color: rgba(253,230,138,0.65); font-style: normal; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; position: relative; z-index: 1; display: block; }
+    @media (max-width: 640px) { .mega-quote { padding: 32px 20px; } }
+
+    /* CONSTITUTION / LEFT-BORDER BANNER */
+    .banner-gold { border-left: 5px solid var(--gold); border-radius: 0 16px 16px 0; background: linear-gradient(135deg, #120d00, #090c1d); padding: 28px 28px 28px 30px; margin: 22px 0; }
+    .banner-gold-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--gold); margin-bottom: 12px; }
+    .banner-gold blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.1rem, 2vw, 1.45rem); font-style: italic; color: rgba(254,243,199,0.92); line-height: 1.75; margin-bottom: 12px; }
+    .banner-gold cite { font-size: 0.82rem; color: rgba(253,230,138,0.62); font-style: normal; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    .banner-red { border-left: 5px solid var(--red); border-radius: 0 16px 16px 0; background: linear-gradient(135deg, rgba(127,29,29,0.15), #090c1d); padding: 28px 28px 28px 30px; margin: 22px 0; }
+    .banner-red-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--red-soft); margin-bottom: 12px; }
+    .banner-red blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.1rem, 2vw, 1.45rem); font-style: italic; color: #fde8e8; line-height: 1.75; margin-bottom: 12px; }
+    .banner-red blockquote strong { font-style: normal; color: var(--red-soft); }
+    .banner-red cite { font-size: 0.82rem; color: rgba(252,165,165,0.6); font-style: normal; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    .banner-blue { border-left: 5px solid var(--blue); border-radius: 0 16px 16px 0; background: linear-gradient(135deg, rgba(30,58,138,0.15), #090c1d); padding: 28px 28px 28px 30px; margin: 22px 0; }
+    .banner-blue-label { font-size: 0.7rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.15em; color: var(--blue-soft); margin-bottom: 12px; }
+    .banner-blue blockquote { font-family: 'Crimson Text', serif; font-size: clamp(1.1rem, 2vw, 1.4rem); font-style: italic; color: rgba(147,197,253,0.9); line-height: 1.75; margin-bottom: 12px; }
+    .banner-blue cite { font-size: 0.82rem; color: rgba(147,197,253,0.6); font-style: normal; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* DEFINITION GRID */
+    .def-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; margin: 28px 0; }
+    .def-card { border-radius: 16px; padding: 24px 22px; }
+    .def-card.papal { background: rgba(127,29,29,0.2); border: 1px solid rgba(239,68,68,0.3); }
+    .def-card.american { background: rgba(30,58,138,0.18); border: 1px solid rgba(59,130,246,0.28); }
+    .def-card h3 { font-family: 'Crimson Text', serif; font-size: 1.3rem; font-weight: 600; margin-bottom: 14px; line-height: 1.2; }
+    .def-card.papal h3 { color: var(--red-soft); }
+    .def-card.american h3 { color: var(--blue-soft); }
+    .def-card ul { list-style: none; display: grid; gap: 8px; }
+    .def-card ul li { display: flex; gap: 10px; font-size: 0.9rem; color: rgba(248,241,221,0.82); line-height: 1.65; }
+    .def-card ul li::before { content: '›'; font-weight: 700; flex-shrink: 0; }
+    .def-card.papal ul li::before { color: var(--red-soft); }
+    .def-card.american ul li::before { color: var(--blue-soft); }
+    @media (max-width: 640px) { .def-grid { grid-template-columns: 1fr; } }
+
+    /* 501C3 EXPOSE CARD */
+    .expose-card { background: linear-gradient(135deg, rgba(127,29,29,0.25), rgba(7,0,15,0.9)); border: 1px solid rgba(239,68,68,0.35); border-radius: 20px; padding: 34px 30px; margin: 28px 0; }
+    .expose-card h3 { font-family: 'Crimson Text', serif; font-size: clamp(1.4rem, 2.8vw, 1.9rem); font-weight: 600; color: var(--red-soft); margin-bottom: 16px; line-height: 1.2; }
+    .expose-card p { font-size: 0.95rem; color: rgba(248,241,221,0.82); line-height: 1.9; margin-bottom: 14px; }
+    .expose-card p strong { color: var(--red-soft); }
+    .expose-card p em { color: var(--gold-soft); font-style: normal; font-weight: 600; }
+    .expose-list { list-style: none; display: grid; gap: 10px; margin: 18px 0; }
+    .expose-list li { display: flex; gap: 12px; align-items: flex-start; padding: 14px 16px; background: rgba(127,29,29,0.15); border: 1px solid rgba(239,68,68,0.2); border-radius: 10px; font-size: 0.92rem; color: rgba(248,241,221,0.82); line-height: 1.7; }
+    .expose-list li::before { content: '⚠'; color: var(--red-soft); flex-shrink: 0; font-size: 1rem; padding-top: 1px; }
+    .expose-list li strong { color: var(--red-soft); }
+
+    /* MAYFLOWER GRID */
+    .mayflower-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 22px; align-items: stretch; margin: 28px 0; }
+    .mayflower-img-wrap { border-radius: 18px; overflow: hidden; border: 2px solid rgba(212,165,55,0.25); position: relative; min-height: 320px; }
+    .mayflower-img-wrap img { width: 100%; height: 100%; object-fit: cover; display: block; }
+    .mayflower-img-label { position: absolute; bottom: 0; left: 0; right: 0; background: linear-gradient(to top, rgba(7,0,15,0.95), transparent); padding: 24px 16px 14px; font-size: 0.8rem; font-weight: 700; color: var(--amber); text-transform: uppercase; letter-spacing: 0.07em; }
+    .mayflower-content { background: rgba(13,5,25,0.8); border: 1px solid var(--line); border-radius: 18px; padding: 30px 26px; display: flex; flex-direction: column; gap: 16px; }
+    .mayflower-content h3 { font-family: 'Crimson Text', serif; font-size: 1.75rem; color: var(--amber); margin: 0; line-height: 1.2; }
+    .mayflower-content p { font-size: 0.95rem; color: rgba(248,241,221,0.82); line-height: 1.88; margin: 0; }
+    .mayflower-content p strong { color: var(--gold-soft); }
+    .mayflower-content p em { color: var(--red-soft); font-style: normal; font-weight: 600; }
+    .mayflower-content .warn-box { background: rgba(127,29,29,0.2); border: 1px solid rgba(239,68,68,0.3); border-radius: 10px; padding: 16px 18px; color: var(--red-soft); font-size: 0.92rem; font-weight: 600; line-height: 1.7; }
+    @media (max-width: 720px) { .mayflower-grid { grid-template-columns: 1fr; } }
+
+    /* LOUD CRY SECTION — FULL RED */
+    .loud-cry-banner { background: linear-gradient(135deg, rgba(127,29,29,0.4), rgba(30,0,5,0.95)); border: 2px solid rgba(239,68,68,0.45); border-radius: 22px; padding: 48px 40px; margin: 32px 0; }
+    .loud-cry-banner h3 { font-family: 'Crimson Text', serif; font-size: clamp(1.7rem, 3.2vw, 2.6rem); font-weight: 600; color: var(--red-soft); margin-bottom: 14px; line-height: 1.15; }
+    .loud-cry-verse { background: rgba(239,68,68,0.08); border: 1px solid rgba(239,68,68,0.22); border-radius: 12px; padding: 22px 24px; margin: 18px 0; }
+    .loud-cry-ref { font-size: 0.75rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.1em; color: var(--red); margin-bottom: 10px; }
+    .loud-cry-verse blockquote { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-style: italic; color: var(--red-soft); line-height: 1.7; }
+    .loud-cry-verse cite { display: block; margin-top: 8px; font-size: 0.8rem; color: rgba(252,165,165,0.6); font-style: normal; font-weight: 600; }
+    .loud-cry-banner p { font-size: 0.97rem; color: rgba(248,241,221,0.82); line-height: 1.9; margin-bottom: 14px; }
+    .loud-cry-banner p strong { color: var(--red-soft); }
+    .loud-cry-banner p em { color: var(--gold-soft); font-style: normal; font-weight: 600; }
+    @media (max-width: 640px) { .loud-cry-banner { padding: 30px 22px; } }
+
+    /* STEPS LIST */
+    .steps-list { list-style: none; margin: 24px 0; display: flex; flex-direction: column; gap: 12px; }
+    .steps-list li { display: flex; gap: 16px; align-items: flex-start; padding: 18px 20px; background: rgba(13,5,25,0.7); border: 1px solid var(--line-soft); border-radius: 12px; }
+    .step-num { width: 36px; height: 36px; border-radius: 8px; background: rgba(127,29,29,0.45); border: 1px solid rgba(239,68,68,0.3); display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.88rem; color: var(--red-soft); flex-shrink: 0; }
+    .step-text { font-size: 0.95rem; color: rgba(248,241,221,0.82); line-height: 1.78; padding-top: 4px; }
+    .step-text strong { color: var(--red-soft); }
+    .step-text em { color: var(--gold-soft); font-style: normal; font-weight: 600; }
+
+    /* THREE ANGELS CARDS */
+    .angels-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 20px; margin: 28px 0; }
+    .angel-card { border-radius: 18px; padding: 26px 22px; border: 1px solid; }
+    .angel-card.first { background: linear-gradient(135deg, rgba(25,20,5,0.7), rgba(13,5,25,0.9)); border-color: rgba(212,165,55,0.35); }
+    .angel-card.second { background: linear-gradient(135deg, rgba(35,5,5,0.7), rgba(13,5,25,0.9)); border-color: rgba(239,68,68,0.3); }
+    .angel-card.third { background: linear-gradient(135deg, rgba(5,25,30,0.7), rgba(13,5,25,0.9)); border-color: rgba(20,184,166,0.3); }
+    .angel-header { display: flex; align-items: center; gap: 12px; margin-bottom: 14px; }
+    .angel-num { width: 42px; height: 42px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-weight: 800; font-size: 0.95rem; color: #fff; flex-shrink: 0; }
+    .num-gold { background: linear-gradient(135deg, #92400e, #d97706); }
+    .num-red { background: linear-gradient(135deg, #9f1239, #ef4444); }
+    .num-teal { background: linear-gradient(135deg, #0d9488, #14b8a6); }
+    .angel-title { font-family: 'Crimson Text', serif; font-size: 1.25rem; font-weight: 600; line-height: 1.2; }
+    .first .angel-title { color: var(--gold-soft); }
+    .second .angel-title { color: var(--red-soft); }
+    .third .angel-title { color: var(--teal-soft); }
+    .angel-ref-label { font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.07em; margin-bottom: 8px; }
+    .first .angel-ref-label { color: var(--gold); }
+    .second .angel-ref-label { color: var(--red); }
+    .third .angel-ref-label { color: var(--teal); }
+    .angel-verse { font-family: 'Crimson Text', serif; font-style: italic; font-size: 1rem; line-height: 1.65; margin-bottom: 12px; }
+    .first .angel-verse { color: #fde68a; }
+    .second .angel-verse { color: var(--red-soft); }
+    .third .angel-verse { color: var(--teal-soft); }
+    .angel-body { font-size: 0.87rem; color: rgba(248,241,221,0.78); line-height: 1.8; }
+    @media (max-width: 768px) { .angels-grid { grid-template-columns: 1fr; } }
+
+    /* SIGNERS STRIP */
+    .signers-strip { display: grid; grid-template-columns: repeat(5, 1fr); gap: 12px; margin: 28px 0; }
+    .signer-mini { background: rgba(13,5,25,0.8); border: 1px solid var(--line-soft); border-radius: 14px; padding: 18px 14px; text-align: center; text-decoration: none; display: block; transition: all 0.22s; }
+    .signer-mini:hover { border-color: rgba(239,68,68,0.4); transform: translateY(-3px); box-shadow: 0 8px 30px rgba(127,29,29,0.2); }
+    .signer-mini-num { font-size: 0.65rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.12em; color: var(--red); margin-bottom: 6px; }
+    .signer-mini-name { font-family: 'Crimson Text', serif; font-size: 1rem; font-weight: 600; color: var(--ink); margin-bottom: 4px; line-height: 1.2; }
+    .signer-mini-role { font-size: 0.72rem; color: var(--muted); }
+    @media (max-width: 700px) {
+      .signers-strip { grid-template-columns: repeat(2, 1fr); }
+    }
+    @media (max-width: 420px) {
+      .signers-strip { grid-template-columns: 1fr; }
+    }
+
+    /* PIONEER LINKS GRID */
+    .plinks-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 12px; margin: 28px 0; }
+    .plink-card { border: 1px solid rgba(212,165,55,0.2); border-radius: 12px; padding: 18px 16px; background: rgba(255,255,255,0.025); text-decoration: none; transition: all 0.2s; display: flex; flex-direction: column; gap: 6px; }
+    .plink-card:hover { border-color: rgba(212,165,55,0.5); background: rgba(212,165,55,0.06); transform: translateY(-2px); }
+    .plink-label { color: var(--muted); font-size: 0.7rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.09em; }
+    .plink-title { color: var(--gold-soft); font-size: 0.92rem; font-weight: 600; line-height: 1.4; }
+    @media (max-width: 700px) { .plinks-grid { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 440px) { .plinks-grid { grid-template-columns: 1fr; } }
+
+    /* TIMELINE VERTICAL */
+    .v-timeline { display: flex; flex-direction: column; gap: 0; margin: 28px 0; }
+    .vt-item { display: flex; gap: 22px; padding: 0 0 30px 0; position: relative; }
+    .vt-item::before { content: ''; position: absolute; left: 18px; top: 38px; bottom: 0; width: 2px; background: rgba(212,165,55,0.15); }
+    .vt-item:last-child::before { display: none; }
+    .vt-dot { width: 38px; height: 38px; border-radius: 50%; background: rgba(13,5,25,0.9); border: 2px solid var(--line); display: flex; align-items: center; justify-content: center; flex-shrink: 0; position: relative; z-index: 1; }
+    .vt-dot.red { border-color: rgba(239,68,68,0.5); background: rgba(127,29,29,0.3); }
+    .vt-dot.gold { border-color: rgba(212,165,55,0.5); background: rgba(92,60,5,0.3); }
+    .vt-content { flex: 1; }
+    .vt-year { font-size: 0.78rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.1em; color: var(--gold); margin-bottom: 4px; }
+    .vt-year.red-year { color: var(--red-soft); }
+    .vt-title { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-weight: 600; color: var(--ink); margin-bottom: 6px; line-height: 1.3; }
+    .vt-body { font-size: 0.9rem; color: rgba(248,241,221,0.78); line-height: 1.8; }
+    .vt-body strong { color: var(--gold-soft); }
+    .vt-body em { color: var(--red-soft); font-style: normal; font-weight: 600; }
+
+    /* REVELATION 18 FULL VERSE BLOCK */
+    .rev18-block { background: linear-gradient(135deg, rgba(60,5,5,0.45), rgba(7,0,15,0.95)); border: 1px solid rgba(239,68,68,0.3); border-radius: 18px; padding: 36px 30px; margin: 28px 0; }
+    .rev18-block .rev-label { font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.14em; color: var(--red); margin-bottom: 16px; }
+    .rev18-block blockquote { font-family: 'Crimson Text', serif; font-size: 1.2rem; font-style: italic; color: var(--red-soft); line-height: 1.75; margin-bottom: 12px; }
+    .rev18-block blockquote strong { color: #fff8f8; font-style: normal; }
+    .rev18-block cite { font-size: 0.8rem; color: rgba(252,165,165,0.6); font-style: normal; font-weight: 600; text-transform: uppercase; letter-spacing: 0.07em; }
+
+    /* CALL TO ACTION */
+    .cta-block { background: linear-gradient(135deg, rgba(127,29,29,0.3), rgba(92,60,5,0.2), rgba(7,0,15,0.9)); border: 2px solid rgba(239,68,68,0.4); border-radius: 22px; padding: 52px 44px; margin: 40px 0; text-align: center; }
+    .cta-block h3 { font-family: 'Crimson Text', serif; font-size: clamp(1.8rem, 3.5vw, 2.8rem); font-weight: 600; color: var(--ink); margin-bottom: 16px; line-height: 1.15; }
+    .cta-block h3 em { color: var(--red-soft); font-style: italic; }
+    .cta-block p { font-size: 1rem; color: rgba(248,241,221,0.82); line-height: 1.9; max-width: 700px; margin: 0 auto 28px; }
+    .cta-block p strong { color: var(--red-soft); }
+    .cta-btn-row { display: flex; gap: 14px; flex-wrap: wrap; justify-content: center; }
+    .btn-red { display: inline-flex; align-items: center; gap: 8px; padding: 16px 30px; border-radius: 12px; background: linear-gradient(to right, #9f1239, #ef4444); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-red:hover { background: linear-gradient(to right, #be123c, #f87171); color: #fff; }
+    .btn-gold { display: inline-flex; align-items: center; gap: 8px; padding: 16px 30px; border-radius: 12px; background: linear-gradient(to right, #b45309, #d97706); color: #fff; font-weight: 700; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-gold:hover { background: linear-gradient(to right, #d97706, #f59e0b); color: #fff; }
+    .btn-outline { display: inline-flex; align-items: center; gap: 8px; padding: 16px 30px; border-radius: 12px; background: transparent; border: 1px solid var(--line); color: var(--muted); font-weight: 600; font-size: 0.95rem; text-decoration: none; transition: all 0.2s; }
+    .btn-outline:hover { border-color: var(--gold); color: var(--gold-soft); }
+    @media (max-width: 640px) { .cta-block { padding: 34px 22px; } }
+
+    /* FOOTER */
+    .site-footer { background: rgba(5,0,12,0.98); border-top: 1px solid rgba(180,130,50,0.2); }
+    .footer-stripe-top { height: 4px; background: linear-gradient(to right, #7f1d1d, #ef4444, #b45309, #ef4444, #7f1d1d); }
+    .footer-banner { background: linear-gradient(to right, rgba(127,29,29,0.1), rgba(127,29,29,0.15), rgba(127,29,29,0.1)); padding: 26px; text-align: center; }
+    .footer-banner p { font-family: 'Crimson Text', serif; color: #fde68a; font-size: 1.15rem; font-style: italic; }
+    .footer-banner cite { color: var(--gold); font-size: 0.88rem; font-weight: 700; font-style: normal; display: block; margin-top: 6px; }
+    .footer-main { max-width: 1280px; margin: 0 auto; padding: 56px 22px; display: grid; gap: 2.5rem; }
+    @media (min-width: 768px) { .footer-main { grid-template-columns: 2fr 1fr 1fr 1fr; } }
+    .footer-col h4 { color: var(--gold-soft); font-size: 0.75rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.15em; margin-bottom: 16px; }
+    .footer-col p { color: var(--muted); font-size: 0.875rem; line-height: 1.7; }
+    .footer-col ul { list-style: none; }
+    .footer-col li { padding: 4px 0; }
+    .footer-col li a { color: var(--muted); font-size: 0.875rem; transition: color 0.2s; text-decoration: none; }
+    .footer-col li a:hover { color: var(--gold-soft); }
+    .footer-brand-name { display: flex; align-items: center; gap: 8px; margin-bottom: 12px; font-weight: 700; font-size: 1.1rem; color: #fff; }
+    .footer-brand-name em { color: var(--gold); font-style: normal; }
+    .footer-bottom { border-top: 1px solid rgba(180,130,50,0.1); padding: 20px 22px; text-align: center; }
+    .footer-bottom p { color: #6b7280; font-size: 0.78rem; }
+    .footer-flags { display: flex; align-items: center; justify-content: center; gap: 4px; margin: 12px 0; }
+    .footer-flags div { width: 32px; height: 4px; border-radius: 2px; }
+    .flag-r { background: #b91c1c; }
+    .flag-w { background: #fff; }
+    .flag-b { background: #1d4ed8; }
+    .footer-stripe { height: 4px; background: linear-gradient(to right, #b91c1c, #fff, #1d4ed8); }
+
+    /* BACK TO TOP */
+    .btt { position: fixed; bottom: 2rem; right: 2rem; width: 44px; height: 44px; background: rgba(127,29,29,0.25); border: 1px solid rgba(239,68,68,0.3); border-radius: 50%; color: var(--ink); display: none; align-items: center; justify-content: center; cursor: pointer; z-index: 40; transition: all 0.2s; }
+    .btt.visible { display: flex; }
+    .btt:hover { background: rgba(127,29,29,0.5); }
+  </style>
+</head>
+<body>
+
+  <div class="top-stripe"></div>
+
+  <!-- NAV -->
+  <SiteNav />
+
+  <div class="page">
+
+    <!-- HERO -->
+    <div class="hero-section">
+      <div class="indictment-badge">
+        <svg width="11" height="11" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        Prophetic Warning &mdash; Revelation 14 &amp; 18 &mdash; Your Eternal Destiny Is On The Line
+      </div>
+      <h1 class="hero-h1">
+        The Test That<br>
+        <em>Decides Your Eternal Destiny</em><br>
+        <strong>Hangs on How You Obey<br>When You Learn the Truth</strong>
+      </h1>
+      <p class="hero-sub">
+        The Lord has shown with crystal clarity that <strong>the image of the beast WILL BE FORMED before probation closes.</strong>
+        It is <strong>THE great test</strong> for the people of God. Not a test of doctrine. Not a test of theology.
+        <strong>A test of obedience when the truth costs you everything.</strong>
+        The same religious persecution the Pilgrims fled on the Mayflower in 1620 is being enforced today
+        &mdash; not in England, but in the incorporated state churches of America, cloaked in tax-exempt paperwork
+        and the legal name <em>&ldquo;Seventh-day Adventist.&rdquo;</em>
+        The Loud Cry of Revelation 18:1&ndash;4 is sounding. <strong>Will you come out? Or will you be partakers of her plagues?</strong>
+      </p>
+      <div class="hero-truth-pill">
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm-2 14.5v-9l6 4.5-6 4.5z"/></svg>
+        Revelation 18:4 &mdash; &ldquo;Come out of her, my people&rdquo; &mdash; NOW &mdash; Before It Is Too Late
+      </div>
+    </div>
+
+    <!-- EGW MEGA WARNING — THE GREAT TEST -->
+    <div class="sect">
+      <div class="sect-eyebrow-red">Ellen G. White &mdash; The Clearest Warning in the Spirit of Prophecy</div>
+      <h2 class="sect h2" style="font-family:'Crimson Text',serif;font-size:clamp(1.8rem,3.2vw,2.7rem);font-weight:600;color:var(--ink);margin-bottom:22px;line-height:1.15;">The Image of the Beast <em>WILL BE FORMED.</em><br>Your Eternal Destiny Is Decided Here.</h2>
+
+      <div class="mega-warn">
+        <div class="mega-warn-icon" aria-hidden="true">
+          <svg width="36" height="36" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/><line x1="12" y1="9" x2="12" y2="13"/><line x1="12" y1="17" x2="12.01" y2="17"/></svg>
+        </div>
+        <div class="mega-warn-eyebrow">Thus Saith the Lord Through His Messenger &mdash; The Gravest Possible Warning</div>
+        <blockquote>
+          &ldquo;The Lord has shown me clearly that <strong>the image of the beast will be formed</strong> before probation closes, for it is to be <strong>the great test</strong> for the people of God, by which <strong>their eternal destiny will be decided.</strong>&rdquo;
+        </blockquote>
+        <cite>&mdash; Ellen G. White &mdash; Manuscript 51, 1899 &mdash; Cited in Last Day Events, p. 134</cite>
+      </div>
+
+      <p class="sect-sub">
+        Let that land with its full weight. <strong>Your eternal destiny</strong> &mdash; heaven or the seven last plagues, life or ruin &mdash;
+        is <em>decided by this test.</em> Not by a test you take in a comfortable pew with your theology intact and your tithe records perfect.
+        It is decided by what you do <strong>when the image of the beast confronts you personally</strong> &mdash; when the institution you
+        trusted, the church you were baptized in, the organization you gave your life savings to, is revealed to be
+        standing on the wrong side of prophetic history. The image of the beast is not coming. <em>It is already formed.</em>
+        It was formed on <strong>April 15, 1904</strong> in Washington, District of Columbia.
+      </p>
+
+      <div class="mega-quote">
+        <div class="mega-quote-icon" aria-hidden="true">
+          <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+        </div>
+        <blockquote>
+          &ldquo;We cannot now step off the foundation that God has established. We cannot now enter into
+          <strong>any new organization;</strong> for this would mean <strong>apostasy from the truth.</strong>
+          Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;
+        </blockquote>
+        <cite>&mdash; Ellen G. White &mdash; 1 Selected Messages, p. 204 &mdash; Letter 242, 1903</cite>
+      </div>
+
+      <p class="sect-sub">
+        Six months after EGW wrote these words, on April 15, 1904, five men signed a legal document in Washington D.C.
+        creating the <strong>&ldquo;General Conference Corporation of Seventh-day Adventists&rdquo;</strong> &mdash; a new organization.
+        The storm and tempest <em>did</em> sweep away the structure. What exists today under that corporate name
+        is not the church built by the Advent pioneers. It is the prophesied image.
+      </p>
+    </div>
+
+    <!-- THE THREE ANGELS FRAMEWORK -->
+    <div class="sect">
+      <div class="sect-eyebrow">Revelation 14:6&ndash;12 &mdash; The Foundation</div>
+      <h2>The Three Angels&rsquo; Messages:<br><em>The Framework for the Final Test</em></h2>
+      <p class="sect-sub">You cannot understand what is happening in 2026 without understanding the Three Angels. They are not distant future prophecy. They frame <strong>exactly the situation we are living in right now.</strong></p>
+
+      <div class="angels-grid">
+        <div class="angel-card first">
+          <div class="angel-header">
+            <div class="angel-num num-gold">1st</div>
+            <div class="angel-title">The Judgment Hour</div>
+          </div>
+          <div class="angel-ref-label">Revelation 14:6&ndash;7</div>
+          <p class="angel-verse">&ldquo;Fear God, and give glory to him; for the hour of his judgment is come: and worship him that made heaven, and earth, and the sea.&rdquo;</p>
+          <p class="angel-body">The judgment hour began in 1844. The Fourth Commandment &mdash; <strong>Remember the Sabbath day</strong> &mdash; is the seal of the Creator in that judgment. To fear God and worship Him as Creator IS to keep His Sabbath.</p>
+        </div>
+        <div class="angel-card second">
+          <div class="angel-header">
+            <div class="angel-num num-red">2nd</div>
+            <div class="angel-title">Babylon Is Fallen</div>
+          </div>
+          <div class="angel-ref-label">Revelation 14:8</div>
+          <p class="angel-verse">&ldquo;Babylon is fallen, is fallen, that great city, because she made all nations drink of the wine of the wrath of her fornication.&rdquo;</p>
+          <p class="angel-body">The Protestant churches fell in 1844 by rejecting the First Angel. Their falling did not stop &mdash; it accelerated. By 1904, <strong>even the Adventist corporate structure</strong> had replicated the papal union of church and state that Babylon defined.</p>
+        </div>
+        <div class="angel-card third">
+          <div class="angel-header">
+            <div class="angel-num num-teal">3rd</div>
+            <div class="angel-title">The Final Warning</div>
+          </div>
+          <div class="angel-ref-label">Revelation 14:9&ndash;12</div>
+          <p class="angel-verse">&ldquo;If any man worship the beast and his image &hellip; Here are they that keep the commandments of God, and the faith of Jesus.&rdquo;</p>
+          <p class="angel-body">The seal of God is the <strong>Seventh-day Sabbath</strong> &mdash; the sign of God&rsquo;s creative and redemptive authority. The mark of the beast is Sunday sacredness enforced in place of the Sabbath. <strong>There is no middle ground.</strong></p>
+        </div>
+      </div>
+      <div class="banner-gold" style="margin-top:30px;">
+        <div class="banner-gold-label">Ellen G. White &mdash; Selected Messages, Book 2, p. 104 (Manuscript 32, 1896)</div>
+        <blockquote>&ldquo;The first and second messages were given in 1843 and 1844, and we are now under the proclamation of the third; but all three of the messages are still to be proclaimed. It is just as essential now as ever before that they shall be repeated to those who are seeking for the truth. By pen and voice we are to sound the proclamation, showing their order, and the application of the prophecies that bring us to the third angel&rsquo;s message. There cannot be a third without the first and second. These messages we are to give to the world in publications, in discourses, showing in the line of prophetic history the things that have been and the things that will be.&rdquo;</blockquote>
+        <cite>&mdash; Ellen G. White &bull; Selected Messages, Book 2, p. 104 (Manuscript 32, 1896)</cite>
+      </div>
+    </div>
+
+    <!-- WHAT IS THE IMAGE OF THE BEAST -->
+    <div class="sect">
+      <div class="sect-eyebrow-red">Revelation 13:14&ndash;15 &mdash; The Image Formed</div>
+      <h2>What Is <em>The Image of the Beast?</em><br>It Is Already Formed &mdash; April 15, 1904</h2>
+
+      <p class="sect-sub">
+        The image of the beast is not a statue. It is not a microchip. <strong>It is a system.</strong>
+        When a Protestant church submits itself to civil incorporation &mdash; when it registers under the authority of the state,
+        grants the state governance over its legal structure, and becomes a creature of civil law &mdash; it has made
+        <em>an exact image of the Papacy:</em> civil authority over religious life. That is the union of church and state.
+        That is the beast&rsquo;s image. <strong>And the Adventist corporate body made that image on April 15, 1904.</strong>
+      </p>
+
+      <div class="def-grid">
+        <div class="def-card papal">
+          <h3>The Original Papacy (Rome)</h3>
+          <ul>
+            <li>Church rule enforced through the civil sword</li>
+            <li>State punishes religious dissent as heresy</li>
+            <li>Sunday sacredness mandated by law</li>
+            <li>Dissenters fined, jailed, tortured, killed</li>
+            <li>No separation between church authority and civil law</li>
+            <li>Those who keep God&rsquo;s Sabbath are marked as criminals</li>
+          </ul>
+        </div>
+        <div class="def-card american">
+          <h3>The Image &mdash; Corporate Adventism, 1904</h3>
+          <ul>
+            <li>Church incorporated under the District of Columbia civil code</li>
+            <li>501(c)(3) status: the state now governs the org&rsquo;s legal existence</li>
+            <li>The corporation holds property, controls access to worship space</li>
+            <li>Reformers expelled from church using state-backed corporate law</li>
+            <li>Tithe pooled into corporate funds invested in Sunday commerce</li>
+            <li>The form of godliness without the power (2 Tim. 3:5)</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="banner-red">
+        <div class="banner-red-label">Revelation 13:15 (KJV) &mdash; The Decree of the Image</div>
+        <blockquote>&ldquo;And he had power to give life unto the image of the beast, that the image of the beast should both speak, and <strong>cause that as many as would not worship the image of the beast should be killed.</strong>&rdquo;</blockquote>
+        <cite>&mdash; Revelation 13:15 &mdash; The image speaks. It has the power of life and death over dissenters. This is the model the 1904 corporate structure put in place.</cite>
+      </div>
+
+      <div class="banner-gold">
+        <div class="banner-gold-label">Ellen G. White &mdash; Testimonies to Ministers, p. 39</div>
+        <blockquote>&ldquo;The image of the papacy is a combination of religious and civil power which shall say to those who will not subscribe to its edicts, <strong>&lsquo;You shall not buy or sell, and you shall suffer the severest penalties that our united power can inflict.&rsquo;</strong>&rdquo;</blockquote>
+        <cite>&mdash; Ellen G. White &mdash; Testimonies to Ministers and Gospel Workers, p. 39</cite>
+      </div>
+    </div>
+
+    <!-- APRIL 15 1904 — THE FIVE SIGNERS -->
+    <div class="sect">
+      <div class="sect-eyebrow-red">April 15, 1904 &mdash; Washington, District of Columbia</div>
+      <h2>The Day Five Men <em>Signed Away the Church</em><br>and Called It Organization</h2>
+
+      <p class="sect-sub">
+        On April 15, 1904 &mdash; precisely <strong>six months after Ellen White warned that entering any new organization would mean apostasy from the truth</strong> &mdash; five men sat down in Washington, District of Columbia and signed the Articles of Incorporation for the <em>&ldquo;General Conference Corporation of Seventh-day Adventists.&rdquo;</em>
+        They created a legal corporation. They handed the church to the state. They built their foundation on the sand that EGW said the storm and tempest would sweep away.
+        <strong>These are the five men who signed:</strong>
+      </p>
+
+      <div class="signers-strip">
+        <a href="/1904-signers/james-r-scott" class="signer-mini">
+          <div class="signer-mini-num">Signer 1</div>
+          <div class="signer-mini-name">James R. Scott</div>
+          <div class="signer-mini-role">Washington, D.C.</div>
+        </a>
+        <a href="/1904-signers/harvey-edson-rogers" class="signer-mini">
+          <div class="signer-mini-num">Signer 2</div>
+          <div class="signer-mini-name">Harvey Edson Rogers</div>
+          <div class="signer-mini-role">Washington, D.C.</div>
+        </a>
+        <a href="/1904-signers/daniel-k-nicola" class="signer-mini">
+          <div class="signer-mini-num">Signer 3</div>
+          <div class="signer-mini-name">Daniel K. Nicola</div>
+          <div class="signer-mini-role">Washington, D.C.</div>
+        </a>
+        <a href="/1904-signers/arthur-g-daniells" class="signer-mini">
+          <div class="signer-mini-num">Signer 4</div>
+          <div class="signer-mini-name">Arthur G. Daniells</div>
+          <div class="signer-mini-role">GC President, 1901&ndash;1922</div>
+        </a>
+        <a href="/1904-signers/amos-p-needham" class="signer-mini">
+          <div class="signer-mini-num">Signer 5</div>
+          <div class="signer-mini-name">Amos P. Needham</div>
+          <div class="signer-mini-role">Washington, D.C.</div>
+        </a>
+      </div>
+
+      <p class="sect-sub" style="margin-top:24px;">
+        Every member of the SDA denomination today is a member of the legal successor to the corporation those five men created.
+        Every building the church occupies, every publishing house, every hospital, every school &mdash; legally owned by
+        the descendant of that 1904 corporation. When you sit in an SDA pew, <strong>you are sitting inside a 501(c)(3)
+        state-controlled organization whose legal existence traces directly to April 15, 1904</strong> &mdash; the day EGW said was apostasy.
+      </p>
+
+      <div class="banner-gold">
+        <div class="banner-gold-label">1905 Seventh-day Adventist Yearbook &mdash; The Primary Document</div>
+        <blockquote>&ldquo;The name of the corporation hereby created shall be &lsquo;<strong>General Conference Corporation of Seventh-day Adventists.</strong>&rsquo; &hellip; The signers hereof, at Washington, in the District of Columbia, this <strong>fifteenth day of April, A.D. 1904.</strong>&rdquo;</blockquote>
+        <cite>&mdash; 1905 SDA Yearbook &mdash; Articles of Incorporation &mdash; The Primary Source &mdash;
+          <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener" style="color:var(--gold-soft);text-decoration:underline;">Open PDF &rarr;</a>
+        </cite>
+      </div>
+
+      <div class="v-timeline">
+        <div class="vt-item">
+          <div class="vt-dot gold">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          </div>
+          <div class="vt-content">
+            <div class="vt-year">Letter 242, September 1903</div>
+            <div class="vt-title">EGW Issues the Warning</div>
+            <div class="vt-body">Ellen White writes to General Conference leaders: <strong>&ldquo;We cannot now enter into any new organization; for this would mean apostasy from the truth.&rdquo;</strong> The warning could not be clearer. It is ignored.</div>
+          </div>
+        </div>
+        <div class="vt-item">
+          <div class="vt-dot red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M10.29 3.86L1.82 18a2 2 0 001.71 3h16.94a2 2 0 001.71-3L13.71 3.86a2 2 0 00-3.42 0z"/></svg>
+          </div>
+          <div class="vt-content">
+            <div class="vt-year red-year">April 15, 1904 &mdash; The Day Everything Changed</div>
+            <div class="vt-title">Five Men Sign the Articles of Incorporation</div>
+            <div class="vt-body"><em>Six months after the warning.</em> The General Conference Corporation of Seventh-day Adventists is created as a legal creature of the District of Columbia. The new organization is born. The apostasy is made legal.</div>
+          </div>
+        </div>
+        <div class="vt-item">
+          <div class="vt-dot red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><circle cx="12" cy="12" r="10"/><path d="M12 8v4l3 3"/></svg>
+          </div>
+          <div class="vt-content">
+            <div class="vt-year red-year">1905 &mdash; The Yearbook Records It</div>
+            <div class="vt-title">Published in the Official SDA Yearbook</div>
+            <div class="vt-body">The 1905 SDA Yearbook publishes the full text of the Articles of Incorporation, the signer block, the date, and the location. <strong>The corporate constitution of modern Adventism is on public record for anyone willing to read it.</strong></div>
+          </div>
+        </div>
+        <div class="vt-item">
+          <div class="vt-dot red">
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+          </div>
+          <div class="vt-content">
+            <div class="vt-year red-year">Today &mdash; 2026</div>
+            <div class="vt-title">The 501(c)(3) Church Enforces the Image</div>
+            <div class="vt-body">Every SDA conference, union, and local church that holds 501(c)(3) tax-exempt status is legally governed by the state&rsquo;s conditions. <em>The church that was to warn the world against the union of church and state has become its most visible example.</em> <strong>This is the great test. Your eternal destiny is decided here.</strong></div>
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-gold" style="margin-top:30px;">
+        <div class="banner-gold-label">Ellen G. White &mdash; General Conference Bulletin, April 3, 1901, par. 25 &mdash; Three Years Before the Signing</div>
+        <blockquote>&ldquo;O, my very soul is drawn out in these things! Men who have not learned to submit themselves to the control and discipline of God, are not competent to train the youth, to deal with human minds. It is just as much an impossibility for them to do this work as it would be for them to make a world. That these men should stand in a sacred place, to be as the voice of God to the people, <strong>as we once believed the General Conference to be &mdash; that is past.</strong> What we want now is a reorganization. We want to begin at the foundation, and to build upon a different principle.&rdquo;</blockquote>
+        <cite>&mdash; Ellen G. White &bull; GCB April 3, 1901, par. 25 &bull; Battle Creek, Michigan &bull; Three years before April 15, 1904 &mdash; She declared it over. They incorporated it anyway.</cite>
+      </div>
+    </div>
+
+    <!-- THE MAYFLOWER — SAME TYRANNY, DIFFERENT CENTURY -->
+    <div class="sect">
+      <div class="sect-eyebrow">1620 &mdash; 1904 &mdash; 2026 &mdash; Same Persecutor, Different Clothes</div>
+      <h2>The Mayflower Fled <em>Exactly This.</em><br>And Now It Has Come Back.</h2>
+
+      <div class="mayflower-grid">
+        <div class="mayflower-img-wrap">
+          <img
+            src="/images/sundaylaw/mayflower-1620-religious-freedom-james-white-family-escaping-state-church-tyranny-sundaylaw.jpg"
+            alt="The Mayflower, 1620 &mdash; Fleeing Religious Tyranny of the State Church"
+            loading="lazy"
+          />
+          <div class="mayflower-img-label">The Mayflower, 1620 &mdash; Fleeing the Church of England&rsquo;s Persecuting Arm</div>
+        </div>
+
+        <div class="mayflower-content">
+          <h3>From Plymouth Rock to Washington, D.C.:<br>The Circle of Tyranny Closes</h3>
+          <p>
+            In <strong>1620</strong>, the Pilgrims jammed themselves into a tiny vessel called the Mayflower and left everything they knew to cross a violent winter ocean. What were they fleeing? <em>Exactly what you are being asked to submit to right now.</em>
+            They were fleeing the <strong>Church of England</strong> &mdash; a state church, incorporated under the crown, that used civil law to compel religious conformity. Worship the king&rsquo;s way. Observe the king&rsquo;s Sunday. Submit to the king&rsquo;s sacraments. Or be fined, jailed, silenced, destroyed.
+          </p>
+          <p>
+            They crossed the ocean for one reason: <strong>so that no government, no king, and no incorporated church could dictate their conscience before God.</strong>
+            They wrote the First Amendment to guarantee that their sacrifice would not be undone.
+          </p>
+          <p>
+            And on <strong>April 15, 1904</strong>, in the capital city of the nation they built, five men quietly undid it.
+            They incorporated the Adventist body into the very system the Pilgrims had bled to escape.
+            Not by violence. By paperwork. By a corporate charter filed in Washington, D.C.
+            <em>The new organization was the old tyranny reborn.</em>
+          </p>
+          <div class="warn-box">
+            &#9888;&nbsp;&nbsp;The Church of England used Sunday law to enforce religious conformity. The 501(c)(3) corporate church uses tax exemption, property ownership, and credentialing to enforce conformity today. The method changed. <strong>The spirit of Babylon did not.</strong> &ldquo;Come out of her, my people&rdquo; (Rev. 18:4) is addressed to <em>you</em> &mdash; right now &mdash; in 2026.
+          </div>
+        </div>
+      </div>
+
+      <div class="banner-blue">
+        <div class="banner-blue-label">First Amendment &mdash; United States Constitution, December 15, 1791</div>
+        <blockquote>&ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.&rdquo;</blockquote>
+        <cite>&mdash; The First Amendment &mdash; written specifically to prevent what the Church of England did &mdash; and what the 1904 SDA Corporation quietly reversed</cite>
+      </div>
+
+      <div class="banner-gold">
+        <div class="banner-gold-label">Alonzo T. Jones &mdash; The Two Republics, 1891</div>
+        <blockquote>&ldquo;The Reformers protested against the union of church and state. But the children of the Reformers have returned to Egypt. They build what their fathers pulled down. Heaven marks the movement: it is the image of the beast.&rdquo;</blockquote>
+        <cite>&mdash; Alonzo T. Jones &mdash; religious liberty pioneer, Adventist minister, 1891 &mdash; written 13 years before April 15, 1904</cite>
+      </div>
+
+      <div class="banner-red" style="margin-top:28px;">
+        <div class="banner-red-label">Ellen G. White &mdash; 1888 Materials, p. 356.4 &bull; Ms. 30, 1889 &mdash; Written After Minneapolis</div>
+        <blockquote>&ldquo;I was confirmed in all I had stated in Minneapolis, that a reformation must go through the churches. Reforms must be made, for spiritual weakness and blindness were upon the people who had been blessed with great light and precious opportunities and privileges. As reformers they had come out of the denominational churches, but they now act a part similar to that which the churches acted. <strong>We hoped that there would not be the necessity for another coming out.</strong> While we will endeavor to keep the &lsquo;unity of the Spirit&rsquo; in the bonds of peace, we will not with pen or voice cease to protest against bigotry.&rdquo;</blockquote>
+        <cite>&mdash; Ellen G. White &bull; 1888 Materials, p. 356.4 &bull; Ms. 30, 1889 &mdash; Written 15 years before 1904 &mdash; She hoped there would be no &ldquo;another coming out.&rdquo; There was.</cite>
+      </div>
+    </div>
+
+    <!-- 501(C)(3) — THE STATE CHURCH TODAY — SHOCKING -->
+    <div class="sect">
+      <div class="sect-eyebrow-red">&#9888; Religious Tyranny in Tax-Exempt Clothing &mdash; The Truth They Do Not Want You to Know</div>
+      <h2>The 501(c)(3) Church Is<br><em>A State-Controlled Institution.</em><br>This Is Not a Metaphor.</h2>
+
+      <p class="sect-sub">
+        When the Pilgrim Fathers fled the Church of England, the weapon used against them was <em>legal incorporation.</em>
+        A church under a crown charter was a legal body <strong>subject to the king&rsquo;s law,</strong> not God&rsquo;s law alone.
+        When the king said Sunday, it said Sunday. When the crown said silence the dissenter, it silenced them.
+        A 501(c)(3) organization is the direct American equivalent.
+        It is a <strong>federally recognized legal entity</strong> operating under a contract with the United States government
+        that dictates what it may and may not say, who it must legally serve, and how it must structure its governance.
+        <em>The IRS is the landlord. The congregation is a tenant.</em>
+        <strong>That is the image of the beast. It is not forming. It formed in 1904. You are inside it right now.</strong>
+      </p>
+
+      <div class="expose-card">
+        <h3>What Your 501(c)(3) Church Is Actually Forbidden to Do &mdash; By Law, By IRS Contract</h3>
+        <ul class="expose-list">
+          <li><strong>Cannot endorse or oppose any candidate for political office</strong> &mdash; meaning your pastor cannot expose a politician who pushes Sunday laws without jeopardizing the church&rsquo;s tax status. The very warning the Third Angel calls for is legally gagged.</li>
+          <li><strong>Cannot take substantial lobbying positions on legislation</strong> &mdash; meaning the church that was built to warn against Sunday law legislation cannot substantially advocate against it without risking IRS discipline.</li>
+          <li><strong>Must file IRS Form 990 or lose tax exemption</strong> &mdash; disclosing finances, governance structure, and key employees to the federal government. The state knows your church&rsquo;s every financial move.</li>
+          <li><strong>All property held in the corporate name is property of the corporation,</strong> not the members. If you are expelled, the building remains with the corporation. This is the landlord-tenant relationship &mdash; the civil arm controls access to worship space.</li>
+          <li><strong>The corporation&rsquo;s legal charter supersedes congregational authority</strong> on structural matters. The board of directors, not the biblical eldership, holds legal power. The state created those structures in 1904.</li>
+          <li><strong>Donors receive tax deductions for tithes and offerings</strong> &mdash; making every tithe dollar a joint financial arrangement with the federal government. Your offering has been co-signed by the IRS.</li>
+        </ul>
+      </div>
+
+      <p class="sect-sub">
+        <strong>This is not a conspiracy theory. This is contract law.</strong>
+        The SDA denomination entered this contract voluntarily on April 15, 1904 and has renewed it every year since
+        through continuing 501(c)(3) registration. The Pilgrims shivered aboard a leaking ship crossing the North Atlantic
+        to escape this exact arrangement. Their descendants are paying tithe into the heart of it.
+        <strong>Heaven marks the movement. And the Loud Cry is calling you OUT.</strong>
+      </p>
+
+      <div class="banner-red">
+        <div class="banner-red-label">James White &mdash; Review &amp; Herald, 1877 &mdash; The Warning</div>
+        <blockquote>&ldquo;The two-horned beast is the United States of America &mdash; &lsquo;two horns like a lamb&rsquo; &mdash; the civil and religious powers of the republic. But when the image is formed &mdash; that is, when a church uses the civil arm to enforce its decrees &mdash; then these lamb-like horns <strong>&lsquo;speak as a dragon.&rsquo;</strong>&rdquo;</blockquote>
+        <cite>&mdash; James White &mdash; Review &amp; Herald, 1877 &mdash; 27 years before April 15, 1904</cite>
+      </div>
+    </div>
+
+    <!-- THE LOUD CRY — REVELATION 18 -->
+    <div class="sect">
+      <div class="sect-eyebrow-red">Revelation 18:1&ndash;5 &mdash; The Loudest Voice in Scripture</div>
+      <h2>The Loud Cry Is Sounding.<br><em>Come Out of Her, My People &mdash; NOW.</em></h2>
+
+      <div class="loud-cry-banner">
+        <h3>The Angel With Great Power &mdash; The Earth Lightened With His Glory</h3>
+
+        <div class="loud-cry-verse">
+          <div class="loud-cry-ref">Revelation 18:1&ndash;2 (KJV) &mdash; The Loud Cry Angel</div>
+          <blockquote>
+            &ldquo;And after these things I saw another angel come down from heaven, having great power; and the earth was lightened with his glory. And he cried mightily with a strong voice, saying, <strong>Babylon the great is fallen, is fallen,</strong> and is become the habitation of devils, and the hold of every foul spirit, and a cage of every unclean and hateful bird.&rdquo;
+          </blockquote>
+          <cite>&mdash; Revelation 18:1&ndash;2 (KJV)</cite>
+        </div>
+
+        <div class="loud-cry-verse" style="margin-top:14px;">
+          <div class="loud-cry-ref">Revelation 18:4&ndash;5 (KJV) &mdash; The Voice From Heaven &mdash; YOUR Personal Call</div>
+          <blockquote>
+            &ldquo;And I heard another voice from heaven, saying, <strong>Come out of her, my people,</strong> that ye be not partakers of her sins, and that ye receive not of her plagues. For her sins have reached unto heaven, and God hath remembered her iniquities.&rdquo;
+          </blockquote>
+          <cite>&mdash; Revelation 18:4&ndash;5 (KJV) &mdash; The command is not optional. It is not conditional. It is addressed to <em>MY PEOPLE</em> &mdash; people who are currently INSIDE Babylon.</cite>
+        </div>
+
+        <p>
+          Notice who this command is addressed to: <strong>&ldquo;my people.&rdquo;</strong> Not the heathen. Not the atheist. Not the Sunday-keeping world.
+          This voice calls to people who belong to God, who love God, who are inside a religious institution &mdash;
+          <em>and who are standing inside Babylon right now without knowing it.</em>
+          The call is personal, urgent, and final: <strong>Come out. Before you partake of her plagues.</strong>
+        </p>
+        <p>
+          The plagues of Revelation 16 fall on Babylon specifically because of her union with the state, her enforcement of false worship, and her persecution of those who keep the commandments of God.
+          If you remain inside the 501(c)(3) incorporated SDA corporate structure when those plagues fall,
+          you have chosen your side in the final conflict.
+          <strong>Your eternal destiny is decided by this choice.</strong>
+        </p>
+      </div>
+
+      <div class="banner-gold">
+        <div class="banner-gold-label">Ellen G. White &mdash; Great Controversy, p. 606</div>
+        <blockquote>&ldquo;The message of the fall of Babylon, as given by the second angel, is repeated, with the additional mention of the corruptions which have been entering the churches since 1844. The work of this angel comes in at the right time to join in the last great work of the third angel&rsquo;s message as it swells to a loud cry.&rdquo;</blockquote>
+        <cite>&mdash; Ellen G. White &mdash; The Great Controversy, p. 606 &mdash; The Loud Cry amplifies the Second Angel with the weight of every corruption since 1844, including 1904</cite>
+      </div>
+    </div>
+
+    <!-- YOUR RESPONSE — STEPS -->
+    <div class="sect">
+      <div class="sect-eyebrow">Practical Obedience &mdash; What Does &ldquo;Come Out&rdquo; Actually Mean?</div>
+      <h2>The Test Is Not Theoretical.<br><em>Here Is What Obedience Looks Like.</em></h2>
+
+      <p class="sect-sub">
+        The test that decides your eternal destiny is not a theology exam.
+        It is not a committee vote. It is not a denominational transfer form.
+        <strong>It is personal obedience to God&rsquo;s word at great personal cost,</strong>
+        in the face of family pressure, social pressure, financial pressure, and the weight of tradition.
+        The Pilgrims did not flee England by committee. They obeyed God and got on the boat.
+        Here is what the Loud Cry calls you to do:
+      </p>
+
+      <ul class="steps-list">
+        <li>
+          <div class="step-num">1</div>
+          <div class="step-text"><strong>Read the primary documents.</strong> Do not take our word for it. Download the <em>1905 SDA Yearbook PDF</em> and read the Articles of Incorporation yourself. Read 1SM 204 in full context. Read Revelation 18 with fresh eyes. Verify every claim against the original sources.</div>
+        </li>
+        <li>
+          <div class="step-num">2</div>
+          <div class="step-text"><strong>Understand what you are part of.</strong> Your local SDA church operates under authority that traces to the April 15, 1904 corporate charter. The building is owned by the corporation. The organization is registered as a 501(c)(3) federal tax-exempt entity. This is not opinion. This is legal public record.</div>
+        </li>
+        <li>
+          <div class="step-num">3</div>
+          <div class="step-text"><strong>Ask the hard question: Is this the church the pioneers built?</strong> William Miller, Charles Fitch, Joseph Bates, James White, Hiram Edson &mdash; every one of them left their denomination when that denomination proved unfaithful. They did not leave God. They left <em>Babylon</em> &mdash; and found the present truth. <strong>The same call is sounding today.</strong></div>
+        </li>
+        <li>
+          <div class="step-num">4</div>
+          <div class="step-text"><strong>Keep all the commandments of God (Revelation 14:12).</strong> The Seventh-day Sabbath is the seal of the living God (Rev. 7:2&ndash;3, Ex. 20:8&ndash;11). The Fourth Commandment is not abolished. It is not replaced. It is the test commandment &mdash; the one that identifies whose worship you are offering: <em>the Creator&rsquo;s</em> or <em>the beast&rsquo;s.</em></div>
+        </li>
+        <li>
+          <div class="step-num">5</div>
+          <div class="step-text"><strong>Come out in faith &mdash; not in anger, but in obedience.</strong> The call of Revelation 18:4 is not a call to condemn individuals. It is a call to separate from a system. You can love people inside Babylon while refusing to remain in Babylon. Come out. Bring others with you. <strong>This is the patient endurance of the saints (Rev. 14:12).</strong></div>
+        </li>
+      </ul>
+    </div>
+
+    <!-- PIONEER RESOURCES -->
+    <div class="sect">
+      <div class="sect-eyebrow">Primary Sources &mdash; Verify Everything</div>
+      <h2>The Pioneer Library:<br><em>The Evidence That Cannot Be Answered</em></h2>
+
+      <p class="sect-sub">These books, tracts, sermons, charts, and documents are the bedrock of everything on this page. They were written by the people who built the Advent movement, who lived through the Great Disappointment, who discovered the sanctuary truth, who identified the sealing Sabbath, and who warned against the very corporate apostasy that came in 1904. <strong>Read them. Check everything.</strong></p>
+
+      <div class="plinks-grid">
+        <a href="/books/charles-fitch" class="plink-card">
+          <span class="plink-label">Sermon Tract &mdash; 1843</span>
+          <span class="plink-title">Charles Fitch &mdash; Come Out of Her, My People</span>
+        </a>
+        <a href="/books/joseph-bates-seal" class="plink-card">
+          <span class="plink-label">Prophetic Tract &mdash; 1849</span>
+          <span class="plink-title">Joseph Bates &mdash; The Seal of the Living God</span>
+        </a>
+        <a href="/april-15-1904-new-organization" class="plink-card">
+          <span class="plink-label">Primary Document &mdash; 1904</span>
+          <span class="plink-title">April 15, 1904 &mdash; The New Organization Record</span>
+        </a>
+        <a href="/1904-signers" class="plink-card">
+          <span class="plink-label">Historical Record &mdash; 1904</span>
+          <span class="plink-title">The Five Who Signed &mdash; Individual Profiles</span>
+        </a>
+        <a href="/prophecy-charts" class="plink-card">
+          <span class="plink-label">Prophetic Charts &mdash; 1843 &amp; 1850</span>
+          <span class="plink-title">Fitch, Hale &amp; Nichols &mdash; Habakkuk 2:2 Fulfilled</span>
+        </a>
+        <a href="/loud-cry" class="plink-card">
+          <span class="plink-label">Study Page</span>
+          <span class="plink-title">The Loud Cry &mdash; Rev. 18:4 &mdash; Full Study</span>
+        </a>
+        <a href="/religious-liberty" class="plink-card">
+          <span class="plink-label">Religious Liberty</span>
+          <span class="plink-title">Jones &amp; Waggoner &mdash; Church &amp; State Danger</span>
+        </a>
+        <a href="/pioneers" class="plink-card">
+          <span class="plink-label">All Pioneers</span>
+          <span class="plink-title">Adventist Pioneer Biographies &mdash; Full Library</span>
+        </a>
+        <a href="/1860-name-selection" class="plink-card">
+          <span class="plink-label">Church History &mdash; 1860</span>
+          <span class="plink-title">1860 Name Selection &mdash; What the Name Was Meant to Mean</span>
+        </a>
+      </div>
+    </div>
+
+    <!-- ===== EGW QUOTE — 1888 MATERIALS, 765 ===== -->
+    <div style="max-width:1100px;margin:0 auto 32px;padding:0 22px;">
+      <div style="border-left:5px solid rgba(212,165,55,0.75);border-radius:0 18px 18px 0;background:linear-gradient(135deg,rgba(20,15,5,0.85),rgba(7,9,20,0.95));padding:32px 32px 32px 34px;">
+        <p style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.35);color:#fcd34d;font-size:0.73rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 18px;">Ellen G. White &mdash; 1888 Materials, p. 765</p>
+        <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.1rem,2.1vw,1.45rem);font-style:italic;color:rgba(254,243,199,0.93);line-height:1.85;margin:0 0 16px;">&ldquo;IF through the grace of Christ His people will become new bottles, He will fill them with the new wine. God will give <strong style="color:#fcd34d;font-style:normal;">ADDITIONAL light</strong>, and <strong style="color:#fcd34d;font-style:normal;">OLD TRUTHS will be recovered</strong>, and replaced in the framework of truth; and wherever the laborers go, they will triumph. As Christ&rsquo;s ambassadors, they are to search the Scriptures, to seek for the truths that have been hidden beneath the rubbish of error. And every ray of light received is to be communicated to others. One interest will prevail, one subject will swallow up every other &mdash; <strong style="color:#fcd34d;font-style:normal;">Christ our righteousness.</strong>&rdquo;</p>
+        <cite style="color:#fcd34d;font-size:0.87rem;font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.07em;display:block;">&mdash; Ellen G. White &bull; 1888 Materials, p. 765</cite>
+        <p style="color:#9ca3af;margin:14px 0 0;font-size:0.9rem;line-height:1.72;">The truths given through the pioneer Advent movement &mdash; the sanctuary doctrine, the Sabbath, the Three Angels&rsquo; Messages, the state of the dead &mdash; are <em>old truths to be recovered</em>. The new wine is not new doctrine. It is the old pioneer message given with new power. <a href="/books/william-miller-brothers-dream" style="color:#fcd34d;font-weight:700;">Brother Miller&rsquo;s Dream (1850)</a> is the prophetic preview: the gems scattered, and then restored one by one by faithful hands.</p>
+      </div>
+    </div>
+
+    <!-- FINAL CTA -->
+    <div class="cta-block">
+      <h3>Your Eternal Destiny Is<br><em>Decided Right Now.</em><br>What Will You Do With the Truth?</h3>
+      <p>
+        You have read the warning. You know about April 15, 1904.
+        You know what the 501(c)(3) state church is.
+        You know that the Loud Cry of Revelation 18:4 is not a suggestion &mdash;
+        it is a command addressed to <strong>God&rsquo;s people who are currently inside Babylon.</strong>
+        The test that decides your eternal destiny is not whether you can argue the theology.
+        It is whether you will <strong>obey God rather than men</strong> (Acts 5:29)
+        when the cost of obedience is everything you have built your life around.
+        The Pilgrims got on the Mayflower. <strong>Will you?</strong>
+      </p>
+      <div class="cta-btn-row">
+        <a href="/loud-cry" class="btn-red">The Loud Cry &mdash; Come Out &rarr;</a>
+        <a href="/april-15-1904-new-organization" class="btn-gold">Read the 1904 Primary Document &rarr;</a>
+        <a href="/1904-signers" class="btn-outline">The Five Who Signed &rarr;</a>
+      </div>
+    </div>
+
+  </div><!-- /page -->
+
+  <!-- FOOTER -->
+  <footer class="site-footer">
+    <div class="footer-stripe-top"></div>
+    <div class="footer-banner">
+      <p>&ldquo;Come out of her, my people, that ye be not partakers of her sins, and that ye receive not of her plagues.&rdquo;</p>
+      <cite>&mdash; Revelation 18:4 (KJV) &mdash; The Final Call Before the Plagues</cite>
+    </div>
+    <div class="footer-main">
+      <div class="footer-col">
+        <div class="footer-brand-name">
+          <svg width="20" height="20" viewBox="0 0 24 24" fill="none" stroke="#d4a537" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+          <span>Sunday<em>Law</em>.com</span>
+        </div>
+        <p>Proclaiming the Three Angels&rsquo; Messages &mdash; the commandments of God and the faith of Jesus &mdash; to every nation, kindred, tongue, and people. The final warning before the close of probation.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navigate</h4>
+        <ul>
+          <li><a href="/#final-choice">The Final Choice</a></li>
+          <li><a href="/#seal-vs-mark">Seal vs. Mark</a></li>
+          <li><a href="/#three-angels">Three Angels</a></li>
+          <li><a href="/#second-beast">Second Beast</a></li>
+          <li><a href="/#pioneer-library">Pioneer Library</a></li>
+          <li><a href="/midnight-cry">The Midnight Cry</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Evidence</h4>
+        <ul>
+          <li><a href="/april-15-1904-new-organization">1904 New Organization</a></li>
+          <li><a href="/1904-signers">The Five Signers</a></li>
+          <li><a href="/prophecy-explained">The Great Test</a></li>
+          <li><a href="/prophecy-charts">Prophecy Charts</a></li>
+          <li><a href="/1860-name-selection">1860 Name Selection</a></li>
+          <li><a href="/loud-cry">The Loud Cry</a></li>
+          <li><a href="/religious-liberty">Religious Liberty</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Connect</h4>
+        <ul>
+          <li><a href="/contact">Contact Us</a></li>
+          <li><a href="/contact">Prayer Request</a></li>
+          <li><a href="/contact">Newsletter</a></li>
+          <li><a href="/contact">Share This Page</a></li>
+          <li><a href="/donate">Donate to the Work</a></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <p>SundayLaw.com &mdash; &ldquo;We ought to obey God rather than men.&rdquo; &mdash; Acts 5:29</p>
+      <div class="footer-flags">
+        <div class="flag-r"></div><div class="flag-w"></div><div class="flag-b"></div>
+      </div>
+      <p>Proclaiming the Three Angels&rsquo; Messages to Every Nation, Kindred, Tongue, and People</p>
+    </div>
+    <div class="footer-stripe"></div>
+  </footer>
+
+  <button class="btt" id="btt" aria-label="Back to top" onclick="window.scrollTo({top:0,behavior:'smooth'})">
+    <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round"><path d="M18 15l-6-6-6 6"/></svg>
+  </button>
+
+  <script is:inline>
+    const btt = document.getElementById('btt');
+    window.addEventListener('scroll', () => {
+      if (btt) btt.classList.toggle('visible', window.scrollY > 400);
+    }, { passive: true });
+  </script>
+  <SiteFooter
+    scripture="Here are they that keep the commandments of God, and the faith of Jesus."
+    scriptureRef="Revelation 14:12 (KJV)"
+    pageLinks={[
+      { label: 'Prophecy Explained', href: '/prophecy-explained' },
+      { label: 'Prophecy Charts — 1843 & 1850', href: '/prophecy-charts' },
+      { label: 'The Loud Cry — Revelation 18', href: '/loud-cry' },
+      { label: 'Three Angels\u2019 Messages', href: '/books/3angels' }
+    ]}
+  />
+  <ShareBar />
+</body>
+</html>

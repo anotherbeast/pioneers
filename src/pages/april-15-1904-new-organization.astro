@@ -1,0 +1,1486 @@
+﻿---
+import Analytics from '../components/Analytics.astro';
+import ShareBar from '../components/ShareBar.astro';
+import SiteNav from '../components/SiteNav.astro';
+import SiteFooter from '../components/SiteFooter.astro';
+---
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <Analytics />
+    <title>April 15, 1904 | Incorporation Record</title>
+    <meta
+      name="description"
+      content="Document page presenting the April 15, 1904 incorporation record and related references in the 1905 Seventh-day Adventist Yearbook."
+    />
+    <meta property="og:title" content="April 15, 1904 — The Incorporation Record | SundayLaw.com">
+    <meta property="og:description" content="The April 15, 1904 Articles of Incorporation of the General Conference Corporation of Seventh-day Adventists — the record Ellen White warned against.">
+    <meta property="og:image" content="https://sundaylaw.com/images/1904-image-of-papacy/1904SDA1.jpg">
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://sundaylaw.com/april-15-1904-new-organization">
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Source+Sans+3:wght@400;500;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <style>
+      :root {
+        --bg: #060b17;
+        --ink: #f8f1dd;
+        --muted: #d3c39d;
+        --line: rgba(214, 167, 69, 0.28);
+        --gold: #d6a745;
+        --amber: #f0be5c;
+      }
+
+      * { box-sizing: border-box; }
+
+      body {
+        margin: 0;
+        color: var(--ink);
+        font-family: 'Source Sans 3', sans-serif;
+        background:
+          radial-gradient(circle at 80% 16%, rgba(214, 167, 69, 0.14), transparent 35%),
+          radial-gradient(circle at 17% 82%, rgba(92, 111, 160, 0.16), transparent 42%),
+          linear-gradient(160deg, #050914 0%, #091125 52%, #060b16 100%);
+      }
+
+      .serif { font-family: 'Cormorant Garamond', serif; }
+
+      .topbar {
+        position: sticky;
+        top: 0;
+        z-index: 32;
+        backdrop-filter: blur(10px);
+        background: rgba(6, 11, 23, 0.76);
+        border-bottom: 1px solid var(--line);
+      }
+
+      .topbar-inner {
+        max-width: 1160px;
+        margin: 0 auto;
+        padding: 14px 20px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        gap: 12px;
+      }
+
+      .brand {
+        color: var(--ink);
+        text-decoration: none;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        font-size: 0.9rem;
+      }
+
+      .brand strong { color: var(--amber); }
+
+      .toplinks {
+        display: flex;
+        gap: 14px;
+      }
+
+      .toplinks a {
+        color: var(--muted);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .toplinks a:hover { color: var(--amber); }
+
+      .hero {
+        max-width: 1160px;
+        margin: 28px auto 0;
+        padding: 0 20px;
+      }
+
+      .hero-card {
+        border: 1px solid var(--line);
+        border-radius: 24px;
+        padding: 40px 32px;
+        background: linear-gradient(150deg, rgba(16, 24, 45, 0.94), rgba(8, 12, 24, 0.9));
+        box-shadow: 0 22px 66px rgba(0, 0, 0, 0.45);
+      }
+
+      .eyebrow {
+        display: inline-block;
+        padding: 8px 14px;
+        border-radius: 999px;
+        border: 1px solid var(--line);
+        color: var(--amber);
+        letter-spacing: 0.1em;
+        text-transform: uppercase;
+        font-size: 0.75rem;
+        font-weight: 700;
+      }
+
+      h1 {
+        margin: 14px 0 0;
+        font-size: clamp(2.1rem, 6vw, 3.8rem);
+        line-height: 1;
+      }
+
+      h1 span { color: var(--amber); }
+
+      .lead {
+        margin: 16px 0 0;
+        color: var(--muted);
+        font-size: 1.13rem;
+        line-height: 1.75;
+        max-width: 74ch;
+      }
+
+      .layout {
+        max-width: 1160px;
+        margin: 18px auto 60px;
+        padding: 0 20px;
+        display: grid;
+        gap: 14px;
+      }
+
+      .section {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(13, 19, 36, 0.86);
+        padding: 22px;
+      }
+
+      .section h2 {
+        margin: 0;
+        color: var(--amber);
+        font-size: 1.7rem;
+      }
+
+      .section p {
+        margin: 12px 0 0;
+        color: var(--muted);
+        line-height: 1.82;
+      }
+
+      .proof-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 14px;
+      }
+
+      .proof-card {
+        border: 1px solid var(--line);
+        border-radius: 12px;
+        background: rgba(255, 255, 255, 0.02);
+        padding: 14px;
+      }
+
+      .proof-card h3 {
+        margin: 0;
+        font-size: 1.08rem;
+        color: #f8dc97;
+      }
+
+      .proof-card p {
+        margin: 10px 0 0;
+        color: var(--muted);
+        line-height: 1.72;
+      }
+
+      .proof-card p a {
+        color: var(--gold);
+        text-decoration: underline;
+        text-decoration-color: rgba(212, 165, 55, 0.4);
+        text-underline-offset: 3px;
+        transition: color 0.15s, text-decoration-color 0.15s;
+      }
+
+      .proof-card p a:hover {
+        color: #fcd34d;
+        text-decoration-color: rgba(252, 211, 77, 0.7);
+      }
+
+      .quote {
+        margin-top: 14px;
+        border-left: 4px solid var(--gold);
+        border-radius: 0 10px 10px 0;
+        padding: 14px;
+        background: rgba(214, 167, 69, 0.1);
+      }
+
+      .quote p {
+        margin: 0;
+        color: #f8e8be;
+        font-style: italic;
+      }
+
+      .quote cite {
+        display: block;
+        margin-top: 8px;
+        font-style: normal;
+        color: var(--amber);
+        font-weight: 700;
+      }
+
+      .image-grid {
+        margin-top: 14px;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 10px;
+      }
+
+      .image-grid img {
+        width: 100%;
+        border-radius: 12px;
+        border: 1px solid var(--line);
+        background: #0b1220;
+        display: block;
+      }
+
+      .links {
+        margin-top: 12px;
+        display: grid;
+        gap: 8px;
+      }
+
+      .links a {
+        color: var(--amber);
+        text-decoration: none;
+        font-weight: 600;
+      }
+
+      .links a:hover { text-decoration: underline; }
+
+      .small {
+        margin-top: 12px;
+        color: #9ca3af;
+        font-size: 0.92rem;
+      }
+
+      @media (max-width: 900px) {
+        .proof-grid,
+        .image-grid { grid-template-columns: 1fr; }
+        .hero-card { padding: 30px 22px; }
+      }
+
+      /* ===== NEW SECTION STYLES ===== */
+      .new-section {
+        max-width: 1160px;
+        margin: 0 auto 0;
+        padding: 0 20px;
+      }
+
+      /* EGW Storm & Tempest mega quote */
+      .mega-quote-wrap {
+        margin: 10px 0 0;
+        border: 2px solid rgba(214,167,69,0.55);
+        border-radius: 22px;
+        background: linear-gradient(135deg, #1a0c00 0%, #0d0a06 45%, #090e1e 100%);
+        padding: 52px 44px;
+        text-align: center;
+        position: relative;
+        overflow: hidden;
+        box-shadow: 0 0 60px rgba(214,167,69,0.12), 0 24px 60px rgba(0,0,0,0.55);
+      }
+
+      .mega-quote-wrap::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 50% 30%, rgba(214,167,69,0.1) 0%, transparent 60%);
+        pointer-events: none;
+      }
+
+      .mega-quote-icon {
+        display: flex;
+        justify-content: center;
+        margin-bottom: 22px;
+        color: var(--gold);
+      }
+
+      .mega-quote-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.55rem, 3.8vw, 2.5rem);
+        font-weight: 600;
+        font-style: italic;
+        color: #fef3c7;
+        line-height: 1.5;
+        letter-spacing: -0.01em;
+        margin: 0 0 20px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .mega-quote-cite {
+        display: block;
+        color: var(--amber);
+        font-size: 1rem;
+        font-weight: 700;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.08em;
+        position: relative;
+        z-index: 1;
+      }
+
+      /* Constitution / Religious Liberty banner */
+      .constitution-wrap {
+        margin: 18px 0 0;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 18px;
+        align-items: stretch;
+      }
+
+      .constitution-quote {
+        border: 2px solid rgba(59,130,246,0.45);
+        border-radius: 18px;
+        background: linear-gradient(135deg, #030b1f 0%, #050c20 100%);
+        padding: 34px 30px;
+        position: relative;
+        overflow: hidden;
+      }
+
+      .constitution-quote::before {
+        content: '';
+        position: absolute;
+        inset: 0;
+        background: radial-gradient(ellipse at 20% 40%, rgba(59,130,246,0.1), transparent 55%);
+        pointer-events: none;
+      }
+
+      .constitution-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: 8px;
+        padding: 6px 14px;
+        border-radius: 999px;
+        background: rgba(59,130,246,0.12);
+        border: 1px solid rgba(59,130,246,0.3);
+        color: #93c5fd;
+        font-size: 0.75rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.1em;
+        margin-bottom: 18px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .constitution-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.2rem, 2.4vw, 1.65rem);
+        font-weight: 600;
+        font-style: italic;
+        color: #e2e8f0;
+        line-height: 1.65;
+        margin: 0 0 16px;
+        position: relative;
+        z-index: 1;
+      }
+
+      .constitution-cite {
+        display: block;
+        color: #93c5fd;
+        font-size: 0.88rem;
+        font-weight: 700;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        position: relative;
+        z-index: 1;
+      }
+
+      .constitution-img-wrap {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 2px solid rgba(59,130,246,0.25);
+        position: relative;
+      }
+
+      .constitution-img-wrap img {
+        width: 100%;
+        height: auto;
+        max-height: 520px;
+        object-fit: contain;
+        object-position: center;
+        display: block;
+        background: #07000f;
+      }
+
+      .constitution-img-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(3,11,31,0.95), transparent);
+        padding: 22px 18px 16px;
+        font-size: 0.85rem;
+        font-weight: 700;
+        color: #93c5fd;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      /* James White on church & state */
+      .james-white-banner {
+        margin: 18px 0 0;
+        border-left: 5px solid rgba(214,167,69,0.6);
+        border-radius: 0 16px 16px 0;
+        background: linear-gradient(135deg, #120d00, #090c1d);
+        padding: 28px 28px 28px 30px;
+      }
+
+      .james-white-banner p {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.1rem, 2vw, 1.4rem);
+        font-style: italic;
+        color: rgba(254,243,199,0.92);
+        line-height: 1.75;
+        margin: 0 0 12px;
+      }
+
+      .james-white-banner cite {
+        color: var(--amber);
+        font-size: 0.88rem;
+        font-weight: 700;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      /* Pioneer Resource Links Grid */
+      .pioneer-links-wrap {
+        margin: 18px 0 0;
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(13,19,36,0.86);
+        padding: 28px 26px;
+      }
+
+      .pioneer-links-wrap h2 {
+        font-family: 'Cormorant Garamond', serif;
+        color: var(--amber);
+        font-size: 1.7rem;
+        margin: 0 0 6px;
+      }
+
+      .pioneer-links-wrap .plinks-sub {
+        color: #9ca3af;
+        font-size: 0.95rem;
+        margin: 0 0 20px;
+        line-height: 1.7;
+      }
+
+      .plinks-grid {
+        display: grid;
+        grid-template-columns: repeat(3, 1fr);
+        gap: 12px;
+      }
+
+      .plink-card {
+        border: 1px solid rgba(214,167,69,0.2);
+        border-radius: 12px;
+        padding: 16px 14px;
+        background: rgba(255,255,255,0.03);
+        text-decoration: none;
+        transition: all 0.2s;
+        display: flex;
+        flex-direction: column;
+        gap: 6px;
+      }
+
+      .plink-card:hover {
+        border-color: rgba(214,167,69,0.55);
+        background: rgba(214,167,69,0.07);
+        transform: translateY(-2px);
+      }
+
+      .plink-label {
+        color: #9ca3af;
+        font-size: 0.72rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: 0.09em;
+      }
+
+      .plink-title {
+        color: #f0cf7b;
+        font-size: 0.92rem;
+        font-weight: 600;
+        line-height: 1.4;
+      }
+
+      /* 1850 Chart showcase */
+      .chart-showcase-wrap {
+        margin: 18px 0 0;
+        border: 2px solid rgba(214,167,69,0.4);
+        border-radius: 22px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .chart-showcase-header {
+        background: linear-gradient(135deg, #1a0f00, #0d0a06);
+        padding: 28px 28px 20px;
+        border-bottom: 1px solid rgba(214,167,69,0.3);
+      }
+
+      .chart-showcase-header h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: clamp(1.5rem, 3vw, 2.2rem);
+        color: var(--amber);
+        margin: 0 0 8px;
+      }
+
+      .chart-showcase-header p {
+        color: #c5bb95;
+        font-size: 0.97rem;
+        line-height: 1.75;
+        margin: 0;
+        max-width: 800px;
+      }
+
+      .chart-showcase-img {
+        width: 100%;
+        display: block;
+        max-height: 760px;
+        object-fit: contain;
+        background: #050810;
+      }
+
+      /* Image of Papacy callout */
+      .image-papacy-callout {
+        background: linear-gradient(135deg, #1a0000, #0d0a06 50%, #090e1e);
+        border-top: 1px solid rgba(214,167,69,0.3);
+        padding: 28px 28px;
+      }
+
+      .image-papacy-callout h3 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.65rem;
+        color: #f87171;
+        margin: 0 0 16px;
+      }
+
+      .image-papacy-callout .rev-text {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.12rem;
+        font-style: italic;
+        color: rgba(254,243,199,0.9);
+        line-height: 1.8;
+        margin: 0 0 14px;
+        border-left: 3px solid rgba(239,68,68,0.5);
+        padding-left: 16px;
+      }
+
+      .image-papacy-callout .rev-cite {
+        color: #f87171;
+        font-size: 0.84rem;
+        font-weight: 700;
+        font-style: normal;
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+        display: block;
+        margin-bottom: 18px;
+        padding-left: 16px;
+      }
+
+      .image-papacy-callout p {
+        color: #d3c39d;
+        line-height: 1.82;
+        margin: 0 0 12px;
+        font-size: 0.97rem;
+      }
+
+      .papacy-definition-grid {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 12px;
+        margin-top: 18px;
+      }
+
+      .papacy-def-card {
+        border-radius: 12px;
+        padding: 18px 16px;
+      }
+
+      .papacy-def-card.roman {
+        background: rgba(127,29,29,0.25);
+        border: 1px solid rgba(239,68,68,0.3);
+      }
+
+      .papacy-def-card.american {
+        background: rgba(29,78,216,0.2);
+        border: 1px solid rgba(59,130,246,0.3);
+      }
+
+      .papacy-def-card h4 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.2rem;
+        margin: 0 0 10px;
+      }
+
+      .papacy-def-card.roman h4 { color: #f87171; }
+      .papacy-def-card.american h4 { color: #93c5fd; }
+
+      .papacy-def-card ul {
+        list-style: none;
+        padding: 0;
+        margin: 0;
+        display: grid;
+        gap: 7px;
+      }
+
+      .papacy-def-card ul li {
+        display: flex;
+        gap: 8px;
+        color: #d3c39d;
+        font-size: 0.9rem;
+        line-height: 1.6;
+      }
+
+      .papacy-def-card ul li::before { content: '›'; font-weight: 700; flex-shrink: 0; }
+      .papacy-def-card.roman ul li::before { color: #f87171; }
+      .papacy-def-card.american ul li::before { color: #93c5fd; }
+
+      /* Mayflower section */
+      .mayflower-wrap {
+        margin: 18px 0 0;
+        display: grid;
+        grid-template-columns: 340px 1fr;
+        gap: 18px;
+        align-items: start;
+      }
+
+      .mayflower-img-wrap {
+        border-radius: 18px;
+        overflow: hidden;
+        border: 2px solid rgba(214,167,69,0.25);
+        position: relative;
+        max-height: 420px;
+      }
+
+      .mayflower-img-wrap img {
+        width: 100%;
+        height: auto;
+        display: block;
+      }
+
+      .mayflower-img-label {
+        position: absolute;
+        bottom: 0;
+        left: 0;
+        right: 0;
+        background: linear-gradient(to top, rgba(6,11,23,0.95), transparent);
+        padding: 22px 16px 14px;
+        font-size: 0.8rem;
+        font-weight: 700;
+        color: var(--amber);
+        text-transform: uppercase;
+        letter-spacing: 0.07em;
+      }
+
+      .mayflower-content {
+        border: 1px solid var(--line);
+        border-radius: 18px;
+        background: rgba(13,19,36,0.86);
+        padding: 28px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 14px;
+      }
+
+      .mayflower-content h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.75rem;
+        color: var(--amber);
+        margin: 0;
+      }
+
+      .mayflower-content p {
+        color: #c5bb95;
+        line-height: 1.82;
+        margin: 0;
+        font-size: 0.97rem;
+      }
+
+      .mayflower-content .warn-box {
+        background: rgba(127,29,29,0.2);
+        border: 1px solid rgba(239,68,68,0.3);
+        border-radius: 10px;
+        padding: 14px 16px;
+        color: #fca5a5;
+        font-size: 0.92rem;
+        font-weight: 600;
+        line-height: 1.65;
+      }
+
+      /* Yearbook embed */
+      .yearbook-wrap {
+        margin: 18px 0 0;
+        border: 2px solid rgba(214,167,69,0.4);
+        border-radius: 22px;
+        overflow: hidden;
+        background: #000;
+      }
+
+      .yearbook-header {
+        background: linear-gradient(135deg, #1a0f00, #0d0a06);
+        padding: 26px 28px 18px;
+        border-bottom: 1px solid rgba(214,167,69,0.3);
+        display: flex;
+        align-items: flex-start;
+        justify-content: space-between;
+        flex-wrap: wrap;
+        gap: 12px;
+      }
+
+      .yearbook-header h2 {
+        font-family: 'Cormorant Garamond', serif;
+        font-size: 1.7rem;
+        color: var(--amber);
+        margin: 0 0 6px;
+      }
+
+      .yearbook-header p {
+        color: #c5bb95;
+        font-size: 0.93rem;
+        line-height: 1.7;
+        margin: 0;
+        max-width: 640px;
+      }
+
+      .yearbook-open-link {
+        display: inline-flex;
+        align-items: center;
+        height: 40px;
+        padding: 0 18px;
+        border-radius: 8px;
+        background: var(--gold);
+        color: #111;
+        font-weight: 700;
+        font-size: 0.88rem;
+        text-decoration: none;
+        flex-shrink: 0;
+        transition: background 0.18s;
+      }
+
+      .yearbook-open-link:hover { background: #f0cf7b; }
+
+      .yearbook-embed {
+        width: 100%;
+        height: 820px;
+        display: block;
+        border: 0;
+        background: #fff;
+      }
+
+      /* page-wide spacing */
+      .bottom-pad { height: 64px; }
+
+      @media (max-width: 900px) {
+        .constitution-wrap,
+        .mayflower-wrap,
+        .papacy-definition-grid { grid-template-columns: 1fr; }
+        .plinks-grid { grid-template-columns: 1fr 1fr; }
+        .mega-quote-wrap { padding: 36px 22px; }
+        .constitution-quote { padding: 24px 20px; }
+      }
+
+      @media (max-width: 600px) {
+        .plinks-grid { grid-template-columns: 1fr; }
+      }
+    </style>
+  </head>
+  <body>
+    <SiteNav />
+
+    <main>
+      <section class="hero">
+        <div class="hero-card">
+          <span class="eyebrow">Documented Record</span>
+          <h1 class="serif">April 15, 1904 <span>Incorporation Evidence</span></h1>
+          <p class="lead">
+            This page presents direct documentary evidence tied to the 1905 Yearbook record and related
+            source files in this library, including the corporation name clause, signer block, and date-place statement.
+          </p>
+        </div>
+      </section>
+
+      <div class="layout">
+        <section class="section">
+          <h2 class="serif">1905 Yearbook Text Evidence</h2>
+          <div class="proof-grid">
+            <article class="proof-card">
+              <h3>Corporation Name Clause</h3>
+              <p>
+                "The name of the corporation hereby created shall be 'General Conference Corporation of
+                Seventh-day Adventists.'"
+              </p>
+            </article>
+            <article class="proof-card">
+              <h3>Date and Place Clause</h3>
+              <p>
+                The instrument records signatures in "the City of Washington, District of Columbia" on
+                "the fifteenth day of April, A.D. 1904."
+              </p>
+            </article>
+          </div>
+
+          <div class="proof-grid">
+            <article class="proof-card">
+              <h3>Signer List in Record</h3>
+              <p>
+                <a href="/pioneers/james-r-scott">James R. Scott</a>,
+                <a href="/pioneers/harvey-edson-rogers">Harvey Edson Rogers</a>,
+                <a href="/pioneers/daniel-k-nicola">Daniel K. Nicola</a>,
+                <a href="/pioneers/arthur-grosvenor-daniells">Arthur G. Daniells</a>, and
+                <a href="/pioneers/amos-p-needham">Amos P. Needham</a>.
+              </p>
+              <p style="margin-top:10px;font-size:0.88rem;color:#9ca3af;">These five were <strong style="color:#f0cf7b;">selected by Daniells in 1903</strong> specifically because they were D.C. residents — a legal residency requirement for D.C. incorporators. Their appointment was based on legal necessity, not spiritual office. See the 1903 minutes below.</p>
+            </article>
+            <article class="proof-card">
+              <h3>Verification Path</h3>
+              <p>Verify the corporate name, signers, and date directly in the primary source documents.</p>
+              <p style="margin-top:12px;">
+                <a href="#yearbook" style="display:inline-block;background:rgba(240,207,123,0.15);border:1px solid rgba(240,207,123,0.5);color:#f0cf7b;border-radius:8px;padding:7px 16px;font-size:0.88rem;font-weight:600;text-decoration:none;">&#x2193; Jump to 1905 Yearbook Embed</a>
+              </p>
+              <p style="margin-top:10px;">
+                <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" download target="_blank" rel="noopener" style="display:inline-block;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.5);color:#93c5fd;border-radius:8px;padding:7px 16px;font-size:0.88rem;font-weight:600;text-decoration:none;">&#x2B07; Download 1905 Yearbook PDF</a>
+              </p>
+              <p style="margin-top:10px;">
+                <a href="/books/1904-image-of-papacy/1904SDA.pdf" target="_blank" rel="noopener" style="display:inline-block;background:rgba(59,130,246,0.15);border:1px solid rgba(59,130,246,0.5);color:#93c5fd;border-radius:8px;padding:7px 16px;font-size:0.88rem;font-weight:600;text-decoration:none;">&#x2B07; Open 1904SDA.pdf</a>
+              </p>
+            </article>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="serif">Ellen White on the 1904 &ldquo;New Organization&rdquo;</h2>
+          <div class="quote">
+            <p>
+              &ldquo;The Lord has declared that the history of the past shall be rehearsed as we enter upon the closing work. Every truth that He has given for these last days is to be proclaimed to the world. Every pillar that He has established is to be strengthened. We cannot now step off the foundation that God has established. <strong>We cannot now enter into any new organization; for this would mean apostasy from the truth.</strong>&rdquo;
+            </p>
+            <cite>&mdash; Ellen G. White, Manuscript 129, 1905 &bull; 2 Selected Messages, p. 390.1</cite>
+          </div>
+          <div style="background:rgba(220,38,38,0.1);border:1px solid rgba(220,38,38,0.35);border-radius:12px;padding:20px 22px;margin-top:16px;">
+            <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.3rem,2.8vw,1.65rem);font-weight:700;color:#fca5a5;margin:0 0 10px;line-height:1.3;">What &ldquo;NEW ORGANIZATION&rdquo; (#1SM204) is Ellen White talking about here in 1905?</p>
+            <p style="color:#d3c39d;margin:0;line-height:1.82;font-size:0.97rem;">She wrote this in <strong style="color:var(--ink);">1905</strong> &mdash; one year after <strong style="color:var(--amber);">April 15, 1904</strong>, the date the <em>General Conference Corporation of Seventh-day Adventists</em> was incorporated in Washington D.C. The document evidence is on this page. Verify it in the 1905 Yearbook PDF above. The conclusion is unavoidable.</p>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2 class="serif">Featured Source Images</h2>
+          <div class="image-grid">
+            <img src="/images/1904-image-of-papacy/1904SDA1.jpg" alt="1904 source page image 1" loading="eager" />
+            <img src="/images/1904-image-of-papacy/1904SDA2.jpg" alt="1904 source page image 2" loading="lazy" />
+          </div>
+          <div class="links">
+            <a href="/books/1904-image-of-papacy/1904SDA.pdf" target="_blank" rel="noopener">Open 1904SDA.pdf</a>
+            <a href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf" target="_blank" rel="noopener">
+              Open Seventh-day Adventist Yearbook (1905)
+            </a>
+            <a href="/religious-liberty" target="_blank" rel="noopener">Related: Religious Liberty materials</a>
+          </div>
+          <p class="small">
+            Study note: this page is document-first and keeps interpretation separate from the quoted legal text.
+          </p>
+        </section>
+
+        <section class="section">
+          <h2 class="serif">1903 Committee Minutes &mdash; Premeditated from the Start</h2>
+
+          <h3 style="color:var(--amber);font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin:16px 0 10px;">October 22, 1903 &mdash; Sixtieth Meeting: The Corporation Is Voted</h3>
+          <p>At the <strong>Sixtieth Meeting of the General Conference Committee</strong>, Washington D.C., 9:45 A.M., October 22, 1903, the committee voted to create the new D.C. corporation and named <strong>seven original incorporators</strong>. The following is the verbatim record:</p>
+          <div class="quote" style="margin-top:14px;">
+            <p>&ldquo;Inasmuch as the General Conference Association is a corporation of the State of Michigan, requiring that its meetings shall be held in that State, to great inconvenience, as the headquarters is now removed; and,&mdash;</p>
+            <p style="margin-top:8px;">&ldquo;Inasmuch as the legal Foreign Mission Board is a corporation of New York, requiring its legal annual meetings to be held there; it is,&mdash;</p>
+            <p style="margin-top:8px;">&ldquo;Voted, That the General Conference Committee be instructed to create a corporation under the laws of the District of Columbia, to transact the business heretofore attended to by the Foreign Mission Board and the General Conference Association; and,&mdash;</p>
+            <p style="margin-top:8px;">&ldquo;Voted, That the Foreign Mission Board be wound up and its assets transferred to the new corporation; and further,&mdash;</p>
+            <p style="margin-top:8px;">&ldquo;Voted, That so far as possible to arrange, the new corporation shall give its notes to replace the notes of the Gen. Conf. Ass&rsquo;n., and that when the Michigan corporation lapses, its affairs be wound up.</p>
+            <p style="margin-top:8px;"><strong>&ldquo;Voted, That the incorporators be the following, and that they be instructed to elect themselves a Board to hold over until the next General Conference: A.G.Daniells, W.A.Spicer, W.T.Bland, W.W.Prescott, S.N.Curtiss, J.S.Washburn, A.P.Needham.&rdquo;</strong></p>
+            <p style="margin-top:8px;">&ldquo;Voted, That we request the General Conference Association of Michigan and the Foreign Mission Board of New York as rapidly as possible to transfer all of their assets and liabilities to the new corporation.&rdquo;</p>
+            <cite>&mdash; Sixtieth Meeting, General Conference Committee, Washington D.C., October 22, 1903</cite>
+          </div>
+          <div class="image-grid" style="grid-template-columns:1fr;margin-top:16px;">
+            <a href="/images/1904-image-of-papacy/10-22-1903-sixteth-meeting-general-confernce-committee-meeting-minutes.jpg" target="_blank" rel="noopener">
+              <img
+                src="/images/1904-image-of-papacy/10-22-1903-sixteth-meeting-general-confernce-committee-meeting-minutes.jpg"
+                alt="Sixtieth Meeting GC Committee &mdash; October 22, 1903 &mdash; Original Seven Incorporators Named"
+                loading="lazy"
+                style="border-radius:10px;border:2px solid rgba(212,165,55,0.35);"
+              />
+            </a>
+          </div>
+          <div class="links" style="margin-top:10px;">
+            <a href="/images/1904-image-of-papacy/GCC1903-10-22-1903-sixteth-meeting-general-conference-committee-washington-dc.pdf" target="_blank" rel="noopener" download>&#8659; Download October 22, 1903 Minutes PDF</a>
+          </div>
+
+          <h3 style="color:var(--amber);font-family:'Cormorant Garamond',serif;font-size:1.3rem;margin:22px 0 10px;">April 13, 1904 &mdash; Five of Seven Replaced for D.C. Residency</h3>
+          <p>By April 1904, five of the seven original nominees were no longer D.C. residents. The October 22, 1903 vote was reconsidered. Of the original seven, only <strong>A.G. Daniells</strong> and <strong>A.P. Needham</strong> survived. W.A. Spicer, W.T. Bland, W.W. Prescott, S.N. Curtiss, and J.S. Washburn were dropped &mdash; replaced by J.R. Scott, H.E. Rogers, and D.K. Nicola, who were D.C. residents.</p>
+          <div class="quote" style="margin-top:14px;">
+            <p>&ldquo;Attention was called to the fact that the majority of those named as incorporators at the October meeting of the Committee are not now residents of the District of Columbia, as required by law.&rdquo;</p>
+            <cite>&mdash; GC Committee Minority Meeting, April 13, 1904</cite>
+          </div>
+          <div class="quote" style="margin-top:10px;">
+            <p>&ldquo;VOTED, That inasmuch as the majority of the persons named in the action of October 22, 1903 are not now resident in the District of Columbia, we appoint A.G. Daniells, J.R. Scott, A.P. Needham, H.E. Rogers, D.K. Nicola as incorporators of the General Conference Corporation of Seventh-day Adventists.&rdquo;</p>
+            <cite>&mdash; GC Committee Minority Meeting, April 13, 1904 &mdash; signed A.G. Daniells, Chairman; W.A. Spicer, Secretary</cite>
+          </div>
+          <div class="image-grid" style="grid-template-columns:1fr;margin-top:16px;">
+            <a href="/images/1904-image-of-papacy/1903minutesfor1904incorporation.jpg" target="_blank" rel="noopener">
+              <img
+                src="/images/1904-image-of-papacy/1903minutesfor1904incorporation.jpg"
+                alt="GC Committee Minority Meeting &mdash; April 13, 1904 &mdash; Incorporators Reconsidered"
+                loading="lazy"
+                style="border-radius:10px;border:2px solid rgba(212,165,55,0.35);"
+              />
+            </a>
+          </div>
+          <div class="links" style="margin-top:10px;">
+            <a href="/images/1904-image-of-papacy/GCC1904-01minutes.pdf" target="_blank" rel="noopener" download>&#8659; Download April 1904 GC Committee Minutes PDF</a>
+            <a href="https://documents.adventistarchives.org/Minutes/Forms/AllItems.aspx?RootFolder=%2fMinutes%2fGCC&FolderCTID=0x012000F14CCE0E47CC244BB8EA93FE785ED8BE00941CF68C17217C4CA49DE1E876677255" target="_blank" rel="noopener" style="color:#93c5fd;">&#128193; All GC Committee Minutes &mdash; Adventist Archives</a>
+          </div>
+          <p class="small" style="margin-top:14px;">
+            This two-step documented record (October 1903 &rarr; April 1904) proves the incorporation structure was planned, approved, and in motion well before April 15, 1904. The final five signers were chosen for <em>legal</em> residency qualification &mdash; not spiritual office.
+          </p>
+        </section>
+      </div>
+
+      <!-- ===== 1896 WARNING — LETTER 81 — 8 YEARS BEFORE 1904 ===== -->
+      <div class="new-section" style="margin-top:14px;">
+        <div style="border-left:5px solid rgba(220,38,38,0.7);border-radius:0 18px 18px 0;background:linear-gradient(135deg,#1a0000,#0d0a06 50%,#090e1e);padding:36px 36px 36px 38px;">
+          <p style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.35);color:#f87171;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 18px;">Prophetic Warning Written in 1896 &mdash; Eight Years Before April 15, 1904</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.2vw,1.55rem);font-style:italic;color:rgba(254,243,199,0.93);line-height:1.8;margin:0 0 16px;">&ldquo;The same work that has been done in the past will be carried forward under the guise of the General Conference Association&hellip; That same work will be done again, and done with greater power, as it was in the days when the Papacy was in its strength.&rdquo;</p>
+          <cite style="color:#f87171;font-size:0.88rem;font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.07em;display:block;">&mdash; Ellen G. White, Letter 81, May 31, 1896 &bull; 1888 Materials, pp. 1558&ndash;1573</cite>
+          <p style="color:#9ca3af;margin:14px 0 0;font-size:0.9rem;line-height:1.72;">Eight years before the April 15, 1904 incorporation, Ellen White warned that the <em>General Conference Association</em> would become the vehicle for carrying forward the same persecution the Papacy exercised in the Dark Ages. This warning was not written after the fact &mdash; she gave it <strong style="color:var(--ink);">eight years in advance</strong>. The 1904 corporate incorporation is the fulfillment of her prophecy in plain sight.</p>
+        </div>
+      </div>
+
+      <!-- ===== GCB APRIL 3, 1901 — EGW "THAT IS PAST" ===== -->
+      <div class="new-section">
+        <div style="border-left:5px solid rgba(214,167,69,0.7);border-radius:0 18px 18px 0;background:linear-gradient(135deg,#0d0a06,#090e1e);padding:36px 36px 36px 38px;">
+          <p style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(214,167,69,0.12);border:1px solid rgba(214,167,69,0.35);color:var(--amber);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 18px;">Ellen G. White &mdash; General Conference Bulletin, April 3, 1901, par. 25 &mdash; Three Years Before 1904</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.2vw,1.55rem);font-style:italic;color:rgba(254,243,199,0.93);line-height:1.8;margin:0 0 16px;">&ldquo;O, my very soul is drawn out in these things! Men who have not learned to submit themselves to the control and discipline of God, are not competent to train the youth, to deal with human minds. It is just as much an impossibility for them to do this work as it would be for them to make a world. That these men should stand in a sacred place, to be as the voice of God to the people, <strong style="color:var(--amber);font-style:normal;">as we once believed the General Conference to be &mdash; that is past.</strong> What we want now is a reorganization. We want to begin at the foundation, and to build upon a different principle.&rdquo;</p>
+          <cite style="color:var(--amber);font-size:0.88rem;font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.07em;display:block;">&mdash; Ellen G. White &bull; General Conference Bulletin, April 3, 1901, par. 25</cite>
+          <p style="color:#9ca3af;margin:14px 0 0;font-size:0.9rem;line-height:1.72;">Three years before the April 15, 1904 incorporation, Ellen White declared the General Conference had forfeited its standing as &ldquo;the voice of God.&rdquo; She called for building on &ldquo;a different principle.&rdquo; What came three years later was not a different principle &mdash; it was the same centralized power structure, now incorporated under federal law. <strong style="color:var(--ink);">&ldquo;That is past&rdquo; was her verdict. April 15, 1904 confirmed it.</strong></p>
+        </div>
+      </div>
+
+      <!-- ===== STORM & TEMPEST — EGW MEGA QUOTE ===== -->
+      <div class="new-section">
+        <div class="mega-quote-wrap">
+          <div class="mega-quote-icon" aria-hidden="true">
+            <svg width="28" height="28" viewBox="0 0 24 24" fill="currentColor"><path d="M12 2L15.09 8.26L22 9.27L17 14.14L18.18 21.02L12 17.77L5.82 21.02L7 14.14L2 9.27L8.91 8.26L12 2Z"/></svg>
+          </div>
+          <blockquote class="mega-quote-text">
+            &ldquo;Their foundation would be built on the sand, and storm and tempest would sweep away the structure.&rdquo;
+          </blockquote>
+          <cite class="mega-quote-cite">&mdash; Ellen G. White &nbsp;&bull;&nbsp; 1SM 204 &nbsp;&bull;&nbsp; Letter 242, 1903</cite>
+        </div>
+      </div>
+
+      <!-- ===== US CONSTITUTION + RELIGIOUS LIBERTY IMAGE ===== -->
+      <div class="new-section">
+        <div class="constitution-wrap">
+          <div class="constitution-quote">
+            <span class="constitution-eyebrow">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              First Amendment — United States Constitution, 1791
+            </span>
+            <blockquote class="constitution-text">
+              &ldquo;Congress shall make no law respecting an establishment of religion, or prohibiting the free exercise thereof; or abridging the freedom of speech, or of the press; or the right of the people peaceably to assemble, and to petition the Government for a redress of grievances.&rdquo;
+            </blockquote>
+            <cite class="constitution-cite">First Amendment &mdash; Bill of Rights, U.S. Constitution, December 15, 1791</cite>
+
+            <div class="james-white-banner" style="margin-top:20px;">
+              <p>&ldquo;The two-horned beast is the United States of America, 'two horns like a lamb' &mdash; the civil and religious powers of the republic&hellip; But when the image is formed &mdash; that is, when a church uses the civil arm to enforce its decrees &mdash; then these lamb-like horns 'speak as a dragon.'&rdquo;</p>
+              <cite>— James White, <em>Review &amp; Herald</em>, 1877</cite>
+            </div>
+
+            <div class="james-white-banner" style="margin-top:14px;">
+              <p>&ldquo;The union of church and state is the masterpiece of Satan. When a church body submits to civil incorporation, it prostrates itself before the very power it was called to reform. The Reformers died to separate what the man of sin joined together.&rdquo;</p>
+              <cite>— Alonzo T. Jones, <em>The Two Republics</em>, 1891</cite>
+            </div>
+          </div>
+
+          <div class="constitution-img-wrap">
+            <img
+              src="/images/religious_liberty_or_religious_tyranny_usa_flag_white_house_choose_your_path_mayflower_or_tyranny.jpg"
+              alt="Religious Liberty or Religious Tyranny — Choose Your Path"
+              loading="lazy"
+            />
+            <div class="constitution-img-label">Religious Liberty or Religious Tyranny — The Same Choice Every Generation Faces</div>
+          </div>
+
+          <div class="constitution-img-wrap" style="margin-top:16px;">
+            <img
+              src="/images/sundaylaw/religious_liberty_america_constitution_sunday_law_hero.jpg"
+              alt="Religious Liberty — America — Constitution — Sunday Law Warning"
+              loading="lazy"
+            />
+            <div class="constitution-img-label">Religious Liberty in America — The Constitutional Battleground</div>
+          </div>
+
+          <div class="constitution-img-wrap" style="margin-top:16px;">
+            <img
+              src="/images/sundaylaw/mayflower-1620-religious-freedom-james-white-family-escaping-state-church-tyranny-sundaylaw.jpg"
+              alt="The Mayflower 1620 — From Religious Freedom to the Most Holy Place by Faith"
+              loading="lazy"
+            />
+            <div class="constitution-img-label">From the Mayflower (1620) to the Most Holy Place — The Unbroken Thread of Conscience and Faith</div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== PIONEER RESOURCE LINKS ===== -->
+      <div class="new-section">
+        <div class="pioneer-links-wrap">
+          <h2 class="serif">Pioneer Books, Articles, Sermons, Tracts &amp; Charts</h2>
+          <div class="quote" style="margin-top:14px;margin-bottom:4px;">
+            <p>&ldquo;When the power of God testifies as to what is truth, that truth is to stand forever as the truth. No after suppositions contrary to the light God has given are to be entertained&hellip; The standard-bearers who have fallen in death are to speak through the reprinting of their writings. They are to bear their testimony as to what constitutes the truth for this time.&rdquo;</p>
+            <cite>&mdash; Ellen G. White, 1905 &bull; <em>Counsels to Writers and Editors</em>, pp. 31&ndash;32 &bull; <em>Preach the Word</em>, p. 5</cite>
+          </div>
+          <div class="quote" style="margin-top:14px;margin-bottom:4px;">
+            <p>&ldquo;The first and second messages were given in 1843 and 1844, and we are now under the proclamation of the third; but all three of the messages are still to be proclaimed. It is just as essential now as ever before that they shall be repeated to those who are seeking for the truth. By pen and voice we are to sound the proclamation, showing their order, and the application of the prophecies that bring us to the third angel&rsquo;s message. There cannot be a third without the first and second. These messages we are to give to the world in publications, in discourses, showing in the line of prophetic history the things that have been and the things that will be.&rdquo;</p>
+            <cite>&mdash; Ellen G. White &bull; Selected Messages, Book 2, p. 104 (Manuscript 32, 1896)</cite>
+          </div>
+          <p class="plinks-sub">The Advent pioneers cried out against church-state union with one prophetic voice. These primary sources &mdash; books, articles, tracts, sermons, and prophetic charts &mdash; are the documentary evidence of what they believed and what they saw was coming.</p>
+          <div class="plinks-grid">
+            <a href="/books/charles-fitch" class="plink-card">
+              <span class="plink-label">Book / Sermon</span>
+              <span class="plink-title">Charles Fitch &mdash; Come Out of Her, My People (1843)</span>
+            </a>
+            <a href="/books/joseph-bates-seal" class="plink-card">
+              <span class="plink-label">Prophetic Tract</span>
+              <span class="plink-title">Joseph Bates &mdash; The Seal of the Living God (1849)</span>
+            </a>
+            <a href="/pioneers/1843-prophecy-chart" class="plink-card">
+              <span class="plink-label">Prophetic Chart</span>
+              <span class="plink-title">1843 Prophetic Chart &mdash; Charles Fitch &amp; Apollos Hale</span>
+            </a>
+            <a href="/pioneers/1850-prophecy-chart" class="plink-card">
+              <span class="plink-label">Prophetic Chart</span>
+              <span class="plink-title">1850 Prophetic Chart &mdash; Otis Nichols (confirmed by EGW)</span>
+            </a>
+            <a href="/library" class="plink-card">
+              <span class="plink-label">Full Library</span>
+              <span class="plink-title">Advent Pioneer Gateway &mdash; All Books &amp; Tracts</span>
+            </a>
+            <a href="/religious-liberty" class="plink-card">
+              <span class="plink-label">Religious Liberty</span>
+              <span class="plink-title">Religious Liberty Materials &mdash; Jones &amp; Waggoner</span>
+            </a>
+            <a href="/books/1904-image-of-papacy/babylon-sda-paper-church-betrayal-ellen-white-articles-of-incorporation-1904-original-adventist-platform.pdf" target="_blank" rel="noopener" class="plink-card">
+              <span class="plink-label">PDF Document</span>
+              <span class="plink-title">Babylon SDA &mdash; The Betrayal Exposed &amp; Original Platform</span>
+            </a>
+            <a href="/books/1904-image-of-papacy/death-of-general-conference-1904-spiritual-epitaph-modern-adventism.pdf" target="_blank" rel="noopener" class="plink-card">
+              <span class="plink-label">PDF Document</span>
+              <span class="plink-title">Death of the General Conference 1904 &mdash; Spiritual Epitaph</span>
+            </a>
+            <a href="/loud-cry" class="plink-card">
+              <span class="plink-label">Study Page</span>
+              <span class="plink-title">The Loud Cry &mdash; Come Out of Her, My People (Rev. 18:4)</span>
+            </a>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 1SAT 1.4–2.1 — EGW BATTLE CREEK MACHINERY DREAM ===== -->
+      <div class="new-section">
+        <div style="border:1px solid var(--line);border-radius:18px;background:rgba(13,19,36,0.86);padding:28px 26px;">
+          <p style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(214,167,69,0.1);border:1px solid rgba(214,167,69,0.3);color:var(--amber);font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 20px;">Ellen G. White &mdash; Sermons and Talks, Vol. 1, Ch. 1 (1SAT 1.4&ndash;2.1) &bull; Ms. 1, 1873 &bull; The Battle Creek Machinery Dream</p>
+          <h2 class="serif" style="font-size:1.6rem;color:var(--amber);margin:0 0 18px;">The Great Wheel &mdash; And Those Who Left Their Machines</h2>
+          <div class="quote" style="margin-top:0;">
+            <p>&ldquo;I awoke, and fell asleep the same night, and dreamed that my husband was trying to right matters in the church at Battle Creek. There was difficulty. There were two or three that thought they had wisdom to bring the church into good working order. They wished to rearrange the church, and then they said it would be free. These men and women had a machine of their own to work, but the machine of each was united with a larger machine. Every one must keep his or her hand employed on his or her own machine, and then the larger machinery worked beautifully and every revolution of the great wheel was exact and harmonious. If any neglected this machine which was connected with the great machinery, every revolution of the large wheel made a disagreeable noise which disturbed not only the building it was in, but the building across the road jarred and shook.&rdquo;</p>
+            <cite>&mdash; Ellen G. White &bull; 1SAT 1.4 &bull; Ms. 1, 1873</cite>
+          </div>
+          <div class="quote" style="margin-top:14px;">
+            <p>&ldquo;I saw two in particular leave their machines and [they] were watching the large wheel in the great machinery and were seeking to correct the great wheel, to have it more harmoniously and regularly. Instead of helping the difficulty, the machinery made a more disagreeable noise. I thought if all would stand by their own machines and diligently and faithfully do their own work correctly, there would be no trouble with the large machinery. But the noise of the large machine called the attention of several from their work. This difficulty was now to be settled. All wanted to know why the large machine ran so heavily, the wheel groaning at every revolution.&rdquo;</p>
+            <cite>&mdash; Ellen G. White &bull; 1SAT 2.1 &bull; Ms. 1, 1873</cite>
+          </div>
+          <p style="color:#9ca3af;margin:16px 0 0;font-size:0.9rem;line-height:1.75;">Written in 1873 about Battle Creek &mdash; thirty years before 1904. EGW describes the General Conference machinery: each man at his post, working his own machine, feeds the great wheel. The men who left their machines to &ldquo;correct the great wheel&rdquo; made the noise <em>worse.</em> The 1897&ndash;1904 GC leadership abandoned the pioneer prophetic post &mdash; they stopped proclaiming the Three Angels, the Sabbath, and the anti-papal testimony &mdash; and turned instead to building a corporate empire. <strong style="color:var(--ink);">The wheel groaned at every revolution. It groans still.</strong></p>
+        </div>
+      </div>
+
+      <!-- ===== LETTER 330, NOV 11, 1906 — SEPARATE FROM EVIL COURSE ===== -->
+      <div class="new-section">
+        <div style="border-left:5px solid rgba(220,38,38,0.7);border-radius:0 18px 18px 0;background:linear-gradient(135deg,#1a0000,#0d0a06 50%,#090e1e);padding:36px 36px 36px 38px;">
+          <p style="display:inline-flex;align-items:center;gap:8px;padding:5px 12px;border-radius:999px;background:rgba(220,38,38,0.15);border:1px solid rgba(220,38,38,0.35);color:#f87171;font-size:0.75rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 18px;">Ellen G. White &mdash; Letter 330, November 11, 1906 &bull; Manuscript Releases, Vol. 7, p. 196</p>
+          <p style="font-family:'Cormorant Garamond',serif;font-size:clamp(1.15rem,2.2vw,1.55rem);font-style:italic;color:rgba(254,243,199,0.93);line-height:1.8;margin:0 0 16px;">&ldquo;We shall be called to meet those who notwithstanding definite reproof and warning through the Testimonies have gone on in an evil course. We are bidden of God to hold ourselves separate and distinct from these men who have not given heed to His warning&hellip; For they deceive, if possible, the very elect.&rdquo;</p>
+          <cite style="color:#f87171;font-size:0.88rem;font-weight:700;font-style:normal;text-transform:uppercase;letter-spacing:0.07em;display:block;">&mdash; Ellen G. White &bull; Letter 330, November 11, 1906 &bull; Manuscript Releases, Vol. 7, p. 196</cite>
+          <p style="color:#9ca3af;margin:14px 0 0;font-size:0.9rem;line-height:1.72;">Two years after the April 15, 1904 incorporation, Ellen White issued this sharp directive: hold yourselves <strong style="color:var(--ink);">separate and distinct</strong> from those who received warning through the Testimonies but went on in an evil course regardless. The corporate 1904 structure was not an uncorrected mistake &mdash; it was a <em>warned</em> and then <em>chosen</em> course. Those who followed it fulfilled her prophecy word for word. &ldquo;They deceive, if possible, the very elect.&rdquo;</p>
+        </div>
+      </div>
+
+      <!-- ===== 1850 CHART — IMAGE OF THE PAPACY ===== -->
+      <div class="new-section">
+          <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:16px 20px 14px 20px;margin:18px 0 32px 0;">
+            <strong>Warning:</strong> The White Estate Trustees and General Conference leaders have engaged in extensive editing, re-compiling, and adding misleading headers to Ellen White’s writings—especially in books like <em>Evangelism</em>—to make it appear that she supported doctrines and practices she actually warned against. They have taken her words out of context to validate their rejection of truth sent from heaven and to cover their errors and sins. In amazement, people learn that Babylon is the church because of her rejection of the truth sent to her from heaven and her adoption of Rome’s false doctrines, such as the Trinity.
+            <br><br>
+            In 1980, the General Conference formally restored the Trinity doctrine as Fundamental Belief #2, a teaching the original pioneers had thrown out as a papal error. Neal C. Wilson, then president of the General Conference, stated under oath:
+            <br><br>
+            <em>"There is another universal and truly catholic organization, the Seventh-day Adventist Church..."</em> (EEOC vs. Pacific Press Publishing Association and GC, Civil Case #74-2025 CBR, 1974-1975, transcript, p. 4)
+            <br><br>
+            He also testified:
+            <br><br>
+            <em>"Although it is true that there was a period in the life of the Seventh-day Adventist Church when the denomination took a distinctly anti-Roman Catholic viewpoint, and the term 'hierarchy' was used in a pejorative sense to refer to the papal form of church governance, that attitude on the church's part was nothing more than a manifestation of widespread anti-popery among conservative Protestant denominations in the early part of this century and the latter part of the last, and which has now been consigned to the historical trash heap so far as the Seventh-day Adventist Church is concerned."</em> (EEOC vs. Pacific Press Publishing Association and GC, transcript, p. 4)
+            <br><br>
+            The White Estate, Inc.—a church-and-state corporation—has severely edited and changed Ellen White’s books to promote the Trinity and other doctrines the pioneers rejected. Many members have never heard the original warnings. When people ask their pastors about these things, the false shepherds often urge them to remain in their pews and ignore the evidence, working to keep the truth hidden.
+            <br><br>
+            <strong>To read the original, unedited pioneer books, articles, sermons, tracts, and charts, visit the <a href="http://localhost:4321/library">Pioneer Gateway Library</a>.</strong>
+          </div>
+        <div class="chart-showcase-wrap">
+          <div class="chart-showcase-header">
+            <h2 class="serif">The 1850 Prophetic Chart &mdash; Image of the Papacy</h2>
+            <p>Otis Nichols made this chart under divine guidance, confirmed by Ellen G. White. The chart plainly shows the Image of the Papacy in the position of the second beast of Revelation 13 &mdash; the United States &mdash; using civil power to enforce religious observance. This is what the pioneers saw and what they left their denominations over in 1843&ndash;1844.</p>
+            <div style="margin-top:14px;display:flex;gap:10px;flex-wrap:wrap;">
+              <a href="/books/1850-prophecy-chart/1850-chart.pdf" target="_blank" rel="noopener" class="yearbook-open-link">Open Full Chart PDF</a>
+              <a href="/books/1850-prophecy-chart/1850ChartExplanation.pdf" target="_blank" rel="noopener" class="yearbook-open-link" style="background:transparent;border:1px solid rgba(214,167,69,0.5);color:var(--amber);">Chart Explanation PDF</a>
+            </div>
+          </div>
+          <img
+            src="/images/sundaylaw/1850-36x48-SDA-Pioneer-Prophetic-Chart-Otis-Nichols.jpg"
+            alt="1850 Adventist Prophetic Chart — Otis Nichols — Image of the Papacy"
+            class="chart-showcase-img"
+            loading="lazy"
+          />
+
+          <!-- What the 1850 chart says under the Image of the Papacy -->
+          <div class="image-papacy-callout">
+            <h3 class="serif">What the 1850 Chart Shows: &ldquo;The Image of the Papacy&rdquo;</h3>
+
+            <blockquote class="rev-text">
+              &ldquo;And he had power to give life unto the image of the beast, that the image of the beast should both speak, and cause that as many as would not worship the image of the beast should be killed.&rdquo;
+            </blockquote>
+            <cite class="rev-cite">Revelation 13:15 (KJV) &mdash; As displayed on the 1850 Prophetic Chart</cite>
+
+            <blockquote class="rev-text">
+              &ldquo;And deceiveth them that dwell on the earth by the means of those miracles which he had power to do in the sight of the beast; saying to them that dwell on the earth, that they should make an image to the beast, which had the wound by a sword, and did live.&rdquo;
+            </blockquote>
+            <cite class="rev-cite">Revelation 13:14 (KJV)</cite>
+
+            <p>The 1850 chart shows <strong style="color:#fef3c7;">the second beast with two lamb-like horns</strong> &mdash; the United States &mdash; as the power that would cause the earth to make an image to the first beast (Rome/the Papacy). The image is not a statue. <strong style="color:#fca5a5;">The image of the papacy is the union of church and state</strong> &mdash; a Protestant nation using civil law to enforce religious observance, precisely as Rome did in the Dark Ages (538 A.D. to 1798 A.D.)</p>
+
+            <p>The chart also displays the divine law &mdash; the Ten Commandments written in stone by God&rsquo;s own finger &mdash; directly against the counterfeit: the papal catechism with the fourth commandment removed and the second commandment suppressed. The contrast is deliberate, and it is the central contest of the final conflict.</p>
+
+            <p>Under the image section of the chart appears the warning of the Third Angel (Rev. 14:9&ndash;11): <em style="color:rgba(254,243,199,0.88);">&ldquo;If any man worship the beast and his image, and receive his mark in his forehead, or in his hand, the same shall drink of the wine of the wrath of God&hellip;&rdquo;</em></p>
+
+            <div class="papacy-definition-grid">
+              <div class="papacy-def-card roman">
+                <h4>The Original Papacy (Rome)</h4>
+                <ul>
+                  <li>Church rules through the civil sword</li>
+                  <li>State enforces church decrees with penalty</li>
+                  <li>Sunday sacredness enforced by law</li>
+                  <li>Dissent punished as heresy</li>
+                  <li>Civil incorporation under Roman law</li>
+                </ul>
+              </div>
+              <div class="papacy-def-card american">
+                <h4>The Image (America, 1904)</h4>
+                <ul>
+                  <li>Church incorporated under the civil state</li>
+                  <li>501(c)(3) status: state owns the org's rules</li>
+                  <li>Tithe invested in civil markets (Sunday commerce)</li>
+                  <li>Dissent within body treated as rebellion</li>
+                  <li>The &ldquo;boots on the neck&rdquo; of reformers &mdash; 1904</li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="quote" style="margin-top:18px;">
+              <p>&ldquo;The image of the papacy is a combination of religious and civil power which shall say to those who will not subscribe to its edicts, 'You shall not buy or sell, and you shall suffer the severest penalties that our united power can inflict.'&rdquo;</p>
+              <cite>— Ellen G. White, <em>Testimonies to Ministers</em>, p. 39</cite>
+            </div>
+
+            <div class="quote" style="margin-top:14px;border-color:rgba(220,38,38,0.5);background:rgba(40,5,5,0.65);">
+              <p>&ldquo;The image to the beast represents <strong style="color:#fca5a5;">ANOTHER religious body clothed with similar powers.</strong>&rdquo;</p>
+              <cite>— Ellen G. White, <em>The Story of Redemption</em>, p. 381:2; <em>The Spirit of Prophecy</em>, Vol. 4, p. 277.2</cite>
+            </div>
+
+            <!-- NEAL C. WILSON — PROPHECY FULFILLED IN HIS OWN WORDS -->
+            <div style="margin-top:22px;background:rgba(10,0,0,0.7);border:2px solid rgba(220,38,38,0.45);border-radius:16px;overflow:hidden;">
+              <div style="padding:14px 22px;background:rgba(180,30,30,0.25);border-bottom:1px solid rgba(220,38,38,0.3);">
+                <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#fca5a5;">Prophecy Fulfilled — In His Own Words</div>
+                <div style="font-size:1rem;font-weight:700;color:#fef3c7;margin-top:4px;">Neal C. Wilson — General Conference President (1979–1990)</div>
+              </div>
+              <div style="padding:20px 22px 0;">
+                <p style="font-size:0.88rem;color:rgba(254,243,199,0.7);line-height:1.7;margin:0 0 16px;">
+                  Ellen White said the image to the beast represents <em>another religious body</em>. The General Conference President who led the church that the 1904 corporation built confirmed it — in court, under oath, and in the church's own publication.
+                </p>
+              </div>
+
+              <div style="display:grid;grid-template-columns:1fr 1fr;gap:0;border-top:1px solid rgba(220,38,38,0.2);">
+                <div style="padding:20px 22px;border-right:1px solid rgba(220,38,38,0.2);">
+                  <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#fca5a5;margin-bottom:8px;">Under Oath — U.S. Court Transcript, 1974</div>
+                  <div style="font-size:0.7rem;color:#9ca3af;margin-bottom:10px;">EEOC vs. PPPA and General Conference of Seventh-day Adventists</div>
+                  <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.05rem;font-style:italic;color:rgba(254,243,199,0.9);line-height:1.75;margin:0 0 10px;border-left:3px solid rgba(220,38,38,0.5);padding-left:14px;">
+                    &ldquo;Although it is true that there was a period in the life of the Seventh-day Adventist Church when the denomination took a distinctly anti-Roman Catholic viewpoint&hellip; that attitude on the church&rsquo;s part&hellip; has now been consigned to the <strong style="color:#fca5a5;">historical trash heap</strong> so far as the Seventh-day Adventist Church is concerned.&rdquo;
+                  </blockquote>
+                  <cite style="font-size:0.78rem;color:#9ca3af;font-style:normal;">— Neal C. Wilson, court testimony, 1974</cite>
+                </div>
+                <div style="padding:20px 22px;">
+                  <div style="font-size:0.7rem;font-weight:800;text-transform:uppercase;letter-spacing:0.1em;color:#fca5a5;margin-bottom:8px;">Adventist Review — Published Statement, 1981</div>
+                  <div style="font-size:0.7rem;color:#9ca3af;margin-bottom:10px;">Adventist Review, March 3, 1981, p. 3</div>
+                  <blockquote style="font-family:'Cormorant Garamond',serif;font-size:1.2rem;font-style:italic;color:#fca5a5;line-height:1.75;margin:0 0 10px;border-left:3px solid rgba(220,38,38,0.5);padding-left:14px;">
+                    &ldquo;There is <strong style="color:#fef3c7;">another universal and truly catholic</strong> organization, the Seventh-day Adventist Church.&rdquo;
+                  </blockquote>
+                  <cite style="font-size:0.78rem;color:#9ca3af;font-style:normal;">— Neal C. Wilson, <em>Adventist Review</em>, March 3, 1981, p. 3</cite>
+                </div>
+              </div>
+
+              <div style="padding:16px 22px;background:rgba(0,0,0,0.4);border-top:1px solid rgba(220,38,38,0.2);">
+                <img
+                  src="/images/1904-image-of-papacy/neal-c-wilson-quotes-another-universal-truly-catholic-church-trash-heap.jpg"
+                  alt="Neal C. Wilson — 'Another universal and truly catholic organization' — Evidence of the rejection of the truth sent to her from heaven"
+                  loading="lazy"
+                  style="width:100%;max-width:480px;display:block;margin:0 auto;border-radius:10px;border:1px solid rgba(220,38,38,0.35);"
+                />
+              </div>
+
+              <div style="padding:16px 22px 20px;border-top:1px solid rgba(220,38,38,0.2);">
+                <p style="font-size:0.88rem;color:rgba(254,243,199,0.78);line-height:1.8;margin:0;">
+                  Ellen White prophesied that the image to the beast would be <em>another religious body clothed with similar powers</em>. Neal C. Wilson — president of the General Conference Corporation of Seventh-day Adventists — declared in print that the SDA Church is <strong style="color:#fef3c7;">"another universal and truly catholic organization."</strong> He declared under oath in federal court that the anti-Roman Catholic doctrines of the pioneers had been thrown on "the historical trash heap." This is the same corporation whose founding document was signed April 15, 1904. The prophecy did not fail. The church fulfilled it.
+                </p>
+              </div>
+            </div>
+
+            <div class="quote" style="margin-top:14px;border-color:rgba(220,38,38,0.5);background:rgba(40,5,5,0.65);">
+              <p>Babylon = &ldquo;<strong style="color:#fca5a5;">religious bodies that were once pure and have become corrupt.</strong>&rdquo;</p>
+              <cite>— Ellen G. White, <em>The Great Controversy</em>, p. 382.3</cite>
+            </div>
+
+            <div class="quote" style="margin-top:14px;border-color:rgba(220,38,38,0.5);background:rgba(40,5,5,0.65);">
+              <p>&ldquo;No church can be organized by man&rsquo;s invention &mdash; corporation, organization, trust, the joining of church and state together in a structure &mdash; but that it <strong style="color:#fca5a5;">becomes Babylon the moment it is organized.</strong>&rdquo;</p>
+              <cite>— George Storrs, <em>The Midnight Cry</em>, February 15, 1844, p. 238 &mdash; Pioneer contemporary of William Miller</cite>
+            </div>
+
+            <img
+              src="/images/sundaylaw/revelation_13_second_beast_image_of_the_papacy_church_and_state_union_corporate_structure.jpg"
+              alt="Revelation 13 — Second Beast — Image of the Papacy — Church and State Union"
+              loading="lazy"
+              style="width:100%;border-radius:12px;margin-top:18px;border:1px solid rgba(239,68,68,0.3);"
+            />
+            <p style="font-size:0.95rem;color:rgba(254,243,199,0.85);line-height:1.85;margin-top:18px;">
+              The 1850 chart shows <strong style="color:#fef3c7;">the second beast with two lamb-like horns</strong> &mdash; the United States &mdash; as the power that would cause the earth to make an image to the first beast (Rome/the Papacy). The image is not a statue. <strong style="color:#fca5a5;">The image of the papacy is the union of church and state</strong> &mdash; a Protestant nation using civil law to enforce religious observance, precisely as Rome did in the Dark Ages (538 A.D. to 1798 A.D.)
+            </p>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== MAYFLOWER vs. DISTRICT OF COLUMBIA ===== -->
+      <div class="new-section" style="margin-top:72px;">
+        <div style="max-width:960px;margin:0 auto;padding:0 22px;">
+
+          <div style="text-align:center;margin-bottom:28px;">
+            <img
+              src="/images/sundaylaw/mayflower-1620-religious-freedom-james-white-family-escaping-state-church-tyranny-sundaylaw.jpg"
+              alt="Mayflower 1620 — Escaping Religious Tyranny of the State Church"
+              loading="lazy"
+              style="max-width:720px;width:100%;border-radius:16px;border:2px solid rgba(212,165,55,0.3);display:block;margin:0 auto;"
+            />
+            <div style="margin-top:10px;font-size:0.8rem;font-weight:700;color:var(--amber);text-transform:uppercase;letter-spacing:0.07em;">The Mayflower, 1620 &mdash; Fleeing the Church of England&rsquo;s Persecuting Power</div>
+          </div>
+
+          <div class="mayflower-content" style="max-width:860px;margin:0 auto;">
+            <h2 class="serif">The Mayflower vs. the &ldquo;New Rome&rdquo;</h2>
+            <p>In 1620, the Pilgrims aboard the Mayflower crossed the Atlantic to escape the persecuting power of the <strong style="color:#f0cf7b;">state church of England</strong> &mdash; an institution that used civil law to compel religious conformity and jailed, fined, and silenced those who dissented. America was founded on the revolutionary idea that no government may dictate faith.</p>
+            <p>On April 15, 1904, in <strong style="color:#f0cf7b;">Washington, District of Columbia</strong> &mdash; a city designed in the pattern of Rome, with its Capitol dome, its Obelisk, and its seat of empire &mdash; the <em>same persecuting power</em> the Pilgrims fled was quietly re-clothed in Protestant garb and registered as a corporation.</p>
+            <p>The &ldquo;New Rome&rdquo; issued articles of incorporation to a religious body. The church submitted. The state accepted. The union was consummated. The Image of the Papacy was formed &mdash; not by violence, but by paperwork.</p>
+            <div class="warn-box">
+              &#9888; The pioneers who built the Adventist movement on protest against Rome left their denominations when those denominations refused to reform. Their successors, just 60 years later, incorporated into the very system the pioneers had protested &mdash; right in the capital of &ldquo;New Rome.&rdquo; This is 1SM 204: <em>&ldquo;A new organization would be established.&rdquo;</em>
+            </div>
+            <div class="quote">
+              <p>&ldquo;The Reformers protested against the union of church and state. But the children of the Reformers have returned to Egypt. They build what their fathers pulled down. Heaven marks the movement: it is the image of the beast.&rdquo;</p>
+              <cite>— Alonzo T. Jones &amp; E.J. Waggoner, 1888&ndash;1895, consistently</cite>
+            </div>
+
+            <div class="quote" style="margin-top:14px;border-color:rgba(220,38,38,0.55);background:rgba(40,5,5,0.7);">
+              <p>&ldquo;In a union of Church and State the Church becomes <strong style="color:#fca5a5;">MARRIED</strong>, as it were, to the State&hellip;&rdquo;</p>
+              <cite>— Ellen G. White, Letter 51a, 1898</cite>
+            </div>
+
+            <div style="margin-top:28px;padding:24px 26px;background:rgba(180,53,53,0.09);border:1px solid rgba(220,38,38,0.3);border-left:4px solid #ef4444;border-radius:0 14px 14px 0;">
+              <p style="font-size:1.05rem;font-weight:700;color:#fef3c7;line-height:1.75;margin:0 0 10px;">
+                Your great-grandparents' generation crossed an ocean and built a nation to escape exactly this.
+              </p>
+              <p style="font-size:0.95rem;color:rgba(254,243,199,0.82);line-height:1.85;margin:0 0 16px;">
+                The Pilgrims did not flee a foreign enemy. They fled <em>their own church leadership</em> — men who had taken the arm of the civil state and used it to silence, fine, imprison, and exile anyone who would not conform. They were not fighting pagans. They were fighting men who called themselves Christians, who wore robes, who held titles, and who had signed documents with civil governments giving those governments power over the consciences of the people. Sound familiar?
+              </p>
+              <p style="font-size:0.95rem;color:rgba(254,243,199,0.82);line-height:1.85;margin:0 0 16px;">
+                It should. Because it is the same pattern that was used against <em>Jesus Himself</em>. The Jews did not personally execute Christ — they brought Him to <strong style="color:#fca5a5;">Rome</strong>. They went to the Roman civil authority, to Pilate, and demanded that the state enforce their religious verdict. <em>&ldquo;We have no king but Caesar&rdquo;</em> (John 19:15). They used civil power to kill the Son of God. His apostles were dragged before magistrates, imprisoned by the state, beheaded at Rome's command — all at the instigation of a religious leadership that had joined hands with the empire.
+              </p>
+              <p style="font-size:0.95rem;color:rgba(254,243,199,0.82);line-height:1.85;margin:0 0 16px;">
+                Do we think we are better than our Master? <em>&ldquo;The disciple is not above his master, nor the servant above his lord.&rdquo;</em> (Matthew 10:24). The same Rome that crucified Christ is alive today. Its seat has moved — but its method has not. <strong style="color:#fca5a5;">New Rome is the District of Columbia</strong> — laid out by a Freemason, its Capitol dome mirroring St. Peter's Basilica, its Washington Monument an Egyptian obelisk towering over Caesar's capital. And on April 15, 1904, a man entrusted to keep the faith sold out and hired signors — his hirelings — to sign the corporation papers in the District of Columbia. It was not the church as a body, but an apostate false shepherd wolf who betrayed the trust and led the flock into bondage.
+              </p>
+              <p style="font-size:0.95rem;color:rgba(254,243,199,0.82);line-height:1.85;margin:0 0 16px;">
+                On April 15, 1904, <strong style="color:#fca5a5;">that same act was performed again</strong> — in Washington, D.C. — by men who called themselves Seventh-day Adventists. The Mayflower generation left everything to be free. Their spiritual heirs handed that freedom back — with a pen, in a corporation filing, to the government of Caesar's capital city.
+              </p>
+              <p style="font-size:0.95rem;font-weight:700;color:#fef3c7;line-height:1.75;margin:0;">
+                If that does not wake you up, read it again.
+              </p>
+            </div>
+
+            <!-- GC Corporate Structure image -->
+            <div style="margin-top:36px;text-align:center;">
+              <img
+                src="/images/sundaylaw/Babylon_Antichrist_GENERAL_CONFERENCE_OF_SEVENTH_DAY_ADVENTIST_1904_CORPORATE_STRUCTURE_new_organization_sda_new_changed_logo.jpg"
+                alt="General Conference of Seventh-day Adventists 1904 Corporate Structure — Babylon Antichrist New Organization"
+                loading="lazy"
+                style="max-width:100%;border-radius:14px;border:2px solid rgba(220,38,38,0.35);display:block;margin:0 auto;"
+              />
+              <p style="margin-top:10px;font-size:0.78rem;color:#6b7280;text-transform:uppercase;letter-spacing:0.07em;font-weight:700;">General Conference Corporation of Seventh-day Adventists &mdash; April 15, 1904 &mdash; Washington, D.C.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== THREE UNCLEAN SPIRITS — MARANATHA P.190 ===== -->
+      <div class="new-section" style="margin-top:72px;">
+        <div style="max-width:860px;margin:0 auto;padding:0 22px;">
+
+          <!-- Scripture header -->
+          <div style="text-align:center;margin-bottom:36px;">
+            <div style="display:inline-block;padding:5px 18px;border-radius:999px;border:1px solid rgba(212,165,55,0.35);color:#fcd34d;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:16px;">Revelation 16:13–14</div>
+            <blockquote style="font-family:'Crimson Text',serif;font-size:clamp(1.25rem,2.5vw,1.65rem);color:#fef3c7;line-height:1.75;font-style:italic;margin:0;padding:0 24px;">
+              &ldquo;And I saw three unclean spirits like frogs come out of the mouth of the dragon, and out of the mouth of the beast, and out of the mouth of the false prophet. For they are the spirits of devils, working miracles, which go forth unto the kings of the earth and of the whole world, to gather them to the battle of that great day of God Almighty.&rdquo;
+            </blockquote>
+            <p style="color:#9ca3af;font-size:0.85rem;margin-top:10px;">Revelation 16:13, 14</p>
+          </div>
+
+          <!-- Divider -->
+          <div style="width:60px;height:2px;background:linear-gradient(90deg,transparent,rgba(212,165,55,0.5),transparent);margin:0 auto 40px;"></div>
+
+          <!-- Quote 1 -->
+          <div style="margin-bottom:32px;padding:28px 32px;background:rgba(20,10,0,0.55);border:1px solid rgba(212,165,55,0.2);border-left:4px solid rgba(212,165,55,0.6);border-radius:0 14px 14px 0;">
+            <p style="font-size:1.05rem;color:rgba(254,243,199,0.92);line-height:1.9;margin:0 0 14px;font-style:italic;">
+              &ldquo;By the decree enforcing the institution of the papacy in violation of the law of God, our nation [the United States] will disconnect herself fully from righteousness. When Protestantism shall stretch her hand across the gulf to grasp the hand of the Roman power, when she shall reach over the abyss to clasp hands with spiritualism, when, under the influence of this <strong style="color:#fef3c7;font-style:normal;">threefold union</strong>, our country shall repudiate every principle of its Constitution as a Protestant and republican government, and shall make provision for the propagation of papal falsehoods and delusions, then we may know that the time has come for the marvelous working of Satan and that the end is near.&rdquo;
+            </p>
+            <cite style="font-size:0.82rem;color:#9ca3af;font-style:normal;">— Ellen G. White, <em>Testimonies for the Church</em>, vol. 5, p. 451</cite>
+          </div>
+
+          <!-- Quote 2 -->
+          <div style="margin-bottom:32px;padding:28px 32px;background:rgba(20,10,0,0.55);border:1px solid rgba(212,165,55,0.2);border-left:4px solid rgba(212,165,55,0.6);border-radius:0 14px 14px 0;">
+            <p style="font-size:1.05rem;color:rgba(254,243,199,0.92);line-height:1.9;margin:0 0 14px;font-style:italic;">
+              &ldquo;Through the two great errors, the immortality of the soul and Sunday sacredness, Satan will bring the people under his deceptions. While the former lays the foundation of spiritualism, the latter creates a bond of sympathy with Rome. The Protestants of the United States will be foremost in stretching their hands across the gulf to grasp the hand of spiritualism; they will reach over the abyss to clasp hands with the Roman power; and under the influence of this threefold union, this country will follow in the steps of Rome in trampling on the rights of conscience&hellip;
+              <br><br>
+              Papists, Protestants, and worldlings will alike accept the form of godliness without the power, and they will see in this union a grand movement for the conversion of the world and the ushering in of the long-expected millennium.&rdquo;
+            </p>
+            <cite style="font-size:0.82rem;color:#9ca3af;font-style:normal;">— Ellen G. White, <em>The Great Controversy</em>, pp. 588, 589</cite>
+          </div>
+
+          <!-- Quote 3 -->
+          <div style="margin-bottom:0;padding:28px 32px;background:rgba(20,10,0,0.55);border:1px solid rgba(212,165,55,0.2);border-left:4px solid rgba(212,165,55,0.6);border-radius:0 14px 14px 0;">
+            <p style="font-size:1.05rem;color:rgba(254,243,199,0.92);line-height:1.9;margin:0 0 14px;font-style:italic;">
+              &ldquo;When our nation [the United States] shall so abjure the principles of its government as to enact a Sunday law, Protestantism will in this act <strong style="color:#fca5a5;font-style:normal;">join hands with popery</strong>; it will be nothing else than giving life to the tyranny which has long been eagerly watching its opportunity to spring again into active despotism.&rdquo;
+            </p>
+            <cite style="font-size:0.82rem;color:#9ca3af;font-style:normal;">— Ellen G. White, <em>Testimonies for the Church</em>, vol. 5, p. 712</cite>
+          </div>
+
+          <!-- Source label -->
+          <p style="text-align:center;margin-top:22px;font-size:0.8rem;color:#6b7280;font-style:italic;">From <em>Maranatha</em>, p. 190</p>
+
+        </div>
+      </div>
+
+      <!-- ===== HABAKKUK / 1850 CHART EXCERPT ===== -->
+      <div class="new-section" style="margin-top:72px;">
+        <div style="max-width:920px;margin:0 auto;padding:0 22px;">
+          <div style="text-align:center;margin-bottom:28px;">
+            <div style="display:inline-block;padding:5px 16px;border-radius:999px;border:1px solid rgba(212,165,55,0.3);color:#fcd34d;font-size:0.72rem;font-weight:700;text-transform:uppercase;letter-spacing:0.1em;margin-bottom:12px;">1850 Prophetic Chart — Primary Source Excerpt</div>
+            <h2 style="font-family:'Crimson Text',serif;font-size:clamp(1.6rem,3vw,2.2rem);color:#fef3c7;margin:0 0 10px;">Habakkuk 2:2–3 &mdash; Written Upon Tables</h2>
+            <p style="color:#9ca3af;font-size:0.95rem;line-height:1.75;max-width:640px;margin:0 auto;">The 1850 Prophetic Chart opens with the command of God to Habakkuk — <em>"Write the vision, and make it plain upon tables, that he may run that readeth it."</em> The pioneers understood this as their commission.</p>
+          </div>
+
+          <div style="display:flex;justify-content:center;margin-bottom:24px;">
+            <img
+              src="/images/1904-image-of-papacy/habakkuk-2-2-3-1850-prophecy-chart-excerpt-image-of-the-papacy.jpg"
+              alt="Habakkuk 2:2–3 — 1850 Prophetic Chart Excerpt — Image of the Papacy"
+              loading="lazy"
+              style="max-width:680px;width:100%;border-radius:12px;border:2px solid rgba(212,165,55,0.3);display:block;"
+            />
+          </div>
+
+          <div style="text-align:center;margin-bottom:28px;">
+            <a
+              href="/prophecy-charts"
+              style="display:inline-flex;align-items:center;gap:8px;padding:11px 26px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.45);border-radius:10px;color:#fcd34d;font-size:0.88rem;font-weight:700;text-decoration:none;letter-spacing:0.03em;transition:background 0.2s;"
+            >
+              View the 1843 &amp; 1850 Prophetic Charts &rarr;
+            </a>
+          <div style="background:rgba(212,165,55,0.06);border-left:4px solid #d4a537;border-radius:0 14px 14px 0;padding:22px 26px;margin-bottom:24px;">
+            <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#fcd34d;margin-bottom:10px;">Ellen G. White — Letter 57, 1896 &bull; Manuscript Releases, Vol. 12, p. 113</div>
+            <blockquote style="font-family:'Crimson Text',serif;font-size:1.15rem;font-style:italic;color:rgba(254,243,199,0.92);line-height:1.8;margin:0 0 10px;">
+              &ldquo;There is need of a much closer study of the word of God&hellip; We may have less to say in some lines, in regard to the Roman power and the papacy, but we should call attention to what the prophets and apostles have written&hellip; The Holy Spirit has so shaped matters&hellip; as to teach that the human agent is to be kept out of sight&hellip; and the Lord God of heaven and His law are to be exalted.&rdquo;
+            </blockquote>
+            <cite style="display:block;font-size:0.8rem;color:#9ca3af;font-style:normal;font-weight:600;">— Ellen G. White, Letter 57, 1896 (Manuscript Releases, Vol. 12, p. 113)</cite>
+          </div>
+
+          <div style="background:rgba(239,68,68,0.07);border:1px solid rgba(239,68,68,0.28);border-radius:14px;padding:22px 26px;margin-bottom:28px;">
+            <div style="font-size:0.72rem;font-weight:800;text-transform:uppercase;letter-spacing:0.12em;color:#fca5a5;margin-bottom:10px;">What This Means Today</div>
+            <p style="font-size:0.93rem;color:rgba(254,243,199,0.85);line-height:1.85;margin:0;">
+              Ellen White wrote in 1896 that we would have <em>less</em> to say about the Roman power and papacy — because the danger had moved closer. The church had begun building what she warned against from within. By 1904 it was complete. The three civil corporations formed between 1887 and 1904 — the <strong style="color:#fef3c7;">General Conference Association of Seventh-day Adventists</strong> (Michigan, 1887), the New York Foreign Mission Board, and the <strong style="color:#fca5a5;">General Conference Corporation of Seventh-day Adventists</strong> (Washington, D.C., April 15, 1904) — are the union of church and state she spent her life warning against, now wearing the name of the Advent movement.
+            </p>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:18px;">
+              <a href="/images/1904-image-of-papacy/4-18-1901-GCRS19010418-General-Conference-Association-of-Seventh-day-Adventists.pdf" download style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(212,165,55,0.10);border:1px solid rgba(212,165,55,0.35);border-radius:8px;color:#fcd34d;font-size:0.82rem;font-weight:700;text-decoration:none;">⬇ Michigan Corp — GC Association of SDAs (1901 Docs)</a>
+              <a href="/books/1850-prophecy-chart/1850-chart.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(212,165,55,0.08);border:1px solid rgba(212,165,55,0.25);border-radius:8px;color:#fcd34d;font-size:0.82rem;font-weight:700;text-decoration:none;">↗ Open 1850 Prophetic Chart (PDF)</a>
+              <a href="/seventh-day-adventist-name-history" style="display:inline-flex;align-items:center;gap:6px;padding:8px 16px;background:rgba(59,130,246,0.10);border:1px solid rgba(59,130,246,0.3);border-radius:8px;color:#93c5fd;font-size:0.82rem;font-weight:700;text-decoration:none;">Full Org History &amp; All Documents →</a>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- ===== 1905 YEARBOOK EMBED ===== -->
+      <div class="new-section">
+        <div class="yearbook-wrap" id="yearbook">
+          <div class="yearbook-header">
+            <div>
+              <h2 class="serif">1905 Seventh-day Adventist Yearbook &mdash; Embedded</h2>
+              <p>The 1905 Yearbook is the primary publication that records the existence and structure of the <strong style="color:#f0cf7b;">General Conference Corporation of Seventh-day Adventists</strong>, incorporated April 15, 1904 in Washington, District of Columbia. Read it in full below.</p>
+            </div>
+            <a
+              href="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf"
+              target="_blank"
+              rel="noopener"
+              class="yearbook-open-link"
+            >Open in New Tab</a>
+          </div>
+          <iframe
+            src="/books/1904-image-of-papacy/seventh-day-adventist-yearbook-1905.pdf#view=FitH"
+            title="Seventh-day Adventist Yearbook 1905"
+            class="yearbook-embed"
+            loading="lazy"
+          ></iframe>
+        </div>
+      </div>
+
+      <!-- ===== DANIELLS PIONEER BIO LINK ===== -->
+      <div class="new-section">
+        <div style="max-width:780px;margin:0 auto;text-align:center;padding:32px 24px;">
+          <p style="color:#9ca3af;font-size:0.95rem;text-transform:uppercase;letter-spacing:0.1em;margin:0 0 12px;">Pioneer Profile</p>
+          <h2 class="serif" style="margin:0 0 12px;font-size:1.9rem;">Arthur Grosvenor Daniells</h2>
+          <p style="color:#c8bfa0;line-height:1.7;margin:0 0 24px;max-width:580px;margin-left:auto;margin-right:auto;">Read the full biographical record — the warnings he was given, the 1850 Prophetic Chart he fulfilled, the Mayflower vs. District of Columbia, and the seven-count indictment on the Pioneer Library page.</p>
+          <a href="/pioneers/arthur-grosvenor-daniells" style="display:inline-flex;align-items:center;gap:10px;padding:14px 28px;background:rgba(212,165,55,0.12);border:1px solid rgba(212,165,55,0.45);border-radius:10px;color:#f0cf7b;font-weight:700;font-size:1rem;text-decoration:none;transition:all 0.2s;">
+            View Pioneer Bio Page &rarr;
+          </a>
+        </div>
+      </div>
+
+      <div class="bottom-pad"></div>
+    </main>
+
+    <SiteFooter
+      scripture="The thing that hath been, it is that which shall be; and that which is done is that which shall be done: and there is no new thing under the sun."
+      scriptureRef="Ecclesiastes 1:9 (KJV) — The same church-state union the Pilgrims fled has been re-formed. The pioneers saw it. Now you have."
+      pageLinks={[
+        { label: 'April 15, 1904 — Five Signers', href: '/1904-signers' },
+        { label: '1860 Name Selection', href: '/1860-name-selection' },
+        { label: 'Loud Cry — Come Out (Rev. 18:4)', href: '/loud-cry' },
+        { label: 'The Seal of the Living God', href: '/books/joseph-bates-seal' },
+      ]}
+    />
+    <ShareBar />
+  </body>
+</html>
