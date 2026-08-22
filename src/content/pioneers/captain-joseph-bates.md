@@ -107,14 +107,25 @@ Ellen White recorded that before she received a vision confirming the Sabbath, B
 
 ## The Sealing — A Seal of the Living God (1849)
 
-Joseph Bates's 1849 tract, *A Seal of the Living God*, is one of the most important documents of early Adventism. In it, Bates argued that:
+Joseph Bates's 1849 tract, <a href="/books/joseph-bates-seal/"><em>A Seal of the Living God</em></a> (1849), is one of the most important documents of early Adventism. In it, Bates argued that:
 
 - The seventh-day Sabbath is the seal of the living God referenced in Revelation 7
 - The 144,000 of Revelation 7 and 14 are sealed with this mark — meaning they keep the commandments of God
 - The sealing work began in connection with the heavenly sanctuary ministry on October 22, 1844
 - The number of the 144,000 was being made up during the investigative judgment period
 
+<div style="margin:1.6em 0;display:flex;flex-wrap:wrap;gap:0.9em;">
+  <a href="/books/joseph-bates/seal.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#fcd34d,#fbbf24);color:#1f2937;font-weight:700;padding:0.85em 1.6em;border-radius:10px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);">⬇ Download <em>A Seal of the Living God</em> (PDF)</a>
+  <a href="/books/joseph-bates-seal/" style="display:inline-flex;align-items:center;gap:8px;background:transparent;color:#fcd34d;font-weight:700;padding:0.85em 1.6em;border-radius:10px;border:2px solid #fcd34d;text-decoration:none;">Read the Full Book Page →</a>
+</div>
+
 Bates connected the Sabbath, the sanctuary, and the sealing into a coherent prophetic framework that became central to Sabbatarian Adventism. His insight was not that the Sabbath was merely a day of rest — it was the identifying sign of those who are "married to the Lamb" as His bride, chosen through the investigative judgment.
+
+Elder John Norton Loughborough, one of early Adventism's most durable pioneers, carried the sealing message forward into the twentieth century with his own 1916 study, exploring the same Revelation 7 sealing truth Bates had first laid out nearly seventy years earlier.
+
+<div style="margin:1.6em 0;">
+  <a href="/books/john-norton-loughborough/1916_loughborough_questionsOnTheSealingMessage.pdf" target="_blank" rel="noopener" style="display:inline-flex;align-items:center;gap:8px;background:linear-gradient(90deg,#fcd34d,#fbbf24);color:#1f2937;font-weight:700;padding:0.85em 1.6em;border-radius:10px;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.12);">⬇ Read J.N. Loughborough — <em>Questions on the Sealing Message</em> (1916)</a>
+</div>
 
 **Read the sealing tract:** [A Seal of the Living God (PDF)](/books/joseph-bates/seal.pdf)
 **Three Angels / Seal Summary:** [Full Summary (PDF)](/books/joseph-bates/three-angels-messages-seal-of-god-revelation-14-full-summary-warning-pdf-144000.pdf)
@@ -155,11 +166,15 @@ He is remembered as:
 - Early health reform advocate
 - One of the central voices of the Sabbath Conferences (1848–1850) that built the pillars of Adventism
 
-His connection between Sabbath, sanctuary, and sealing — articulated in *A Seal of the Living God* (1849) — remains the prophetic framework through which the 144,000 are understood to be sealed before the close of probation and the standing up of Michael (Daniel 12:1).
+His connection between Sabbath, sanctuary, and sealing — articulated in <a href="/books/joseph-bates-seal/"><em>A Seal of the Living God</em> (1849)</a> — remains the prophetic framework through which the 144,000 are understood to be sealed before the close of probation and the standing up of Michael (Daniel 12:1).
+
+<div style="margin:2em 0 0.5em 0;display:flex;justify-content:center;">
+  <a href="/books/joseph-bates-seal/" style="display:inline-block;background:linear-gradient(90deg,#fcd34d,#fbbf24);color:#1f2937;font-size:1.15rem;font-weight:800;padding:1em 2.2em;border-radius:12px;text-decoration:none;box-shadow:0 4px 20px rgba(251,191,36,0.25);border:2px solid #fbbf24;">📖 Explore the Full Book: <em>A Seal of the Living God</em> (1849)</a>
+</div>
 
 ## Sources
 
 - Wikipedia: https://en.wikipedia.org/wiki/Joseph_Bates_(Adventist)
 - Autobiography: *Autobiography of Elder Joseph Bates* (1868)
-- Primary document: [A Seal of the Living God (1849)](/books/joseph-bates/seal.pdf)
+- Primary document: [A Seal of the Living God (1849)](/books/joseph-bates-seal/)
 
