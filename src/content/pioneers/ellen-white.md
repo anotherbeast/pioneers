@@ -193,7 +193,7 @@ He also testified:
 <br><br>
 The White Estate, Inc.—a church-and-state corporation—has severely edited and changed Ellen White’s books to promote the Trinity and other doctrines the pioneers rejected. Many members have never heard the original warnings. When people ask their pastors about these things, the false shepherds often urge them to remain in their pews and ignore the evidence, working to keep the truth hidden.
 <br><br>
-<strong>To read the original, unedited pioneer books, articles, sermons, tracts, and charts, visit the <a href="http://localhost:4321/library">Pioneer Gateway Library</a>.</strong>
+<strong>To read the original, unedited pioneer books, articles, sermons, tracts, and charts, visit the <a href="https://sundaylaw.com/library">Pioneer Gateway Library</a>.</strong>
 </div>
 
 The five who signed are named and their records are linked at: [/1904-signers](/1904-signers)
@@ -315,7 +315,7 @@ He also testified:
 <br><br>
 The White Estate, Inc.—a church-and-state corporation—has severely edited and changed Ellen White’s books to promote the Trinity and other doctrines the pioneers rejected. Many members have never heard the original warnings. When people ask their pastors about these things, the false shepherds often urge them to remain in their pews and ignore the evidence, working to keep the truth hidden.
 <br><br>
-<strong>To read the original, unedited pioneer books, articles, sermons, tracts, and charts, visit the <a href="http://localhost:4321/library">Pioneer Gateway Library</a>.</strong>
+<strong>To read the original, unedited pioneer books, articles, sermons, tracts, and charts, visit the <a href="https://sundaylaw.com/library">Pioneer Gateway Library</a>.</strong>
 </div>
 
 ## James White And Captain Joseph Bates
@@ -354,7 +354,7 @@ Before she became for millions a prophetic authority, she was, in her own langua
 # Key Historical Works
 
 <div style="background:rgba(34,197,94,0.08);border:1px solid rgba(34,197,94,0.25);border-radius:10px;padding:18px 20px 14px 20px;margin:24px 0 32px 0;">
-<a href="http://localhost:4321/pioneer-books" style="display:inline-block;padding:18px 32px;margin:24px 0 32px 0;background:linear-gradient(90deg,#fcd34d,#fbbf24);border:none;border-radius:12px;color:#222;font-size:1.15rem;font-weight:800;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:background 0.2s;">🌟 Explore All Featured Pioneer Books — Including The Great Controversy</a>
+<a href="https://sundaylaw.com/pioneer-books" style="display:inline-block;padding:18px 32px;margin:24px 0 32px 0;background:linear-gradient(90deg,#fcd34d,#fbbf24);border:none;border-radius:12px;color:#222;font-size:1.15rem;font-weight:800;text-decoration:none;box-shadow:0 2px 12px rgba(0,0,0,0.08);transition:background 0.2s;">🌟 Explore All Featured Pioneer Books — Including The Great Controversy</a>
 </div>
 
 <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:18px 20px 14px 20px;margin:24px 0 32px 0;">

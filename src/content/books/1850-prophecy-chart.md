@@ -65,5 +65,5 @@ The 1850 Prophecy Chart remains a central visual witness to the Advent movement�
 <div style="background:rgba(239,68,68,0.08);border:1px solid rgba(239,68,68,0.25);border-radius:10px;padding:16px 20px 14px 20px;margin:18px 0 32px 0;">
 <strong>Why read the featured books of the pioneers?</strong> Because the original, unedited writings contain the full warnings, doctrines, and prophetic messages that have been changed or hidden by later editors. Don’t settle for compilations or altered texts—discover the truth for yourself in the words of the original Adventist pioneers.
 <br><br>
-<strong>Visit the <a href="http://localhost:4321/library">Pioneer Gateway Library</a> to read and download the complete, unedited books, charts, and sermons.</strong>
+<strong>Visit the <a href="https://sundaylaw.com/library">Pioneer Gateway Library</a> to read and download the complete, unedited books, charts, and sermons.</strong>
 </div>
