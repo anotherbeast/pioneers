@@ -512,6 +512,43 @@ import SiteFooter from '../components/SiteFooter.astro';
         letter-spacing: 0.07em;
       }
 
+      .image-tools {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 10px;
+        margin: 10px 0 4px;
+      }
+
+      .image-tools a {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        gap: 8px;
+        padding: 8px 14px;
+        border-radius: 9px;
+        text-decoration: none;
+        font-weight: 700;
+        font-size: 0.82rem;
+        letter-spacing: 0.02em;
+        transition: transform 0.15s ease, background 0.18s ease, border-color 0.18s ease;
+      }
+
+      .image-tools a:hover {
+        transform: translateY(-1px);
+      }
+
+      .image-tools .open-link {
+        background: rgba(59, 130, 246, 0.16);
+        border: 1px solid rgba(59, 130, 246, 0.52);
+        color: #bfdbfe;
+      }
+
+      .image-tools .download-link {
+        background: rgba(214, 167, 69, 0.15);
+        border: 1px solid rgba(214, 167, 69, 0.6);
+        color: #f8d78a;
+      }
+
       /* James White on church & state */
       .james-white-banner {
         margin: 18px 0 0;
@@ -880,6 +917,10 @@ import SiteFooter from '../components/SiteFooter.astro';
 
       @media (max-width: 600px) {
         .plinks-grid { grid-template-columns: 1fr; }
+        .image-tools a {
+          width: 100%;
+          justify-content: center;
+        }
       }
     </style>
   </head>
@@ -1147,7 +1188,7 @@ import SiteFooter from '../components/SiteFooter.astro';
             <div class="constitution-img-label">The Fall of the Adventist Corporation</div>
           </div>
 
-          <div class="constitution-img-wrap" style="margin-top:16px;width:100vw;max-width:none;margin-left:calc(50% - 50vw);">
+          <div class="constitution-img-wrap" style="margin-top:16px;max-width:1100px;width:100%;margin-left:auto;margin-right:auto;">
             <img
               src="/images/holy-city-jewels.jpg"
               alt="The Holy City and Its Jewels — the true foundation contrasted with a man-made corporation"
@@ -1610,5 +1651,29 @@ import SiteFooter from '../components/SiteFooter.astro';
       ]}
     />
     <ShareBar />
+    <script is:inline>{`
+      const imageNodes = Array.from(document.querySelectorAll('main img'));
+
+      for (const img of imageNodes) {
+        const src = img.getAttribute('src');
+        if (!src || src.startsWith('data:')) continue;
+
+        const absoluteSrc = new URL(src, window.location.origin).href;
+        const container = img.closest('.constitution-img-wrap') || img.closest('a') || img;
+
+        const alreadyHasTools =
+          container.nextElementSibling && container.nextElementSibling.classList.contains('image-tools');
+        if (alreadyHasTools) continue;
+
+        const tools = document.createElement('div');
+        tools.className = 'image-tools';
+        tools.innerHTML = `
+          <a class="open-link" href="${absoluteSrc}" target="_blank" rel="noopener">🔍 Open Full Size</a>
+          <a class="download-link" href="${absoluteSrc}" download>⬇ Download Image</a>
+        `;
+
+        container.insertAdjacentElement('afterend', tools);
+      }
+    `}</script>
   </body>
 </html>
