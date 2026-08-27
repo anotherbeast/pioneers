@@ -26,3 +26,6 @@ pnpm-debug.log*
 public/books/
 
 sundaylaw-export-4-3-26/
+
+public/constitution/videos/
+dist/constitution/videos/
